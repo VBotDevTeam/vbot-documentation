@@ -19,6 +19,9 @@ hero:
     - theme: alt
       text: iOS SDK
       link: /ios-sdk/push-notification.html
+    - theme: alt
+      text: Quick Dial Widget
+      link: /quick-dial-widget/introduction.html
 
   image:
     src: /icon-pages.svg

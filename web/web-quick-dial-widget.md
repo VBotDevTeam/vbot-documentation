@@ -112,28 +112,28 @@ Dark mode tự áp dụng khi host có class `.dark` hoặc theme `system`.
 
 ### 4.4. Tùy chỉnh nội dung hiển thị
 
-- **triggerBadge**: VBot
-- **triggerHeadline**: Tư vấn miễn phí
-- **prepareSectionLabel**: VBot
-- **prepareTitle**: VBot - Tổng đài AI
-- **prepareDescription**: Quý khách vui lòng nhập số điện thoại của mình để trải nghiệm dịch vụ.
-- **phoneFieldLabel**: Số điện thoại
-- **phonePlaceholder**: _(trống)_
-- **inputLoadingPlaceholder**: Đang xác thực...
-- **startCallCta**: Bắt đầu cuộc gọi
-- **verificationRequiredMessage**: Bạn cần xác thực trước khi thực hiện cuộc gọi.
-- **verificationFailedMessage**: Không thể xác thực. Vui lòng thử lại.
-- **verificationExpiredMessage**: Phiên xác thực đã hết hạn, vui lòng xác thực lại.
-- **sessionInitMessage**: Đang khởi tạo phiên an toàn...
-- **sessionReadyMessage**: Phiên đã sẵn sàng, vui lòng xác thực để gọi.
-- **sessionErrorMessage**: Không thể khởi tạo phiên. Vui lòng thử lại.
-- **sessionExpiredMessage**: Phiên đã hết hạn. Vui lòng mở lại để khởi tạo mới.
-- **callingSectionLabel**: Cuộc gọi miễn phí
-- **callingTitle**: VBot - Cuộc gọi miễn phí
-- **endCallCta**: Kết thúc cuộc gọi
-- **validationEmptyPhone**: Vui lòng nhập số điện thoại!
-- **validationInvalidPhone**: Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.
-- **statuses**:
+- `triggerBadge`: VBot
+- `triggerHeadline`: Tư vấn miễn phí
+- `prepareSectionLabel`: VBot
+- `prepareTitle`: VBot - Tổng đài AI
+- `prepareDescription`: Quý khách vui lòng nhập số điện thoại của mình để trải nghiệm dịch vụ.
+- `phoneFieldLabel`: Số điện thoại
+- `phonePlaceholder`: _(trống)_
+- `inputLoadingPlaceholder`: Đang xác thực...
+- `startCallCta`: Bắt đầu cuộc gọi
+- `verificationRequiredMessage`: Bạn cần xác thực trước khi thực hiện cuộc gọi.
+- `verificationFailedMessage`: Không thể xác thực. Vui lòng thử lại.
+- `verificationExpiredMessage`: Phiên xác thực đã hết hạn, vui lòng xác thực lại.
+- `sessionInitMessage`: Đang khởi tạo phiên an toàn...
+- `sessionReadyMessage`: Phiên đã sẵn sàng, vui lòng xác thực để gọi.
+- `sessionErrorMessage`: Không thể khởi tạo phiên. Vui lòng thử lại.
+- `sessionExpiredMessage`: Phiên đã hết hạn. Vui lòng mở lại để khởi tạo mới.
+- `callingSectionLabel`: Cuộc gọi miễn phí
+- `callingTitle`: VBot - Cuộc gọi miễn phí
+- `endCallCta`: Kết thúc cuộc gọi
+- `validationEmptyPhone`: Vui lòng nhập số điện thoại!
+- `validationInvalidPhone`: Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.
+- `statuses`:
   - `fetchingCredentials`: Đang lấy thông tin...
   - `initializingSession`: Đang khởi tạo...
   - `connectingGateway`: Đang kết nối...

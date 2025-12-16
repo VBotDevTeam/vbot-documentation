@@ -20,7 +20,39 @@ Các lớp bảo mật tích hợp sẵn bao gồm Cloudflare Turnstile, kiểm 
 - Hệ thống **theme token** dễ tùy biến giao diện.
 - Bundle dạng UMD, hoạt động trên mọi nền tảng: HTML thuần, React, Vue, Angular, WordPress…
 
-## 2. Cách tích hợp widget vào website
+## 2. Cấu hình Cloudflare Turnstile
+
+### 2.1. Truy cập Cloudflare Dashboard
+
+- **Bước 1:** Truy cập vào [https://dash.cloudflare.com/](https://dash.cloudflare.com/) chọn Turnstile
+- **Bước 2:** Chọn **Add widget**
+
+![Cloudflare Dashboard](/public/WebQuickDialWidget/Picture1.png)
+
+### 2.2. Add Hostname
+
+- **Bước 1:** Nhập tên của widget
+- **Bước 2:** Chọn **Add Hostnames**
+- **Bước 3:** Nhập danh sách các Hostname của bạn
+
+  **Lưu ý:**
+
+  - Các hostname có trong danh sách này thì mới có thể được xác thực bởi Turnstile
+  - Khi code và run debug app ở localhost (Ví dụ: localhost:5143) thì hãy thay bằng 127.0.0.1 (Ví dụ: 127.0.0.1:5143) và nhớ thêm 127.0.0.1 vào cấu hình Hostname này
+
+- **Bước 4:** Chọn Add để lưu
+
+![Add Hostname](/public/WebQuickDialWidget/Picture2.png)
+
+### 2.3. Copy Site Key và Secret Key
+
+Sao chép 2 mã là **Site Key** và **Secret Key**
+
+Hai mã này sẽ dùng để cấu hình widget trên website **VBot Console**
+
+![Copy Site Key và Secret Key](/public/WebQuickDialWidget/Picture3.png)
+
+## 3. Cách tích hợp widget vào website
 
 Thêm script bundle từ CDN:
 
@@ -33,9 +65,9 @@ Thêm script bundle từ CDN:
 
 Khuyến nghị sử dụng `defer` hoặc đặt ở cuối trang để widget đăng ký custom element sau khi tải xong.
 
-## 3. Sử dụng chế độ Popover (mặc định)
+## 4. Sử dụng chế độ Popover (mặc định)
 
-### 3.1. Cấu hình
+### 4.1. Cấu hình
 
 ```html
 <vbot-quick-dial-widget
@@ -50,7 +82,7 @@ Giải thích thuộc tính:
 
 Widget tự xử lý toàn bộ luồng xác thực, kết nối tổng đài trước và thực hiện cuộc gọi.
 
-### 3.2. Vị trí
+### 4.2. Vị trí
 
 Bạn có thể tùy chỉnh bằng cách cấu hình `position: fixed` + offset và `z-index` (ví dụ trên). Một số vị trí mẫu:
 
@@ -59,7 +91,7 @@ Bạn có thể tùy chỉnh bằng cách cấu hình `position: fixed` + offset
 - Góc trên phải: `style="position: fixed; top: 24px; right: 24px; z-index: 50;"`
 - Góc trên trái: `style="position: fixed; top: 24px; left: 24px; z-index: 50;"`
 
-### 3.3. Theme
+### 4.3. Theme
 
 Ghi đè trên thẻ widget hoặc `:root`:
 
@@ -78,10 +110,30 @@ vbot-quick-dial-widget {
 
 Dark mode tự áp dụng khi host có class `.dark` hoặc theme `system`.
 
-### 3.4. Tùy chỉnh nội dung hiển thị
+### 4.4. Tùy chỉnh nội dung hiển thị
 
-- `validationInvalidPhone`: Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.
-- `statuses`:
+- **triggerBadge**: VBot
+- **triggerHeadline**: Tư vấn miễn phí
+- **prepareSectionLabel**: VBot
+- **prepareTitle**: VBot - Tổng đài AI
+- **prepareDescription**: Quý khách vui lòng nhập số điện thoại của mình để trải nghiệm dịch vụ.
+- **phoneFieldLabel**: Số điện thoại
+- **phonePlaceholder**: _(trống)_
+- **inputLoadingPlaceholder**: Đang xác thực...
+- **startCallCta**: Bắt đầu cuộc gọi
+- **verificationRequiredMessage**: Bạn cần xác thực trước khi thực hiện cuộc gọi.
+- **verificationFailedMessage**: Không thể xác thực. Vui lòng thử lại.
+- **verificationExpiredMessage**: Phiên xác thực đã hết hạn, vui lòng xác thực lại.
+- **sessionInitMessage**: Đang khởi tạo phiên an toàn...
+- **sessionReadyMessage**: Phiên đã sẵn sàng, vui lòng xác thực để gọi.
+- **sessionErrorMessage**: Không thể khởi tạo phiên. Vui lòng thử lại.
+- **sessionExpiredMessage**: Phiên đã hết hạn. Vui lòng mở lại để khởi tạo mới.
+- **callingSectionLabel**: Cuộc gọi miễn phí
+- **callingTitle**: VBot - Cuộc gọi miễn phí
+- **endCallCta**: Kết thúc cuộc gọi
+- **validationEmptyPhone**: Vui lòng nhập số điện thoại!
+- **validationInvalidPhone**: Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.
+- **statuses**:
   - `fetchingCredentials`: Đang lấy thông tin...
   - `initializingSession`: Đang khởi tạo...
   - `connectingGateway`: Đang kết nối...
@@ -97,11 +149,11 @@ Dark mode tự áp dụng khi host có class `.dark` hoặc theme `system`.
   - `callFailed`: Gọi thất bại: {reason}
   - `unknownReason`: Không rõ nguyên nhân
 
-## 4. Chế độ Headless (tự xây UI)
+## 5. Chế độ Headless (tự xây UI)
 
 Luồng chuẩn: `init()` → nhận `turnstileSiteKey` (sống ~5 phút, hết ngay sau 1 lần `connect`) → render Turnstile → lấy token → `connect(phone, token)`.
 
-### 4.1. Khởi tạo widget headless
+### 5.1. Khởi tạo widget headless
 
 ```html
 <vbot-quick-dial-widget
@@ -120,7 +172,7 @@ Giải thích thuộc tính:
 - **client-id:** Mã tenant được cấp riêng cho từng khách hàng.
 - **headless:** boolean - Ẩn UI mặc định.
 
-### 4.2. Script
+### 5.2. Script
 
 ```html
 <script
@@ -213,7 +265,7 @@ Giải thích thuộc tính:
 </script>
 ```
 
-## 5. Hàm public
+## 6. Hàm public
 
 | Phương thức                      | Tham số            | Ghi chú                                                                                              |
 | -------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------- |
@@ -223,9 +275,9 @@ Giải thích thuộc tính:
 | `show()` / `hide()` / `toggle()` | -                  | Điều khiển popover (không tác dụng khi `headless`).                                                  |
 | `sendDtmf(tone)`                 | `string`           | Gửi DTMF khi cuộc gọi đang kết nối.                                                                  |
 
-## 6. Lắng nghe sự kiện
+## 7. Lắng nghe sự kiện
 
-### 6.1. Danh sách sự kiện
+### 7.1. Danh sách sự kiện
 
 | Tên sự kiện                                                              | event.detail                                                | Khi nào                                          |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------ |
@@ -237,7 +289,7 @@ Giải thích thuộc tính:
 | `vbot:onSessionInit`                                                     | `{ expiresAt: number }`                                     | Init session thành công (TTL tính bằng ms)       |
 | `vbot:onSessionExpired`                                                  | -                                                           | Session hết hạn, cần init() lại                  |
 
-### 6.2. Danh sách mã lỗi
+### 7.2. Danh sách mã lỗi
 
 | Code                            | Message mặc định              | Ghi chú                      |
 | ------------------------------- | ----------------------------- | ---------------------------- |
@@ -253,10 +305,10 @@ Giải thích thuộc tính:
 | `SESSION_NOT_INITIALIZED`       | Session not initialized       | Chưa init mà đã connect      |
 | `SESSION_INIT_FAILED`           | Failed to initialize session  | Init session lỗi             |
 
-## 7. Giao diện
+## 8. Giao diện
 
-![Giao diện nút gọi](/public/WebQuickDialWidget/Picture1.png)
+![Giao diện nút gọi](/public/WebQuickDialWidget/Picture4.png)
 
-![Giao diện nhập số điện thoại](/public/WebQuickDialWidget/Picture2.png)
+![Giao diện nhập số điện thoại](/public/WebQuickDialWidget/Picture5.png)
 
-![Giao diện đang gọi](/public/WebQuickDialWidget/Picture3.png)
+![Giao diện đang gọi](/public/WebQuickDialWidget/Picture6.png)

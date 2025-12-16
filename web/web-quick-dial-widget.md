@@ -1,211 +1,262 @@
-# Hướng dẫn sử dụng VBot Quick Dial Widget
+# VBot Quick Dial Widget
 
-`vbot-quick-dial-widget` là một Web Component , giúp bạn dễ dàng tích hợp chức năng gọi điện thoại qua tổng đài VBot vào bất kỳ trang web nào. Component này cung cấp hai chế độ hoạt động linh hoạt:
+**Web Component nhúng tổng đài VBot vào mọi website**
 
-1.  **Chế độ Popover (Mặc định):** Một nút gọi nổi (floating button) sẵn sàng sử dụng, khi bấm vào sẽ hiển thị một popover để nhập số và thực hiện cuộc gọi. Chế độ này "plug-and-play", không cần cấu hình giao diện.
-2.  **Chế độ Headless (Tùy chỉnh UI):** Component sẽ chạy ở chế độ nền, không hiển thị bất kỳ giao diện nào. Chế độ này cho phép bạn toàn quyền xây dựng giao diện (UI) của riêng mình và sử dụng các phương thức của component để điều khiển logic gọi điện.
+**VBot Quick Dial Widget** là một Web Component độc lập giúp tích hợp nhanh chức năng gọi điện qua tổng đài VBot vào bất kỳ một website nào.
 
-## 1. Cài đặt
+Giải pháp hỗ trợ hai chế độ:
 
-Để sử dụng component, bạn chỉ cần nhúng file script đã được build vào trang HTML của mình.
+- **Popover (mặc định):** Hiển thị nút gọi nổi và giao diện gọi điện đầy đủ.
+- **Headless:** Chỉ dùng SDK và sự kiện, cho phép khách hàng tự thiết kế UI.
+
+Các lớp bảo mật tích hợp sẵn bao gồm Cloudflare Turnstile, kiểm tra nguồn (Origin Validation), mã hóa hai chiều nhằm bảo vệ tuyệt đối trước bot, spam và bảo mật thông tin.
+
+## 1. Tính năng nổi bật
+
+- Nhúng nhanh chỉ bằng một thẻ `<vbot-quick-dial-widget>`.
+- Tự động tạo nút gọi nổi, popover nhập số và giao diện màn hình gọi.
+- Hỗ trợ **Headless Mode** để tự xây dựng UI, vẫn giữ nguyên toàn bộ API & sự kiện.
+- Xác thực đa tầng: Turnstile → Mã hóa hai chiều → Tài khoản kết nối tạm thời.
+- Hệ thống **theme token** dễ tùy biến giao diện.
+- Bundle dạng UMD, hoạt động trên mọi nền tảng: HTML thuần, React, Vue, Angular, WordPress…
+
+## 2. Cách tích hợp widget vào website
+
+Thêm script bundle từ CDN:
 
 ```html
-<!DOCTYPE html>
-<html>
-  <head>
-    ...
-  </head>
-  <body>
-    ...
-    <script src="path/to/vbot-quick-dial-widget@x.x.x.umd.cjs"></script>
-  </body>
-</html>
+<script
+  src="https://cdn.vbot.vn/quick-dial/vbot-quick-dial-widget@x.x.x.umd.cjs"
+  defer
+></script>
 ```
 
-## 2\. Sử dụng cơ bản (Chế độ Popover)
+Khuyến nghị sử dụng `defer` hoặc đặt ở cuối trang để widget đăng ký custom element sau khi tải xong.
 
-Đây là cách đơn giản nhất để thêm nút gọi vào trang web của bạn. Chỉ cần đặt thẻ `<vbot-quick-dial-widget>` vào vị trí mong muốn trong file HTML.
+## 3. Sử dụng chế độ Popover (mặc định)
 
-Thuộc tính quan trọng nhất bạn cần cung cấp là `token` để xác thực với hệ thống VBot.
+### 3.1. Cấu hình
 
 ```html
 <vbot-quick-dial-widget
-  token="YOUR_SECRET_TOKEN_HERE"
+  client-id="YOUR_CLIENT_ID"
   style="position: fixed; bottom: 24px; right: 24px; z-index: 50;"
->
-</vbot-quick-dial-widget>
+></vbot-quick-dial-widget>
 ```
 
-Bạn cũng có thể tùy chỉnh các dòng chữ hiển thị thông qua thuộc tính `config`. Xem chi tiết ở phần [Tham chiếu API](https://www.google.com/search?q=%234-tham-chi%E1%BA%BFu-api-api-reference).
+Giải thích thuộc tính:
 
-## 3\. Sử dụng nâng cao (Chế độ Headless)
+- **client-id:** Mã tenant được cấp riêng cho từng khách hàng.
 
-Chế độ này phù hợp khi bạn muốn tích hợp chức năng gọi điện vào giao diện có sẵn của mình.
+Widget tự xử lý toàn bộ luồng xác thực, kết nối tổng đài trước và thực hiện cuộc gọi.
 
-**Bước 1: Thêm component với thuộc tính `headless`**
+### 3.2. Vị trí
 
-Đặt component vào trang HTML với thuộc tính `headless`. Component sẽ được ẩn đi. Đừng quên đặt `id` để dễ dàng truy cập từ JavaScript.
+Bạn có thể tùy chỉnh bằng cách cấu hình `position: fixed` + offset và `z-index` (ví dụ trên). Một số vị trí mẫu:
 
-```html
-<vbot-quick-dial-widget
-  id="vbot-brain"
-  token="YOUR_SECRET_TOKEN_HERE"
-  style="display: none;"
->
-</vbot-quick-dial-widget>
-```
+- Góc dưới phải: `style="position: fixed; bottom: 24px; right: 24px; z-index: 50;"`
+- Góc dưới trái: `style="position: fixed; bottom: 24px; left: 24px; z-index: 50;"`
+- Góc trên phải: `style="position: fixed; top: 24px; right: 24px; z-index: 50;"`
+- Góc trên trái: `style="position: fixed; top: 24px; left: 24px; z-index: 50;"`
 
-**Bước 2: Tạo giao diện người dùng (UI) tùy chỉnh**
+### 3.3. Theme
 
-Tạo các thành phần HTML của riêng bạn như ô nhập số, nút gọi, nút kết thúc, và khu vực hiển thị trạng thái.
-
-```html
-<div class="custom-ui-container">
-  <h3>Giao diện cuộc gọi tùy chỉnh</h3>
-  <input type="tel" id="my-phone-input" placeholder="Nhập số điện thoại" />
-
-  <button id="my-call-button">Gọi</button>
-  <button id="my-end-call-button" style="display: none;">Kết thúc</button>
-
-  <p id="my-call-status">Trạng thái: Đang chờ...</p>
-</div>
-```
-
-**Bước 3: Kết nối UI với component bằng JavaScript**
-
-Sử dụng JavaScript để lấy tham chiếu đến component `vbot-brain` và các phần tử UI của bạn. Sau đó, gọi các **phương thức** và lắng nghe các **sự kiện** của component để điều khiển luồng cuộc gọi.
-
-```javascript
-// Chờ cho custom element được định nghĩa hoàn toàn
-customElements.whenDefined("vbot-quick-dial-widget").then(() => {
-  const vbotBrain = document.getElementById("vbot-brain");
-  const myPhoneInput = document.getElementById("my-phone-input");
-  const myCallButton = document.getElementById("my-call-button");
-  const myEndCallButton = document.getElementById("my-end-call-button");
-  const myCallStatus = document.getElementById("my-call-status");
-
-  // Gọi phương thức startCall khi người dùng bấm nút "Gọi"
-  myCallButton.addEventListener("click", () => {
-    const phoneNumber = myPhoneInput.value;
-    if (phoneNumber && vbotBrain) {
-      vbotBrain.startCall(phoneNumber);
-    }
-  });
-
-  // Gọi phương thức endCall khi người dùng bấm nút "Kết thúc"
-  myEndCallButton.addEventListener("click", () => {
-    if (vbotBrain) {
-      vbotBrain.endCall();
-    }
-  });
-
-  // Lắng nghe các sự kiện từ component để cập nhật UI
-  vbotBrain.addEventListener("vbot:onUserConnected", () => {
-    myCallStatus.textContent = "Trạng thái: Sẵn sàng gọi!";
-    myCallButton.disabled = false;
-  });
-
-  vbotBrain.addEventListener("vbot:onCallProgress", () => {
-    myCallStatus.textContent = "Trạng thái: Đang đổ chuông...";
-    myCallButton.style.display = "none";
-    myEndCallButton.style.display = "inline-block";
-  });
-
-  vbotBrain.addEventListener("vbot:onCallAccepted", () => {
-    myCallStatus.textContent = "Trạng thái: Đã kết nối.";
-  });
-
-  vbotBrain.addEventListener("vbot:onCallEnded", () => {
-    myCallStatus.textContent = "Trạng thái: Cuộc gọi kết thúc.";
-    myCallButton.style.display = "inline-block";
-    myEndCallButton.style.display = "none";
-  });
-
-  vbotBrain.addEventListener("vbot:onCallFailed", (event) => {
-    myCallStatus.textContent = `Lỗi: ${event.detail.cause || "Không xác định"}`;
-    myCallButton.style.display = "inline-block";
-    myEndCallButton.style.display = "none";
-  });
-});
-```
-
-## 4\. Tham chiếu API (API Reference)
-
-### Thuộc tính (Props)
-
-Đây là các thuộc tính bạn có thể thiết lập trực tiếp trên thẻ HTML của component.
-
-| Thuộc tính | Kiểu dữ liệu           | Bắt buộc | Mặc định       | Mô tả                                                           |
-| :--------- | :--------------------- | :------- | :------------- | :-------------------------------------------------------------- |
-| `token`    | `string`               | **Có**   | `''`           | Token bí mật để xác thực với API của VBot.                      |
-| `config`   | `object` hoặc `string` | Không    | (xem bên dưới) | Một đối tượng hoặc chuỗi JSON để cấu hình văn bản và giao diện. |
-
-**Chi tiết thuộc tính `config`:**
-
-Đối tượng `config` có các trường sau:
-
-- `theme`: (`'normal'` | `'dark'` | `'system'`) - Giao diện sáng hoặc tối.
-- `prepareTitle`: (`string`) - Tiêu đề khi popover ở trạng thái chuẩn bị gọi. Mặc định: `'VBot - Tổng đài AI'`.
-- `prepareDescription`: (`string`) - Mô tả khi popover ở trạng thái chuẩn bị gọi. Mặc định: `'Quý khách vui lòng nhập số điện thoại để trải nghiệm dịch vụ.'`.
-- `callingTitle`: (`string`) - Tiêu đề khi đang trong cuộc gọi. Mặc định: `'VBot - Cuộc gọi miễn phí'`.
-- `callingDescription`: (`string`) - Mô tả khi đang trong cuộc gọi. Mặc định: `'Tổng đài AI của VBot'`.
-
-Bạn có thể truyền `config` dưới dạng một chuỗi JSON:
-
-```html
-<vbot-quick-dial-widget
-  token="..."
-  config='{
-        "prepareTitle": "Chào bạn!",
-        "prepareDescription": "Nhập số để gọi cho chúng tôi."
-    }'
->
-</vbot-quick-dial-widget>
-```
-
-### Phương thức (Methods)
-
-Bạn có thể gọi các phương thức này trên instance của component từ JavaScript.
-
-| Phương thức              | Tham số               | Mô tả                                                 |
-| :----------------------- | :-------------------- | :---------------------------------------------------- |
-| `startCall(phoneNumber)` | `phoneNumber: string` | Bắt đầu một cuộc gọi đến số điện thoại được cung cấp. |
-| `endCall()`              | (không có)            | Kết thúc cuộc gọi hiện tại.                           |
-| `show()`                 | (không có)            | Hiển thị popover (chỉ hoạt động ở chế độ Popover).    |
-| `hide()`                 | (không có)            | Ẩn popover (chỉ hoạt động ở chế độ Popover).          |
-| `toggle()`               | (không có)            | Bật/tắt popover (chỉ hoạt động ở chế độ Popover).     |
-
-### Sự kiện (Events)
-
-Component phát ra các sự kiện tùy chỉnh (Custom Events) để bạn có thể theo dõi trạng thái của kết nối và cuộc gọi. Bạn có thể lắng nghe chúng bằng `addEventListener`.
-
-| Tên sự kiện                   | `event.detail`   | Mô tả                                                         |
-| :---------------------------- | :--------------- | :------------------------------------------------------------ |
-| `vbot:onConnecting`           | (không có)       | Đang kết nối đến máy chủ tổng đài.                            |
-| `vbot:onConnected`            | (không có)       | Đã kết nối thành công đến máy chủ.                            |
-| `vbot:onDisconnected`         | (không có)       | Mất kết nối đến máy chủ.                                      |
-| `vbot:onUserConnected`        | (không có)       | Đã kết nối tài khoản thành công, sẵn sàng thực hiện cuộc gọi. |
-| `vbot:onUserDisconnected`     | (không có)       | Đã ngắt kết nối tài khoản.                                    |
-| `vbot:onUserConnectionFailed` | `{ error: any }` | Kết nối tài khoản thất bại. `error` chứa thông tin lỗi.       |
-| `vbot:onCallProgress`         | (không có)       | Cuộc gọi đang được thực hiện (đang đổ chuông).                |
-| `vbot:onCallAccepted`         | (không có)       | Người nhận đã nhấc máy, cuộc gọi đã được kết nối.             |
-| `vbot:onCallFailed`           | `{ cause: any }` | Thực hiện cuộc gọi thất bại. `cause` chứa lý do thất bại.     |
-| `vbot:onCallEnded`            | (không có)       | Cuộc gọi đã kết thúc (bởi một trong hai bên).                 |
-
-## 5\. Tùy chỉnh Giao diện (Styling)
-
-Bạn có thể tùy chỉnh màu sắc chính của component (chế độ Popover) bằng cách sử dụng các biến CSS (CSS Custom Properties) trên selector `:root` hoặc trên chính thẻ component.
+Ghi đè trên thẻ widget hoặc `:root`:
 
 ```css
-/* Ví dụ: Thay đổi màu chính của nút gọi */
-:root {
-  --vbot-quick-dial-widget-primary-color: #ff5722;
-  --vbot-quick-dial-widget-primary-hover-color: #f4511e;
+vbot-quick-dial-widget {
+  --vb-wg-color-primary: #2563eb;
+  --vb-wg-color-primary-foreground: #f8fafc;
+  --vb-wg-color-card: #ffffff;
+  --vb-wg-color-border: #dbeafe;
+  --vb-wg-color-muted: #64748b;
+  --vb-wg-color-destructive: #dc2626;
+  --vb-wg-font-sans: "Space Grotesk", "Inter", "Segoe UI", system-ui, sans-serif;
+  --vb-wg-radius-lg: 1.25rem;
 }
 ```
 
-| Biến CSS                                        | Mô tả                     |
-| :---------------------------------------------- | :------------------------ |
-| `--vbot-quick-dial-widget-primary-color`        | Màu nền chính.            |
-| `--vbot-quick-dial-widget-primary-hover-color`  | Màu nền khi di chuột qua. |
-| `--vbot-quick-dial-widget-primary-active-color` | Màu nền khi bấm vào.      |
+Dark mode tự áp dụng khi host có class `.dark` hoặc theme `system`.
+
+### 3.4. Tùy chỉnh nội dung hiển thị
+
+- `validationInvalidPhone`: Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.
+- `statuses`:
+  - `fetchingCredentials`: Đang lấy thông tin...
+  - `initializingSession`: Đang khởi tạo...
+  - `connectingGateway`: Đang kết nối...
+  - `connectedRegistering`: Đã kết nối
+  - `registering`: Đang đăng ký...
+  - `disconnected`: Mất kết nối!
+  - `dialing`: Đang gọi...
+  - `registrationFailed`: Kết nối thất bại!
+  - `ringing`: Đang đổ chuông...
+  - `callConnected`: Cuộc gọi đã kết nối
+  - `callEnded`: Cuộc gọi đã kết thúc.
+  - `systemError`: Lỗi hệ thống!
+  - `callFailed`: Gọi thất bại: {reason}
+  - `unknownReason`: Không rõ nguyên nhân
+
+## 4. Chế độ Headless (tự xây UI)
+
+Luồng chuẩn: `init()` → nhận `turnstileSiteKey` (sống ~5 phút, hết ngay sau 1 lần `connect`) → render Turnstile → lấy token → `connect(phone, token)`.
+
+### 4.1. Khởi tạo widget headless
+
+```html
+<vbot-quick-dial-widget
+  headless
+  client-id="YOUR_CLIENT_ID"
+></vbot-quick-dial-widget>
+<div id="my-turnstile"></div>
+<input id="phone" type="tel" />
+<button id="call" disabled>Gọi</button>
+<button id="end" hidden>Kết thúc</button>
+<p id="status">Đang khởi tạo...</p>
+```
+
+Giải thích thuộc tính:
+
+- **client-id:** Mã tenant được cấp riêng cho từng khách hàng.
+- **headless:** boolean - Ẩn UI mặc định.
+
+### 4.2. Script
+
+```html
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+  async
+  defer
+></script>
+<script type="module">
+  customElements.whenDefined("vbot-quick-dial-widget").then(async () => {
+    const widget = document.querySelector("#vbot-brain");
+    const callBtn = document.querySelector("#call");
+    const endBtn = document.querySelector("#end");
+    const phoneInput = document.querySelector("#phone");
+    const status = document.querySelector("#status");
+    const container = document.querySelector("#my-turnstile");
+    let token = "";
+
+    const renderTurnstile = async () => {
+      const { turnstileSiteKey, expiresAt } = await widget.init();
+      status.textContent = `Phiên sẵn sàng (hết hạn: ${new Date(
+        expiresAt
+      ).toLocaleTimeString()})`;
+      container.innerHTML = "";
+      window.turnstile.render(container, {
+        sitekey: turnstileSiteKey,
+        callback: (t) => {
+          token = t;
+          callBtn.disabled = false;
+        },
+        "expired-callback": () => {
+          token = "";
+          callBtn.disabled = true;
+          status.textContent = "Token hết hạn, xác thực lại.";
+        },
+      });
+    };
+
+    window.turnstile
+      ? renderTurnstile()
+      : window.addEventListener("load", renderTurnstile);
+
+    callBtn.onclick = async () => {
+      if (!token) return;
+      try {
+        await widget.connect(phoneInput.value, token);
+        callBtn.hidden = true;
+        endBtn.hidden = false;
+      } catch (e) {
+        status.textContent = `Lỗi: ${e?.message || "Không xác định"}`;
+        token = "";
+        callBtn.disabled = true;
+        renderTurnstile();
+      }
+    };
+    endBtn.onclick = () => widget.endCall();
+
+    widget.addEventListener(
+      "vbot:onCallProgress",
+      () => (status.textContent = "Đang đổ chuông...")
+    );
+    widget.addEventListener(
+      "vbot:onCallAccepted",
+      () => (status.textContent = "Đã kết nối.")
+    );
+    widget.addEventListener("vbot:onCallEnded", () => {
+      status.textContent = "Cuộc gọi đã kết thúc.";
+      callBtn.hidden = false;
+      endBtn.hidden = true;
+      token = "";
+      renderTurnstile();
+    });
+    widget.addEventListener("vbot:onCallFailed", (e) => {
+      status.textContent = `Gọi thất bại: ${
+        (e.detail?.cause?.message ||
+          e.detail?.cause?.code ||
+          e.detail?.cause) ??
+        "Không xác định"
+      }`;
+      callBtn.hidden = false;
+      endBtn.hidden = true;
+      token = "";
+      renderTurnstile();
+    });
+    widget.addEventListener("vbot:onSessionExpired", () => {
+      status.textContent = "Phiên hết hạn, hãy xác thực lại.";
+      token = "";
+      renderTurnstile();
+    });
+  });
+</script>
+```
+
+## 5. Hàm public
+
+| Phương thức                      | Tham số            | Ghi chú                                                                                              |
+| -------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------- |
+| `init()`                         | -                  | Headless: init session, trả `{ turnstileSiteKey, expiresAt }`. TTL ~5 phút, hết sau 1 lần `connect`. |
+| `connect(phone, turnstileToken)` | `string`, `string` | Headless: thực hiện gọi, yêu cầu token Turnstile còn hạn.                                            |
+| `endCall()`                      | -                  | Kết thúc cuộc gọi hiện tại.                                                                          |
+| `show()` / `hide()` / `toggle()` | -                  | Điều khiển popover (không tác dụng khi `headless`).                                                  |
+| `sendDtmf(tone)`                 | `string`           | Gửi DTMF khi cuộc gọi đang kết nối.                                                                  |
+
+## 6. Lắng nghe sự kiện
+
+### 6.1. Danh sách sự kiện
+
+| Tên sự kiện                                                              | event.detail                                                | Khi nào                                          |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------ |
+| `vbot:onConnecting` / `onConnected` / `onDisconnected`                   | -                                                           | Trạng thái SK.                                   |
+| `vbot:onUserConnected` / `onUserDisconnected` / `onUserConnectionFailed` | `{ error?: any }`                                           | Kết nối thành công/thất bại                      |
+| `vbot:onCallProgress` / `onCallAccepted` / `onCallEnded`                 | -                                                           | Đổ chuông / trả lời / kết thúc                   |
+| `vbot:onCallFailed`                                                      | `{ cause: { code?: string; message?: string; raw?: any } }` | Cuộc gọi thất bại (busy/rejected/timeout/mic...) |
+| `vbot:onVerificationFailed`                                              | `{ reason: string }`                                        | Token Turnstile thiếu/hết hạn/bị từ chối         |
+| `vbot:onSessionInit`                                                     | `{ expiresAt: number }`                                     | Init session thành công (TTL tính bằng ms)       |
+| `vbot:onSessionExpired`                                                  | -                                                           | Session hết hạn, cần init() lại                  |
+
+### 6.2. Danh sách mã lỗi
+
+| Code                            | Message mặc định              | Ghi chú                      |
+| ------------------------------- | ----------------------------- | ---------------------------- |
+| `MIC_NOT_AVAILABLE`             | Không tìm thấy microphone     | Không có/không cấp quyền mic |
+| `CALL_BUSY`                     | Đường dây bận                 | -                            |
+| `CALL_REJECTED`                 | Cuộc gọi bị từ chối           | -                            |
+| `CALLEE_NOT_FOUND`              | Không tìm thấy người nhận     | -                            |
+| `CALLEE_UNAVAILABLE`            | Không thể liên lạc            | -                            |
+| `CALL_TIMEOUT`                  | Hết thời gian kết nối         | -                            |
+| `CALL_FAILED`                   | Cuộc gọi thất bại             | -                            |
+| `TURNSTILE_VERIFICATION_FAILED` | Turnstile verification failed | Thiếu/sai token Turnstile    |
+| `SESSION_EXPIRED`               | Session has expired           | Session hết hạn              |
+| `SESSION_NOT_INITIALIZED`       | Session not initialized       | Chưa init mà đã connect      |
+| `SESSION_INIT_FAILED`           | Failed to initialize session  | Init session lỗi             |
+
+## 7. Giao diện
+
+![Giao diện nút gọi](/public/WebQuickDialWidget/Picture1.png)
+
+![Giao diện nhập số điện thoại](/public/WebQuickDialWidget/Picture2.png)
+
+![Giao diện đang gọi](/public/WebQuickDialWidget/Picture3.png)

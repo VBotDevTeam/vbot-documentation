@@ -35,27 +35,131 @@ Trong **Build Settings**, tìm **User Script Sandboxing**: Chọn **No**
 
 ## Sử dụng SDK
 
-### Khởi tạo
+### AppDelegate.swift
 
-File **AppDelegate.swift**
+#### Khởi tạo
 
-1. Trong hàm **application didFinishLaunchingWithOptions**, gọi hàm khởi tạo VBotPhone
+Trong hàm **application didFinishLaunchingWithOptions**, gọi hàm khởi tạo VBotPhone và khởi tạo voipRegistry
 
 ```swift
 let config = VBotConfig(
+            includesCallsInRecents: true,
             iconTemplateImageData: UIImage(named: "callkit-icon")?.pngData())
 
 VBotPhone.sharedInstance.setup(with: config)
+
+voipRegistry = PKPushRegistry(queue: .main)
+voipRegistry!.desiredPushTypes = [.voIP]
+voipRegistry!.delegate = self
 ```
 
 Trong đó:
 
 - **config** là cấu hình tùy chọn cho SDK
+- **includesCallsInRecents**: Hiển thị lịch sử cuộc gọi trong app Điện thoại của iOS
+- **iconTemplateImageData**: Icon được hiển thị trong màn hình CallKit
+
+#### iOS History Call handle
+
+Nếu trong VBotConfig có set **includesCallsInRecents** là true thì thêm hàm này vào AppDelegate
+
+```swift
+import Intents
+
+func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+
+        switch userActivity.activityType {
+        case "INStartAudioCallIntent":
+            return handleStartCallIntent(
+                INStartAudioCallIntent.self,
+                userActivity: userActivity,
+                contacts: \.contacts,
+            )
+
+        case "INStartCallIntent":
+            if #available(iOS 13.0, *) {
+                return handleStartCallIntent(
+                    INStartCallIntent.self,
+                    userActivity: userActivity,
+                    contacts: \.contacts,
+                )
+            } else {
+                return false
+            }
+
+        default:
+            return false
+        }
+    }
+
+private func handleStartCallIntent<T: INIntent>(
+        _ intentType: T.Type,
+        userActivity: NSUserActivity,
+        contacts: KeyPath<T, [INPerson]?>,
+    ) -> Bool {
+        let intent = userActivity.interaction?.intent
+
+        guard let intent = intent as? T else {
+            return false
+        }
+
+        if let person =  intent[keyPath: contacts]?.first {
+            let displayName = person.displayName
+
+            let result = VBotPhone.sharedInstance.getCallIntentFromUserActivity(displayName)
+            // result nàu chứa name và number của người gọi. Từ đây app có thể dùng hàm startOutgoingCall để thực hiện cuộc gọi đi
+        }
+
+        return true
+    }
+```
+
+#### Cuộc gọi đến
+
+Thêm hàm lắng nghe sự kiện của PushKit (Thông báo cuộc gọi) và AppDelegate
+
+```swift
+import PushKit
+
+extension AppDelegate: PKPushRegistryDelegate {
+    nonisolated func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
+
+            guard let token = registry.pushToken(for: .voIP) else {
+                // Không lấy được token
+                return
+            }
+
+            let pushToken = token.map { String(format: "%.2hhx", $0) }.joined()
+
+            // Lưu token này lại, dùng khi connect account
+            // savePushToken(pushToken)
+
+
+    }
+
+    nonisolated func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
+
+        // Nếu payload có loại là .voIP thì gọi hàm startIncomingCall để khởi tạo cuộc gọi
+        if type == .voIP {
+            VBotPhone.sharedInstance.startIncomingCall(
+                payload: payload,
+                completion: completion
+            )
+
+        } else {
+            completion()
+        }
+
+    }
+
+}
+
+```
 
 ### Connect SDK
 
 ```SWIFT
-VBotPhone.sharedInstance.connect(token: token) { displayName, error in
+VBotPhone.sharedInstance.connect(token: token, pushkitToken: pushKitToken) { displayName, error in
 	if let error = error as NSError? {
 		// login error
 		return
@@ -67,7 +171,7 @@ VBotPhone.sharedInstance.connect(token: token) { displayName, error in
 Trong đó:
 
 - **token**: Token SDK của tài khoản VBot <br>
-- **displayName**: Tên của tài khoản <br>
+- **pushkitToken**: Pushkit token đã lưu từ bước trước <br>
 - **error**: Lỗi trả về khi đăng nhập không thành công
 
 ### Disconnect SDK
@@ -108,10 +212,6 @@ VBotPhone.sharedInstance.startOutgoingCall(name: name, number: phoneNumber, hotl
 	}
 }
 ```
-
-### Gọi đến
-
-Luồng cuộc gọi đến sẽ do SDK xử lý
 
 ### Gác máy
 
@@ -232,4 +332,8 @@ protocol VBotPhoneDelegate {
 
     // Lỗi chưa xác định
     case unknownError = 1999
+```
+
+```
+
 ```

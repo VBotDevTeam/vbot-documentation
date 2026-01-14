@@ -61,7 +61,10 @@ Trong đó:
 
 #### iOS History Call handle
 
-Nếu trong VBotConfig có set **includesCallsInRecents** là true thì thêm hàm này vào AppDelegate
+Nếu trong VBotConfig có set **includesCallsInRecents** là true thì trong app Phone của iOS sẽ hiển thị lịch sử cuộc gọi.
+
+Khi khách hàng tap vào 1 lịch sử cuộc gọi, app sẽ mở ra.
+Hãy dùng code sau để handle
 
 ```swift
 import Intents
@@ -107,7 +110,7 @@ private func handleStartCallIntent<T: INIntent>(
             let displayName = person.displayName
 
             let result = VBotPhone.sharedInstance.getCallIntentFromUserActivity(displayName)
-            // result nàu chứa name và number của người gọi. Từ đây app có thể dùng hàm startOutgoingCall để thực hiện cuộc gọi đi
+            // result này chứa name và number của người gọi. Từ đây app có thể dùng hàm startOutgoingCall để thực hiện cuộc gọi đi
         }
 
         return true

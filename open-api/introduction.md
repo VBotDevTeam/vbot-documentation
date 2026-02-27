@@ -1,41 +1,37 @@
 # Giới thiệu
 
-Giới thiệu chung về các API VBot cung cấp cho khách hàng
+VBot Open API cung cấp các endpoint cho phép tích hợp hệ thống bên thứ ba với nền tảng VBot — bao gồm quản lý khách hàng, thành viên, hotline, lịch sử cuộc gọi và gọi tự động.
 
-## Mục đích tài liệu
+## Thông tin chung
 
-Tài liệu này mô tả quy trình kết nối giữa VBot và người dung thông qua API do bên VBot cung cấp.
+| Thuộc tính         | Giá trị                         |
+| ------------------ | ------------------------------- |
+| **Base URL**       | `https://open-api.vbot.vn/v2.0` |
+| **Content-Type**   | `application/json`              |
+| **Authentication** | Bearer Token                    |
 
 ## Phạm vi tài liệu
 
-Tài liệu mô tả chi tiết quy trình và chức năng nghiệp vụ cho các API
+Tài liệu mô tả chi tiết quy trình và chức năng nghiệp vụ cho các nhóm API sau:
 
-| Tên                      | Mô Tả | Ghi Chú |
-|--------------------------|-------|---------|
-| Quản lý khách hàng       |       |         |
-| Quản lý thành viên       |       |         |
-| Quản lý nhóm thành viên  |       |         |
-| Quản lý hotline          |       |         |
-| Quản lý lịch sử cuộc gọi |       |         |
-| Gọi tự động              |       |         |
-
-
-## Định nghĩa thuật ngữ và các từ viết tắt
-
-| Thuật Ngữ | Định Nghĩa | Ghi Chú |
-|-----------|------------|---------|
-|           |            |         |
+| Nhóm               | Mô tả                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------- |
+| Quản lý khách hàng | Thêm, sửa, xóa khách hàng và các thông tin liên quan (trạng thái, kiểu, nhóm, trường tùy chỉnh) |
+| Quản lý thành viên | Quản lý thành viên, tài khoản SDK và SIP                                                        |
+| Nhóm & Hotline     | Quản lý nhóm thành viên và hotline                                                              |
+| Lịch sử cuộc gọi   | Tra cứu lịch sử cuộc gọi, file ghi âm                                                           |
+| Gọi tự động        | Chiến dịch gọi, gọi xác nhận, lịch sử gọi campaign, trường tùy chỉnh, template kịch bản         |
+| SDK                | Token, log, thông tin cuộc gọi, lịch sử gọi SDK                                                 |
+| Khác               | Thống kê dự án, OneSME, Webhook SMS                                                             |
 
 ## Danh sách mã lỗi
 
-| Mã Lỗi | Mô Tả           |
-|--------|-----------------|
-| -1     | Sai tham số     |
-| 0      | Thành công      |
-| 401    | Không có quyền  |
-| 404    | Không tìm thấy  |
-| 409    | Đã tồn tại      |
-| 403    | Không có quyền  |
-| 500    | Lỗi hệ thống    |
-
-
+| Mã lỗi | Mô tả                     |
+| ------ | ------------------------- |
+| -1     | Sai tham số               |
+| 0      | Thành công                |
+| 401    | Không có quyền truy cập   |
+| 403    | Không có quyền thực hiện  |
+| 404    | Không tìm thấy tài nguyên |
+| 409    | Dữ liệu đã tồn tại        |
+| 500    | Lỗi hệ thống              |

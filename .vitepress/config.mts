@@ -31,14 +31,65 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "Giới thiệu", link: "/open-api/introduction" },
-          { text: "Webhooks", link: "/open-api/webhooks" },
           { text: "Xác thực", link: "/open-api/authentication" },
-          { text: "Khách hàng", link: "/open-api/customers" },
-          { text: "Thành viên", link: "/open-api/member" },
-          { text: "Nhóm thành viên", link: "/open-api/group-member" },
-          { text: "Hotline", link: "/open-api/hotline" },
-          { text: "Lịch sử cuộc gọi", link: "/open-api/call-transaction" },
-          { text: "Gọi tự động", link: "/open-api/autocall" },
+          { text: "Webhooks", link: "/open-api/webhooks" },
+          {
+            text: "Khách hàng",
+            collapsed: true,
+            items: [
+              { text: "Quản lý khách hàng", link: "/open-api/customers" },
+              { text: "Trạng thái khách hàng", link: "/open-api/customer-status" },
+              { text: "Kiểu khách hàng", link: "/open-api/customer-type" },
+              { text: "Nhóm khách hàng", link: "/open-api/customer-group" },
+              { text: "Trường thông tin", link: "/open-api/customer-field" },
+            ],
+          },
+          {
+            text: "Thành viên",
+            collapsed: true,
+            items: [
+              { text: "Quản lý thành viên", link: "/open-api/member" },
+              { text: "Tài khoản SDK", link: "/open-api/member-sdk" },
+              { text: "Tài khoản SIP", link: "/open-api/member-sip" },
+            ],
+          },
+          {
+            text: "Nhóm & Hotline",
+            collapsed: true,
+            items: [
+              { text: "Nhóm thành viên", link: "/open-api/group-member" },
+              { text: "Thành viên trong nhóm", link: "/open-api/group-member-action" },
+              { text: "Hotline", link: "/open-api/hotline" },
+              { text: "Hotline thành viên", link: "/open-api/hotline-member" },
+            ],
+          },
+          {
+            text: "Cuộc gọi",
+            collapsed: true,
+            items: [
+              { text: "Lịch sử cuộc gọi", link: "/open-api/call-transaction" },
+            ],
+          },
+          {
+            text: "Gọi tự động",
+            collapsed: true,
+            items: [
+              { text: "Chiến dịch gọi", link: "/open-api/campaign-v2" },
+              { text: "Tạo cuộc gọi", link: "/open-api/campaign-call" },
+              { text: "Lịch sử gọi", link: "/open-api/campaign-cdr" },
+              { text: "Trường tùy chỉnh", link: "/open-api/campaign-custom-field" },
+              { text: "Template kịch bản", link: "/open-api/campaign-template" },
+            ],
+          },
+          {
+            text: "SDK & Khác",
+            collapsed: true,
+            items: [
+              { text: "SDK Token & Chức năng", link: "/open-api/sdk-token" },
+              { text: "Lịch sử gọi SDK", link: "/open-api/sdk-history" },
+              { text: "Thống kê dự án", link: "/open-api/project" },
+            ],
+          },
         ],
       },
       {

@@ -9,7 +9,7 @@ API tra cứu lịch sử cuộc gọi qua SDK.
 ## Lấy danh sách lịch sử gọi SDK
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/sdk/historycall/getAll?token={token}&page={page}&size={size}</span>
 </div>
 
@@ -106,7 +106,7 @@ API tra cứu lịch sử cuộc gọi qua SDK.
 ## Lấy số lượng cuộc gọi SDK
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/sdk/historycall/countAll?token={token}</span>
 </div>
 

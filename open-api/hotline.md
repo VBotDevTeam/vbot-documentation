@@ -11,7 +11,7 @@ API quản lý hotline (số tổng đài). Sử dụng `hotline_code` từ API 
 Lấy danh sách tất cả hotline (số tổng đài) của dự án.
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/hotline/getAll?vbot_id={vbot_id}&project_code={project_code}</span>
 </div>
 

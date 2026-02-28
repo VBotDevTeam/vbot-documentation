@@ -9,7 +9,7 @@ API quản lý trạng thái khách hàng.
 ## Thêm trạng thái
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/status/create</span>
 </div>
 
@@ -64,7 +64,7 @@ API quản lý trạng thái khách hàng.
 ## Sửa trạng thái
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/status/update</span>
 </div>
 
@@ -119,7 +119,7 @@ API quản lý trạng thái khách hàng.
 ## Xóa trạng thái
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/status/delete</span>
 </div>
 
@@ -172,7 +172,7 @@ API quản lý trạng thái khách hàng.
 ## Sửa mã trạng thái
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/status/updateNo</span>
 </div>
 

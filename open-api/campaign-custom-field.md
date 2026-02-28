@@ -9,7 +9,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 ## Lấy tất cả trường (không phân trang)
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/customField/getAllNoPage?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}</span>
 </div>
 
@@ -68,7 +68,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 ## Lấy tất cả trường (không phân trang)
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/customField/getAll?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}&page={page}&size={size}</span>
 </div>
 
@@ -129,7 +129,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 ## Lấy số lượng trường tùy chỉnh
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/customField/countAll?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}</span>
 </div>
 
@@ -172,7 +172,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 ## Lấy chi tiết trường tùy chỉnh
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/customField/getDetail?vbot_id={vbot_id}&project_code={project_code}&id={id}</span>
 </div>
 
@@ -221,7 +221,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 ## Kiểm tra tên trường
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/customField/checkName?vbot_id={vbot_id}&project_code={project_code}&name={name}</span>
 </div>
 
@@ -264,7 +264,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 ## Kiểm tra key trường
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/customField/checkKey?vbot_id={vbot_id}&project_code={project_code}&key={key}</span>
 </div>
 
@@ -307,7 +307,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 ## Thêm trường tùy chỉnh
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/campaignCall/customField/insert</span>
 </div>
 
@@ -368,7 +368,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 ## Xóa trường tùy chỉnh
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/campaignCall/customField/delete</span>
 </div>
 

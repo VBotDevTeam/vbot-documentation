@@ -11,7 +11,7 @@ API dùng để lấy access token. Acess token là chuỗi mã hóa chứa thô
 Lấy token để truy cập các API khác
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/token</span>
 </div>
 
@@ -66,7 +66,7 @@ Lấy token để truy cập các API khác
 Lấy token mới khi token hết hạn
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/token</span>
 </div>
 

@@ -9,7 +9,7 @@ API gán và xóa hotline cho thành viên.
 ## Thêm hotline cho thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/hotline/member/add</span>
 </div>
 
@@ -70,7 +70,7 @@ API gán và xóa hotline cho thành viên.
 ## Xóa hotline của thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/hotline/member/delete</span>
 </div>
 

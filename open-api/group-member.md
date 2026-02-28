@@ -9,7 +9,7 @@ API quản lý nhóm thành viên.
 ## Lấy danh sách nhóm thành viên
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/groupmember/getAll?vbot_id={vbot_id}&project_code={project_code}&key={key}&page={page}&size={size}</span>
 </div>
 
@@ -68,7 +68,7 @@ API quản lý nhóm thành viên.
 ## Thêm nhóm thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/groupmember/create</span>
 </div>
 
@@ -129,7 +129,7 @@ API quản lý nhóm thành viên.
 ## Sửa nhóm thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/groupmember/update</span>
 </div>
 
@@ -186,7 +186,7 @@ API quản lý nhóm thành viên.
 ## Sửa mã nhóm thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/groupmember/updateNo</span>
 </div>
 
@@ -241,7 +241,7 @@ API quản lý nhóm thành viên.
 ## Sửa mã nhánh nhóm thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/groupmember/updateExtNumber</span>
 </div>
 
@@ -296,7 +296,7 @@ API quản lý nhóm thành viên.
 ## Xóa nhóm thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/groupmember/delete</span>
 </div>
 

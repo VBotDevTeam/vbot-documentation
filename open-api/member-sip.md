@@ -9,7 +9,7 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 ## Thêm tài khoản SIP
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/memeber/sip/create</span>
 </div>
 
@@ -76,7 +76,7 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 ## Sửa tài khoản SIP
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/memeber/sip/update</span>
 </div>
 
@@ -133,7 +133,7 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 ## Sửa mật khẩu tài khoản SIP
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/memeber/sip/updatePassword</span>
 </div>
 
@@ -150,7 +150,7 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 ## Lấy thông tin đăng nhập SIP
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/memeber/sip/info</span>
 </div>
 

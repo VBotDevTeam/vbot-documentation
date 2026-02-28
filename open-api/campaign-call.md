@@ -15,7 +15,7 @@ API tạo cuộc gọi tự động với kịch bản. Hỗ trợ gọi tới m
 Tạo cuộc gọi tới một số điện thoại duy nhất.
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/campaignCall/callConfirm/insert</span>
 </div>
 
@@ -87,7 +87,7 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
 Tạo cuộc gọi tới nhiều số điện thoại cùng lúc.
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/campaignCall/callConfirm/insertListPhone</span>
 </div>
 
@@ -162,7 +162,7 @@ Tạo cuộc gọi tới nhiều số điện thoại cùng lúc.
 Lấy danh sách các trường tùy chỉnh (custom field) được sử dụng trong một template script cụ thể.
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/callConfirm/getCustomFieldInScript?vbot_id={vbot_id}&project_code={project_code}&template_script_code={template_script_code}</span>
 </div>
 

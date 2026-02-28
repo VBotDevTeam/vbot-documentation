@@ -54,12 +54,18 @@ export default defineConfig({
             ],
           },
           {
-            text: "Nhóm & Hotline",
+            text: "Nhóm thành viên",
             collapsed: true,
             items: [
-              { text: "Nhóm thành viên", link: "/open-api/group-member" },
+              { text: "Quản lý nhóm", link: "/open-api/group-member" },
               { text: "Thành viên trong nhóm", link: "/open-api/group-member-action" },
-              { text: "Hotline", link: "/open-api/hotline" },
+            ],
+          },
+          {
+            text: "Hotline",
+            collapsed: true,
+            items: [
+              { text: "Danh sách hotline", link: "/open-api/hotline" },
               { text: "Hotline thành viên", link: "/open-api/hotline-member" },
             ],
           },
@@ -74,11 +80,11 @@ export default defineConfig({
             text: "Gọi tự động",
             collapsed: true,
             items: [
-              { text: "Chiến dịch gọi", link: "/open-api/campaign-v2" },
+              // { text: "Chiến dịch gọi", link: "/open-api/campaign-v2" },
               { text: "Tạo cuộc gọi", link: "/open-api/campaign-call" },
-              { text: "Lịch sử gọi", link: "/open-api/campaign-cdr" },
               { text: "Trường tùy chỉnh", link: "/open-api/campaign-custom-field" },
-              { text: "Template kịch bản", link: "/open-api/campaign-template" },
+              { text: "Kịch bản gọi", link: "/open-api/campaign-template" },
+              { text: "Lịch sử gọi", link: "/open-api/campaign-cdr" },
             ],
           },
           {

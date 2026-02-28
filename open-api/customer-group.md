@@ -9,7 +9,7 @@ API quản lý nhóm khách hàng.
 ## Thêm nhóm khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/group/create</span>
 </div>
 
@@ -66,7 +66,7 @@ API quản lý nhóm khách hàng.
 ## Sửa nhóm khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/group/update</span>
 </div>
 
@@ -123,7 +123,7 @@ API quản lý nhóm khách hàng.
 ## Xóa nhóm khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/group/delete</span>
 </div>
 
@@ -176,7 +176,7 @@ API quản lý nhóm khách hàng.
 ## Sửa mã nhóm khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/group/updateNo</span>
 </div>
 

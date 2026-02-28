@@ -9,7 +9,7 @@ API thống kê hiệu suất cuộc gọi trong dự án.
 ## Lấy thống kê cuộc gọi
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/project/getAllCallPersent?vbot_id={vbot_id}&project_code={project_code}&page={page}&size={size}</span>
 </div>
 
@@ -89,7 +89,7 @@ API thống kê hiệu suất cuộc gọi trong dự án.
 ## Lấy số lượng thống kê
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/project/countAllCallPersent?vbot_id={vbot_id}&project_code={project_code}</span>
 </div>
 

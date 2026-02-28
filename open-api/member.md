@@ -9,7 +9,7 @@ API quản lý thành viên trong doanh nghiệp.
 ## Lấy danh sách thành viên
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/member/getAll?vbot_id={vbot_id}&project_code={project_code}&page={page}&size={size}</span>
 </div>
 
@@ -73,7 +73,7 @@ API quản lý thành viên trong doanh nghiệp.
 ## Lấy số lượng thành viên
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/member/countAll?vbot_id={vbot_id}&project_code={project_code}</span>
 </div>
 
@@ -115,7 +115,7 @@ API quản lý thành viên trong doanh nghiệp.
 ## Lấy thông tin thành viên theo mã
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/member/getByMemberNo?vbot_id={vbot_id}&project_code={project_code}&member_no={member_no}</span>
 </div>
 
@@ -166,7 +166,7 @@ API quản lý thành viên trong doanh nghiệp.
 ## Thêm tiền cho thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/member/addMoney</span>
 </div>
 
@@ -221,7 +221,7 @@ API quản lý thành viên trong doanh nghiệp.
 ## Sửa mã thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/member/updateNo</span>
 </div>
 
@@ -276,7 +276,7 @@ API quản lý thành viên trong doanh nghiệp.
 ## Sửa nhánh thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/member/updateExtNumber</span>
 </div>
 
@@ -331,7 +331,7 @@ API quản lý thành viên trong doanh nghiệp.
 ## Xóa thành viên
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/member/delete</span>
 </div>
 

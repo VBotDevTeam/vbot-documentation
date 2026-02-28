@@ -9,7 +9,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Lấy token SDK
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/sdk/getToken?project_code={project_code}&member_no={member_no}</span>
 </div>
 
@@ -51,7 +51,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Thêm log SDK
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/sdk/addlog</span>
 </div>
 
@@ -125,7 +125,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Cập nhật thông tin SDK
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/sdk/info</span>
 </div>
 
@@ -207,7 +207,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Đăng xuất SDK
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/sdk/logout</span>
 </div>
 
@@ -258,7 +258,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Cập nhật token thông báo
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/sdk/updateNotiToken</span>
 </div>
 
@@ -311,7 +311,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Lấy danh sách hotline SDK
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/sdk/getHotline</span>
 </div>
 
@@ -354,7 +354,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Kiểm tra cuộc gọi theo transaction
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/sdk/checkCallExistByTrans?transId={transId}</span>
 </div>
 
@@ -395,7 +395,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Đánh giá chất lượng cuộc gọi
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/sdk/addCallQuality</span>
 </div>
 
@@ -460,7 +460,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Lấy transaction ID
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/sdk/getTransId?caller={caller}&extNumber={extNumber}&pid={pid}</span>
 </div>
 
@@ -503,7 +503,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Lấy quyền SDK
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/sdk/getPermission</span>
 </div>
 
@@ -529,7 +529,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Lấy thông tin cuộc gọi
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/sdk/getInfoCall?transId={transId}&source={source}&phone={phone}&typeCall={typeCall}</span>
 </div>
 
@@ -614,7 +614,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Tìm khách hàng theo số điện thoại
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/sdk/getCustomerByPhone?phone={phone}</span>
 </div>
 
@@ -631,7 +631,7 @@ API quản lý token SDK và các chức năng mở rộng.
 ## Lấy token SDK (POST)
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/SDK_Token?_log={_log}</span>
 </div>
 

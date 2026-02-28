@@ -9,7 +9,7 @@ API thêm/xóa thành viên trong nhóm thành viên.
 ## Thêm thành viên vào nhóm
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/groupmember/member/add</span>
 </div>
 
@@ -67,7 +67,7 @@ API thêm/xóa thành viên trong nhóm thành viên.
 ## Xóa thành viên khỏi nhóm
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/groupmember/member/delete</span>
 </div>
 

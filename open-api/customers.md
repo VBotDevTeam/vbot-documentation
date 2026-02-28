@@ -9,7 +9,7 @@ API quản lý thông tin khách hàng.
 ## Thêm khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/customer/create</span>
 </div>
 
@@ -89,7 +89,7 @@ API quản lý thông tin khách hàng.
 ## Sửa khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/customer/update</span>
 </div>
 
@@ -169,7 +169,7 @@ API quản lý thông tin khách hàng.
 ## Xóa khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/customer/delete</span>
 </div>
 
@@ -222,7 +222,7 @@ API quản lý thông tin khách hàng.
 ## Xóa tất cả khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/customer/deleteAll</span>
 </div>
 
@@ -239,7 +239,7 @@ API quản lý thông tin khách hàng.
 ## Sửa mã khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/customer/updateNo</span>
 </div>
 

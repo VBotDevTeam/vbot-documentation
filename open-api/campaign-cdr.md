@@ -9,7 +9,7 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 ## Lấy hội thoại bot
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/cdr/getBotConversation?vbot_id={vbot_id}&project_code={project_code}&bot_id={bot_id}&trans_id={trans_id}</span>
 </div>
 
@@ -53,7 +53,7 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 ## Lấy danh sách lịch sử gọi
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/cdr/getAll?vbot_id={vbot_id}&project_code={project_code}&bot_id={bot_id}&campaign_code={campaign_code}&member={member}&template_script_code={template_script_code}&disposition={disposition}&key={key}&end_date={end_date}&start_date={start_date}&hotline={hotline}&input_log_search={input_log_search}&status={status}&page={page}&size={size}</span>
 </div>
 
@@ -214,7 +214,7 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 ## Lấy số lượng lịch sử gọi
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/cdr/countAll?vbot_id={vbot_id}&project_code={project_code}&bot_id={bot_id}&campaign_code={campaign_code}&member={member}&template_script_code={template_script_code}&disposition={disposition}&key={key}&end_date={end_date}&start_date={start_date}&hotline={hotline}&input_log_search={input_log_search}&status={status}&page={page}&size={size}</span>
 </div>
 

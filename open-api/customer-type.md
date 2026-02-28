@@ -9,7 +9,7 @@ API quản lý kiểu (loại) khách hàng.
 ## Thêm kiểu khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/type/create</span>
 </div>
 
@@ -64,7 +64,7 @@ API quản lý kiểu (loại) khách hàng.
 ## Sửa kiểu khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/type/update</span>
 </div>
 
@@ -119,7 +119,7 @@ API quản lý kiểu (loại) khách hàng.
 ## Xóa kiểu khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/type/delete</span>
 </div>
 
@@ -172,7 +172,7 @@ API quản lý kiểu (loại) khách hàng.
 ## Sửa mã kiểu khách hàng
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/type/updateNo</span>
 </div>
 

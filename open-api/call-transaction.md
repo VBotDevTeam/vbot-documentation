@@ -9,7 +9,7 @@ API quản lý lịch sử cuộc gọi.
 ## Lấy danh sách lịch sử cuộc gọi
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/crm/historycall/getAll?vbot_id={vbot_id}&project_code={project_code}&phone={phone}&page={page}&size={size}</span>
 </div>
 
@@ -176,7 +176,7 @@ API quản lý lịch sử cuộc gọi.
 ## Lấy danh sách lịch sử cuộc gọi
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/crm/historycall/getAll?vbot_id={vbot_id}&project_code={project_code}&from={from}&to={to}&phone={phone}&page={page}&size={size}</span>
 </div>
 
@@ -345,7 +345,7 @@ API quản lý lịch sử cuộc gọi.
 ## Lấy số lượng cuộc gọi
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/crm/historycall/countAll?vbot_id={vbot_id}&project_code={project_code}&phone={phone}</span>
 </div>
 
@@ -388,7 +388,7 @@ API quản lý lịch sử cuộc gọi.
 ## Lấy số lượng cuộc gọi
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/crm/historycall/countAll?vbot_id={vbot_id}&project_code={project_code}&from={from}&to={to}&phone={phone}</span>
 </div>
 
@@ -433,7 +433,7 @@ API quản lý lịch sử cuộc gọi.
 ## Lấy file ghi âm cuộc gọi
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/crm/historycall/record/{trans_id}</span>
 </div>
 

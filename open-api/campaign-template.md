@@ -2,16 +2,16 @@
 outline: deep
 ---
 
-# Template kịch bản Campaign
+# Kịch bản gọi tự động
 
-API quản lý template kịch bản cuộc gọi. Template script chứa nội dung kịch bản (text/audio) dùng cho chiến dịch gọi tự động.
+API quản lý kịch bản gọi tự động.
 
-## Lấy danh sách template kịch bản
+## Lấy danh sách kịch bản
 
-Lấy danh sách các template script đang active trong dự án.
+Lấy danh sách các kịch bản đang active trong nhóm.
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/templateScript/getAll?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}&status={status}&page={page}&size={size}</span>
 </div>
 
@@ -27,10 +27,10 @@ Lấy danh sách các template script đang active trong dự án.
 | ------------ | ------ | -------- | --------------------------- |
 | vbot_id      | String | Có       | VBot ID                     |
 | project_code | String | Có       | Mã dự án                    |
-| key_search   | String |        | Từ khóa tìm kiếm            |
-| status       | Int    |        | Trạng thái (1 = active)     |
-| page         | Int    |        | Số trang (default: 1)       |
-| size         | Int    |        | Số item/trang (default: 20) |
+| key_search   | String |          | Từ khóa tìm kiếm            |
+| status       | Int    |          | Trạng thái (1 = active)     |
+| page         | Int    |          | Số trang (default: 1)       |
+| size         | Int    |          | Số item/trang (default: 20) |
 
 **Response**
 
@@ -90,12 +90,12 @@ Lấy danh sách các template script đang active trong dự án.
 
 ---
 
-## Lấy số lượng template kịch bản
+## Lấy số lượng kịch bản
 
-Lấy tổng số template script theo điều kiện lọc (dùng cho phân trang).
+Lấy tổng số kịch bản theo điều kiện lọc (dùng cho phân trang).
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/templateScript/countAll?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}&status={status}</span>
 </div>
 
@@ -111,8 +111,8 @@ Lấy tổng số template script theo điều kiện lọc (dùng cho phân tra
 | ------------ | ------ | -------- | ---------------- |
 | vbot_id      | String | Có       | VBot ID          |
 | project_code | String | Có       | Mã dự án         |
-| key_search   | String |        | Từ khóa tìm kiếm |
-| status       | Int    |        | Trạng thái       |
+| key_search   | String |          | Từ khóa tìm kiếm |
+| status       | Int    |          | Trạng thái       |
 
 **Response**
 

@@ -9,7 +9,7 @@ API quản lý tài khoản SDK của thành viên.
 ## Thêm tài khoản SDK
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/member/sdk/create</span>
 </div>
 
@@ -70,7 +70,7 @@ API quản lý tài khoản SDK của thành viên.
 ## Sửa tài khoản SDK
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/member/sdk/update</span>
 </div>
 

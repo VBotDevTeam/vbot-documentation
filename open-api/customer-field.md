@@ -9,7 +9,7 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 ## Thêm trường thông tin
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/field/create</span>
 </div>
 
@@ -68,7 +68,7 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 ## Sửa trường thông tin
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/field/update</span>
 </div>
 
@@ -123,7 +123,7 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 ## Xóa trường thông tin
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/field/delete</span>
 </div>
 
@@ -176,7 +176,7 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 ## Sửa mã trường thông tin
 
 <div class="api-container">
-  <span class="api-method">POST</span>
+  <span class="api-method method-post">POST</span>
   <span>[URL]/api/crm/field/updateNo</span>
 </div>
 

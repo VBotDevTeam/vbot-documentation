@@ -9,7 +9,7 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 ## Lấy danh sách chiến dịch
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/campaign/getAll?vbot_id={vbot_id}&project_code={project_code}&key={key}&campaign_group_code={campaign_group_code}&campaign_type={campaign_type}&page={page}&size={size}</span>
 </div>
 
@@ -106,7 +106,7 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 ## Lấy số lượng chiến dịch
 
 <div class="api-container">
-  <span class="api-method">GET</span>
+  <span class="api-method method-get">GET</span>
   <span>[URL]/api/campaignCall/campaign/countAll?vbot_id={vbot_id}&project_code={project_code}&key={key}&campaign_group_code={campaign_group_code}&campaign_type={campaign_type}&page={page}&size={size}</span>
 </div>
 

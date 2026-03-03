@@ -87,15 +87,7 @@ export default defineConfig({
               { text: "Lịch sử gọi", link: "/open-api/campaign-cdr" },
             ],
           },
-          {
-            text: "SDK & Khác",
-            collapsed: true,
-            items: [
-              { text: "SDK Token & Chức năng", link: "/open-api/sdk-token" },
-              { text: "Lịch sử gọi SDK", link: "/open-api/sdk-history" },
-              { text: "Thống kê dự án", link: "/open-api/project" },
-            ],
-          },
+
         ],
       },
       {

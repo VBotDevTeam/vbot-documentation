@@ -15,27 +15,46 @@ API quản lý lịch sử cuộc gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| phone | String | Số điện thoại |
-| page | Int | Số trang |
-| size | Int | Số lượng trên 1 trang |
+| Tham số      | Kiểu   | Mô tả                 |
+| ------------ | ------ | --------------------- |
+| vbot_id      | String | VBotID khách hàng     |
+| project_code | String | Mã nhóm               |
+| phone        | String | Số điện thoại         |
+| page         | Int    | Số trang              |
+| size         | Int    | Số lượng trên 1 trang |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+
+**Giá trị `disposition`**
+
+| Giá trị         | Mô tả                  |
+| --------------- | ---------------------- |
+| misscall        | Cuộc gọi nhỡ           |
+| answer          | Nghe máy               |
+| busy            | Máy bận                |
+| noanswer        | Không trả lời          |
+| cancel          | Cuộc gọi bị hủy        |
+| congestion      | Lỗi mạng               |
+| chanunavail     | Không liên lạc được    |
+| dontcall        | Người nhận từ chối     |
+| torture         | Lỗi mạng               |
+| invalidargs     | Tham số không hợp lệ   |
+| someoneanswered | Người khác đã nghe máy |
+| logout          | Đã đăng xuất           |
+| botivr          | CallBot                |
+| more            | Không trả lời          |
 
 **Ví dụ response**
 
@@ -101,10 +120,7 @@ API quản lý lịch sử cuộc gọi.
       "type_call": "sample string 5",
       "group_id": "sample string 6",
       "disposition": "sample string 7",
-      "record_file": [
-        "sample string 1",
-        "sample string 2"
-      ]
+      "record_file": ["sample string 1", "sample string 2"]
     },
     {
       "hotline_number": "sample string 1",
@@ -162,10 +178,7 @@ API quản lý lịch sử cuộc gọi.
       "type_call": "sample string 5",
       "group_id": "sample string 6",
       "disposition": "sample string 7",
-      "record_file": [
-        "sample string 1",
-        "sample string 2"
-      ]
+      "record_file": ["sample string 1", "sample string 2"]
     }
   ]
 }
@@ -182,29 +195,48 @@ API quản lý lịch sử cuộc gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| from | Int | Từ ngày |
-| to | Int | Đến ngày |
-| phone | String | Số điện thoại |
-| page | Int | Số trang |
-| size | Int | Số lượng trên 1 trang |
+| Tham số      | Kiểu   | Mô tả                 |
+| ------------ | ------ | --------------------- |
+| vbot_id      | String | VBotID khách hàng     |
+| project_code | String | Mã nhóm               |
+| from         | Int    | Từ ngày               |
+| to           | Int    | Đến ngày              |
+| phone        | String | Số điện thoại         |
+| page         | Int    | Số trang              |
+| size         | Int    | Số lượng trên 1 trang |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+
+**Giá trị `disposition`**
+
+| Giá trị         | Mô tả                  |
+| --------------- | ---------------------- |
+| misscall        | Cuộc gọi nhỡ           |
+| answer          | Nghe máy               |
+| busy            | Máy bận                |
+| noanswer        | Không trả lời          |
+| cancel          | Cuộc gọi bị hủy        |
+| congestion      | Lỗi mạng               |
+| chanunavail     | Không liên lạc được    |
+| dontcall        | Người nhận từ chối     |
+| torture         | Lỗi mạng               |
+| invalidargs     | Tham số không hợp lệ   |
+| someoneanswered | Người khác đã nghe máy |
+| logout          | Đã đăng xuất           |
+| botivr          | CallBot                |
+| more            | Không trả lời          |
 
 **Ví dụ response**
 
@@ -270,10 +302,7 @@ API quản lý lịch sử cuộc gọi.
       "type_call": "sample string 5",
       "group_id": "sample string 6",
       "disposition": "sample string 7",
-      "record_file": [
-        "sample string 1",
-        "sample string 2"
-      ]
+      "record_file": ["sample string 1", "sample string 2"]
     },
     {
       "hotline_number": "sample string 1",
@@ -331,10 +360,7 @@ API quản lý lịch sử cuộc gọi.
       "type_call": "sample string 5",
       "group_id": "sample string 6",
       "disposition": "sample string 7",
-      "record_file": [
-        "sample string 1",
-        "sample string 2"
-      ]
+      "record_file": ["sample string 1", "sample string 2"]
     }
   ]
 }
@@ -351,26 +377,26 @@ API quản lý lịch sử cuộc gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| phone | String | Số điện thoại |
+| Tham số      | Kiểu   | Mô tả             |
+| ------------ | ------ | ----------------- |
+| vbot_id      | String | VBotID khách hàng |
+| project_code | String | Mã nhóm           |
+| phone        | String | Số điện thoại     |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Int | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Int    | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -394,28 +420,28 @@ API quản lý lịch sử cuộc gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| from | Int | Từ ngày |
-| to | Int | Đến ngày |
-| phone | String | Số điện thoại |
+| Tham số      | Kiểu   | Mô tả             |
+| ------------ | ------ | ----------------- |
+| vbot_id      | String | VBotID khách hàng |
+| project_code | String | Mã nhóm           |
+| from         | Int    | Từ ngày           |
+| to           | Int    | Đến ngày          |
+| phone        | String | Số điện thoại     |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Int | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Int    | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -439,14 +465,14 @@ API quản lý lịch sử cuộc gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
+| Tham số  | Kiểu   | Mô tả        |
+| -------- | ------ | ------------ |
 | trans_id | String | Mã giao dịch |
 
 **Response**

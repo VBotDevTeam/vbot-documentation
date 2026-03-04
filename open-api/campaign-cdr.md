@@ -15,27 +15,27 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| bot_id | String | Mã bot |
-| trans_id | String | Mã giao dịch |
+| Tham số      | Kiểu   | Mô tả             |
+| ------------ | ------ | ----------------- |
+| vbot_id      | String | VBotID khách hàng |
+| project_code | String | Mã nhóm           |
+| bot_id       | String | Mã bot            |
+| trans_id     | String | Mã giao dịch      |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -59,37 +59,56 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| bot_id | String | Mã bot |
-| campaign_code | String | Mã chiến dịch |
-| member | String | Thành viên |
-| template_script_code | String | Mã template kịch bản |
-| disposition | String | Trạng thái cuộc gọi |
-| key | String | Từ khóa tìm kiếm |
-| end_date | Int | Ngày kết thúc |
-| start_date | Int | Ngày bắt đầu |
-| hotline | String | Hotline |
-| input_log_search | String | Tìm kiếm log |
-| status | Int | Trạng thái |
-| page | Int | Số trang |
-| size | Int | Số lượng trên 1 trang |
+| Tham số              | Kiểu   | Mô tả                                                                     |
+| -------------------- | ------ | ------------------------------------------------------------------------- |
+| vbot_id              | String | VBotID khách hàng                                                         |
+| project_code         | String | Mã nhóm                                                                   |
+| bot_id               | String | Mã bot                                                                    |
+| campaign_code        | String | Mã chiến dịch                                                             |
+| member               | String | Thành viên                                                                |
+| template_script_code | String | Mã template kịch bản                                                      |
+| disposition          | String | Trạng thái cuộc gọi. Xem [bảng giá trị disposition](#giá-trị-disposition) |
+| key                  | String | Từ khóa tìm kiếm                                                          |
+| end_date             | Int    | Ngày kết thúc                                                             |
+| start_date           | Int    | Ngày bắt đầu                                                              |
+| hotline              | String | Hotline                                                                   |
+| input_log_search     | String | Tìm kiếm log                                                              |
+| status               | Int    | Trạng thái                                                                |
+| page                 | Int    | Số trang                                                                  |
+| size                 | Int    | Số lượng trên 1 trang                                                     |
+
+**Giá trị `disposition`** {#giá-trị-disposition}
+
+| Giá trị         | Mô tả                  |
+| --------------- | ---------------------- |
+| misscall        | Cuộc gọi nhỡ           |
+| answer          | Nghe máy               |
+| busy            | Máy bận                |
+| noanswer        | Không trả lời          |
+| cancel          | Cuộc gọi bị hủy        |
+| congestion      | Lỗi mạng               |
+| chanunavail     | Không liên lạc được    |
+| dontcall        | Người nhận từ chối     |
+| torture         | Lỗi mạng               |
+| invalidargs     | Tham số không hợp lệ   |
+| someoneanswered | Người khác đã nghe máy |
+| logout          | Đã đăng xuất           |
+| botivr          | CallBot                |
+| more            | Không trả lời          |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
 
 **Ví dụ response**
 
@@ -220,38 +239,38 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| bot_id | String | Mã bot |
-| campaign_code | String | Mã chiến dịch |
-| member | String | Thành viên |
-| template_script_code | String | Mã template kịch bản |
-| disposition | String | Trạng thái cuộc gọi |
-| key | String | Từ khóa tìm kiếm |
-| end_date | Int | Ngày kết thúc |
-| start_date | Int | Ngày bắt đầu |
-| hotline | String | Hotline |
-| input_log_search | String | Tìm kiếm log |
-| status | Int | Trạng thái |
-| page | Int | Số trang |
-| size | Int | Số lượng trên 1 trang |
+| Tham số              | Kiểu   | Mô tả                 |
+| -------------------- | ------ | --------------------- |
+| vbot_id              | String | VBotID khách hàng     |
+| project_code         | String | Mã nhóm               |
+| bot_id               | String | Mã bot                |
+| campaign_code        | String | Mã chiến dịch         |
+| member               | String | Thành viên            |
+| template_script_code | String | Mã template kịch bản  |
+| disposition          | String | Trạng thái cuộc gọi   |
+| key                  | String | Từ khóa tìm kiếm      |
+| end_date             | Int    | Ngày kết thúc         |
+| start_date           | Int    | Ngày bắt đầu          |
+| hotline              | String | Hotline               |
+| input_log_search     | String | Tìm kiếm log          |
+| status               | Int    | Trạng thái            |
+| page                 | Int    | Số trang              |
+| size                 | Int    | Số lượng trên 1 trang |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Int | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Int    | Dữ liệu trả về                             |
 
 **Ví dụ response**
 

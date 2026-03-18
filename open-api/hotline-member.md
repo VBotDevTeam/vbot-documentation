@@ -15,21 +15,21 @@ API gán và xóa hotline cho thành viên.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| member_no | String | Mã thành viên |
-| hotline_number | String | Số hotline |
-| allow_call | Bool | Cho phép gọi |
-| start_time | String | Thời gian bắt đầu |
-| end_time | String | Thời gian kết thúc |
+| Tham số        | Kiểu   | Mô tả              |
+| -------------- | ------ | ------------------ |
+| vbot_id        | String | VBotID             |
+| project_code   | String | Mã nhóm            |
+| member_no      | String | Mã thành viên      |
+| hotline_number | String | Số hotline         |
+| allow_call     | Bool   | Cho phép gọi       |
+| start_time     | String | Thời gian bắt đầu  |
+| end_time       | String | Thời gian kết thúc |
 
 **Ví dụ request**
 
@@ -47,12 +47,12 @@ API gán và xóa hotline cho thành viên.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -76,17 +76,17 @@ API gán và xóa hotline cho thành viên.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| member_no | String | Mã thành viên |
+| Tham số      | Kiểu   | Mô tả         |
+| ------------ | ------ | ------------- |
+| vbot_id      | String | VBotID        |
+| project_code | String | Mã nhóm       |
+| member_no    | String | Mã thành viên |
 
 **Ví dụ request**
 
@@ -100,12 +100,12 @@ API gán và xóa hotline cho thành viên.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 

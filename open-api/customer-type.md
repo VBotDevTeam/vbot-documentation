@@ -15,18 +15,18 @@ API quản lý kiểu (loại) khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| type_name | String | Tên kiểu |
-| type_no | String | Mã kiểu |
+| Tham số      | Kiểu   | Mô tả    |
+| ------------ | ------ | -------- |
+| vbot_id      | String | VBotID   |
+| project_code | String | Mã nhóm  |
+| type_name    | String | Tên kiểu |
+| type_no      | String | Mã kiểu  |
 
 **Ví dụ request**
 
@@ -41,12 +41,12 @@ API quản lý kiểu (loại) khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -70,18 +70,18 @@ API quản lý kiểu (loại) khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| type_name | String | Tên kiểu |
-| type_no | String | Mã kiểu |
+| Tham số      | Kiểu   | Mô tả    |
+| ------------ | ------ | -------- |
+| vbot_id      | String | VBotID   |
+| project_code | String | Mã nhóm  |
+| type_name    | String | Tên kiểu |
+| type_no      | String | Mã kiểu  |
 
 **Ví dụ request**
 
@@ -96,12 +96,12 @@ API quản lý kiểu (loại) khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -125,17 +125,17 @@ API quản lý kiểu (loại) khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
+| Tham số      | Kiểu   | Mô tả   |
+| ------------ | ------ | ------- |
+| vbot_id      | String | VBotID  |
 | project_code | String | Mã nhóm |
-| type_no | String | Mã kiểu |
+| type_no      | String | Mã kiểu |
 
 **Ví dụ request**
 
@@ -149,12 +149,12 @@ API quản lý kiểu (loại) khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -178,8 +178,8 @@ API quản lý kiểu (loại) khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Response**

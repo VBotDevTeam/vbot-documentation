@@ -15,26 +15,26 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| page | Int | Số trang |
-| size | Int | Số lượng trên 1 trang |
+| Tham số      | Kiểu   | Mô tả                 |
+| ------------ | ------ | --------------------- |
+| vbot_id      | String | VBotID                |
+| project_code | String | Mã nhóm               |
+| page         | Int    | Số trang              |
+| size         | Int    | Số lượng trên 1 trang |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
 
 **Ví dụ response**
 
@@ -79,25 +79,25 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
+| Tham số      | Kiểu   | Mô tả   |
+| ------------ | ------ | ------- |
+| vbot_id      | String | VBotID  |
 | project_code | String | Mã nhóm |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Int | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Int    | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -121,25 +121,25 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| member_no | String | Mã thành viên |
+| Tham số      | Kiểu   | Mô tả         |
+| ------------ | ------ | ------------- |
+| vbot_id      | String | VBotID        |
+| project_code | String | Mã nhóm       |
+| member_no    | String | Mã thành viên |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
 
 **Ví dụ response**
 
@@ -172,18 +172,18 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| member_no | String | Mã thành viên |
-| money | decimal number | Số tiền |
+| Tham số      | Kiểu           | Mô tả         |
+| ------------ | -------------- | ------------- |
+| vbot_id      | String         | VBotID        |
+| project_code | String         | Mã nhóm       |
+| member_no    | String         | Mã thành viên |
+| money        | decimal number | Số tiền       |
 
 **Ví dụ request**
 
@@ -198,12 +198,12 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -227,17 +227,17 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| member_no | String | Mã thành viên |
+| Tham số       | Kiểu   | Mô tả             |
+| ------------- | ------ | ----------------- |
+| vbot_id       | String | VBotID            |
+| project_code  | String | Mã nhóm           |
+| member_no     | String | Mã thành viên     |
 | member_no_new | String | Mã thành viên mới |
 
 **Ví dụ request**
@@ -253,12 +253,12 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -282,18 +282,18 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| member_no | String | Mã thành viên |
-| member_ext_number | Int | Mã nhánh |
+| Tham số           | Kiểu   | Mô tả         |
+| ----------------- | ------ | ------------- |
+| vbot_id           | String | VBotID        |
+| project_code      | String | Mã nhóm       |
+| member_no         | String | Mã thành viên |
+| member_ext_number | Int    | Mã nhánh      |
 
 **Ví dụ request**
 
@@ -308,12 +308,12 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -337,17 +337,17 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| member_no | String | Mã thành viên |
+| Tham số      | Kiểu   | Mô tả         |
+| ------------ | ------ | ------------- |
+| vbot_id      | String | VBotID        |
+| project_code | String | Mã nhóm       |
+| member_no    | String | Mã thành viên |
 
 **Ví dụ request**
 
@@ -361,12 +361,12 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 

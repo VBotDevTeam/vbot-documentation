@@ -176,7 +176,7 @@ Lấy danh sách các trường tùy chỉnh (custom field) được sử dụng
 
 | Tham số              | Kiểu   | Mô tả                |
 | -------------------- | ------ | -------------------- |
-| vbot_id              | String | VBotID khách hàng    |
+| vbot_id              | String | VBotID               |
 | project_code         | String | Mã nhóm              |
 | template_script_code | String | Mã template kịch bản |
 

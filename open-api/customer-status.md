@@ -15,18 +15,18 @@ API quản lý trạng thái khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| status_name | String | Tên trạng thái |
-| status_no | String | Mã trạng thái |
+| Tham số      | Kiểu   | Mô tả          |
+| ------------ | ------ | -------------- |
+| vbot_id      | String | VBotID         |
+| project_code | String | Mã nhóm        |
+| status_name  | String | Tên trạng thái |
+| status_no    | String | Mã trạng thái  |
 
 **Ví dụ request**
 
@@ -41,12 +41,12 @@ API quản lý trạng thái khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -70,18 +70,18 @@ API quản lý trạng thái khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| status_name | String | Tên trạng thái |
-| status_no | String | Mã trạng thái |
+| Tham số      | Kiểu   | Mô tả          |
+| ------------ | ------ | -------------- |
+| vbot_id      | String | VBotID         |
+| project_code | String | Mã nhóm        |
+| status_name  | String | Tên trạng thái |
+| status_no    | String | Mã trạng thái  |
 
 **Ví dụ request**
 
@@ -96,12 +96,12 @@ API quản lý trạng thái khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -125,17 +125,17 @@ API quản lý trạng thái khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| status_no | String | Mã trạng thái |
+| Tham số      | Kiểu   | Mô tả         |
+| ------------ | ------ | ------------- |
+| vbot_id      | String | VBotID        |
+| project_code | String | Mã nhóm       |
+| status_no    | String | Mã trạng thái |
 
 **Ví dụ request**
 
@@ -149,12 +149,12 @@ API quản lý trạng thái khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -178,17 +178,17 @@ API quản lý trạng thái khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| status_no_old | String | Mã trạng thái cũ |
+| Tham số       | Kiểu   | Mô tả             |
+| ------------- | ------ | ----------------- |
+| vbot_id       | String | VBotID            |
+| project_code  | String | Mã nhóm           |
+| status_no_old | String | Mã trạng thái cũ  |
 | status_no_new | String | Mã trạng thái mới |
 
 **Ví dụ request**
@@ -204,12 +204,12 @@ API quản lý trạng thái khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 

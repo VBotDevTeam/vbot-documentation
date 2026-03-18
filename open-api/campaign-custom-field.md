@@ -15,25 +15,25 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| key_search | String | Từ khóa tìm kiếm |
+| Tham số      | Kiểu   | Mô tả            |
+| ------------ | ------ | ---------------- |
+| vbot_id      | String | VBotID           |
+| project_code | String | Mã nhóm          |
+| key_search   | String | Từ khóa tìm kiếm |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
 
 **Ví dụ response**
 
@@ -74,27 +74,27 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| key_search | String | Từ khóa tìm kiếm |
-| page | Int | Số trang |
-| size | Int | Số lượng trên 1 trang |
+| Tham số      | Kiểu   | Mô tả                 |
+| ------------ | ------ | --------------------- |
+| vbot_id      | String | VBotID                |
+| project_code | String | Mã nhóm               |
+| key_search   | String | Từ khóa tìm kiếm      |
+| page         | Int    | Số trang              |
+| size         | Int    | Số lượng trên 1 trang |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
 
 **Ví dụ response**
 
@@ -135,26 +135,26 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| key_search | String | Từ khóa tìm kiếm |
+| Tham số      | Kiểu   | Mô tả            |
+| ------------ | ------ | ---------------- |
+| vbot_id      | String | VBotID           |
+| project_code | String | Mã nhóm          |
+| key_search   | String | Từ khóa tìm kiếm |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Int | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Int    | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -178,25 +178,25 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
+| Tham số      | Kiểu   | Mô tả   |
+| ------------ | ------ | ------- |
+| vbot_id      | String | VBotID  |
 | project_code | String | Mã nhóm |
-| id | Int | ID |
+| id           | Int    | ID      |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
 
 **Ví dụ response**
 
@@ -227,26 +227,26 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
+| Tham số      | Kiểu   | Mô tả   |
+| ------------ | ------ | ------- |
+| vbot_id      | String | VBotID  |
 | project_code | String | Mã nhóm |
-| name | String | Tên |
+| name         | String | Tên     |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -270,26 +270,26 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| key | String | Từ khóa tìm kiếm |
+| Tham số      | Kiểu   | Mô tả            |
+| ------------ | ------ | ---------------- |
+| vbot_id      | String | VBotID           |
+| project_code | String | Mã nhóm          |
+| key          | String | Từ khóa tìm kiếm |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -313,21 +313,21 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
+| Tham số      | Kiểu   | Mô tả   |
+| ------------ | ------ | ------- |
+| vbot_id      | String | VBotID  |
 | project_code | String | Mã nhóm |
-| description | String | Mô tả |
-| cfname | String |  |
-| cfkey | String |  |
-| cftype | String |  |
-| is_required | Bool |  |
+| description  | String | Mô tả   |
+| cfname       | String |         |
+| cfkey        | String |         |
+| cftype       | String |         |
+| is_required  | Bool   |         |
 
 **Ví dụ request**
 
@@ -345,12 +345,12 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Int | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Int    | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -374,17 +374,17 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
+| Tham số      | Kiểu   | Mô tả   |
+| ------------ | ------ | ------- |
+| vbot_id      | String | VBotID  |
 | project_code | String | Mã nhóm |
-| id | Int | ID |
+| id           | Int    | ID      |
 
 **Ví dụ request**
 
@@ -398,12 +398,12 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 

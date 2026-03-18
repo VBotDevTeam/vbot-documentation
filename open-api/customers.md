@@ -15,24 +15,24 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| customer_name | String | Tên khách hàng |
-| customer_no | String | Mã khách hàng |
-| customer_address | String | Địa chỉ khách hàng |
-| customer_email | String | Email khách hàng |
-| customer_phones | List[String] | Danh sách số điện thoại |
-| customer_status_code | String | Mã trạng thái |
-| customer_type_code | String | Mã loại |
-| customer_group_name | String | Tên nhóm |
+| Tham số              | Kiểu         | Mô tả                   |
+| -------------------- | ------------ | ----------------------- |
+| vbot_id              | String       | VBotID                  |
+| project_code         | String       | Mã nhóm                 |
+| customer_name        | String       | Tên khách hàng          |
+| customer_no          | String       | Mã khách hàng           |
+| customer_address     | String       | Địa chỉ khách hàng      |
+| customer_email       | String       | Email khách hàng        |
+| customer_phones      | List[String] | Danh sách số điện thoại |
+| customer_status_code | String       | Mã trạng thái           |
+| customer_type_code   | String       | Mã loại                 |
+| customer_group_name  | String       | Tên nhóm                |
 
 **Ví dụ request**
 
@@ -44,10 +44,7 @@ API quản lý thông tin khách hàng.
   "customer_no": "sample string 4",
   "customer_address": "sample string 5",
   "customer_email": "sample string 6",
-  "customer_phones": [
-    "sample string 1",
-    "sample string 2"
-  ],
+  "customer_phones": ["sample string 1", "sample string 2"],
   "customer_status_code": "sample string 7",
   "customer_type_code": "sample string 8",
   "customer_group_name": "sample string 9",
@@ -66,12 +63,12 @@ API quản lý thông tin khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -95,24 +92,24 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| customer_name | String | Tên khách hàng |
-| customer_no | String | Mã khách hàng |
-| customer_address | String | Địa chỉ khách hàng |
-| customer_email | String | Email khách hàng |
-| customer_phones | List[String] | Danh sách số điện thoại |
-| customer_status_code | String | Mã trạng thái |
-| customer_type_code | String | Mã loại |
-| customer_group_name | String | Tên nhóm |
+| Tham số              | Kiểu         | Mô tả                   |
+| -------------------- | ------------ | ----------------------- |
+| vbot_id              | String       | VBotID                  |
+| project_code         | String       | Mã nhóm                 |
+| customer_name        | String       | Tên khách hàng          |
+| customer_no          | String       | Mã khách hàng           |
+| customer_address     | String       | Địa chỉ khách hàng      |
+| customer_email       | String       | Email khách hàng        |
+| customer_phones      | List[String] | Danh sách số điện thoại |
+| customer_status_code | String       | Mã trạng thái           |
+| customer_type_code   | String       | Mã loại                 |
+| customer_group_name  | String       | Tên nhóm                |
 
 **Ví dụ request**
 
@@ -124,10 +121,7 @@ API quản lý thông tin khách hàng.
   "customer_no": "sample string 4",
   "customer_address": "sample string 5",
   "customer_email": "sample string 6",
-  "customer_phones": [
-    "sample string 1",
-    "sample string 2"
-  ],
+  "customer_phones": ["sample string 1", "sample string 2"],
   "customer_status_code": "sample string 7",
   "customer_type_code": "sample string 8",
   "customer_group_name": "sample string 9",
@@ -146,12 +140,12 @@ API quản lý thông tin khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -175,17 +169,17 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| customer_no | String | Mã khách hàng |
+| Tham số      | Kiểu   | Mô tả         |
+| ------------ | ------ | ------------- |
+| vbot_id      | String | VBotID        |
+| project_code | String | Mã nhóm       |
+| customer_no  | String | Mã khách hàng |
 
 **Ví dụ request**
 
@@ -199,12 +193,12 @@ API quản lý thông tin khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -228,8 +222,8 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Response**
@@ -245,17 +239,17 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| customer_no_old | String | Mã khách hàng cũ |
+| Tham số         | Kiểu   | Mô tả             |
+| --------------- | ------ | ----------------- |
+| vbot_id         | String | VBotID            |
+| project_code    | String | Mã nhóm           |
+| customer_no_old | String | Mã khách hàng cũ  |
 | customer_no_new | String | Mã khách hàng mới |
 
 **Ví dụ request**
@@ -271,12 +265,12 @@ API quản lý thông tin khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 

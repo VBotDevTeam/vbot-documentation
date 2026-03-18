@@ -21,12 +21,12 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả             |
-| ------------ | ------ | ----------------- |
-| vbot_id      | String | VBotID khách hàng |
-| project_code | String | Mã nhóm           |
-| bot_id       | String | Mã bot            |
-| trans_id     | String | Mã giao dịch      |
+| Tham số      | Kiểu   | Mô tả        |
+| ------------ | ------ | ------------ |
+| vbot_id      | String | VBotID       |
+| project_code | String | Mã nhóm      |
+| bot_id       | String | Mã bot       |
+| trans_id     | String | Mã giao dịch |
 
 **Response**
 
@@ -67,7 +67,7 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 | Tham số              | Kiểu   | Mô tả                                                                     |
 | -------------------- | ------ | ------------------------------------------------------------------------- |
-| vbot_id              | String | VBotID khách hàng                                                         |
+| vbot_id              | String | VBotID                                                                    |
 | project_code         | String | Mã nhóm                                                                   |
 | bot_id               | String | Mã bot                                                                    |
 | campaign_code        | String | Mã chiến dịch                                                             |
@@ -247,7 +247,7 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 | Tham số              | Kiểu   | Mô tả                 |
 | -------------------- | ------ | --------------------- |
-| vbot_id              | String | VBotID khách hàng     |
+| vbot_id              | String | VBotID                |
 | project_code         | String | Mã nhóm               |
 | bot_id               | String | Mã bot                |
 | campaign_code        | String | Mã chiến dịch         |

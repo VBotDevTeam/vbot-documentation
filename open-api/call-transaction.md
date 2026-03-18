@@ -23,7 +23,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số      | Kiểu   | Mô tả                 |
 | ------------ | ------ | --------------------- |
-| vbot_id      | String | VBotID khách hàng     |
+| vbot_id      | String | VBotID                |
 | project_code | String | Mã nhóm               |
 | phone        | String | Số điện thoại         |
 | page         | Int    | Số trang              |
@@ -203,7 +203,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số      | Kiểu   | Mô tả                 |
 | ------------ | ------ | --------------------- |
-| vbot_id      | String | VBotID khách hàng     |
+| vbot_id      | String | VBotID                |
 | project_code | String | Mã nhóm               |
 | from         | Int    | Từ ngày               |
 | to           | Int    | Đến ngày              |
@@ -383,11 +383,11 @@ API quản lý lịch sử cuộc gọi.
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả             |
-| ------------ | ------ | ----------------- |
-| vbot_id      | String | VBotID khách hàng |
-| project_code | String | Mã nhóm           |
-| phone        | String | Số điện thoại     |
+| Tham số      | Kiểu   | Mô tả         |
+| ------------ | ------ | ------------- |
+| vbot_id      | String | VBotID        |
+| project_code | String | Mã nhóm       |
+| phone        | String | Số điện thoại |
 
 **Response**
 
@@ -426,13 +426,13 @@ API quản lý lịch sử cuộc gọi.
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả             |
-| ------------ | ------ | ----------------- |
-| vbot_id      | String | VBotID khách hàng |
-| project_code | String | Mã nhóm           |
-| from         | Int    | Từ ngày           |
-| to           | Int    | Đến ngày          |
-| phone        | String | Số điện thoại     |
+| Tham số      | Kiểu   | Mô tả         |
+| ------------ | ------ | ------------- |
+| vbot_id      | String | VBotID        |
+| project_code | String | Mã nhóm       |
+| from         | Int    | Từ ngày       |
+| to           | Int    | Đến ngày      |
+| phone        | String | Số điện thoại |
 
 **Response**
 

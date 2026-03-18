@@ -15,20 +15,20 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| field_name | String | Tên trường |
-| field_no | String | Mã trường |
-| field_type | String | Loại trường |
-| field_description | String |  |
+| Tham số           | Kiểu   | Mô tả       |
+| ----------------- | ------ | ----------- |
+| vbot_id           | String | VBotID      |
+| project_code      | String | Mã nhóm     |
+| field_name        | String | Tên trường  |
+| field_no          | String | Mã trường   |
+| field_type        | String | Loại trường |
+| field_description | String |             |
 
 **Ví dụ request**
 
@@ -45,12 +45,12 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -74,17 +74,17 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| field_no_old | String | Mã trường cũ |
+| Tham số      | Kiểu   | Mô tả         |
+| ------------ | ------ | ------------- |
+| vbot_id      | String | VBotID        |
+| project_code | String | Mã nhóm       |
+| field_no_old | String | Mã trường cũ  |
 | field_no_new | String | Mã trường mới |
 
 **Ví dụ request**
@@ -100,12 +100,12 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | String | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | String | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -129,17 +129,17 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Body**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| field_no | String | Mã trường |
+| Tham số      | Kiểu   | Mô tả     |
+| ------------ | ------ | --------- |
+| vbot_id      | String | VBotID    |
+| project_code | String | Mã nhóm   |
+| field_no     | String | Mã trường |
 
 **Ví dụ request**
 
@@ -153,12 +153,12 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Bool | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Bool   | Dữ liệu trả về                             |
 
 **Ví dụ response**
 
@@ -182,8 +182,8 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Response**

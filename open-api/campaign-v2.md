@@ -15,29 +15,29 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| key | String | Từ khóa tìm kiếm |
-| campaign_group_code | String | Mã nhóm chiến dịch |
-| campaign_type | String | Loại chiến dịch |
-| page | Int | Số trang |
-| size | Int | Số lượng trên 1 trang |
+| Tham số             | Kiểu   | Mô tả                 |
+| ------------------- | ------ | --------------------- |
+| vbot_id             | String | VBotID                |
+| project_code        | String | Mã nhóm               |
+| key                 | String | Từ khóa tìm kiếm      |
+| campaign_group_code | String | Mã nhóm chiến dịch    |
+| campaign_type       | String | Loại chiến dịch       |
+| page                | Int    | Số trang              |
+| size                | Int    | Số lượng trên 1 trang |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
 
 **Ví dụ response**
 
@@ -112,30 +112,30 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 
 **Header**
 
-| Tham số | Giá trị |
-|---|---|
+| Tham số       | Giá trị               |
+| ------------- | --------------------- |
 | Authorization | Bearer `access_token` |
 
 **Tham số**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| vbot_id | String | VBotID khách hàng |
-| project_code | String | Mã nhóm |
-| key | String | Từ khóa tìm kiếm |
-| campaign_group_code | String | Mã nhóm chiến dịch |
-| campaign_type | String | Loại chiến dịch |
-| page | Int | Số trang |
-| size | Int | Số lượng trên 1 trang |
+| Tham số             | Kiểu   | Mô tả                 |
+| ------------------- | ------ | --------------------- |
+| vbot_id             | String | VBotID                |
+| project_code        | String | Mã nhóm               |
+| key                 | String | Từ khóa tìm kiếm      |
+| campaign_group_code | String | Mã nhóm chiến dịch    |
+| campaign_type       | String | Loại chiến dịch       |
+| page                | Int    | Số trang              |
+| size                | Int    | Số lượng trên 1 trang |
 
 **Response**
 
-| Tham số | Kiểu | Mô tả |
-|---|---|---|
-| status | Int | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error | Int | Mã lỗi |
-| message | String | Thông tin |
-| data | Int | Dữ liệu trả về |
+| Tham số | Kiểu   | Mô tả                                      |
+| ------- | ------ | ------------------------------------------ |
+| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi                                     |
+| message | String | Thông tin                                  |
+| data    | Int    | Dữ liệu trả về                             |
 
 **Ví dụ response**
 

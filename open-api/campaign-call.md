@@ -71,12 +71,9 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
 ```json
 {
   "status": 1,
-  "message": "Cuộc gọi được ghi nhận thành công",
-  "data": {
-    "call_id": "CALL_20240110_001",
-    "phone": "0912345678",
-    "status": "pending"
-  }
+  "error": 0,
+  "message": "success",
+  "data": true
 }
 ```
 

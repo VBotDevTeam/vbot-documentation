@@ -62,7 +62,7 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Object | Thông tin cuộc gọi                         |
 
@@ -70,7 +70,6 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
 
 ```json
 {
-  "status": 1,
   "error": 0,
   "message": "success",
   "data": true
@@ -134,7 +133,7 @@ Tạo cuộc gọi tới nhiều số điện thoại cùng lúc.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Object | Thông tin batch call                       |
 
@@ -142,7 +141,7 @@ Tạo cuộc gọi tới nhiều số điện thoại cùng lúc.
 
 ```json
 {
-  "status": 1,
+  "error": 0,
   "message": "Batch call campaign được tạo thành công",
   "data": {
     "batch_id": "BATCH_20240110_001",
@@ -181,15 +180,13 @@ Lấy danh sách các trường tùy chỉnh (custom field) được sử dụng
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 
 **Ví dụ response**
 
 ```json
 {
-  "status": 1,
   "error": 0,
   "message": "Success",
   "data": [

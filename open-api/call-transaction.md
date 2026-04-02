@@ -33,8 +33,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 
 **Giá trị `disposition`**
@@ -60,7 +59,6 @@ API quản lý lịch sử cuộc gọi.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": [
@@ -215,8 +213,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 
 **Giá trị `disposition`**
@@ -242,7 +239,6 @@ API quản lý lịch sử cuộc gọi.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": [
@@ -393,8 +389,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Int    | Dữ liệu trả về                             |
 
@@ -402,7 +397,6 @@ API quản lý lịch sử cuộc gọi.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": 4
@@ -438,8 +432,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Int    | Dữ liệu trả về                             |
 
@@ -447,7 +440,6 @@ API quản lý lịch sử cuộc gọi.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": 4

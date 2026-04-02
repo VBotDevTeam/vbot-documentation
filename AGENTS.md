@@ -187,12 +187,13 @@ Mỗi API endpoint được tổ chức theo pattern:
 
 ```json
 {
-  "status": 1,
   "error": 0,
   "message": "success",
   "data": "..."
 }
 ```
+
+> `error = 0` là thành công, giá trị khác 0 là có lỗi. Response không trả trường `status`.
 
 ---
 

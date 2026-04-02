@@ -32,15 +32,13 @@ API quản lý thành viên trong doanh nghiệp.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 
 **Ví dụ response**
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": [
@@ -94,8 +92,7 @@ API quản lý thành viên trong doanh nghiệp.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Int    | Dữ liệu trả về                             |
 
@@ -103,7 +100,6 @@ API quản lý thành viên trong doanh nghiệp.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": 4
@@ -137,15 +133,13 @@ API quản lý thành viên trong doanh nghiệp.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 
 **Ví dụ response**
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": {
@@ -200,8 +194,7 @@ API quản lý thành viên trong doanh nghiệp.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | String | Dữ liệu trả về                             |
 
@@ -209,7 +202,6 @@ API quản lý thành viên trong doanh nghiệp.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": "sample string 4"
@@ -255,8 +247,7 @@ API quản lý thành viên trong doanh nghiệp.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | String | Dữ liệu trả về                             |
 
@@ -264,7 +255,6 @@ API quản lý thành viên trong doanh nghiệp.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": "sample string 4"
@@ -310,8 +300,7 @@ API quản lý thành viên trong doanh nghiệp.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | String | Dữ liệu trả về                             |
 
@@ -319,7 +308,6 @@ API quản lý thành viên trong doanh nghiệp.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": "sample string 4"
@@ -363,8 +351,7 @@ API quản lý thành viên trong doanh nghiệp.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Bool   | Dữ liệu trả về                             |
 
@@ -372,7 +359,6 @@ API quản lý thành viên trong doanh nghiệp.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": true

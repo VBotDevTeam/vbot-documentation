@@ -43,8 +43,7 @@ API thêm/xóa thành viên trong nhóm thành viên.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Bool   | Dữ liệu trả về                             |
 
@@ -52,7 +51,6 @@ API thêm/xóa thành viên trong nhóm thành viên.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": true
@@ -98,8 +96,7 @@ API thêm/xóa thành viên trong nhóm thành viên.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Bool   | Dữ liệu trả về                             |
 
@@ -107,7 +104,6 @@ API thêm/xóa thành viên trong nhóm thành viên.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": true

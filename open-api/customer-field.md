@@ -47,8 +47,7 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | String | Dữ liệu trả về                             |
 
@@ -56,7 +55,6 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": "sample string 4"
@@ -102,8 +100,7 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | String | Dữ liệu trả về                             |
 
@@ -111,7 +108,6 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": "sample string 4"
@@ -155,8 +151,7 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Bool   | Dữ liệu trả về                             |
 
@@ -164,7 +159,6 @@ API quản lý trường thông tin tùy chỉnh của khách hàng.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": true

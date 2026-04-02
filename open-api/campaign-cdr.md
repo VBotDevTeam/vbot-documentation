@@ -6,6 +6,130 @@ outline: deep
 
 API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
+## Webhook: Cuộc gọi tự động hoàn tất
+
+Khi một cuộc gọi tự động (auto call) hoàn tất, hệ thống sẽ gửi webhook event `AUTO_CALL_COMPLETE` tới URL đã đăng ký. Bản tin chứa đầy đủ thông tin: **lịch sử cuộc gọi**, **ghi âm** và **dữ liệu AI trích xuất**.
+
+**Event**: `AUTO_CALL_COMPLETE`
+
+**Phương thức**: `POST` — Hệ thống gửi tới webhook URL đã cấu hình
+
+### Cấu trúc payload
+
+Payload gồm 3 phần chính:
+
+| Phần                    | Kiểu   | Mô tả                                    |
+| ----------------------- | ------ | ----------------------------------------- |
+| autoCallLog             | Object | Thông tin chi tiết cuộc gọi               |
+| autoCallAIExtraction    | Object | Dữ liệu AI trích xuất từ cuộc hội thoại  |
+| autoCallRecording       | Object | Thông tin ghi âm cuộc gọi                 |
+
+### `autoCallLog` — Lịch sử cuộc gọi
+
+| Tham số             | Kiểu   | Mô tả                                                        |
+| -------------------- | ------ | ------------------------------------------------------------ |
+| phone                | String | Số điện thoại khách hàng                                     |
+| duration             | Int    | Tổng thời lượng cuộc gọi (giây)                              |
+| billsec              | Int    | Thời lượng tính cước (giây)                                  |
+| disposition          | String | Trạng thái cuộc gọi (`ANSWER`, `NOANSWER`, `BUSY`, ...)     |
+| hotlineCode          | String | Mã hotline (số tổng đài)                                     |
+| inputLog             | String | Log tương tác DTMF của khách hàng                            |
+| voiceText            | String | Nội dung thoại đã chuyển thành văn bản (STT)                |
+| postage              | Double | Cước phí cuộc gọi                                            |
+| serviceCharge        | Double | Phí dịch vụ                                                  |
+| memberName           | String | Tên thành viên thực hiện                                     |
+| memberAccId          | String | Account ID thành viên                                        |
+| answerAt             | Long   | Thời điểm nghe máy (Unix timestamp ms)                       |
+| endCallAt            | Long   | Thời điểm kết thúc cuộc gọi (Unix timestamp ms)             |
+| botId                | String | ID của bot xử lý cuộc gọi                                    |
+| campaignName         | String | Tên chiến dịch                                               |
+| campaignGroupName    | String | Tên nhóm chiến dịch                                          |
+| templateScriptCode   | String | Mã kịch bản template                                         |
+| templateScriptName   | String | Tên kịch bản template                                        |
+| transId              | String | Mã giao dịch cuộc gọi (duy nhất)                            |
+| createAt             | Long   | Thời điểm tạo cuộc gọi (Unix timestamp ms)                  |
+| postageService       | Double | Cước dịch vụ bổ sung                                         |
+| postageBotService    | Double | Cước dịch vụ bot                                             |
+| telcoCode            | String | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                      |
+| projectCode          | String | Mã dự án                                                     |
+| callNet              | String | Loại cuộc gọi (`OFFNET`, `ONNET`)                            |
+| metaData             | String | Dữ liệu meta (JSON string) — các biến đầu vào kịch bản      |
+| metaDataDescription  | String | Mô tả các trường meta (JSON string)                          |
+| externalCallId       | String | Mã cuộc gọi từ hệ thống bên ngoài                            |
+| callCollectedData    | String | Dữ liệu thu thập từ cuộc gọi (JSON string) — bao gồm cả kết quả AI |
+
+### `autoCallAIExtraction` — Dữ liệu AI trích xuất
+
+| Tham số           | Kiểu   | Mô tả                                                            |
+| ----------------- | ------ | ---------------------------------------------------------------- |
+| transId           | String | Mã giao dịch cuộc gọi                                            |
+| externalCallId    | String | Mã cuộc gọi từ hệ thống bên ngoài                                |
+| callCollectedData | String | Kết quả AI trích xuất (JSON string) — danh sách các trường dữ liệu |
+
+**Cấu trúc mỗi item trong `callCollectedData`:**
+
+| Tham số     | Kiểu   | Mô tả                        |
+| ----------- | ------ | ----------------------------- |
+| cfkey       | String | Key của trường dữ liệu       |
+| cfname      | String | Tên hiển thị                  |
+| cfvalue     | String | Giá trị AI trích xuất được    |
+| description | String | Mô tả trường dữ liệu         |
+
+### `autoCallRecording` — Ghi âm cuộc gọi
+
+| Tham số        | Kiểu   | Mô tả                                    |
+| -------------- | ------ | ----------------------------------------- |
+| transId        | String | Mã giao dịch cuộc gọi                     |
+| externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài         |
+| recordUrl      | String | URL tải file ghi âm (yêu cầu Bearer token) |
+
+---
+
+## Webhook: AI trích xuất cuộc gọi tự động
+
+Khi AI hoàn tất trích xuất dữ liệu từ cuộc gọi tự động, hệ thống sẽ gửi webhook event `AUTO_CALL_AI_EXTRACTION` tới URL đã đăng ký.
+
+**Event**: `AUTO_CALL_AI_EXTRACTION`
+
+**Phương thức**: `POST` — Hệ thống gửi tới webhook URL đã cấu hình
+
+### Cấu trúc payload
+
+| Tham số           | Kiểu   | Mô tả                                                            |
+| ----------------- | ------ | ---------------------------------------------------------------- |
+| transId           | String | Mã giao dịch cuộc gọi                                            |
+| externalCallId    | String | Mã cuộc gọi từ hệ thống bên ngoài                                |
+| callCollectedData | String | Kết quả AI trích xuất (JSON string) — danh sách các trường dữ liệu |
+
+**Cấu trúc mỗi item trong `callCollectedData`:**
+
+| Tham số     | Kiểu   | Mô tả                        |
+| ----------- | ------ | ----------------------------- |
+| cfkey       | String | Key của trường dữ liệu       |
+| cfname      | String | Tên hiển thị                  |
+| cfvalue     | String | Giá trị AI trích xuất được    |
+| description | String | Mô tả trường dữ liệu         |
+
+---
+
+## Webhook: Ghi âm cuộc gọi tự động
+
+Khi file ghi âm cuộc gọi tự động sẵn sàng, hệ thống sẽ gửi webhook event `AUTO_CALL_RECORDING` tới URL đã đăng ký.
+
+**Event**: `AUTO_CALL_RECORDING`
+
+**Phương thức**: `POST` — Hệ thống gửi tới webhook URL đã cấu hình
+
+### Cấu trúc payload
+
+| Tham số        | Kiểu   | Mô tả                                    |
+| -------------- | ------ | ----------------------------------------- |
+| transId        | String | Mã giao dịch cuộc gọi                     |
+| externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài         |
+| recordUrl      | String | URL tải file ghi âm (yêu cầu Bearer token) |
+
+---
+
 ## Lấy hội thoại bot
 
 <div class="api-container">
@@ -32,8 +156,7 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | String | Dữ liệu trả về                             |
 
@@ -41,7 +164,6 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": "sample string 4"
@@ -106,15 +228,13 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 
 **Ví dụ response**
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": [
@@ -267,8 +387,7 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Int    | Dữ liệu trả về                             |
 
@@ -276,7 +395,6 @@ API tra cứu lịch sử cuộc gọi trong chiến dịch.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": 4

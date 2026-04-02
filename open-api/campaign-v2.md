@@ -35,15 +35,13 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 
 **Ví dụ response**
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": [
@@ -132,8 +130,7 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Int    | Dữ liệu trả về                             |
 
@@ -141,7 +138,6 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 
 ```json
 {
-  "status": 1,
   "error": 2,
   "message": "sample string 3",
   "data": 4

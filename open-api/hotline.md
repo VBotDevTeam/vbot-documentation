@@ -32,8 +32,7 @@ Lấy danh sách tất cả hotline (số tổng đài) của dự án.
 
 | Tham số               | Kiểu   | Mô tả                                      |
 | --------------------- | ------ | ------------------------------------------ |
-| status                | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error                 | Int    | Mã lỗi                                     |
+| error                 | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message               | String | Thông tin                                  |
 | data                  | Array  | Danh sách hotlines                         |
 | data[].hotline_name   | String | Tên hotline                                |
@@ -44,7 +43,6 @@ Lấy danh sách tất cả hotline (số tổng đài) của dự án.
 
 ```json
 {
-  "status": 1,
   "error": 0,
   "message": "Success",
   "data": [

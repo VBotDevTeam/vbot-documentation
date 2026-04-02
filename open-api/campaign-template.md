@@ -36,7 +36,7 @@ Lấy danh sách các kịch bản đang active trong nhóm.
 
 | Tham số        | Kiểu   | Mô tả                                      |
 | -------------- | ------ | ------------------------------------------ |
-| status         | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
+| error          | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)    |
 | message        | String | Thông tin                                  |
 | data           | Array  | Danh sách templates                        |
 | data[].id      | Int    | Template ID                                |
@@ -49,7 +49,6 @@ Lấy danh sách các kịch bản đang active trong nhóm.
 
 ```json
 {
-  "status": 1,
   "message": "Success",
   "data": [
     {
@@ -118,8 +117,7 @@ Lấy tổng số kịch bản theo điều kiện lọc (dùng cho phân trang)
 
 | Tham số | Kiểu   | Mô tả                                      |
 | ------- | ------ | ------------------------------------------ |
-| status  | Int    | Mã trạng thái (1: Thành công, 0: Thất bại) |
-| error   | Int    | Mã lỗi                                     |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
 | message | String | Thông tin                                  |
 | data    | Int    | Tổng số template                           |
 
@@ -127,7 +125,6 @@ Lấy tổng số kịch bản theo điều kiện lọc (dùng cho phân trang)
 
 ```json
 {
-  "status": 1,
   "error": 0,
   "message": "Success",
   "data": 15

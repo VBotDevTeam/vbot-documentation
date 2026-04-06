@@ -36,11 +36,11 @@ Tất cả API đều trả về response theo cấu trúc JSON dưới đây:
 }
 ```
 
-| Tham số | Kiểu   | Mô tả                                |
-| ------- | ------ | ------------------------------------ |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
 | error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
-| message | String | Thông tin chi tiết                   |
-| data    | Any    | Dữ liệu trả về                       |
+| message | String | Thông tin chi tiết                     |
+| data    | Any    | Dữ liệu trả về                         |
 
 ::: tip Lưu ý
 Response **không còn** trả về trường `status`. Sử dụng trường `error` để kiểm tra kết quả: `error = 0` là thành công, giá trị khác 0 là có lỗi (xem bảng mã lỗi bên dưới).

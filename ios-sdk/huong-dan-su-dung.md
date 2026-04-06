@@ -204,7 +204,7 @@ VBotPhone.sharedInstance.getHotlines { hotlines, error in
 ### Gọi đi
 
 ```SWIFT
-VBotPhone.sharedInstance.startOutgoingCall(name: name, number: phoneNumber, hotline: hotline) { [weak self] resultAPI in
+VBotPhone.sharedInstance.startOutgoingCall(name: name, number: phoneNumber, hotline: hotline, externalCallId: "your-external-id") { [weak self] resultAPI in
 	guard let self = self else { return }
 	switch resultAPI {
 	case .success():
@@ -215,6 +215,13 @@ VBotPhone.sharedInstance.startOutgoingCall(name: name, number: phoneNumber, hotl
 	}
 }
 ```
+
+Trong đó:
+
+- **name**: Tên người nhận hiển thị trên CallKit
+- **phoneNumber**: Số điện thoại cần gọi
+- **hotline**: Số hotline sử dụng
+- **externalCallId** _(tùy chọn)_: Mã cuộc gọi từ hệ thống bên ngoài, dùng để liên kết dữ liệu cuộc gọi
 
 ### Gác máy
 

@@ -31,6 +31,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "Giới thiệu", link: "/open-api/introduction" },
+          { text: "Changelog", link: "/open-api/changelog" },
           { text: "Xác thực", link: "/open-api/authentication" },
           { text: "Webhooks", link: "/open-api/webhooks" },
           {
@@ -87,7 +88,6 @@ export default defineConfig({
               { text: "Lịch sử gọi", link: "/open-api/campaign-cdr" },
             ],
           },
-
         ],
       },
       {
@@ -103,6 +103,7 @@ export default defineConfig({
         text: "Android SDK",
         collapsed: false,
         items: [
+          { text: "Changelog", link: "/android-sdk/changelog" },
           { text: "Cấu hình SDK", link: "/android-sdk/cau-hinh-sdk" },
           { text: "Push Notification", link: "/android-sdk/push-notification" },
           { text: "Khởi tạo SDK", link: "/android-sdk/khoi-tao-sdk" },
@@ -113,6 +114,7 @@ export default defineConfig({
         text: "iOS SDK",
         collapsed: false,
         items: [
+          { text: "Changelog", link: "/ios-sdk/changelog" },
           { text: "Push Notification", link: "/ios-sdk/push-notification" },
           { text: "Cấu hình SDK", link: "/ios-sdk/cau-hinh-sdk" },
           { text: "Hướng dẫn sử dụng", link: "/ios-sdk/huong-dan-su-dung" },

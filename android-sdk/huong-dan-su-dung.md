@@ -54,8 +54,15 @@ client.answerCall()
 
 ```KOTLIN
 // Tạo cuộc gọi đi
-client.startOutgoingCall(name, hotline, phoneNumber)
+client.startOutgoingCall(name, hotline, phoneNumber, externalCallId)
 ```
+
+Trong đó:
+
+- **name**: Tên người nhận
+- **hotline**: Số hotline sử dụng
+- **phoneNumber**: Số điện thoại cần gọi
+- **externalCallId** _(tùy chọn)_: Mã cuộc gọi từ hệ thống bên ngoài, dùng để liên kết dữ liệu cuộc gọi
 
 ## Thao tác trong cuộc gọi
 

@@ -12,7 +12,20 @@ Trang này ghi lại các thay đổi quan trọng của VBot Open API. Vui lòn
 - **[03/04/2026]** Response API không còn trả về trường `status` — sử dụng trường `error` để kiểm tra kết quả (`0` = Thành công).
 - **[03/04/2026]** Thêm webhook events mới: `MANUAL_CALL_COMPLETE`, `MANUAL_CALL_RECORDING`, `MANUAL_CALL_AI_EXTRACTION`, `AUTO_CALL_COMPLETE`, `AUTO_CALL_AI_EXTRACTION`, `AUTO_CALL_RECORDING`, `P2P_CALL_LOG`, `IN_COMINGCALL`.
 - **[03/04/2026]** Deprecated 3 webhook events cũ: `CAMPAIGN_CALL`, `HISTORY_CALL`, `HISTORY_CALL_PEERTOPEER`.
+- **[26/05/2026]** Thay đổi Base URL sang: `https://open-api-h01.vbot.vn/v2.0`
 :::
+
+## 26/05/2026
+
+### Thay đổi Base URL
+
+Hệ thống thay đổi Base URL mới cho tất cả các API. Vui lòng cập nhật Base URL sau cho các tích hợp của bạn:
+
+```text
+https://open-api-h01.vbot.vn/v2.0
+```
+
+---
 
 ## 03/04/2026
 

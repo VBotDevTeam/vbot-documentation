@@ -6,7 +6,7 @@ VBot Open API cung cấp các endpoint cho phép tích hợp hệ thống bên t
 
 | Thuộc tính         | Giá trị                         |
 | ------------------ | ------------------------------- |
-| **Base URL**       | `https://open-api.vbot.vn/v2.0` |
+| **Base URL**       | `https://open-api-h01.vbot.vn/v2.0` |
 | **Content-Type**   | `application/json`              |
 | **Authentication** | Bearer Token                    |
 

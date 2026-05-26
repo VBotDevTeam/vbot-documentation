@@ -41,7 +41,7 @@ MANUAL_CALL_COMPLETE:
 "manualCallRecording": {
 "transId": "0604202611541175360ecb41aa46388bc9816f9e3925fe",
 "externalCallId": "",
-"recordUrl": "https://open-api.vbot.vn/v2.0/api/crm/historycall/record/0604202611541175360ecb41aa46388bc9816f9e3925fe"
+"recordUrl": "https://open-api-h01.vbot.vn/v2.0/api/crm/historycall/record/0604202611541175360ecb41aa46388bc9816f9e3925fe"
 }
 }
 
@@ -130,7 +130,7 @@ AUTO_CALL_COMPLETE:
 "autoCallRecording": {
 "transId": "DIY26040611512932197",
 "externalCallId": "u6yow881ubmic6owiidww3qppz0blqh8",
-"recordUrl": "https://open-api.vbot.vn/v2.0/api/crm/historycall/record/DIY26040611512932197"
+"recordUrl": "https://open-api-h01.vbot.vn/v2.0/api/crm/historycall/record/DIY26040611512932197"
 }
 }
 
@@ -149,7 +149,7 @@ AUTO_CALL_RECORDING:
 {
 "transId": "DIY26040611512932197",
 "externalCallId": "u6yow881ubmic6owiidww3qppz0blqh8",
-"recordUrl": "https://open-api.vbot.vn/v2.0/api/crm/historycall/record/DIY26040611512932197"
+"recordUrl": "https://open-api-h01.vbot.vn/v2.0/api/crm/historycall/record/DIY26040611512932197"
 }
 
 ---

@@ -36,7 +36,6 @@ Các lớp bảo mật tích hợp sẵn bao gồm Cloudflare Turnstile, kiểm 
 - **Bước 3:** Nhập danh sách các Hostname của bạn
 
   **Lưu ý:**
-
   - Các hostname có trong danh sách này thì mới có thể được xác thực bởi Turnstile
   - Khi code và run debug app ở localhost (Ví dụ: localhost:5143) thì hãy thay bằng 127.0.0.1 (Ví dụ: 127.0.0.1:5143) và nhớ thêm 127.0.0.1 vào cấu hình Hostname này
 
@@ -57,10 +56,7 @@ Hai mã này sẽ dùng để cấu hình widget trên website **VBot Console**
 Thêm script bundle từ CDN:
 
 ```html
-<script
-  src="https://cdn.vbot.vn/quick-dial/vbot-quick-dial-widget@x.x.x.umd.cjs"
-  defer
-></script>
+<script src="https://cdn.vbot.vn/quick-dial/quick-dial.es.js" defer></script>
 ```
 
 Khuyến nghị sử dụng `defer` hoặc đặt ở cuối trang để widget đăng ký custom element sau khi tải xong.
@@ -103,7 +99,8 @@ vbot-quick-dial-widget {
   --vb-wg-color-border: #dbeafe;
   --vb-wg-color-muted: #64748b;
   --vb-wg-color-destructive: #dc2626;
-  --vb-wg-font-sans: "Space Grotesk", "Inter", "Segoe UI", system-ui, sans-serif;
+  --vb-wg-font-sans:
+    "Space Grotesk", "Inter", "Segoe UI", system-ui, sans-serif;
   --vb-wg-radius-lg: 1.25rem;
 }
 ```
@@ -193,7 +190,7 @@ Giải thích thuộc tính:
     const renderTurnstile = async () => {
       const { turnstileSiteKey, expiresAt } = await widget.init();
       status.textContent = `Phiên sẵn sàng (hết hạn: ${new Date(
-        expiresAt
+        expiresAt,
       ).toLocaleTimeString()})`;
       container.innerHTML = "";
       window.turnstile.render(container, {
@@ -231,11 +228,11 @@ Giải thích thuộc tính:
 
     widget.addEventListener(
       "vbot:onCallProgress",
-      () => (status.textContent = "Đang đổ chuông...")
+      () => (status.textContent = "Đang đổ chuông..."),
     );
     widget.addEventListener(
       "vbot:onCallAccepted",
-      () => (status.textContent = "Đã kết nối.")
+      () => (status.textContent = "Đã kết nối."),
     );
     widget.addEventListener("vbot:onCallEnded", () => {
       status.textContent = "Cuộc gọi đã kết thúc.";

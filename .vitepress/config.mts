@@ -95,7 +95,6 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "Web SDK", link: "/web/web-sdk" },
-          { text: "Web Plugin", link: "/web/web-phone" },
           { text: "Web Quick Dial Widget", link: "/web/web-quick-dial-widget" },
         ],
       },

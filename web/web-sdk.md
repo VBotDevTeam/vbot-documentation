@@ -6,6 +6,16 @@ outline: deep
 
 Javascript SDK giúp khách hàng tích hợp VBot vào website của mình.
 
+## Tích hợp
+
+Thêm script bundle từ CDN:
+
+```html
+<script src="https://cdn.vbot.vn/vbot-sdk/vbot-sdk.es.js" defer></script>
+```
+
+Khuyến nghị sử dụng `defer` hoặc đặt ở cuối trang để widget đăng ký custom element sau khi tải xong.
+
 ## Kết nối
 
 ```JAVASCRIPT

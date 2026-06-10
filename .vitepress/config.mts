@@ -1,6 +1,103 @@
 import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
+function getSidebar(version: 'v2' | 'v3') {
+  return [
+    {
+      text: `Open API ${version.toUpperCase()}`,
+      collapsed: false,
+      items: [
+        { text: "Giới thiệu", link: `/open-api/${version}/introduction` },
+        { text: "Changelog", link: `/open-api/${version}/changelog` },
+        { text: "Xác thực", link: `/open-api/${version}/authentication` },
+        { text: "Webhooks", link: `/open-api/${version}/webhooks` },
+        {
+          text: "Khách hàng",
+          collapsed: true,
+          items: [
+            { text: "Quản lý khách hàng", link: `/open-api/${version}/customers` },
+            { text: "Trạng thái khách hàng", link: `/open-api/${version}/customer-status` },
+            { text: "Kiểu khách hàng", link: `/open-api/${version}/customer-type` },
+            { text: "Nhóm khách hàng", link: `/open-api/${version}/customer-group` },
+            { text: "Trường thông tin", link: `/open-api/${version}/customer-field` },
+          ],
+        },
+        {
+          text: "Thành viên",
+          collapsed: true,
+          items: [
+            { text: "Quản lý thành viên", link: `/open-api/${version}/member` },
+            { text: "Tài khoản SDK", link: `/open-api/${version}/member-sdk` },
+            { text: "Tài khoản SIP", link: `/open-api/${version}/member-sip` },
+          ],
+        },
+        {
+          text: "Nhóm thành viên",
+          collapsed: true,
+          items: [
+            { text: "Quản lý nhóm", link: `/open-api/${version}/group-member` },
+            { text: "Thành viên trong nhóm", link: `/open-api/${version}/group-member-action` },
+          ],
+        },
+        {
+          text: "Hotline",
+          collapsed: true,
+          items: [
+            { text: "Danh sách hotline", link: `/open-api/${version}/hotline` },
+            { text: "Hotline thành viên", link: `/open-api/${version}/hotline-member` },
+          ],
+        },
+        {
+          text: "Cuộc gọi",
+          collapsed: true,
+          items: [
+            { text: "Lịch sử cuộc gọi", link: `/open-api/${version}/call-transaction` },
+          ],
+        },
+        {
+          text: "Gọi tự động",
+          collapsed: true,
+          items: [
+            { text: "Tạo cuộc gọi", link: `/open-api/${version}/campaign-call` },
+            { text: "Trường tùy chỉnh", link: `/open-api/${version}/campaign-custom-field` },
+            { text: "Kịch bản gọi", link: `/open-api/${version}/campaign-template` },
+            { text: "Lịch sử gọi", link: `/open-api/${version}/campaign-cdr` },
+          ],
+        },
+      ],
+    },
+    {
+      text: "Web",
+      collapsed: false,
+      items: [
+        { text: "Web SDK", link: "/web/web-sdk" },
+        { text: "Web Quick Dial Widget", link: "/web/web-quick-dial-widget" },
+      ],
+    },
+    {
+      text: "Android SDK",
+      collapsed: false,
+      items: [
+        { text: "Changelog", link: "/android-sdk/changelog" },
+        { text: "Cấu hình SDK", link: "/android-sdk/cau-hinh-sdk" },
+        { text: "Push Notification", link: "/android-sdk/push-notification" },
+        { text: "Khởi tạo SDK", link: "/android-sdk/khoi-tao-sdk" },
+        { text: "Hướng dẫn sử dụng", link: "/android-sdk/huong-dan-su-dung" },
+      ],
+    },
+    {
+      text: "iOS SDK",
+      collapsed: false,
+      items: [
+        { text: "Changelog", link: "/ios-sdk/changelog" },
+        { text: "Push Notification", link: "/ios-sdk/push-notification" },
+        { text: "Cấu hình SDK", link: "/ios-sdk/cau-hinh-sdk" },
+        { text: "Hướng dẫn sử dụng", link: "/ios-sdk/huong-dan-su-dung" },
+      ],
+    },
+  ];
+}
+
 export default defineConfig({
   title: "VBot Documentation",
   description: "Official documentation for VBot",
@@ -22,104 +119,20 @@ export default defineConfig({
     },
     nav: [
       { text: "Trang chủ", link: "/" },
-      { text: "Tài liệu", link: "/open-api/introduction" },
-    ],
-
-    sidebar: [
       {
         text: "Open API",
-        collapsed: false,
         items: [
-          { text: "Giới thiệu", link: "/open-api/introduction" },
-          { text: "Changelog", link: "/open-api/changelog" },
-          { text: "Xác thực", link: "/open-api/authentication" },
-          { text: "Webhooks", link: "/open-api/webhooks" },
-          {
-            text: "Khách hàng",
-            collapsed: true,
-            items: [
-              { text: "Quản lý khách hàng", link: "/open-api/customers" },
-              { text: "Trạng thái khách hàng", link: "/open-api/customer-status" },
-              { text: "Kiểu khách hàng", link: "/open-api/customer-type" },
-              { text: "Nhóm khách hàng", link: "/open-api/customer-group" },
-              { text: "Trường thông tin", link: "/open-api/customer-field" },
-            ],
-          },
-          {
-            text: "Thành viên",
-            collapsed: true,
-            items: [
-              { text: "Quản lý thành viên", link: "/open-api/member" },
-              { text: "Tài khoản SDK", link: "/open-api/member-sdk" },
-              { text: "Tài khoản SIP", link: "/open-api/member-sip" },
-            ],
-          },
-          {
-            text: "Nhóm thành viên",
-            collapsed: true,
-            items: [
-              { text: "Quản lý nhóm", link: "/open-api/group-member" },
-              { text: "Thành viên trong nhóm", link: "/open-api/group-member-action" },
-            ],
-          },
-          {
-            text: "Hotline",
-            collapsed: true,
-            items: [
-              { text: "Danh sách hotline", link: "/open-api/hotline" },
-              { text: "Hotline thành viên", link: "/open-api/hotline-member" },
-            ],
-          },
-          {
-            text: "Cuộc gọi",
-            collapsed: true,
-            items: [
-              { text: "Lịch sử cuộc gọi", link: "/open-api/call-transaction" },
-            ],
-          },
-          {
-            text: "Gọi tự động",
-            collapsed: true,
-            items: [
-              // { text: "Chiến dịch gọi", link: "/open-api/campaign-v2" },
-              { text: "Tạo cuộc gọi", link: "/open-api/campaign-call" },
-              { text: "Trường tùy chỉnh", link: "/open-api/campaign-custom-field" },
-              { text: "Kịch bản gọi", link: "/open-api/campaign-template" },
-              { text: "Lịch sử gọi", link: "/open-api/campaign-cdr" },
-            ],
-          },
-        ],
-      },
-      {
-        text: "Web",
-        collapsed: false,
-        items: [
-          { text: "Web SDK", link: "/web/web-sdk" },
-          { text: "Web Quick Dial Widget", link: "/web/web-quick-dial-widget" },
-        ],
-      },
-      {
-        text: "Android SDK",
-        collapsed: false,
-        items: [
-          { text: "Changelog", link: "/android-sdk/changelog" },
-          { text: "Cấu hình SDK", link: "/android-sdk/cau-hinh-sdk" },
-          { text: "Push Notification", link: "/android-sdk/push-notification" },
-          { text: "Khởi tạo SDK", link: "/android-sdk/khoi-tao-sdk" },
-          { text: "Hướng dẫn sử dụng", link: "/android-sdk/huong-dan-su-dung" },
-        ],
-      },
-      {
-        text: "iOS SDK",
-        collapsed: false,
-        items: [
-          { text: "Changelog", link: "/ios-sdk/changelog" },
-          { text: "Push Notification", link: "/ios-sdk/push-notification" },
-          { text: "Cấu hình SDK", link: "/ios-sdk/cau-hinh-sdk" },
-          { text: "Hướng dẫn sử dụng", link: "/ios-sdk/huong-dan-su-dung" },
+          { text: "Open API v3 (Mới nhất)", link: "/open-api/v3/introduction" },
+          { text: "Open API v2 (Cũ)", link: "/open-api/v2/introduction" },
         ],
       },
     ],
+
+    sidebar: {
+      "/open-api/v2/": getSidebar("v2"),
+      "/open-api/v3/": getSidebar("v3"),
+      "/": getSidebar("v3"),
+    },
     outlineTitle: "Mục lục",
     logo: "/app-logo.png",
     search: {

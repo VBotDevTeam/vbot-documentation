@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Open API
-      link: /open-api/introduction.html
+      link: /open-api/v3/introduction.html
     - theme: alt
       text: Web
       link: /web/web-sdk.html

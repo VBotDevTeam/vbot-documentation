@@ -40,7 +40,7 @@ Response API **không còn** trả về trường `status`. Vui lòng sử dụn
 | `data`    | Any    | Dữ liệu trả về                             |
 
 ::: warning Lưu ý quan trọng
-Nếu hệ thống của bạn đang kiểm tra trường `status` để xác định kết quả, hãy chuyển sang sử dụng trường `error`. Xem chi tiết tại [Response format chuẩn](/open-api/introduction#response-format-chuan).
+Nếu hệ thống của bạn đang kiểm tra trường `status` để xác định kết quả, hãy chuyển sang sử dụng trường `error`. Xem chi tiết tại [Response format chuẩn](./introduction#response-format-chuan).
 :::
 
 ### Thêm Webhook Events mới
@@ -82,7 +82,7 @@ Các event cũ vẫn hoạt động nhưng sẽ ngừng hỗ trợ trong tương
 | `HISTORY_CALL`             | `MANUAL_CALL_LOG`    |
 | `HISTORY_CALL_PEERTOPEER`  | `P2P_CALL_LOG`       |
 
-Xem chi tiết payload tại [Webhooks](/open-api/webhooks).
+Xem chi tiết payload tại [Webhooks](./webhooks).
 
 ---
 
@@ -99,7 +99,7 @@ Bổ sung bảng mô tả chi tiết các trạng thái kết quả cuộc gọi
 | `BUSY`      | Máy bận             |
 | `CANCEL`    | Hủy cuộc gọi        |
 
-Xem đầy đủ tại [Lịch sử cuộc gọi](/open-api/call-transaction) và [Lịch sử gọi Campaign](/open-api/campaign-cdr).
+Xem đầy đủ tại [Lịch sử cuộc gọi](./call-transaction) và [Lịch sử gọi Campaign](./campaign-cdr).
 
 ---
 
@@ -111,10 +111,10 @@ Bổ sung nhóm API mới phục vụ tính năng **gọi tự động (Auto Cal
 
 | API                | Mô tả                                    |
 | ------------------ | ----------------------------------------- |
-| [Tạo cuộc gọi](/open-api/campaign-call)        | Tạo cuộc gọi tự động đơn lẻ hoặc hàng loạt |
-| [Trường tùy chỉnh](/open-api/campaign-custom-field) | Quản lý các trường dữ liệu tùy chỉnh     |
-| [Kịch bản gọi](/open-api/campaign-template)    | Quản lý template kịch bản gọi             |
-| [Lịch sử gọi](/open-api/campaign-cdr)          | Tra cứu lịch sử và hội thoại bot          |
+| [Tạo cuộc gọi](./campaign-call)        | Tạo cuộc gọi tự động đơn lẻ hoặc hàng loạt |
+| [Trường tùy chỉnh](./campaign-custom-field) | Quản lý các trường dữ liệu tùy chỉnh     |
+| [Kịch bản gọi](./campaign-template)    | Quản lý template kịch bản gọi             |
+| [Lịch sử gọi](./campaign-cdr)          | Tra cứu lịch sử và hội thoại bot          |
 
 ### Base URL
 
@@ -124,7 +124,7 @@ Tất cả API sử dụng chung Base URL:
 https://open-api.vbot.vn/v2.0
 ```
 
-Xem hướng dẫn xác thực tại [Xác thực](/open-api/authentication).
+Xem hướng dẫn xác thực tại [Xác thực](./authentication).
 
 ---
 
@@ -134,10 +134,10 @@ Xem hướng dẫn xác thực tại [Xác thực](/open-api/authentication).
 
 API `/api/crm/historycall/getAll` bổ sung trường `external_call_id` trong dữ liệu trả về, cho phép liên kết cuộc gọi với hệ thống bên ngoài.
 
-Xem chi tiết tại [Lịch sử cuộc gọi](/open-api/call-transaction).
+Xem chi tiết tại [Lịch sử cuộc gọi](./call-transaction).
 
 ### Webhook trả thêm `external_call_id`
 
 Webhook `HISTORY_CALL` và `HISTORY_CALL_PEERTOPEER` bổ sung trường `external_call_id` trong payload, cho phép liên kết cuộc gọi với hệ thống bên ngoài.
 
-Xem chi tiết tại [Webhooks](/open-api/webhooks#history-call-history-call-peertopeer).
+Xem chi tiết tại [Webhooks](./webhooks#history-call-history-call-peertopeer).

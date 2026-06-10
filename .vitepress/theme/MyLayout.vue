@@ -42,7 +42,6 @@ const changeVersion = (event) => {
   <Layout>
     <template #sidebar-nav-before>
       <div v-if="isOpenApi" class="version-select-container">
-        <label for="version-select" class="version-select-label">Phiên bản Open API</label>
         <select id="version-select" :value="currentVersion" @change="changeVersion" class="version-select">
           <option value="v3">v3 (Mới nhất)</option>
           <option value="v2">v2 (Cũ)</option>
@@ -54,19 +53,10 @@ const changeVersion = (event) => {
 
 <style scoped>
 .version-select-container {
-  padding: 16px 24px 8px;
+  padding: 16px 16px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
   border-bottom: 1px solid var(--vp-c-divider);
-}
-
-.version-select-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--vp-c-text-2);
 }
 
 .version-select {

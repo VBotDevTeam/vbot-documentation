@@ -53,7 +53,7 @@ const changeVersion = (event) => {
 
 <style scoped>
 .version-select-container {
-  padding: 16px 16px;
+  padding: 16px 0;
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid var(--vp-c-divider);
@@ -64,8 +64,9 @@ const changeVersion = (event) => {
   background-color: var(--vp-c-bg-alt);
   border: 1px solid var(--vp-c-brand-1, #19b24f);
   border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 13px;
+  padding: 8px 32px 8px 12px;
+  font-family: var(--font-family, var(--vp-font-family, sans-serif));
+  font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-text-1);
   cursor: pointer;

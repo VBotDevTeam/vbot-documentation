@@ -119,13 +119,6 @@ export default defineConfig({
     },
     nav: [
       { text: "Trang chủ", link: "/" },
-      {
-        text: "Open API",
-        items: [
-          { text: "Open API v3 (Mới nhất)", link: "/open-api/v3/introduction" },
-          { text: "Open API v2 (Cũ)", link: "/open-api/v2/introduction" },
-        ],
-      },
     ],
 
     sidebar: {

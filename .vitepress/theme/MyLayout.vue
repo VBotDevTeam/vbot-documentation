@@ -43,8 +43,8 @@ const changeVersion = (event) => {
     <template #sidebar-nav-before>
       <div v-if="isOpenApi" class="version-select-container">
         <select id="version-select" :value="currentVersion" @change="changeVersion" class="version-select">
-          <option value="v3">v3 (Mới nhất)</option>
-          <option value="v2">v2 (Cũ)</option>
+          <option value="v3">v3 (Latest)</option>
+          <option value="v2">v2</option>
         </select>
       </div>
     </template>

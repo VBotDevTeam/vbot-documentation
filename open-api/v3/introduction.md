@@ -1,28 +1,27 @@
 # Giới thiệu
 
-VBot Open API cung cấp các endpoint cho phép tích hợp hệ thống bên thứ ba với nền tảng VBot — bao gồm quản lý khách hàng, thành viên, hotline, lịch sử cuộc gọi và gọi tự động.
+VBot Open API cung cấp các endpoint cho phép tích hợp hệ thống bên thứ ba với nền tảng VBot — bao gồm thành viên, hotline, lịch sử cuộc gọi và gọi tự động.
 
 ## Thông tin chung
 
-| Thuộc tính         | Giá trị                         |
-| ------------------ | ------------------------------- |
-| **Base URL**       | `https://open-api-h01.vbot.vn/v2.0` |
-| **Content-Type**   | `application/json`              |
-| **Authentication** | Bearer Token                    |
+| Thuộc tính       | Giá trị                             |
+| ---------------- | ----------------------------------- |
+| **Base URL**     | `https://open-api-h01.vbot.vn/v3.0` |
+| **Content-Type** | `application/json`                  |
+| **X-API-Key**    | `token-open-api`                    |
 
 ## Phạm vi tài liệu
 
 Tài liệu mô tả chi tiết quy trình và chức năng nghiệp vụ cho các nhóm API sau:
 
-| Nhóm               | Mô tả                                                                                           |
-| ------------------ | ----------------------------------------------------------------------------------------------- |
-| Quản lý khách hàng | Thêm, sửa, xóa khách hàng và các thông tin liên quan (trạng thái, kiểu, nhóm, trường tùy chỉnh) |
-| Quản lý thành viên | Quản lý thành viên, tài khoản SDK và SIP                                                        |
-| Nhóm & Hotline     | Quản lý nhóm thành viên và hotline                                                              |
-| Lịch sử cuộc gọi   | Tra cứu lịch sử cuộc gọi, file ghi âm                                                           |
-| Gọi tự động        | Chiến dịch gọi, gọi xác nhận, lịch sử gọi campaign, trường tùy chỉnh, template kịch bản         |
-| SDK                | Token, log, thông tin cuộc gọi, lịch sử gọi SDK                                                 |
-| Khác               | Thống kê dự án, OneSME, Webhook SMS                                                             |
+| Nhóm               | Mô tả                                                                                   |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| Quản lý thành viên | Quản lý thành viên, tài khoản SDK và SIP                                                |
+| Nhóm & Hotline     | Quản lý nhóm thành viên và hotline                                                      |
+| Lịch sử cuộc gọi   | Tra cứu lịch sử cuộc gọi, file ghi âm, phiên cuộc gọi                                   |
+| Gọi tự động        | Chiến dịch gọi, gọi xác nhận, lịch sử gọi campaign, trường tùy chỉnh, template kịch bản |
+| SDK                | Token, log, thông tin cuộc gọi, lịch sử gọi SDK                                         |
+| Khác               | Thống kê dự án, OneSME, Webhook SMS                                                     |
 
 ## Response format chuẩn
 

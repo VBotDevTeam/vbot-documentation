@@ -15,16 +15,14 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số              | Kiểu         | Mô tả                   |
 | -------------------- | ------------ | ----------------------- |
-| vbot_id              | String       | VBotID                  |
-| project_code         | String       | Mã nhóm                 |
 | customer_name        | String       | Tên khách hàng          |
 | customer_no          | String       | Mã khách hàng           |
 | customer_address     | String       | Địa chỉ khách hàng      |
@@ -38,8 +36,6 @@ API quản lý thông tin khách hàng.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "customer_name": "sample string 3",
   "customer_no": "sample string 4",
   "customer_address": "sample string 5",
@@ -63,11 +59,11 @@ API quản lý thông tin khách hàng.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -90,16 +86,14 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số              | Kiểu         | Mô tả                   |
 | -------------------- | ------------ | ----------------------- |
-| vbot_id              | String       | VBotID                  |
-| project_code         | String       | Mã nhóm                 |
 | customer_name        | String       | Tên khách hàng          |
 | customer_no          | String       | Mã khách hàng           |
 | customer_address     | String       | Địa chỉ khách hàng      |
@@ -113,8 +107,6 @@ API quản lý thông tin khách hàng.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "customer_name": "sample string 3",
   "customer_no": "sample string 4",
   "customer_address": "sample string 5",
@@ -138,11 +130,11 @@ API quản lý thông tin khách hàng.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -165,35 +157,31 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả         |
-| ------------ | ------ | ------------- |
-| vbot_id      | String | VBotID        |
-| project_code | String | Mã nhóm       |
-| customer_no  | String | Mã khách hàng |
+| Tham số     | Kiểu   | Mô tả         |
+| ----------- | ------ | ------------- |
+| customer_no | String | Mã khách hàng |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "customer_no": "sample string 3"
 }
 ```
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -216,9 +204,9 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Response**
 
@@ -233,16 +221,14 @@ API quản lý thông tin khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số         | Kiểu   | Mô tả             |
 | --------------- | ------ | ----------------- |
-| vbot_id         | String | VBotID            |
-| project_code    | String | Mã nhóm           |
 | customer_no_old | String | Mã khách hàng cũ  |
 | customer_no_new | String | Mã khách hàng mới |
 
@@ -250,8 +236,6 @@ API quản lý thông tin khách hàng.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "customer_no_old": "sample string 3",
   "customer_no_new": "sample string 4"
 }
@@ -259,11 +243,11 @@ API quản lý thông tin khách hàng.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 

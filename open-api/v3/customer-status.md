@@ -15,25 +15,21 @@ API quản lý trạng thái khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả          |
-| ------------ | ------ | -------------- |
-| vbot_id      | String | VBotID         |
-| project_code | String | Mã nhóm        |
-| status_name  | String | Tên trạng thái |
-| status_no    | String | Mã trạng thái  |
+| Tham số     | Kiểu   | Mô tả          |
+| ----------- | ------ | -------------- |
+| status_name | String | Tên trạng thái |
+| status_no   | String | Mã trạng thái  |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "status_name": "sample string 3",
   "status_no": "sample string 4"
 }
@@ -41,11 +37,11 @@ API quản lý trạng thái khách hàng.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -68,25 +64,21 @@ API quản lý trạng thái khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả          |
-| ------------ | ------ | -------------- |
-| vbot_id      | String | VBotID         |
-| project_code | String | Mã nhóm        |
-| status_name  | String | Tên trạng thái |
-| status_no    | String | Mã trạng thái  |
+| Tham số     | Kiểu   | Mô tả          |
+| ----------- | ------ | -------------- |
+| status_name | String | Tên trạng thái |
+| status_no   | String | Mã trạng thái  |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "status_name": "sample string 3",
   "status_no": "sample string 4"
 }
@@ -94,11 +86,11 @@ API quản lý trạng thái khách hàng.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -121,35 +113,31 @@ API quản lý trạng thái khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả         |
-| ------------ | ------ | ------------- |
-| vbot_id      | String | VBotID        |
-| project_code | String | Mã nhóm       |
-| status_no    | String | Mã trạng thái |
+| Tham số   | Kiểu   | Mô tả         |
+| --------- | ------ | ------------- |
+| status_no | String | Mã trạng thái |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "status_no": "sample string 3"
 }
 ```
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -172,16 +160,14 @@ API quản lý trạng thái khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số       | Kiểu   | Mô tả             |
 | ------------- | ------ | ----------------- |
-| vbot_id       | String | VBotID            |
-| project_code  | String | Mã nhóm           |
 | status_no_old | String | Mã trạng thái cũ  |
 | status_no_new | String | Mã trạng thái mới |
 
@@ -189,8 +175,6 @@ API quản lý trạng thái khách hàng.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "status_no_old": "sample string 3",
   "status_no_new": "sample string 4"
 }
@@ -198,11 +182,11 @@ API quản lý trạng thái khách hàng.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 

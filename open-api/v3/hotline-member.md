@@ -15,16 +15,14 @@ API gán và xóa hotline cho thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số        | Kiểu   | Mô tả              |
 | -------------- | ------ | ------------------ |
-| vbot_id        | String | VBotID             |
-| project_code   | String | Mã nhóm            |
 | member_no      | String | Mã thành viên      |
 | hotline_number | String | Số hotline         |
 | allow_call     | Bool   | Cho phép gọi       |
@@ -35,8 +33,6 @@ API gán và xóa hotline cho thành viên.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "member_no": "sample string 3",
   "hotline_number": "sample string 4",
   "allow_call": true,
@@ -47,11 +43,11 @@ API gán và xóa hotline cho thành viên.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -74,35 +70,31 @@ API gán và xóa hotline cho thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả         |
-| ------------ | ------ | ------------- |
-| vbot_id      | String | VBotID        |
-| project_code | String | Mã nhóm       |
-| member_no    | String | Mã thành viên |
+| Tham số   | Kiểu   | Mô tả         |
+| --------- | ------ | ------------- |
+| member_no | String | Mã thành viên |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "member_no": "sample string 3"
 }
 ```
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 

@@ -15,16 +15,14 @@ API quản lý tài khoản SDK của thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số           | Kiểu   | Mô tả                    |
 | ----------------- | ------ | ------------------------ |
-| vbot_id           | String | VBotID                   |
-| project_code      | String | Mã nhóm                  |
 | member_name       | String | Tên thành viên           |
 | member_phone      | String | Số điện thoại thành viên |
 | member_email      | String | Email thành viên         |
@@ -35,8 +33,6 @@ API quản lý tài khoản SDK của thành viên.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "member_name": "sample string 3",
   "member_phone": "sample string 4",
   "member_email": "sample string 5",
@@ -47,11 +43,11 @@ API quản lý tài khoản SDK của thành viên.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -74,16 +70,14 @@ API quản lý tài khoản SDK của thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số      | Kiểu   | Mô tả                    |
 | ------------ | ------ | ------------------------ |
-| vbot_id      | String | VBotID                   |
-| project_code | String | Mã nhóm                  |
 | member_no    | String | Mã thành viên            |
 | member_name  | String | Tên thành viên           |
 | member_phone | String | Số điện thoại thành viên |
@@ -93,8 +87,6 @@ API quản lý tài khoản SDK của thành viên.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "member_no": "sample string 3",
   "member_name": "sample string 4",
   "member_phone": "sample string 5",
@@ -104,11 +96,11 @@ API quản lý tài khoản SDK của thành viên.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 

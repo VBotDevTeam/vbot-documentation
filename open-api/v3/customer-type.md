@@ -15,25 +15,21 @@ API quản lý kiểu (loại) khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả    |
-| ------------ | ------ | -------- |
-| vbot_id      | String | VBotID   |
-| project_code | String | Mã nhóm  |
-| type_name    | String | Tên kiểu |
-| type_no      | String | Mã kiểu  |
+| Tham số   | Kiểu   | Mô tả    |
+| --------- | ------ | -------- |
+| type_name | String | Tên kiểu |
+| type_no   | String | Mã kiểu  |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "type_name": "sample string 3",
   "type_no": "sample string 4"
 }
@@ -41,11 +37,11 @@ API quản lý kiểu (loại) khách hàng.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -68,25 +64,21 @@ API quản lý kiểu (loại) khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả    |
-| ------------ | ------ | -------- |
-| vbot_id      | String | VBotID   |
-| project_code | String | Mã nhóm  |
-| type_name    | String | Tên kiểu |
-| type_no      | String | Mã kiểu  |
+| Tham số   | Kiểu   | Mô tả    |
+| --------- | ------ | -------- |
+| type_name | String | Tên kiểu |
+| type_no   | String | Mã kiểu  |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "type_name": "sample string 3",
   "type_no": "sample string 4"
 }
@@ -94,11 +86,11 @@ API quản lý kiểu (loại) khách hàng.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -121,35 +113,31 @@ API quản lý kiểu (loại) khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả   |
-| ------------ | ------ | ------- |
-| vbot_id      | String | VBotID  |
-| project_code | String | Mã nhóm |
-| type_no      | String | Mã kiểu |
+| Tham số | Kiểu   | Mô tả   |
+| ------- | ------ | ------- |
+| type_no | String | Mã kiểu |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "type_no": "sample string 3"
 }
 ```
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -172,9 +160,9 @@ API quản lý kiểu (loại) khách hàng.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Response**
 

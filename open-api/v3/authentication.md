@@ -4,98 +4,24 @@ outline: deep
 
 # Xác thực
 
-API dùng để lấy access token. Access token là chuỗi mã hóa chứa thông tin của doanh nghiệp, có thời gian hết hạn là 24 giờ.
+VBot Open API v3.0 thực hiện xác thực thông qua API Key, bạn chỉ cần lấy `token-open-api` từ hệ thống và truyền vào Header của mọi request.
 
-## Lấy token
+## Cấu hình Header
 
-Lấy token để truy cập các API khác
+| Key           | Value            |
+| ------------- | ---------------- |
+| **X-API-KEY** | `token-open-api` |
 
-<div class="api-container">
-  <span class="api-method method-post">POST</span>
-  <span>[URL]/token</span>
-</div>
+## Hướng dẫn lấy API Key
 
-## Parameters
+**Bước 1:** Đăng nhập vào trang VBot Console
 
-### Header
+**Bước 2:** Truy cập vào menu **Cài đặt nhóm** -> **Api Key**
 
-|              |                                   |
-| ------------ | --------------------------------- |
-| Accept       | application/json                  |
-| Content-Type | application/x-www-form-urlencoded |
+**Bước 3:** Chọn **Thêm mới**, nhập tên API Key và bấm **Tạo**
 
-### Body
+**Bước 4:** Sao chép API Key
 
-|            |        |                      |
-| ---------- | ------ | -------------------- |
-| username   | String | Tên tài khoản        |
-| password   | String | Mật khẩu             |
-| grant_type | String | Mặc định: "password" |
+API Key này được dùng để xác thực cho Open API V3
 
-```JSON
-{
-    "username": "",
-    "grant_type": "password",
-    "password": ""
-}
-```
-
-### Response
-
-|               |        |                               |
-| ------------- | ------ | ----------------------------- |
-| access_token  | String | Access token truy cập         |
-| token_type    | String | Bearer                        |
-| expires_in    | Long   | Thời hạn token tính bằng giây |
-| refresh_token | String | Chuỗi cấp token mới           |
-
-```JSON
-{
-    "access_token": "du7wzwDFqB3CzFRCYxK76YNziYEHN6YSWN_xUj1ahUGxxxx",
-    "token_type": "bearer",
-    "expires_in": 899,
-    "refresh_token": "f2bd26e2-5274-4ac3-9db6-0b828027f446"
-}
-```
-
-## Lấy token mới
-
-Lấy token mới khi token hết hạn
-
-<div class="api-container">
-  <span class="api-method method-post">POST</span>
-  <span>[URL]/token</span>
-</div>
-
-## Parameters
-
-### Header
-
-|              |                                   |
-| ------------ | --------------------------------- |
-| Accept       | application/json                  |
-| Content-Type | application/x-www-form-urlencoded |
-
-### Body
-
-| refresh_token | String | refresh_token khi lấy token lần đầu |
-| ------------- | ------ | ----------------------------------- |
-| grant_type    | String | Mặc định: "refresh_token"           |
-
-### Response
-
-| access_token  | String | Access token truy cập         |
-| ------------- | ------ | ----------------------------- |
-| token_type    | String | Bearer                        |
-| expires_in    | Long   | Thời hạn token tính bằng giây |
-| refresh_token | String | Chuỗi cấp token mới           |
-
-```JSON
-{
-    "access_token": "du7wzwDFqB3CzFRCYxK76YNziYEHN6YSWN_xUj1ahUGxxxx",
-    "token_type": "bearer",
-    "expires_in": 899,
-    "refresh_token": "f2bd26e2-5274-4ac3-9db6-0b828027f446"
-}
-
-```
+![Open API Key](/open-api-key.png)

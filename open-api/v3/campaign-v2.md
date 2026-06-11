@@ -10,21 +10,19 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/campaign/getAll?vbot_id={vbot_id}&project_code={project_code}&key={key}&campaign_group_code={campaign_group_code}&campaign_type={campaign_type}&page={page}&size={size}</span>
+  <span>[URL]/api/campaignCall/campaign/getAll?key={key}&campaign_group_code={campaign_group_code}&campaign_type={campaign_type}&page={page}&size={size}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
 | Tham số             | Kiểu   | Mô tả                 |
 | ------------------- | ------ | --------------------- |
-| vbot_id             | String | VBotID                |
-| project_code        | String | Mã nhóm               |
 | key                 | String | Từ khóa tìm kiếm      |
 | campaign_group_code | String | Mã nhóm chiến dịch    |
 | campaign_type       | String | Loại chiến dịch       |
@@ -33,10 +31,10 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 
@@ -105,21 +103,19 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/campaign/countAll?vbot_id={vbot_id}&project_code={project_code}&key={key}&campaign_group_code={campaign_group_code}&campaign_type={campaign_type}&page={page}&size={size}</span>
+  <span>[URL]/api/campaignCall/campaign/countAll?key={key}&campaign_group_code={campaign_group_code}&campaign_type={campaign_type}&page={page}&size={size}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
 | Tham số             | Kiểu   | Mô tả                 |
 | ------------------- | ------ | --------------------- |
-| vbot_id             | String | VBotID                |
-| project_code        | String | Mã nhóm               |
 | key                 | String | Từ khóa tìm kiếm      |
 | campaign_group_code | String | Mã nhóm chiến dịch    |
 | campaign_type       | String | Loại chiến dịch       |
@@ -128,11 +124,11 @@ API quản lý chiến dịch gọi tự động phiên bản 2.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Int    | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Int    | Dữ liệu trả về                         |
 
 **Ví dụ response**
 

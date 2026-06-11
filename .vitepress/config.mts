@@ -12,17 +12,6 @@ function getSidebar(version: 'v2' | 'v3') {
         { text: "Xác thực", link: `/open-api/${version}/authentication` },
         { text: "Webhooks", link: `/open-api/${version}/webhooks` },
         {
-          text: "Khách hàng",
-          collapsed: true,
-          items: [
-            { text: "Quản lý khách hàng", link: `/open-api/${version}/customers` },
-            { text: "Trạng thái khách hàng", link: `/open-api/${version}/customer-status` },
-            { text: "Kiểu khách hàng", link: `/open-api/${version}/customer-type` },
-            { text: "Nhóm khách hàng", link: `/open-api/${version}/customer-group` },
-            { text: "Trường thông tin", link: `/open-api/${version}/customer-field` },
-          ],
-        },
-        {
           text: "Thành viên",
           collapsed: true,
           items: [
@@ -52,6 +41,7 @@ function getSidebar(version: 'v2' | 'v3') {
           collapsed: true,
           items: [
             { text: "Lịch sử cuộc gọi", link: `/open-api/${version}/call-transaction` },
+            ...(version === 'v3' ? [{ text: "Phiên cuộc gọi", link: `/open-api/${version}/call-session` }] : []),
           ],
         },
         {
@@ -97,7 +87,6 @@ function getSidebar(version: 'v2' | 'v3') {
     },
   ];
 }
-
 export default defineConfig({
   title: "VBot Documentation",
   description: "Official documentation for VBot",
@@ -119,12 +108,13 @@ export default defineConfig({
     },
     nav: [
       { text: "Trang chủ", link: "/" },
+      { text: "Tài liệu", link: "/open-api/introduction" },
     ],
 
     sidebar: {
-      "/open-api/v2/": getSidebar("v2"),
-      "/open-api/v3/": getSidebar("v3"),
-      "/": getSidebar("v3"),
+      '/open-api/v2/': getSidebar('v2'),
+      '/open-api/v3/': getSidebar('v3'),
+      '/': getSidebar('v3')
     },
     outlineTitle: "Mục lục",
     logo: "/app-logo.png",

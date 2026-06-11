@@ -10,29 +10,27 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/customField/getAllNoPage?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}</span>
+  <span>[URL]/api/campaignCall/customField/getAllNoPage?key_search={key_search}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả            |
-| ------------ | ------ | ---------------- |
-| vbot_id      | String | VBotID           |
-| project_code | String | Mã nhóm          |
-| key_search   | String | Từ khóa tìm kiếm |
+| Tham số    | Kiểu   | Mô tả            |
+| ---------- | ------ | ---------------- |
+| key_search | String | Từ khóa tìm kiếm |
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 
@@ -67,31 +65,29 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/customField/getAll?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}&page={page}&size={size}</span>
+  <span>[URL]/api/campaignCall/customField/getAll?key_search={key_search}&page={page}&size={size}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả                 |
-| ------------ | ------ | --------------------- |
-| vbot_id      | String | VBotID                |
-| project_code | String | Mã nhóm               |
-| key_search   | String | Từ khóa tìm kiếm      |
-| page         | Int    | Số trang              |
-| size         | Int    | Số lượng trên 1 trang |
+| Tham số    | Kiểu   | Mô tả                 |
+| ---------- | ------ | --------------------- |
+| key_search | String | Từ khóa tìm kiếm      |
+| page       | Int    | Số trang              |
+| size       | Int    | Số lượng trên 1 trang |
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 
@@ -126,30 +122,28 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/customField/countAll?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}</span>
+  <span>[URL]/api/campaignCall/customField/countAll?key_search={key_search}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả            |
-| ------------ | ------ | ---------------- |
-| vbot_id      | String | VBotID           |
-| project_code | String | Mã nhóm          |
-| key_search   | String | Từ khóa tìm kiếm |
+| Tham số    | Kiểu   | Mô tả            |
+| ---------- | ------ | ---------------- |
+| key_search | String | Từ khóa tìm kiếm |
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Int    | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Int    | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -167,29 +161,27 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/customField/getDetail?vbot_id={vbot_id}&project_code={project_code}&id={id}</span>
+  <span>[URL]/api/campaignCall/customField/getDetail?id={id}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả   |
-| ------------ | ------ | ------- |
-| vbot_id      | String | VBotID  |
-| project_code | String | Mã nhóm |
-| id           | Int    | ID      |
+| Tham số | Kiểu | Mô tả |
+| ------- | ---- | ----- |
+| id      | Int  | ID    |
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 
@@ -214,30 +206,28 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/customField/checkName?vbot_id={vbot_id}&project_code={project_code}&name={name}</span>
+  <span>[URL]/api/campaignCall/customField/checkName?name={name}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả   |
-| ------------ | ------ | ------- |
-| vbot_id      | String | VBotID  |
-| project_code | String | Mã nhóm |
-| name         | String | Tên     |
+| Tham số | Kiểu   | Mô tả |
+| ------- | ------ | ----- |
+| name    | String | Tên   |
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -255,30 +245,28 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/customField/checkKey?vbot_id={vbot_id}&project_code={project_code}&key={key}</span>
+  <span>[URL]/api/campaignCall/customField/checkKey?key={key}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả            |
-| ------------ | ------ | ---------------- |
-| vbot_id      | String | VBotID           |
-| project_code | String | Mã nhóm          |
-| key          | String | Từ khóa tìm kiếm |
+| Tham số | Kiểu   | Mô tả            |
+| ------- | ------ | ---------------- |
+| key     | String | Từ khóa tìm kiếm |
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -301,28 +289,24 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả   |
-| ------------ | ------ | ------- |
-| vbot_id      | String | VBotID  |
-| project_code | String | Mã nhóm |
-| description  | String | Mô tả   |
-| cfname       | String |         |
-| cfkey        | String |         |
-| cftype       | String |         |
-| is_required  | Bool   |         |
+| Tham số     | Kiểu   | Mô tả |
+| ----------- | ------ | ----- |
+| description | String | Mô tả |
+| cfname      | String |       |
+| cfkey       | String |       |
+| cftype      | String |       |
+| is_required | Bool   |       |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "description": "sample string 3",
   "cfname": "sample string 4",
   "cfkey": "sample string 5",
@@ -333,11 +317,11 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Int    | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Int    | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -360,35 +344,31 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả   |
-| ------------ | ------ | ------- |
-| vbot_id      | String | VBotID  |
-| project_code | String | Mã nhóm |
-| id           | Int    | ID      |
+| Tham số | Kiểu | Mô tả |
+| ------- | ---- | ----- |
+| id      | Int  | ID    |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "id": 3
 }
 ```
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 

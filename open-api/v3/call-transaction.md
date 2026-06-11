@@ -10,24 +10,22 @@ API quản lý lịch sử cuộc gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/crm/historycall/getAll?vbot_id={vbot_id}&project_code={project_code}&phone={phone}&page={page}&size={size}</span>
+  <span>[URL]/api/crm/historycall/getAll?phone={phone}&page={page}&size={size}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả                 |
-| ------------ | ------ | --------------------- |
-| vbot_id      | String | VBotID                |
-| project_code | String | Mã nhóm               |
-| phone        | String | Số điện thoại         |
-| page         | Int    | Số trang              |
-| size         | Int    | Số lượng trên 1 trang |
+| Tham số | Kiểu   | Mô tả                 |
+| ------- | ------ | --------------------- |
+| phone   | String | Số điện thoại         |
+| page    | Int    | Số trang              |
+| size    | Int    | Số lượng trên 1 trang |
 
 **Response**
 
@@ -69,7 +67,6 @@ API quản lý lịch sử cuộc gọi.
       "caller": [
         {
           "phone": "sample string 1",
-          "vbot_id": "sample string 2",
           "date_create": "02/27/2026 14:33:47",
           "disposition": "sample string 4",
           "time_call": "sample string 5",
@@ -82,7 +79,6 @@ API quản lý lịch sử cuộc gọi.
       "callee": [
         {
           "phone": "sample string 1",
-          "vbot_id": "sample string 2",
           "date_create": "02/27/2026 14:33:47",
           "disposition": "sample string 4",
           "time_call": "sample string 5",
@@ -110,26 +106,24 @@ API quản lý lịch sử cuộc gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/crm/historycall/getAll?vbot_id={vbot_id}&project_code={project_code}&from={from}&to={to}&phone={phone}&page={page}&size={size}</span>
+  <span>[URL]/api/crm/historycall/getAll?from={from}&to={to}&phone={phone}&page={page}&size={size}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả                 |
-| ------------ | ------ | --------------------- |
-| vbot_id      | String | VBotID                |
-| project_code | String | Mã nhóm               |
-| from         | Int    | Từ ngày               |
-| to           | Int    | Đến ngày              |
-| phone        | String | Số điện thoại         |
-| page         | Int    | Số trang              |
-| size         | Int    | Số lượng trên 1 trang |
+| Tham số | Kiểu   | Mô tả                 |
+| ------- | ------ | --------------------- |
+| from    | Int    | Từ ngày               |
+| to      | Int    | Đến ngày              |
+| phone   | String | Số điện thoại         |
+| page    | Int    | Số trang              |
+| size    | Int    | Số lượng trên 1 trang |
 
 **Response**
 
@@ -170,7 +164,6 @@ API quản lý lịch sử cuộc gọi.
       "caller": [
         {
           "phone": "sample string 1",
-          "vbot_id": "sample string 2",
           "date_create": "02/27/2026 14:33:47",
           "disposition": "sample string 4",
           "time_call": "sample string 5",
@@ -183,7 +176,6 @@ API quản lý lịch sử cuộc gọi.
       "callee": [
         {
           "phone": "sample string 1",
-          "vbot_id": "sample string 2",
           "date_create": "02/27/2026 14:33:47",
           "disposition": "sample string 4",
           "time_call": "sample string 5",
@@ -211,22 +203,20 @@ API quản lý lịch sử cuộc gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/crm/historycall/countAll?vbot_id={vbot_id}&project_code={project_code}&phone={phone}</span>
+  <span>[URL]/api/crm/historycall/countAll?phone={phone}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả         |
-| ------------ | ------ | ------------- |
-| vbot_id      | String | VBotID        |
-| project_code | String | Mã nhóm       |
-| phone        | String | Số điện thoại |
+| Tham số | Kiểu   | Mô tả         |
+| ------- | ------ | ------------- |
+| phone   | String | Số điện thoại |
 
 **Response**
 
@@ -252,24 +242,22 @@ API quản lý lịch sử cuộc gọi.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/crm/historycall/countAll?vbot_id={vbot_id}&project_code={project_code}&from={from}&to={to}&phone={phone}</span>
+  <span>[URL]/api/crm/historycall/countAll?from={from}&to={to}&phone={phone}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả         |
-| ------------ | ------ | ------------- |
-| vbot_id      | String | VBotID        |
-| project_code | String | Mã nhóm       |
-| from         | Int    | Từ ngày       |
-| to           | Int    | Đến ngày      |
-| phone        | String | Số điện thoại |
+| Tham số | Kiểu   | Mô tả         |
+| ------- | ------ | ------------- |
+| from    | Int    | Từ ngày       |
+| to      | Int    | Đến ngày      |
+| phone   | String | Số điện thoại |
 
 **Response**
 
@@ -300,9 +288,9 @@ API quản lý lịch sử cuộc gọi.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 

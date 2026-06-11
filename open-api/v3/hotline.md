@@ -12,32 +12,30 @@ Lấy danh sách tất cả hotline (số tổng đài) của dự án.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/hotline/getAll?vbot_id={vbot_id}&project_code={project_code}</span>
+  <span>[URL]/api/hotline/getAll</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Bắt buộc | Mô tả    |
-| ------------ | ------ | -------- | -------- |
-| vbot_id      | String | Có       | VBot ID  |
-| project_code | String | Có       | Mã dự án |
+| Tham số | Kiểu | Bắt buộc | Mô tả |
+| ------- | ---- | -------- | ----- |
 
 **Response**
 
-| Tham số               | Kiểu   | Mô tả                                      |
-| --------------------- | ------ | ------------------------------------------ |
-| error                 | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message               | String | Thông tin                                  |
-| data                  | Array  | Danh sách hotlines                         |
-| data[].hotline_name   | String | Tên hotline                                |
-| data[].hotline_number | String | Số hotline                                 |
-| data[].hotline_code   | String | Mã hotline (dùng khi gọi API callConfirm)  |
+| Tham số               | Kiểu   | Mô tả                                     |
+| --------------------- | ------ | ----------------------------------------- |
+| error                 | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)    |
+| message               | String | Thông tin                                 |
+| data                  | Array  | Danh sách hotlines                        |
+| data[].hotline_name   | String | Tên hotline                               |
+| data[].hotline_number | String | Số hotline                                |
+| data[].hotline_code   | String | Mã hotline (dùng khi gọi API callConfirm) |
 
 **Ví dụ response**
 

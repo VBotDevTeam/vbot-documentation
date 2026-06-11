@@ -8,7 +8,7 @@ API tạo cuộc gọi tự động với kịch bản. Hỗ trợ gọi tới m
 
 ## Luồng xác thực & tương tác
 
-![Luồng xác thực VBot Call Automation](/call-automation-flow.png)
+![Luồng xác thực VBot Call Automation](/call-automation-flow-v3.png)
 
 ## Tạo cuộc gọi đơn lẻ
 
@@ -21,16 +21,14 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số          | Kiểu   | Bắt buộc | Mô tả                                       |
 | ---------------- | ------ | -------- | ------------------------------------------- |
-| vbot_id          | String | Có       | VBot ID                                     |
-| project_code     | String | Có       | Mã dự án                                    |
 | phone            | String | Có       | Số điện thoại cần gọi (format: 09xxxxxxxx)  |
 | hotline_code     | String | Có       | Số hotline (số tổng đài)                    |
 | template_code    | String | Có       | Mã template script                          |
@@ -43,8 +41,6 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
 
 ```json
 {
-  "vbot_id": "123",
-  "project_code": "PROJ_001",
   "phone": "0912345678",
   "hotline_code": "0812345678",
   "template_code": "CONFIRM_ORDER",
@@ -60,11 +56,11 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Object | Thông tin cuộc gọi                         |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Object | Thông tin cuộc gọi                     |
 
 **Ví dụ response**
 
@@ -89,16 +85,14 @@ Tạo cuộc gọi tới nhiều số điện thoại cùng lúc.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số                  | Kiểu   | Bắt buộc | Mô tả                    |
 | ------------------------ | ------ | -------- | ------------------------ |
-| vbot_id                  | String | Có       | VBot ID                  |
-| project_code             | String | Có       | Mã dự án                 |
 | hotline_code             | String | Có       | Số hotline (số tổng đài) |
 | template_code            | String | Có       | Mã template script       |
 | phoneInfos               | Array  | Có       | Danh sách số điện thoại  |
@@ -110,8 +104,6 @@ Tạo cuộc gọi tới nhiều số điện thoại cùng lúc.
 
 ```json
 {
-  "vbot_id": "123",
-  "project_code": "PROJ_001",
   "hotline_code": "0812345678",
   "template_code": "CONFIRM_ORDER",
   "phoneInfos": [
@@ -131,11 +123,11 @@ Tạo cuộc gọi tới nhiều số điện thoại cùng lúc.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Object | Thông tin batch call                       |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Object | Thông tin batch call                   |
 
 **Ví dụ response**
 
@@ -159,29 +151,27 @@ Lấy danh sách các trường tùy chỉnh (custom field) được sử dụng
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/callConfirm/getCustomFieldInScript?vbot_id={vbot_id}&project_code={project_code}&template_script_code={template_script_code}</span>
+  <span>[URL]/api/campaignCall/callConfirm/getCustomFieldInScript?template_script_code={template_script_code}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
 | Tham số              | Kiểu   | Mô tả                |
 | -------------------- | ------ | -------------------- |
-| vbot_id              | String | VBotID               |
-| project_code         | String | Mã nhóm              |
 | template_script_code | String | Mã template kịch bản |
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 

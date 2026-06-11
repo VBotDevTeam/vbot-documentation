@@ -15,16 +15,14 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số           | Kiểu   | Mô tả                    |
 | ----------------- | ------ | ------------------------ |
-| vbot_id           | String | VBotID                   |
-| project_code      | String | Mã nhóm                  |
 | member_name       | String | Tên thành viên           |
 | member_username   | String | Tài khoản                |
 | member_password   | String | Mật khẩu                 |
@@ -38,8 +36,6 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "member_name": "sample string 3",
   "member_username": "sample string 4",
   "member_password": "sample string 5",
@@ -53,11 +49,11 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -80,16 +76,14 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số             | Kiểu   | Mô tả         |
 | ------------------- | ------ | ------------- |
-| vbot_id             | String | VBotID        |
-| project_code        | String | Mã nhóm       |
 | member_no           | String | Mã thành viên |
 | member_password_old | String | Mật khẩu cũ   |
 | member_password_new | String | Mật khẩu mới  |
@@ -98,8 +92,6 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "member_no": "sample string 3",
   "member_password_old": "sample string 4",
   "member_password_new": "sample string 5"
@@ -108,11 +100,11 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -135,9 +127,9 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Response**
 
@@ -152,34 +144,30 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả         |
-| ------------ | ------ | ------------- |
-| vbot_id      | String | VBotID        |
-| project_code | String | Mã nhóm       |
-| member_no    | String | Mã thành viên |
+| Tham số   | Kiểu   | Mô tả         |
+| --------- | ------ | ------------- |
+| member_no | String | Mã thành viên |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "member_no": "sample string 3"
 }
 ```
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 

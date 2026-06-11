@@ -12,31 +12,29 @@ Lấy danh sách các kịch bản đang active trong nhóm.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/templateScript/getAll?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}&status={status}&page={page}&size={size}</span>
+  <span>[URL]/api/campaignCall/templateScript/getAll?key_search={key_search}&status={status}&page={page}&size={size}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Bắt buộc | Mô tả                       |
-| ------------ | ------ | -------- | --------------------------- |
-| vbot_id      | String | Có       | VBot ID                     |
-| project_code | String | Có       | Mã dự án                    |
-| key_search   | String |          | Từ khóa tìm kiếm            |
-| status       | Int    |          | Trạng thái (1 = active)     |
-| page         | Int    |          | Số trang (default: 1)       |
-| size         | Int    |          | Số item/trang (default: 20) |
+| Tham số    | Kiểu   | Bắt buộc | Mô tả                       |
+| ---------- | ------ | -------- | --------------------------- |
+| key_search | String |          | Từ khóa tìm kiếm            |
+| status     | Int    |          | Trạng thái (1 = active)     |
+| page       | Int    |          | Số trang (default: 1)       |
+| size       | Int    |          | Số item/trang (default: 20) |
 
 **Response**
 
 | Tham số        | Kiểu   | Mô tả                                      |
 | -------------- | ------ | ------------------------------------------ |
-| error          | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)    |
+| error          | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)     |
 | message        | String | Thông tin                                  |
 | data           | Array  | Danh sách templates                        |
 | data[].id      | Int    | Template ID                                |
@@ -95,31 +93,29 @@ Lấy tổng số kịch bản theo điều kiện lọc (dùng cho phân trang)
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/campaignCall/templateScript/countAll?vbot_id={vbot_id}&project_code={project_code}&key_search={key_search}&status={status}</span>
+  <span>[URL]/api/campaignCall/templateScript/countAll?key_search={key_search}&status={status}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Bắt buộc | Mô tả            |
-| ------------ | ------ | -------- | ---------------- |
-| vbot_id      | String | Có       | VBot ID          |
-| project_code | String | Có       | Mã dự án         |
-| key_search   | String |          | Từ khóa tìm kiếm |
-| status       | Int    |          | Trạng thái       |
+| Tham số    | Kiểu   | Bắt buộc | Mô tả            |
+| ---------- | ------ | -------- | ---------------- |
+| key_search | String |          | Từ khóa tìm kiếm |
+| status     | Int    |          | Trạng thái       |
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Int    | Tổng số template                           |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Int    | Tổng số template                       |
 
 **Ví dụ response**
 

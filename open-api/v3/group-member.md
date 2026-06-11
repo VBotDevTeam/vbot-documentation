@@ -10,31 +10,40 @@ API quản lý nhóm thành viên.
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/api/groupmember/getAll?vbot_id={vbot_id}&project_code={project_code}&key={key}&page={page}&size={size}</span>
+  <span>[URL]/api/groupmember/getAll?key={key}&page={page}&size={size}</span>
 </div>
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Tham số**
 
-| Tham số      | Kiểu   | Mô tả                 |
-| ------------ | ------ | --------------------- |
-| vbot_id      | String | VBotID                |
-| project_code | String | Mã nhóm               |
-| key          | String | Từ khóa tìm kiếm      |
-| page         | Int    | Số trang              |
-| size         | Int    | Số lượng trên 1 trang |
+| Tham số | Kiểu   | Mô tả                 |
+| ------- | ------ | --------------------- |
+| key     | String | Từ khóa tìm kiếm      |
+| page    | Int    | Số trang              |
+| size    | Int    | Số lượng trên 1 trang |
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu         | Mô tả                                  |
+| ------- | ------------ | -------------------------------------- |
+| error   | Int          | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String       | Thông tin                              |
+| data    | List[Object] | Danh sách nhóm thành viên              |
+
+**Cấu trúc phần tử trong `data` (Thông tin nhóm thành viên)**
+
+| Tham số          | Kiểu   | Mô tả               |
+| ---------------- | ------ | ------------------- |
+| group_no         | String | Mã nhóm thành viên  |
+| group_name       | String | Tên nhóm thành viên |
+| description      | String | Mô tả               |
+| group_ext_number | Int    | Số máy nhánh        |
+| is_internal      | Bool   | Là nhóm nội bộ      |
 
 **Ví dụ response**
 
@@ -72,16 +81,14 @@ API quản lý nhóm thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số          | Kiểu   | Mô tả               |
 | ---------------- | ------ | ------------------- |
-| vbot_id          | String | VBotID              |
-| project_code     | String | Mã nhóm             |
 | group_no         | String | Mã nhóm thành viên  |
 | group_name       | String | Tên nhóm thành viên |
 | description      | String | Mô tả               |
@@ -92,8 +99,6 @@ API quản lý nhóm thành viên.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "group_no": "sample string 3",
   "group_name": "sample string 4",
   "description": "sample string 5",
@@ -104,11 +109,11 @@ API quản lý nhóm thành viên.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -131,26 +136,22 @@ API quản lý nhóm thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả               |
-| ------------ | ------ | ------------------- |
-| vbot_id      | String | VBotID              |
-| project_code | String | Mã nhóm             |
-| group_no     | String | Mã nhóm thành viên  |
-| group_name   | String | Tên nhóm thành viên |
-| description  | String | Mô tả               |
+| Tham số     | Kiểu   | Mô tả               |
+| ----------- | ------ | ------------------- |
+| group_no    | String | Mã nhóm thành viên  |
+| group_name  | String | Tên nhóm thành viên |
+| description | String | Mô tả               |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "group_no": "sample string 3",
   "group_name": "sample string 4",
   "description": "sample string 5"
@@ -159,11 +160,11 @@ API quản lý nhóm thành viên.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -186,16 +187,14 @@ API quản lý nhóm thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số      | Kiểu   | Mô tả              |
 | ------------ | ------ | ------------------ |
-| vbot_id      | String | VBotID             |
-| project_code | String | Mã nhóm            |
 | group_no     | String | Mã nhóm thành viên |
 | group_no_new | String | Mã nhóm mới        |
 
@@ -203,8 +202,6 @@ API quản lý nhóm thành viên.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "group_no": "sample string 3",
   "group_no_new": "sample string 4"
 }
@@ -212,11 +209,11 @@ API quản lý nhóm thành viên.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -239,16 +236,14 @@ API quản lý nhóm thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
 | Tham số          | Kiểu   | Mô tả              |
 | ---------------- | ------ | ------------------ |
-| vbot_id          | String | VBotID             |
-| project_code     | String | Mã nhóm            |
 | group_no         | String | Mã nhóm thành viên |
 | group_ext_number | Int    | Mã nhánh nhóm      |
 
@@ -256,8 +251,6 @@ API quản lý nhóm thành viên.
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "group_no": "sample string 3",
   "group_ext_number": 4
 }
@@ -265,11 +258,11 @@ API quản lý nhóm thành viên.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -292,35 +285,31 @@ API quản lý nhóm thành viên.
 
 **Header**
 
-| Tham số       | Giá trị               |
-| ------------- | --------------------- |
-| Authorization | Bearer `access_token` |
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-KEY | `token-open-api` |
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả              |
-| ------------ | ------ | ------------------ |
-| vbot_id      | String | VBotID             |
-| project_code | String | Mã nhóm            |
-| group_no     | String | Mã nhóm thành viên |
+| Tham số  | Kiểu   | Mô tả              |
+| -------- | ------ | ------------------ |
+| group_no | String | Mã nhóm thành viên |
 
 **Ví dụ request**
 
 ```json
 {
-  "vbot_id": "sample string 1",
-  "project_code": "sample string 2",
   "group_no": "sample string 3"
 }
 ```
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 

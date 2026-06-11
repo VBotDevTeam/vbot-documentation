@@ -108,7 +108,6 @@ export default defineConfig({
     },
     nav: [
       { text: "Trang chủ", link: "/" },
-      { text: "Tài liệu", link: "/open-api/introduction" },
     ],
 
     sidebar: {

@@ -17,7 +17,7 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 
@@ -78,7 +78,7 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 
@@ -129,7 +129,7 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Response**
 
@@ -146,7 +146,7 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 

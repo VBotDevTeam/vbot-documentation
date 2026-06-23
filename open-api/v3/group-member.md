@@ -17,7 +17,7 @@ API quản lý nhóm thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 
@@ -83,7 +83,7 @@ API quản lý nhóm thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 
@@ -138,7 +138,7 @@ API quản lý nhóm thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 
@@ -189,7 +189,7 @@ API quản lý nhóm thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 
@@ -238,7 +238,7 @@ API quản lý nhóm thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 
@@ -287,7 +287,7 @@ API quản lý nhóm thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 

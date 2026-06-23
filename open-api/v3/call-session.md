@@ -74,7 +74,7 @@ client.invite(sessionId, hotlineNumber);
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 

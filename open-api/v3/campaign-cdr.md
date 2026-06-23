@@ -141,7 +141,7 @@ Khi file ghi âm cuộc gọi tự động sẵn sàng, hệ thống sẽ gửi 
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 
@@ -181,7 +181,7 @@ Khi file ghi âm cuộc gọi tự động sẵn sàng, hệ thống sẽ gửi 
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 
@@ -355,7 +355,7 @@ Khi file ghi âm cuộc gọi tự động sẵn sàng, hệ thống sẽ gửi 
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 

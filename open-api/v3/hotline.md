@@ -19,7 +19,7 @@ Lấy danh sách tất cả hotline (số tổng đài) của dự án.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 

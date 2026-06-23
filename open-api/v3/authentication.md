@@ -10,7 +10,7 @@ VBot Open API v3.0 thực hiện xác thực thông qua API Key, bạn chỉ c�
 
 | Key           | Value            |
 | ------------- | ---------------- |
-| **X-API-KEY** | `token-open-api` |
+| **X-API-Key** | `token-open-api` |
 
 ## Hướng dẫn lấy API Key
 

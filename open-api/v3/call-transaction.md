@@ -17,7 +17,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 
@@ -113,7 +113,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 
@@ -210,7 +210,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 
@@ -249,7 +249,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 
@@ -290,7 +290,7 @@ API quản lý lịch sử cuộc gọi.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 

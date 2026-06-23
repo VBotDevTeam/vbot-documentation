@@ -23,7 +23,7 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 
@@ -87,7 +87,7 @@ Tạo cuộc gọi tới nhiều số điện thoại cùng lúc.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 
@@ -158,7 +158,7 @@ Lấy danh sách các trường tùy chỉnh (custom field) được sử dụng
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 

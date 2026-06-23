@@ -17,7 +17,7 @@ API thêm/xóa thành viên trong nhóm thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 
@@ -66,7 +66,7 @@ API thêm/xóa thành viên trong nhóm thành viên.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Body**
 

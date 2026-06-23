@@ -19,7 +19,7 @@ Lấy danh sách các kịch bản đang active trong nhóm.
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 
@@ -100,7 +100,7 @@ Lấy tổng số kịch bản theo điều kiện lọc (dùng cho phân trang)
 
 | Tham số   | Giá trị          |
 | --------- | ---------------- |
-| X-API-KEY | `token-open-api` |
+| X-API-Key | `token-open-api` |
 
 **Tham số**
 

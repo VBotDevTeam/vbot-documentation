@@ -4,7 +4,7 @@ outline: deep
 
 # VBot Web SDK
 
-VBot Web SDK cung cấp Web Component `<vbot-widget>` (đã tích hợp sẵn UI, state, CSS và SIP manager) giúp khách hàng tích hợp chức năng tổng đài VBot vào website của mình chỉ với vài dòng code.
+VBot Web SDK cung cấp Web Component `<vbot-widget>` giúp khách hàng tích hợp chức năng tổng đài VBot vào website của mình chỉ với vài dòng code.
 
 ## 1. Tích hợp
 

@@ -4,184 +4,176 @@ outline: deep
 
 # VBot Web SDK
 
-Javascript SDK giúp khách hàng tích hợp VBot vào website của mình.
+VBot Web SDK cung cấp Web Component `<vbot-widget>` (đã tích hợp sẵn UI, state, CSS và SIP manager) giúp khách hàng tích hợp chức năng tổng đài VBot vào website của mình chỉ với vài dòng code.
 
-## Tích hợp
+## 1. Tích hợp
 
 Thêm script bundle từ CDN:
 
+::: code-group
+```html [ESM (Khuyến nghị)]
+<script type="module" src="https://cdn.vbot.vn/vbot-sdk/vbot-sdk.es.js"></script>
+
+<vbot-widget token="YOUR_ACCESS_TOKEN"></vbot-widget>
+```
+
+```html [UMD]
+<script src="https://cdn.vbot.vn/vbot-sdk/vbot-sdk.umd.js" defer></script>
+
+<vbot-widget token="YOUR_ACCESS_TOKEN"></vbot-widget>
+```
+:::
+
+> **Lưu ý:**
+> - UMD build sẽ tự động đăng ký Custom Element `vbot-widget` ngay khi tải xong.
+> - Hãy thay `YOUR_ACCESS_TOKEN` bằng Access Token tài khoản của bạn để SDK tự kết nối và lấy thông tin SIP cấu hình tự động.
+
+---
+
+## 2. Cấu hình Widget (VBotWidgetConfig)
+
+Lập trình viên có thể cấu hình widget thông qua thuộc tính `config` (dưới dạng JSON string) hoặc gọi phương thức `updateWidgetConfig(...)` tại runtime.
+
+Ví dụ:
 ```html
-<script src="https://cdn.vbot.vn/vbot-sdk/vbot-sdk.es.js" defer></script>
+<vbot-widget 
+  token="YOUR_ACCESS_TOKEN" 
+  config='{"autoShowDialpad": false, "themeMode": "auto"}'
+></vbot-widget>
 ```
 
-Khuyến nghị sử dụng `defer` hoặc đặt ở cuối trang để widget đăng ký custom element sau khi tải xong.
+### Các thuộc tính cấu hình hỗ trợ:
 
-## Kết nối
+| Thuộc tính | Kiểu dữ liệu | Mặc định | Mô tả |
+| :--- | :--- | :--- | :--- |
+| `autoShowDialpad` | `boolean` | `false` | Tự động mở bàn phím số (dialpad) khi widget khởi tạo thành công. |
+| `headless` | `boolean` | `false` | Bật chế độ không giao diện (Headless). Chỉ giữ kết nối và xử lý sự kiện âm thanh ngầm. |
+| `ringtoneUrl` | `string` | _Sẵn có_ | URL nhạc chuông khi có cuộc gọi đến. Mặc định dùng nhạc chuông của VBot. |
+| `holdMusicUrl` | `string` | _Sẵn có_ | URL nhạc chờ khi thực hiện cuộc gọi đi. |
+| `ringtoneVolume` | `number` | `0.8` | Âm lượng nhạc chuông (từ `0` đến `1`). |
+| `holdMusicVolume` | `number` | `0.8` | Âm lượng nhạc chờ (từ `0` đến `1`). |
+| `themeMode` | `'auto' \| 'light' \| 'dark'` | `'auto'` | Chế độ hiển thị giao diện sáng/tối. `'auto'` sẽ tự động đồng bộ theo class `.dark` của thẻ `<html>`. |
+| `themeOverrides` | `Record<string, string>` | `null` | Ghi đè các token màu sắc hoặc thiết kế của hệ thống. |
+| `overlayPositions` | `object` | _Xem dưới_ | Cấu hình vị trí hiển thị của các khung popup UI (`dialpad`, `incoming`, `calling`). |
+| `overlayMargins` | `object` | _Xem dưới_ | Cấu hình khoảng cách (margin) theo pixel cho từng khung UI. |
 
-```JAVASCRIPT
+### Cấu hình Vị trí & Margin hiển thị
 
-// Khởi tạo client
-// access_token: Token của user
-var client = await VBotClient(access_token);
+Các giá trị vị trí (`overlayPositions`) được hỗ trợ:
+- `center`, `top-left`, `top-center`, `top-right`, `bottom-left`, `bottom-center`, `bottom-right`.
 
-// Kết nối với máy chủ VBot
-client.connect()
-```
-
-## Nhận các sự kiện kết nối của tài khoản
-
-```JAVASCRIPT
-// CONNECTING = 'connecting',
-// CONNECTED = 'connected',
-// RECOVERING = 'recovering',
-// DISCONNECTING = 'disconnecting',
-// DISCONNECTED = 'disconnected'
-
-client.on('statusUpdate', function (status) {
-    logger.info(`Trạng thái tài khoản đã thay đổi thành ${status}`);
-});
-```
-
-## Lấy danh sách hotline
-
-```JAVASCRIPT
-const hotlines = await client.getHotlines();
-```
-
-## Thực hiện cuộc gọi
-
-```JAVASCRIPT
-try {
-	// Khởi tạo cuộc gọi
-	// phoneNumber: Số điện thoại cần gọi
-	// hotlineNumber: Số hotline
-	const session = await client.invite(phoneNumber, hotlineNumber).catch(logger.error);
-
-	session.on('progressUpdate', response => {
-    	if (response.message.statusCode === 180) {
-        // Web tự phát nhạc chờ tự chọn của mình
-
-      	} else if (response.message.statusCode === 183) {
-    		// Phát nhạc chờ, early media của nhà mạng
-        	session.sessionSetDescription(response.message.body).catch(exception => {
-				session.terminate({
-            	statusCode: 488,
-            	reason_phrase: 'Bad Media Description'
-          		});
-        	});
-      	}
-    });
-
-	if (!session) {
- 	   return;
-	}
-
-	// Hiển thị progress đang gọi
-	// showOutgoingCallProgressHub();
-
-	let { accepted, rejectCause } = await session.accepted(); // wait until the call is picked up
-	if (!accepted) {
-		// Hiển thị màn hình cuộc gọi bị từ chối
-    	// showCallRejectedScreen(rejectCause);
-    	return;
-	}
-
-	// Hiện màn hình cuộc gọi
-	// showCallScreen();
-
-	// Cuộc gọi kết thúc
-	await session.terminated(); // wait until the call is terminated
-} catch (e) {
-	logger.error(e);
+Ví dụ cấu hình vị trí và khoảng cách tùy biến (thường dùng để đặt bàn phím bên trên hoặc bên dưới các nút có sẵn trên web):
+```json
+{
+  "overlayPositions": {
+    "dialpad": "bottom-right",
+    "calling": "bottom-right",
+    "incoming": "bottom-right"
+  },
+  "overlayMargins": {
+    "dialpad": { "bottom": 88, "right": 24 },
+    "calling": { "bottom": 88, "right": 24 },
+    "incoming": { "bottom": 88, "right": 24 }
+  }
 }
 ```
 
-## Lắng nghe sự kiện cuộc gọi đến
+---
 
-```JAVASCRIPT
-client.on('invite', (session) => {
-	try {
-		// Đổ chuông
-    	ringer();
+## 3. Các Phương thức Public (Runtime API)
 
-		// Chờ người dùng trả lời
-    	let { accepted, rejectCause } = await session.accepted();
-    	if (!accepted) {
-    		return;
-    	}
-		// Tắt chuông
-		// Hiển thị màn hình cuộc gọi
-    	// showCallScreen();
+Bạn có thể gọi trực tiếp các phương thức này từ DOM element của `<vbot-widget>`.
 
-		// Cuộc gọi kết thúc
-    	await session.terminated(); // wait until the call is terminated
-  	} catch (e) {
-    	logger.error(e);
-  	} finally {
-		// Tắt màn hình cuộc gọi
-    	// closeCallScreen();
-  	}
+```javascript
+const widget = document.querySelector('vbot-widget');
+```
+
+| Tên phương thức | Tham số | Kiểu trả về | Mô tả |
+| :--- | :--- | :--- | :--- |
+| `updateWidgetConfig(config)` | `VBotWidgetConfig` | `void` | Cập nhật cấu hình của widget tại thời điểm runtime. |
+| `makeCall(phone, hotline?)` | `string, string` | `Promise<void>` | Thực hiện cuộc gọi đi tới số `phone`. `hotline` là tùy chọn. |
+| `answerCall()` | - | `Promise<void>` | Chấp nhận và kết nối cuộc gọi đến. |
+| `hangupCall()` | - | `Promise<void>` | Kết thúc cuộc gọi hiện tại hoặc từ chối cuộc gọi đến. |
+| `sendDTMF(tone)` | `string` | `void` | Gửi tín hiệu DTMF (bấm phím số khi đang đàm thoại). |
+| `getHotlines()` | - | `Promise<Hotline[]>`| Trả về danh sách hotline được cấu hình cho tài khoản. |
+| `showCallUI()` | - | `void` | Mở giao diện bàn phím số/cuộc gọi (chỉ hoạt động ở chế độ builtin UI). |
+| `dismissCallUI()` | - | `void` | Ẩn toàn bộ giao diện overlay của widget. |
+| `setAudioInputDevice(deviceId)` | `string` | `Promise<boolean>` | Thay đổi thiết bị đầu vào microphone bằng Device ID. |
+| `setAudioOutputDevice(deviceId)`| `string` | `Promise<boolean>` | Thay đổi thiết bị đầu ra (loa/tai nghe) bằng Device ID. |
+| `toggleMuteMicrophone()` | - | `void` | Bật/tắt chế độ câm (Mute/Unmute) cho microphone của cuộc gọi hiện tại. |
+| `isMicrophoneMuted()` | - | `boolean` | Kiểm tra microphone của cuộc gọi hiện tại có đang bị tắt tiếng hay không. |
+| `setDialHotline(hotline)` | `string \| null` | `void` | Thay đổi hotline đang được chọn trên bàn phím quay số. |
+| `getCallState()` | - | `string` | Lấy trạng thái cuộc gọi hiện tại (`idle`, `dialing`, `ringing`, `in-call`, `ended`). |
+| `getCallData()` | - | `CallData \| null` | Lấy toàn bộ thông tin chi tiết của cuộc gọi hiện tại (số điện thoại, hướng gọi, ID cuộc gọi...). |
+
+---
+
+## 4. Lắng nghe Sự kiện (Custom Events)
+
+Thẻ `<vbot-widget>` phát ra các sự kiện Custom Event giúp tích hợp chặt chẽ với hệ thống CRM của bạn.
+
+```javascript
+widget.addEventListener('vbot:onCallIncoming', (event) => {
+  console.log('Thông tin cuộc gọi đến:', event.detail);
 });
 ```
 
-## Lắng nghe các sự kiện của cuộc gọi
+### Danh sách các sự kiện:
 
-```JAVASCRIPT
-// TRYING = 'trying',
-// RINGING = 'ringing',
-// ACTIVE = 'active',
-// ON_HOLD = 'on_hold',
-// TERMINATED = 'terminated'
-this.session.on('statusUpdate', function (status) {
-    logger.info(`Trạng thái của cuộc gọi đã thay đổi thành ${status}`);
-});
+| Tên sự kiện | Dữ liệu kèm theo (`event.detail`) | Mô tả sự kiện |
+| :--- | :--- | :--- |
+| `vbot:onConnecting` | - | Bắt đầu khởi tạo kết nối tới tổng đài. |
+| `vbot:onConnected` | - | Kết nối cơ sở dữ liệu thành công. |
+| `vbot:onDisconnected` | - | Ngắt kết nối khỏi máy chủ tổng đài. |
+| `vbot:onUserConnected` | - | Tài khoản SIP đã đăng ký online thành công. |
+| `vbot:onUserDisconnected` | - | Tài khoản SIP đã ngắt đăng ký (offline). |
+| `vbot:onUserConnectionFailed` | `{ error: string }` | Đăng ký tài khoản SIP thất bại. |
+| `vbot:onCallIncoming` | `{ phoneNumber: string, direction: 'incoming' }` | Có cuộc gọi đến từ khách hàng. |
+| `vbot:onCallProgress` | `{ phoneNumber: string, direction: 'outgoing' }` | Đang đổ chuông cuộc gọi đi. |
+| `vbot:onCallAccepted` | `{ phoneNumber: string }` | Cuộc gọi đã được kết nối (nghe máy). |
+| `vbot:onCallEnded` | `{ duration: number }` | Cuộc gọi kết thúc thành công. |
+| `vbot:onCallFailed` | `{ error: string }` | Cuộc gọi thất bại (bận, sai số, lỗi thiết bị...). |
+| `vbot:onCallStateChange` | `{ state: string }` | Trạng thái cuộc gọi thay đổi (`trying`, `ringing`, `active`, `on_hold`, `terminated`). |
+| `vbot:onCallDuration` | `{ duration: number }` | Cập nhật thời gian gọi theo giây. |
+| `vbot:onHotlinesUpdated` | `{ hotlines: Hotline[] }` | Danh sách hotline khả dụng đã được tải xong. |
+| `vbot:onError` | `{ message: string }` | Có lỗi hệ thống phát sinh từ SDK. |
+
+---
+
+## 5. Chế độ không giao diện (Headless Mode)
+
+Nếu muốn tự thiết kế toàn bộ giao diện cuộc gọi riêng phù hợp với thương hiệu, bạn chỉ cần bật cấu hình `headless` trên widget. 
+
+Khi bật `headless`:
+- Thẻ `<vbot-widget>` hoàn toàn ẩn đi và không render bất kỳ popover hay giao diện mặc định nào.
+- SDK chỉ xử lý kết nối SIP, luồng cuộc gọi và tự động phát nhạc chuông/âm thanh đàm thoại ngầm.
+- Bạn hoàn toàn điều khiển cuộc gọi thông qua các phương thức public (ví dụ: `makeCall`, `answerCall`, `hangupCall`) và cập nhật trạng thái UI từ các sự kiện của SDK.
+
+Cú pháp:
+```html
+<vbot-widget token="YOUR_ACCESS_TOKEN" headless="true"></vbot-widget>
 ```
 
-## Các hành động trong một cuộc gọi
+---
 
-```JAVASCRIPT
+## 6. Giao diện & CSS Tokens
 
-// Lấy thông tin số điện thoại đang gọi
-this.session.phoneNumber;
+Giao diện mặc định của SDK được thiết kế hiện đại, responsive và hỗ trợ chuyển đổi giao diện sáng/tối tự động. Bạn có thể thay đổi màu sắc chủ đạo để đồng bộ với website thông qua các CSS Variables truyền vào style của widget hoặc khai báo trong CSS toàn cục:
 
-// Chấp nhận 1 cuộc gọi đến
-await this.session.accept();
-
-// Từ chối 1 cuộc gọi đến
-await this.session.reject();
-
-// Kết thúc cuộc gọi
-await this.session.terminate();
-
-// Hủy 1 cuộc gọi đi
-await this.session.cancel();
-
-// Hold cuộc gọi
-await this.session.hold();
-
-// Unhold cuộc gọi
-await this.session.unhold();
-
-// Mute âm thanh đầu vào
-this.session.media.input.muted = !this.session.media.input.muted;
-
-// Gửi DTMF
-this.session.dtmf(dataset.key);
-
-// Thay đổi I/O devices
-client.defaultMedia.output.id = 'device output id';
-client.defaultMedia.input.id = 'device input id';
-
-//Thay đổi I/O devices của 1 cuộc gọi
-this.session.media.input.volume = 80;
-this.session.media.input.audioProcessing = false;
-this.session.media.input.muted = true;
-this.session.media.output.muted = false;
-this.session.media.setInput({
-  id: 'device input id',
-  audioProcessing: true,
-  volume: 0.8,
-  muted: false
-});
-
+```html
+<vbot-widget
+  token="YOUR_ACCESS_TOKEN"
+  style="--vbot-primary: #10b981; --vbot-call-primary: #22c55e;"
+></vbot-widget>
 ```
+
+### Các CSS Variables chính được hỗ trợ:
+
+- `--vbot-primary`: Màu sắc chủ đạo (Nút bấm chính, viền tiêu điểm).
+- `--vbot-primary-foreground`: Màu chữ hiển thị trên nền màu chủ đạo.
+- `--vbot-background`: Màu nền của bàn phím số/màn hình gọi.
+- `--vbot-foreground`: Màu chữ mặc định.
+- `--vbot-border`: Màu viền phân cách các phần tử.
+- `--vbot-ring`: Màu vòng phát sáng tiêu điểm khi focus.
+- `--vbot-call-primary`: Màu xanh lá cho nút bắt đầu cuộc gọi/nút nghe máy.
+- `--vbot-call-danger`: Màu đỏ cho nút dừng cuộc gọi/nút từ chối.

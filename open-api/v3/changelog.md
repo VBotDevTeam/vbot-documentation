@@ -9,8 +9,19 @@ Trang này ghi lại các thay đổi quan trọng của VBot Open API v3.0. Vui
 ::: warning Cập nhật quan trọng
 
 - **[11/06/2026]** Phát hành API v3.0: Cập nhật Base URL, chuyển sang xác thực bằng Header `X-API-Key` và gỡ bỏ tham số `vbot_id`, `project_code`.
+- **[23/06/2026]** Bổ sung nhóm API Quản lý khách hàng, Tuỳ chỉnh thông tin và Lịch sử tương tác.
 
 :::
+
+## 23/06/2026
+
+### Bổ sung nhóm API Quản lý khách hàng
+
+Bổ sung các nhóm API hỗ trợ quản trị và tích hợp dữ liệu khách hàng:
+
+1. **Quản lý khách hàng**: Bổ sung API truy xuất danh sách, xem chi tiết, đếm số lượng, thêm mới, cập nhật và xóa khách hàng.
+2. **Tuỳ chỉnh thông tin**: Bổ sung API quản lý các cấu hình trường thông tin động của khách hàng.
+3. **Lịch sử tương tác**: Bổ sung API tra cứu lịch sử tương tác của khách hàng.
 
 ## 11/06/2026
 

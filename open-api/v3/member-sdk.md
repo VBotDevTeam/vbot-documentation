@@ -127,7 +127,7 @@ API quản lý tài khoản SDK của thành viên.
 
 | Tham số        | Kiểu   | Mô tả                                      |
 | -------------- | ------ | ------------------------------------------ |
-| Authorization  | String | `Bearer <token-open-api>` (API Key đối tác)|
+| X-API-Key      | String | API Key của đối tác (Token Open API)       |
 
 **Body**
 

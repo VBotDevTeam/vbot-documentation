@@ -113,3 +113,55 @@ API quản lý tài khoản SDK của thành viên.
 ```
 
 ---
+
+## Tạo tài khoản & lấy Token SDK (One-Step Provisioning)
+
+Đầu API này giúp Backend của đối tác tự động lấy JWT token cho tài khoản SDK. Nếu mã thành viên (`member_no`) chưa tồn tại trong hệ thống VBot, API sẽ tự động khởi tạo tài khoản mới và gán danh sách hotline tương ứng trong cùng một bước.
+
+<div class="api-container">
+  <span class="api-method method-post">POST</span>
+  <span>[URL]/api/sdk/tokenSdk</span>
+</div>
+
+**Header**
+
+| Tham số        | Kiểu   | Mô tả                                      |
+| -------------- | ------ | ------------------------------------------ |
+| Authorization  | String | `Bearer <token-open-api>` (API Key đối tác)|
+
+**Body**
+
+| Tham số        | Kiểu               | Bắt buộc | Mô tả                                                        |
+| -------------- | ------------------ | -------- | ------------------------------------------------------------ |
+| `member_no`    | String             | Có       | Mã định danh thành viên duy nhất trong hệ thống của bạn.      |
+| `hotline_codes`| Collection (Array) | Không    | Danh sách mã hotline cho phép SDK sử dụng (chỉ cần thêm 1 lần).|
+
+**Ví dụ request**
+
+```json
+{
+  "member_no": "agent_001",
+  "hotline_codes": [
+    "hotline_main",
+    "hotline_staging"
+  ]
+}
+```
+
+**Response**
+
+| Tham số   | Kiểu   | Mô tả                                                   |
+| --------- | ------ | ------------------------------------------------------- |
+| `error`   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)                  |
+| `message` | String | Thông tin mô tả kết quả                                 |
+| `data`    | String | JWT Token của tài khoản SDK để truyền vào Widget Client |
+
+**Ví dụ response**
+
+```json
+{
+  "error": 0,
+  "message": "success",
+  "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ey..."
+}
+```

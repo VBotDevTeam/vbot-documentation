@@ -54,7 +54,6 @@ Ví dụ:
 | `holdMusicVolume` | `number` | `0.8` | Âm lượng nhạc chờ (từ `0` đến `1`). |
 | `themeMode` | `'auto' \| 'light' \| 'dark'` | `'auto'` | Chế độ hiển thị giao diện sáng/tối. `'auto'` sẽ tự động đồng bộ theo class `.dark` của thẻ `<html>`. |
 | `themeOverrides` | `Record<string, string>` | `null` | Ghi đè các token màu sắc hoặc thiết kế của hệ thống. |
-| `baseUrl` | `string` | `null` | Ghi đè địa chỉ API máy chủ VBot (thích hợp khi trỏ sang staging/dev để test). |
 | `disconnectSoundUrl` | `string` | _Sẵn có_ | URL âm thanh phát ra khi cuộc gọi kết thúc/gác máy (mặc định sử dụng âm thanh `disconnected.webm` của VBot). |
 | `overlayPositions` | `object` | _Xem dưới_ | Cấu hình vị trí hiển thị của các khung popup UI (`dialpad`, `incoming`, `calling`). |
 | `overlayMargins` | `object` | _Xem dưới_ | Cấu hình khoảng cách (margin) theo pixel cho từng khung UI. |
@@ -68,7 +67,6 @@ Ngoài việc cấu hình trong đối tượng `config` JSON, bạn cũng có t
 ```html
 <vbot-widget
   token="YOUR_ACCESS_TOKEN"
-  base-url="https://open-api-staging.vbot.vn/v3.0"
   disconnect-sound-url="https://your-domain.com/assets/my-disconnect-sound.webm"
 ></vbot-widget>
 ```

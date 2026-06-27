@@ -74,6 +74,7 @@ function getSidebar(version: 'v2' | 'v3') {
       collapsed: false,
       items: [
         { text: "Web SDK", link: "/web/web-sdk" },
+        { text: "Cấu hình Backend cho SDK", link: "/web/backend-provisioning" },
         { text: "Web Quick Dial Widget", link: "/web/web-quick-dial-widget" },
       ],
     },

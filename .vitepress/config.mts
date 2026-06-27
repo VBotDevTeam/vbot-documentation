@@ -62,6 +62,7 @@ function getSidebar(version: 'v2' | 'v3') {
       items: [
         { text: "Web SDK", link: "/web/web-sdk" },
         { text: "Web Quick Dial Widget", link: "/web/web-quick-dial-widget" },
+        { text: "Ví dụ tích hợp (Examples)", link: "/web/web-sdk-example" },
       ],
     },
     {

@@ -210,11 +210,11 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                  |
-| ------- | ------ | -------------------------------------- |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
-| message | String | Thông tin                              |
-| data    | String | Dữ liệu trả về                         |
+| Tham số | Kiểu   | Mô tả                                                                                                                                           |
+| ------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| error   | Int    | Mã lỗi:<br>- `0`: Thành công<br>- `404`: Không tìm thấy manager hoặc thành viên<br>- `402`: Không đủ tiền hoặc thêm tiền lỗi<br>- `-1`: Thành viên đang gọi |
+| message | String | Thông tin                                                                                                                                       |
+| data    | String | Dữ liệu trả về                                                                                                                                  |
 
 **Ví dụ response**
 

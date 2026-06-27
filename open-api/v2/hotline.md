@@ -38,6 +38,7 @@ Lấy danh sách tất cả hotline (số tổng đài) của dự án.
 | data[].hotline_name   | String | Tên hotline                                |
 | data[].hotline_number | String | Số hotline                                 |
 | data[].hotline_code   | String | Mã hotline (dùng khi gọi API callConfirm)  |
+| data[].hotline_type   | String | Kiểu hotline (`ALIAS` hoặc `HOTLINE`)       |
 
 **Ví dụ response**
 
@@ -49,12 +50,14 @@ Lấy danh sách tất cả hotline (số tổng đài) của dự án.
     {
       "hotline_name": "Hotline Bán Hàng",
       "hotline_number": "0812345678",
-      "hotline_code": "HL_SALES"
+      "hotline_code": "HL_SALES",
+      "hotline_type": "HOTLINE"
     },
     {
       "hotline_name": "Hotline Hỗ Trợ",
       "hotline_number": "0887654321",
-      "hotline_code": "HL_SUPPORT"
+      "hotline_code": "HL_SUPPORT",
+      "hotline_type": "ALIAS"
     }
   ]
 }

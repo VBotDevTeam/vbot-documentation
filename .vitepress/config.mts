@@ -10,6 +10,7 @@ function getSidebar(version: 'v2' | 'v3') {
         { text: "Giới thiệu", link: `/open-api/${version}/introduction` },
         { text: "Changelog", link: `/open-api/${version}/changelog` },
         { text: "Xác thực", link: `/open-api/${version}/authentication` },
+        { text: "Tài khoản", link: `/open-api/${version}/account` },
         { text: "Webhooks", link: `/open-api/${version}/webhooks` },
         {
           text: "Khách hàng",

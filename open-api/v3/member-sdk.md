@@ -134,7 +134,7 @@ API quản lý tài khoản SDK của thành viên.
 | Tham số        | Kiểu               | Bắt buộc | Mô tả                                                        |
 | -------------- | ------------------ | -------- | ------------------------------------------------------------ |
 | `member_no`    | String             | Có       | Mã định danh thành viên duy nhất trong hệ thống của bạn.      |
-| `hotline_codes`| Collection (Array) | Không    | Danh sách mã hotline cho phép SDK sử dụng (chỉ cần thêm 1 lần).|
+| `hotline_codes`| Collection (Array) | Không    | Danh sách mã hotline cho phép SDK sử dụng (chỉ cần thêm 1 lần). Xem cách lấy mã hotline chuẩn tại [Danh sách hotline](/open-api/v3/hotline).|
 
 **Ví dụ request**
 

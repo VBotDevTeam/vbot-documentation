@@ -26,7 +26,7 @@ Thêm script bundle từ CDN:
 
 > **Lưu ý:**
 > - UMD build sẽ tự động đăng ký Custom Element `vbot-widget` ngay khi tải xong.
-> - Hãy thay `YOUR_ACCESS_TOKEN` bằng Access Token tài khoản của bạn để SDK tự kết nối và lấy thông tin SIP cấu hình tự động.
+> - Hãy thay `YOUR_ACCESS_TOKEN` bằng Access Token tài khoản của bạn để SDK tự kết nối và lấy thông tin SIP cấu hình tự động. Token này được sinh ra từ Backend của bạn bằng cách gọi API của VBot, chi tiết xem tại [Tạo tài khoản & lấy Token SDK](/open-api/v3/member-sdk#tao-tai-khoan-lay-token-sdk-one-step-provisioning).
 
 ---
 

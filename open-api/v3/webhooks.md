@@ -76,11 +76,13 @@ Gói đầy đủ khi cuộc gọi thường hoàn tất, bao gồm lịch sử 
 | callerName            | String  | Tên người gọi                                           |
 | typeCaller            | String  | Loại người gọi (`Website_RTC`, `Phone`, `SIP`, ...)     |
 | channelCaller         | String  | Channel ID người gọi                                    |
+| callerMemberNo        | String  | memberNo của caller                                     |
 | calleeId              | String  | ID người nhận                                           |
 | callee                | String  | Số người nhận                                           |
 | calleeName            | String  | Tên người nhận                                          |
 | typeCallee            | String  | Loại người nhận (`Phone`, `Website_RTC`, `SIP`, ...)    |
 | channelCallee         | String  | Channel ID người nhận                                   |
+| calleeMemberNo        | String  | memberNo của callee                                     |
 | conferenceId          | String  | ID phòng hội nghị (nếu có)                              |
 | telcoCode             | String  | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                  |
 | disposition           | String  | Trạng thái cuộc gọi (`ANSWER`, `NOANSWER`, `BUSY`, ...) |
@@ -154,6 +156,7 @@ Lịch sử 1 cuộc gọi tự động vừa kết thúc. Payload là object ph
 | serviceCharge       | Double | Phí dịch vụ                                             |
 | memberName          | String | Tên thành viên thực hiện                                |
 | memberAccId         | String | Account ID thành viên                                   |
+| memberNo            | String | memberNo của thành viên tạo cuộc gọi tự động             |
 | answerAt            | Long   | Thời điểm nghe máy (Unix timestamp ms)                  |
 | endCallAt           | Long   | Thời điểm kết thúc (Unix timestamp ms)                  |
 | botId               | String | ID của bot xử lý cuộc gọi                               |

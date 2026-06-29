@@ -62,7 +62,15 @@ Trong đó:
 - **name**: Tên người nhận
 - **hotline**: Số hotline sử dụng
 - **phoneNumber**: Số điện thoại cần gọi
-- **externalCallId** _(tùy chọn)_: Mã cuộc gọi từ hệ thống bên ngoài, dùng để liên kết dữ liệu cuộc gọi
+- **externalCallId** _(tùy chọn)_: Mã cuộc gọi từ hệ thống bên ngoài, dùng để liên kết dữ liệu cuộc gọi.
+  <div class="note">
+  <strong>Yêu cầu về giá trị <code>externalCallId</code>:</strong>
+  <ul>
+    <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+    <li>Ký tự hợp lệ: chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+    <li><strong>Không</strong> chứa ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+  </ul>
+  </div>
 
 ## Thao tác trong cuộc gọi
 

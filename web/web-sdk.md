@@ -129,6 +129,16 @@ const widget = document.querySelector("vbot-widget");
 | `getCallState()`                             | -                          | `string`             | Lấy trạng thái cuộc gọi hiện tại (`idle`, `dialing`, `ringing`, `in-call`, `ended`).                                                                                                                                                                   |
 | `getCallData()`                              | -                          | `CallData \| null`   | Lấy toàn bộ thông tin chi tiết của cuộc gọi hiện tại (số điện thoại, hướng gọi, ID cuộc gọi, ID cuộc gọi bên ngoài...).                                                                                                                                |
 
+<div class="note">
+<strong>Lưu ý về giá trị <code>externalCallId</code>:</strong><br/>
+Để đảm bảo định danh chính xác và đồng bộ trên hệ thống VBot, giá trị <code>externalCallId</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
+
 ---
 
 ## 4. Lắng nghe Sự kiện (Custom Events)

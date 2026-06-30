@@ -64,6 +64,7 @@ Ví dụ:
 | `disconnectSoundUrl` | `string`                      | _Sẵn có_   | URL âm thanh phát ra khi cuộc gọi kết thúc/gác máy (mặc định sử dụng âm thanh `disconnected.webm` của VBot). |
 | `overlayPositions`   | `object`                      | _Xem dưới_ | Cấu hình vị trí hiển thị của các khung popup UI (`dialpad`, `incoming`, `calling`).                          |
 | `overlayMargins`     | `object`                      | _Xem dưới_ | Cấu hình khoảng cách (margin) theo pixel cho từng khung UI.                                                  |
+| `enableFloatingBubble` | `boolean`                    | `true`     | Cho phép hiển thị bong bóng cuộc gọi thu nhỏ kéo thả khi ẩn màn hình gọi chính (hỗ trợ cả chế độ headless).   |
 
 ---
 

@@ -39,12 +39,17 @@ Trong **Build Settings**, tìm **User Script Sandboxing**: Chọn **No**
 
 #### Khởi tạo
 
-Trong hàm **application didFinishLaunchingWithOptions**, gọi hàm khởi tạo VBotPhone và khởi tạo voipRegistry
+Trong hàm **application didFinishLaunchingWithOptions**, gọi hàm khởi tạo VBotPhone và khởi tạo voipRegistry:
 
 ```swift
+// Khởi tạo đầy đủ với các cấu hình tùy chọn
 let config = VBotConfig(
-            includesCallsInRecents: true,
-            iconTemplateImageData: UIImage(named: "callkit-icon")?.pngData())
+    supportPopupCall: false,            // Mặc định: false. Cho phép hiển thị popup cuộc gọi.
+    includesCallsInRecents: true,       // Mặc định: false. Cho phép lưu lịch sử cuộc gọi vào nhật ký cuộc gọi hệ thống qua CallKit.
+    iconTemplateImageData: UIImage(named: "callkit-icon")?.pngData(), // Ảnh icon hiển thị trên giao diện CallKit.
+    environment: .production,           // Môi trường API. Mặc định là .production.
+    customBaseUrl: nil                  // URL API tùy chỉnh nếu muốn cấu hình thủ công (ghi đè cấu hình môi trường).
+)
 
 VBotPhone.sharedInstance.setup(with: config)
 
@@ -55,9 +60,11 @@ voipRegistry!.delegate = self
 
 Trong đó:
 
-- **config** là cấu hình tùy chọn cho SDK
-- **includesCallsInRecents**: Hiển thị lịch sử cuộc gọi trong app Điện thoại của iOS
-- **iconTemplateImageData**: Icon được hiển thị trong màn hình CallKit
+- **supportPopupCall**: Cho phép hoặc từ chối hiển thị popup cuộc gọi của SDK.
+- **includesCallsInRecents**: Hiển thị lịch sử cuộc gọi trong app Điện thoại của iOS.
+- **iconTemplateImageData**: Icon được hiển thị trong màn hình cuộc gọi CallKit.
+- **environment**: Chỉ định môi trường kết nối API.
+- **customBaseUrl**: Đường dẫn API URL tùy chọn nếu bạn muốn kết nối trực tiếp đến endpoint riêng. Ghi đè cấu hình từ `environment`.
 
 #### iOS History Call handle
 
@@ -203,24 +210,26 @@ VBotPhone.sharedInstance.getHotlines { hotlines, error in
 
 ### Gọi đi
 
-```SWIFT
-VBotPhone.sharedInstance.startOutgoingCall(name: name, number: phoneNumber, hotline: hotline, externalCallId: "your-external-id") { [weak self] resultAPI in
-	guard let self = self else { return }
-	switch resultAPI {
-	case .success():
-		// start call successful
-    case .failure(let error):
-		// start call error
-		return
-	}
+```swift
+VBotPhone.sharedInstance.startOutgoingCall(
+    displayName: "Nguyễn Văn A",
+    number: "0901234567",
+    hotline: "1900xxxx",
+    externalCallId: "ext-call-123"  // Mã định danh cuộc gọi từ hệ thống ngoài (Tùy chọn)
+) { success, error in
+    if success {
+        // Bắt đầu cuộc gọi đi thành công
+    } else {
+        // Lỗi khởi tạo cuộc gọi đi (lỗi nằm trong biến error)
+    }
 }
 ```
 
 Trong đó:
 
-- **name**: Tên người nhận hiển thị trên CallKit
-- **phoneNumber**: Số điện thoại cần gọi
-- **hotline**: Số hotline sử dụng
+- **displayName**: Tên người nhận hiển thị trên CallKit.
+- **number**: Số điện thoại cần gọi.
+- **hotline**: Số hotline sử dụng.
 - **externalCallId** _(tùy chọn)_: Mã cuộc gọi từ hệ thống bên ngoài, dùng để liên kết dữ liệu cuộc gọi.
   <div class="note">
   <strong>Yêu cầu về giá trị <code>externalCallId</code>:</strong>
@@ -252,27 +261,24 @@ VBotPhone.sharedInstance.muteCall()
 VBotPhone.sharedInstance.onOffSpeaker()
 ```
 
-## Lắng nghe các sự kiện
+## Lắng nghe các sự kiện (Delegate)
 
-**Sử dụng Protocol delegate**
-
-Đăng ký nhận sự kiện VBot:
+Đăng ký nhận các sự kiện cuộc gọi:
 
 ```swift
-  // Đăng ký nhận sự kiện cuộc gọi
-  VBotPhone.sharedInstance.addDelegate(self)
+// Đăng ký nhận delegate
+VBotPhone.sharedInstance.addDelegate(self)
 
-  // Hủy đăng ký
-   deinit {
-       VBotPhone.sharedInstance.removeDelegate(self)
-   }
+// Hủy đăng ký nhận delegate
+deinit {
+    VBotPhone.sharedInstance.removeDelegate(self)
+}
 ```
 
-Các delegate method bao gồm
+Các delegate method được cung cấp bởi `VBotPhoneDelegate`:
 
 ```swift
 protocol VBotPhoneDelegate {
-
     // Trạng thái cuộc gọi thay đổi
     func callStateChanged(state: VBotCallState)
 
@@ -282,16 +288,32 @@ protocol VBotPhoneDelegate {
     // Cuộc gọi đến được chấp nhận (Khi user chọn chấp nhận cuộc gọi)
     func callAccepted()
 
-    // Cuộc gọi kết thúc, cùng nguyên nhân
+    // Cuộc gọi kết thúc, đi kèm nguyên nhân kết thúc cuộc gọi
     func callEnded(reason: VBotEndCallReason)
 
-    // Lấy quyền microphone
+    // Trạng thái quyền truy cập microphone
     func microphonePermission(status: AVAudioSession.RecordPermission)
 
-    // Trạng thái Microphone thay đổi
+    // Trạng thái tắt/mở âm microphone thay đổi
     func callMuteStateDidChange(muted: Bool)
 
+    // Nhận externalCallId (chỉ gọi 1 lần duy nhất khi bắt đầu cuộc gọi có chứa ID này, nếu không nil hoặc không rỗng)
+    func didReceiveExternalCallId(_ externalCallId: String)
 
+    // Yêu cầu hiển thị giao diện cuộc gọi
+    func showCallVC()
+
+    // Yêu cầu quay lại giao diện cuộc gọi
+    func returnToCallVC()
+
+    // Yêu cầu ẩn giao diện cuộc gọi
+    func hideCallVC()
+
+    // Mất kết nối mạng
+    func networkIsUnreachable()
+
+    // Kết nối mạng thay đổi
+    func internetConnectionChanged()
 }
 ```
 
@@ -352,6 +374,91 @@ protocol VBotPhoneDelegate {
     case unknownError = 1999
 ```
 
+---
+
+## Sử dụng với Objective-C
+
+SDK tương thích hoàn toàn để sử dụng từ dự án Objective-C.
+
+### 1. Import Module
+
+Import module trong tệp `.m` hoặc `.mm` của bạn:
+
+```objc
+@import VBotPhoneSDK;
 ```
 
+### 2. Khởi tạo SDK trong AppDelegate
+
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSData *iconData = UIImagePNGRepresentation([UIImage imageNamed:@"callkit-icon"]);
+
+    VBotConfig *config = [[VBotConfig alloc] initWithSupportPopupCall:NO
+                                               includesCallsInRecents:YES
+                                                iconTemplateImageData:iconData
+                                                          environment:VBotEnvironmentProduction
+                                                        customBaseUrl:nil];
+
+    [[VBotPhone sharedInstance] setupWith:config];
+    return YES;
+}
+```
+
+### 3. Thực hiện cuộc gọi đi (Outgoing Call)
+
+```objc
+[[VBotPhone sharedInstance] startOutgoingCallWithDisplayName:@"Nguyễn Văn A"
+                                                      number:@"0901234567"
+                                                     hotline:@"1900xxxx"
+                                              externalCallId:@"ext-call-123" // nil nếu không sử dụng
+                                                  completion:^(BOOL success, NSError * _Nullable error) {
+        if (success) {
+            NSLog(@"Gọi đi thành công");
+        } else {
+            NSLog(@"Gọi đi thất bại với lỗi: %@", error.localizedDescription);
+        }
+    }];
+```
+
+#### 4. Nhận sự kiện cuộc gọi qua Delegate
+
+```objc
+@interface ViewController () <VBotPhoneDelegate>
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [[VBotPhone sharedInstance] addDelegate:self];
+}
+
+- (void)dealloc {
+    [[VBotPhone sharedInstance] removeDelegate:self];
+}
+
+#pragma mark - VBotPhoneDelegate
+
+- (void)callStateChangedWithState:(enum VBotCallState)state {
+    NSLog(@"Trạng thái cuộc gọi thay đổi: %ld", (long)state);
+}
+
+- (void)callStarted {
+    NSLog(@"Cuộc gọi đi đã bắt đầu");
+}
+
+- (void)callAccepted {
+    NSLog(@"Cuộc gọi đã được chấp nhận");
+}
+
+- (void)callEndedWithReason:(enum VBotEndCallReason)reason {
+    NSLog(@"Cuộc gọi kết thúc với nguyên nhân: %ld", (long)reason);
+}
+
+- (void)didReceiveExternalCallId:(NSString *)externalCallId {
+    NSLog(@"Nhận được External Call ID: %@", externalCallId);
+}
+
+@end
 ```

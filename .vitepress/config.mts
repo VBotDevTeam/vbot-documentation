@@ -99,6 +99,13 @@ function getSidebar(version: 'v2' | 'v3') {
         { text: "Hướng dẫn sử dụng", link: "/ios-sdk/huong-dan-su-dung" },
       ],
     },
+    {
+      text: "Flutter SDK",
+      collapsed: false,
+      items: [
+        { text: "Hướng dẫn tích hợp", link: "/flutter-sdk/huong-dan-tich-hop" },
+      ],
+    },
   ];
 }
 export default defineConfig({

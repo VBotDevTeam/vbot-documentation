@@ -28,15 +28,15 @@ Mở file vừa tải về. Sao chép toàn bộ nội dung có trong file
 
 Dùng tài khoản Admin đăng nhập vào website [VBot.vn](https://vbot.vn)
 
-Truy cập vào <span class="highlight-text"> Cài đặt </span> -> <span class="highlight-text"> SDK Mobile Push Credentials </span>
+Truy cập vào <span class="highlight-text"> Cài đặt nhóm </span> -> <span class="highlight-text"> SDK Mobile Push </span>
 
-Chọn <span style="color: #22c55e; border: 1px solid #22c55e; padding: 2px 6px; border-radius: 4px; ">+ Thêm mới</span>
+Chọn <span style="color: #22c55e;">+ Thêm mới</span>
 
 ![Push2](/Push-Notification/Push2.png)
 
 Nhập tên của app
 
-Chọn loại là <span class="highlight-text"> FCM Push Credential</span>
+Chọn loại là <span class="highlight-text"> FCM Push Credential (Android)</span>
 
 Dán nội dung file vừa sao chép ở bước trên vào ô <span class="highlight-text"> KEY </span>
 

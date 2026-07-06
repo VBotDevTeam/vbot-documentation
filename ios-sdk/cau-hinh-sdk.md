@@ -43,8 +43,10 @@ Trong đó phần **config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'Y
 
 Truy cập vào website VBot và đăng nhập
 
-Chọn <span class="highlight-text"> Cài đặt </span> → <span class="highlight-text"> Thành viên </span> → <span class="highlight-text"> Lấy Token SDK </span>
+Chọn <span class="highlight-text"> Cài đặt nhóm</span> → <span class="highlight-text"> Thành viên </span> → <span class="highlight-text"> Lấy Token SDK </span>
 
 Sao chép chuỗi token
 
 ![sdk2](/iOSSDK/sdk2.png)
+
+![sdk3](/iOSSDK/sdk3.png)

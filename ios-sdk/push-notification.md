@@ -121,7 +121,7 @@ vo+A0PVuYKzbkqF6QK6mMqeIptAn8HM28R8ImNyBID=
 
 Truy cập vào website VBot và đăng nhập
 
-Chọn <span class="highlight-text"> Cài đặt </span> → <span class="highlight-text"> SDK Mobile Push Credentials </span> → <span class="highlight-text"> Thêm mới </span>
+Chọn <span class="highlight-text"> Cài đặt nhóm</span> → <span class="highlight-text"> SDK Mobile Push </span> → <span class="highlight-text"> Thêm mới </span>
 
 Chọn như trong hình và dán thông tin trong 2 tệp vào
 

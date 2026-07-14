@@ -156,6 +156,7 @@ widget.addEventListener("vbot:onCallIncoming", (event) => {
 
 | Tên sự kiện                   | Dữ liệu kèm theo (`event.detail`) | Mô tả sự kiện                                                                          |
 | :---------------------------- | :-------------------------------- | :------------------------------------------------------------------------------------- |
+| `vbot:onDial`                 | `{ phoneNumber: string }`         | Kích hoạt khi người dùng bấm nút Gọi trên bàn phím số mặc định của SDK (có thể hủy).    |
 | `vbot:onConnecting`           | -                                 | Bắt đầu khởi tạo kết nối tới tổng đài.                                                 |
 | `vbot:onConnected`            | -                                 | Kết nối cơ sở dữ liệu thành công.                                                      |
 | `vbot:onDisconnected`         | -                                 | Ngắt kết nối khỏi máy chủ tổng đài.                                                    |
@@ -171,6 +172,33 @@ widget.addEventListener("vbot:onCallIncoming", (event) => {
 | `vbot:onCallDuration`         | `{ duration: number }`            | Cập nhật thời gian gọi theo giây.                                                      |
 | `vbot:onHotlinesUpdated`      | `{ hotlines: Hotline[] }`         | Danh sách hotline khả dụng đã được tải xong.                                           |
 | `vbot:onError`                | `{ message: string }`             | Có lỗi hệ thống phát sinh từ SDK.                                                      |
+
+### Cách can thiệp (Intercept) cuộc gọi thủ công từ Bàn phím số
+
+Sự kiện `vbot:onDial` là sự kiện **có thể hủy bỏ (cancelable)**. Khi người dùng bấm nút Gọi trên bàn phím số mặc định của SDK, bạn có thể lắng nghe sự kiện này, gọi `event.preventDefault()` để chặn hành vi gọi ngay lập tức, từ đó tiến hành gọi API của CRM để tạo lịch sử cuộc gọi trước và lấy `externalCallId` rồi mới kích hoạt cuộc gọi thực sự:
+
+```javascript
+widget.addEventListener("vbot:onDial", async (event) => {
+  // 1. Ngăn chặn SDK thực hiện cuộc gọi ngay lập tức
+  event.preventDefault();
+
+  const phoneNumber = event.detail.phoneNumber;
+
+  try {
+    // 2. Gọi API của CRM để tạo lịch sử cuộc gọi trước và lấy ExternalCallId
+    const res = await VbotService.createCallHistory({
+      phoneNumber,
+      ContextType: currentContextType,
+      EntityId: currentEntityId
+    });
+
+    // 3. Thực hiện cuộc gọi thực tế qua SDK kèm theo ExternalCallId vừa lấy được
+    widget.makeCall(phoneNumber, undefined, res.ExternalCallId);
+  } catch (error) {
+    console.error("Lỗi khi khởi tạo lịch sử cuộc gọi:", error);
+  }
+});
+```
 
 ### Cấu trúc đối tượng `CallData`:
 

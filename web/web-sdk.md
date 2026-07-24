@@ -51,20 +51,20 @@ Ví dụ:
 
 ### Các thuộc tính cấu hình hỗ trợ:
 
-| Thuộc tính           | Kiểu dữ liệu                  | Mặc định   | Mô tả                                                                                                        |
-| :------------------- | :---------------------------- | :--------- | :----------------------------------------------------------------------------------------------------------- |
-| `autoShowDialpad`    | `boolean`                     | `false`    | Tự động mở bàn phím số (dialpad) khi widget khởi tạo thành công.                                             |
-| `headless`           | `boolean`                     | `false`    | Bật chế độ không giao diện (Headless). Chỉ giữ kết nối và xử lý sự kiện âm thanh ngầm.                       |
-| `ringtoneUrl`        | `string`                      | _Sẵn có_   | URL nhạc chuông khi có cuộc gọi đến. Mặc định dùng nhạc chuông của VBot.                                     |
-| `holdMusicUrl`       | `string`                      | _Sẵn có_   | URL nhạc chờ khi thực hiện cuộc gọi đi.                                                                      |
-| `ringtoneVolume`     | `number`                      | `0.8`      | Âm lượng nhạc chuông (từ `0` đến `1`).                                                                       |
-| `holdMusicVolume`    | `number`                      | `0.8`      | Âm lượng nhạc chờ (từ `0` đến `1`).                                                                          |
-| `themeMode`          | `'auto' \| 'light' \| 'dark'` | `'auto'`   | Chế độ hiển thị giao diện sáng/tối. `'auto'` sẽ tự động đồng bộ theo class `.dark` của thẻ `<html>`.         |
-| `themeOverrides`     | `Record<string, string>`      | `null`     | Ghi đè các token màu sắc hoặc thiết kế của hệ thống.                                                         |
-| `disconnectSoundUrl` | `string`                      | _Sẵn có_   | URL âm thanh phát ra khi cuộc gọi kết thúc/gác máy (mặc định sử dụng âm thanh `disconnected.webm` của VBot). |
-| `overlayPositions`   | `object`                      | _Xem dưới_ | Cấu hình vị trí hiển thị của các khung popup UI (`dialpad`, `incoming`, `calling`).                          |
-| `overlayMargins`     | `object`                      | _Xem dưới_ | Cấu hình khoảng cách (margin) theo pixel cho từng khung UI.                                                  |
-| `enableFloatingBubble` | `boolean`                    | `true`     | Cho phép hiển thị bong bóng cuộc gọi thu nhỏ kéo thả khi ẩn màn hình gọi chính (hỗ trợ cả chế độ headless).   |
+| Thuộc tính             | Kiểu dữ liệu                  | Mặc định   | Mô tả                                                                                                        |
+| :--------------------- | :---------------------------- | :--------- | :----------------------------------------------------------------------------------------------------------- |
+| `autoShowDialpad`      | `boolean`                     | `false`    | Tự động mở bàn phím số (dialpad) khi widget khởi tạo thành công.                                             |
+| `headless`             | `boolean`                     | `false`    | Bật chế độ không giao diện (Headless). Chỉ giữ kết nối và xử lý sự kiện âm thanh ngầm.                       |
+| `ringtoneUrl`          | `string`                      | _Sẵn có_   | URL nhạc chuông khi có cuộc gọi đến. Mặc định dùng nhạc chuông của VBot.                                     |
+| `holdMusicUrl`         | `string`                      | _Sẵn có_   | URL nhạc chờ khi thực hiện cuộc gọi đi.                                                                      |
+| `ringtoneVolume`       | `number`                      | `0.8`      | Âm lượng nhạc chuông (từ `0` đến `1`).                                                                       |
+| `holdMusicVolume`      | `number`                      | `0.8`      | Âm lượng nhạc chờ (từ `0` đến `1`).                                                                          |
+| `themeMode`            | `'auto' \| 'light' \| 'dark'` | `'auto'`   | Chế độ hiển thị giao diện sáng/tối. `'auto'` sẽ tự động đồng bộ theo class `.dark` của thẻ `<html>`.         |
+| `themeOverrides`       | `Record<string, string>`      | `null`     | Ghi đè các token màu sắc hoặc thiết kế của hệ thống.                                                         |
+| `disconnectSoundUrl`   | `string`                      | _Sẵn có_   | URL âm thanh phát ra khi cuộc gọi kết thúc/gác máy (mặc định sử dụng âm thanh `disconnected.webm` của VBot). |
+| `overlayPositions`     | `object`                      | _Xem dưới_ | Cấu hình vị trí hiển thị của các khung popup UI (`dialpad`, `incoming`, `calling`).                          |
+| `overlayMargins`       | `object`                      | _Xem dưới_ | Cấu hình khoảng cách (margin) theo pixel cho từng khung UI.                                                  |
+| `enableFloatingBubble` | `boolean`                     | `true`     | Cho phép hiển thị bong bóng cuộc gọi thu nhỏ kéo thả khi ẩn màn hình gọi chính (hỗ trợ cả chế độ headless).  |
 
 ---
 
@@ -156,13 +156,13 @@ widget.addEventListener("vbot:onCallIncoming", (event) => {
 
 | Tên sự kiện                   | Dữ liệu kèm theo (`event.detail`) | Mô tả sự kiện                                                                          |
 | :---------------------------- | :-------------------------------- | :------------------------------------------------------------------------------------- |
-| `vbot:onDial`                 | `{ phoneNumber: string }`         | Kích hoạt khi người dùng bấm nút Gọi trên bàn phím số mặc định của SDK (có thể hủy).    |
+| `vbot:onDial`                 | `{ phoneNumber: string }`         | Kích hoạt khi người dùng bấm nút Gọi trên bàn phím số mặc định của SDK (có thể hủy).   |
 | `vbot:onConnecting`           | -                                 | Bắt đầu khởi tạo kết nối tới tổng đài.                                                 |
 | `vbot:onConnected`            | -                                 | Kết nối cơ sở dữ liệu thành công.                                                      |
 | `vbot:onDisconnected`         | -                                 | Ngắt kết nối khỏi máy chủ tổng đài.                                                    |
-| `vbot:onUserConnected`        | -                                 | Tài khoản SIP đã đăng ký online thành công.                                            |
-| `vbot:onUserDisconnected`     | -                                 | Tài khoản SIP đã ngắt đăng ký (offline).                                               |
-| `vbot:onUserConnectionFailed` | `{ error: string }`               | Đăng ký tài khoản SIP thất bại.                                                        |
+| `vbot:onUserConnected`        | -                                 | Tài khoản đã đăng ký online thành công.                                                |
+| `vbot:onUserDisconnected`     | -                                 | Tài khoản đã ngắt đăng ký (offline).                                                   |
+| `vbot:onUserConnectionFailed` | `{ error: string }`               | Đăng ký tài khoản thất bại.                                                            |
 | `vbot:onCallIncoming`         | `{ callData: CallData }`          | Có cuộc gọi đến từ khách hàng.                                                         |
 | `vbot:onCallProgress`         | `{ callData: CallData }`          | Đang đổ chuông cuộc gọi đi.                                                            |
 | `vbot:onCallAccepted`         | `{ callData: CallData }`          | Cuộc gọi đã được kết nối (nghe máy).                                                   |
@@ -189,7 +189,7 @@ widget.addEventListener("vbot:onDial", async (event) => {
     const res = await VbotService.createCallHistory({
       phoneNumber,
       ContextType: currentContextType,
-      EntityId: currentEntityId
+      EntityId: currentEntityId,
     });
 
     // 3. Thực hiện cuộc gọi thực tế qua SDK kèm theo ExternalCallId vừa lấy được

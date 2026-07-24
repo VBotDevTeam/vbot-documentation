@@ -17,9 +17,11 @@ function getSidebar(version: 'v2' | 'v3') {
           collapsed: true,
           items: [
             { text: "Quản lý khách hàng", link: `/open-api/${version}/customers` },
-            { text: "Nhóm khách hàng", link: `/open-api/${version}/customer-group` },
-            { text: "Trạng thái khách hàng", link: `/open-api/${version}/customer-status` },
-            { text: "Kiểu khách hàng", link: `/open-api/${version}/customer-type` },
+            ...(version === 'v2' ? [
+              { text: "Nhóm khách hàng", link: `/open-api/${version}/customer-group` },
+              { text: "Trạng thái khách hàng", link: `/open-api/${version}/customer-status` },
+              { text: "Kiểu khách hàng", link: `/open-api/${version}/customer-type` },
+            ] : []),
             { text: "Trường thông tin động", link: `/open-api/${version}/customer-field` },
             ...(version === 'v3' ? [{ text: "Lịch sử tương tác", link: `/open-api/${version}/action-timeline` }] : []),
           ],

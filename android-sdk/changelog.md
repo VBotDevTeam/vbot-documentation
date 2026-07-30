@@ -6,6 +6,29 @@ outline: deep
 
 Trang này ghi lại các thay đổi của VBot Android SDK. Vui lòng theo dõi để cập nhật tích hợp kịp thời.
 
+## v1.1.1
+
+_Ngày phát hành: 30/07/2026_
+
+### Cập nhật
+
+- **`EndCallReason` đổi tên thành `VBotEndCallReason`**, toàn bộ 23 case chuyển sang camelCase khớp iOS SDK: `Normal` → `normaly`, `Busy` → `busy`, `Unknown` → `unknownError`, `TimeOut` → `timeOut`… Sau bản này, tên case và mã số giống hệt iOS nên logic xử lý mã lỗi dùng chung được cho cả hai nền tảng.
+- **`VBotEndCallReason` có thêm `description`** — mô tả lỗi dạng câu, dùng thay cho việc đọc `.name`.
+- `onErrorCode(code, message)` và `VBotError.message` trả mô tả đọc được thay vì tên hằng số (ví dụ `"No response from server"` thay cho `"DataEmpty"`).
+- `VBotError` có thêm factory `VBotError.from(reason)` và `VBotError.api(code, description)`.
+
+::: warning Nâng cấp từ 1.1.0
+App đang khai `onCallEnded(reason: EndCallReason)` hoặc match case theo tên cũ (`Normal`, `Busy`, `Unknown`…) cần đổi sang `VBotEndCallReason` và tên camelCase tương ứng. Nếu đang so sánh mã số, lưu ý `microphonePermissionDenied` đổi từ `999` thành `9999`.
+:::
+
+::: tip Cập nhật dependency
+
+```groovy
+implementation 'com.github.VBotDevTeam:VBotPhoneSDKAndroid-Public:1.1.1'
+```
+
+:::
+
 ## v1.1.0
 
 _Ngày phát hành: 26/07/2026_

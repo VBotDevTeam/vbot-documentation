@@ -321,58 +321,71 @@ protocol VBotPhoneDelegate {
 
 ## Xem thêm
 
-### VBotEndCallReason và VBotError
+### VBotEndCallReason
 
+Enum nguyên nhân kết thúc cuộc gọi, nhận qua `callEnded(reason:)`. Kiểu `Int` (`@objc`), truy cập giá trị số qua `reason.rawValue`.
+
+| Case | rawValue | Ý nghĩa |
+|---|---|---|
+| `normaly` | 1000 | Cuộc gọi kết thúc bình thường |
+| `busy` | 1001 | Máy bận |
+| `timeOut` | 1004 | Hết thời gian chờ kết nối |
+| `noPushToken` | 1018 | Chưa đăng ký push notification |
+| `notReadyForStartCall` | 2002 | Chưa sẵn sàng để gọi đi / khởi tạo không thành công |
+| `invalidPhoneNumber` | 2004 | Số điện thoại không hợp lệ |
+| `noDataFromServer` | 2005 | Không có dữ liệu từ máy chủ |
+| `endCallBeforeServerStartCall` | 2006 | Cuộc gọi kết thúc khi chưa kết nối |
+| `noSIPCallCreated` | 2007 | Lỗi khi khởi tạo cuộc gọi |
+| `dataInvalid` | 2008 | Dữ liệu không hợp lệ |
+| `noVBotSIPUser` | 2009 | Không tìm thấy thông tin tài khoản |
+| `authenticatedFailed` | 2010 | Xác thực thất bại |
+| `anotherCallInProgress` | 2011 | Đang có cuộc gọi khác |
+| `decline` | 2013 | Từ chối cuộc gọi |
+| `temporarilyUnavailable` | 2014 | Không liên lạc được |
+| `reportNewIncomingCallFailed` | 2016 | Không thể tiếp nhận cuộc gọi đến |
+| `alertDataNotFound` | 2017 | Dữ liệu thông báo không hợp lệ |
+| `setupSIPEndpointFailed` | 2019 | Khởi tạo dịch vụ gọi thất bại |
+| `requestCallKitActionFailed` | 2020 | Thực thi hành động cuộc gọi thất bại |
+| `noSIPAccount` | 2022 | Tài khoản chưa được cấu hình |
+| `incomingCallTimeout` | 2023 | Cuộc gọi đến hết thời gian chờ |
+| `unknownError` | 9996 | Lỗi chưa xác định |
+| `microphonePermissionDenied` | 9999 | Chưa cấp quyền microphone |
+
+```swift
+func callEnded(reason: VBotEndCallReason) {
+    switch reason {
+    case .normaly:
+        // Cuộc gọi kết thúc bình thường
+        break
+    case .busy, .decline, .temporarilyUnavailable:
+        // Đầu bên kia không nhận cuộc gọi
+        break
+    default:
+        print("Cuộc gọi kết thúc, mã: \(reason.rawValue)")
+    }
+}
 ```
-    // Timeout
-    case timeOut = -1001
 
-    // Khởi tạo không thành công
-    case initiationFailed = 1001
+Bảng mã trên cũng dùng cho lỗi trả về từ các hàm SDK: lỗi là `NSError` với `code` trùng `rawValue` tương ứng.
 
-    case initiationFailed_1 = 1002
+```swift
+VBotPhone.sharedInstance.startOutgoingCall(
+    displayName: "Nguyễn Văn A",
+    number: "0901234567",
+    hotline: "1900xxxx"
+) { success, error in
+    guard let error = error else { return }
 
-    // Chưa cấp truyền mic
-    case microphonePermissionDenied = 1003
-
-    case invalidPhoneNumber = 1004
-
-    // Không có dữ liệu từ máy chủ
-    case noDataFromServer = 1005
-
-    case initiationFailed_2 = 1006
-
-    case initiationFailed_3 = 1007
-
-    // Dữ liệu không hợp lệ
-    case dataInvalid = 1008
-
-    case initiationFailed_4 = 1009
-
-    // Xác thực thất bại
-    case authenticatedFailed = 1010
-
-    // Đang có cuộc gọi khác
-    case anotherCallInProgress = 1011
-
-    // Cuộc gọi kết thúc
-    case normal = 1012
-
-    // Từ chối cuộc gọi
-    case decline = 1013
-
-    // Không liên lạc được
-    case temporarilyUnavailable = 1014
-
-    // Máy bận
-    case busy = 1015
-
-    // reportNewIncomingCall lỗi
-    case reportNewIncomingCallFailed = 1016
-
-    // Lỗi chưa xác định
-    case unknownError = 1999
+    if error.code == VBotEndCallReason.anotherCallInProgress.rawValue {
+        // Đang có cuộc gọi khác
+    }
+    print("Gọi đi thất bại: \(error.localizedDescription)")
+}
 ```
+
+::: tip Đối chiếu với Android SDK
+Android SDK dùng enum `VBotEndCallReason` với **tên case và mã số giống hoàn toàn** bảng trên, nên logic xử lý mã lỗi dùng chung được cho cả hai nền tảng.
+:::
 
 ---
 

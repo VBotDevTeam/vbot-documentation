@@ -6,6 +6,24 @@ outline: deep
 
 Trang này ghi lại các thay đổi của VBot iOS SDK. Vui lòng theo dõi để cập nhật tích hợp kịp thời.
 
+## v1.1.8
+
+_Ngày phát hành: 03/08/2026_
+
+### Tính năng mới
+
+- Delegate `callEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty)` cho biết nguyên nhân và bên kết thúc cuộc gọi. Delegate cũ `callEnded(reason:)` vẫn tương thích ngược.
+- SDK map SIP final response/BYE: ví dụ `486` → `busy` / `callee`, `487` → `callerCanceled` / `caller`, `500` → `connectionError` / `server`.
+- `VBotEndCallReason` và `VBotCallEndParty` có `key` và `description` public để hiển thị và analytics.
+
+::: tip Cập nhật Podfile
+
+```ruby
+pod 'VBotPhoneSDKiOS-Public', :git => 'https://github.com/VBotDevTeam/VBotPhoneSDKiOS-Public.git', :tag => '1.1.8'
+```
+
+:::
+
 ## v1.1.7
 
 _Ngày phát hành: 06/07/2026_

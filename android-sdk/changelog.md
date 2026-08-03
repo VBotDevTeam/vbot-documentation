@@ -6,6 +6,24 @@ outline: deep
 
 Trang này ghi lại các thay đổi của VBot Android SDK. Vui lòng theo dõi để cập nhật tích hợp kịp thời.
 
+## v1.1.2
+
+_Ngày phát hành: 03/08/2026_
+
+### Tính năng mới
+
+- Callback `onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty)` cho biết nguyên nhân và bên kết thúc cuộc gọi. Callback một tham số cũ vẫn tương thích ngược.
+- SDK map SIP final response/BYE: ví dụ `486` → `busy` / `callee`, `487` → `callerCanceled` / `caller`, `500` → `connectionError` / `server`.
+- `VBotEndCallReason` và `VBotCallEndParty` có `key` và `description` public để hiển thị và analytics.
+
+::: tip Cập nhật dependency
+
+```groovy
+implementation 'com.github.VBotDevTeam:VBotPhoneSDKAndroid-Public:1.1.2'
+```
+
+:::
+
 ## v1.1.1
 
 _Ngày phát hành: 30/07/2026_

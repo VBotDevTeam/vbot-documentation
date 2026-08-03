@@ -178,6 +178,14 @@ VBotPhone.sharedInstance.connect(token: token, pushkitToken: pushKitToken) { dis
 }
 ```
 
+| SIP | endedBy |
+|---|---|
+| 400–402, 405–408, 412–413, 416, 500 | `server` |
+| 403, 409, 411, 486, 603 | `callee` |
+| 404, 410, 414, 480, 502 | `carrier` |
+| 415 | `system` |
+| 487 | `caller` |
+
 Trong đó:
 
 - **token**: Token SDK của tài khoản VBot <br>
@@ -288,8 +296,8 @@ protocol VBotPhoneDelegate {
     // Cuộc gọi đến được chấp nhận (Khi user chọn chấp nhận cuộc gọi)
     func callAccepted()
 
-    // Cuộc gọi kết thúc, đi kèm nguyên nhân kết thúc cuộc gọi
-    func callEnded(reason: VBotEndCallReason)
+    // Cuộc gọi kết thúc, đi kèm nguyên nhân và bên kết thúc cuộc gọi
+    func callEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty)
 
     // Trạng thái quyền truy cập microphone
     func microphonePermission(status: AVAudioSession.RecordPermission)
@@ -323,7 +331,7 @@ protocol VBotPhoneDelegate {
 
 ### VBotEndCallReason
 
-Enum nguyên nhân kết thúc cuộc gọi, nhận qua `callEnded(reason:)`. Kiểu `Int` (`@objc`), truy cập giá trị số qua `reason.rawValue`.
+Enum nguyên nhân kết thúc cuộc gọi, nhận qua `callEnded(reason:endedBy:)`. Kiểu `Int` (`@objc`), truy cập giá trị số qua `reason.rawValue`, tên ổn định qua `reason.key` và mô tả qua `reason.description`. `endedBy` là `VBotCallEndParty` (`caller`, `callee`, `system`, `server`, `carrier`, `unknown`). Callback cũ `callEnded(reason:)` vẫn tương thích ngược.
 
 | Case | rawValue | Ý nghĩa |
 |---|---|---|
@@ -335,24 +343,43 @@ Enum nguyên nhân kết thúc cuộc gọi, nhận qua `callEnded(reason:)`. Ki
 | `invalidPhoneNumber` | 2004 | Số điện thoại không hợp lệ |
 | `noDataFromServer` | 2005 | Không có dữ liệu từ máy chủ |
 | `endCallBeforeServerStartCall` | 2006 | Cuộc gọi kết thúc khi chưa kết nối |
-| `noSIPCallCreated` | 2007 | Lỗi khi khởi tạo cuộc gọi |
+| `noCallCreated` | 2007 | Lỗi khi khởi tạo cuộc gọi |
 | `dataInvalid` | 2008 | Dữ liệu không hợp lệ |
-| `noVBotSIPUser` | 2009 | Không tìm thấy thông tin tài khoản |
+| `noVBotUser` | 2009 | Không tìm thấy thông tin tài khoản |
 | `authenticatedFailed` | 2010 | Xác thực thất bại |
 | `anotherCallInProgress` | 2011 | Đang có cuộc gọi khác |
 | `decline` | 2013 | Từ chối cuộc gọi |
 | `temporarilyUnavailable` | 2014 | Không liên lạc được |
 | `reportNewIncomingCallFailed` | 2016 | Không thể tiếp nhận cuộc gọi đến |
 | `alertDataNotFound` | 2017 | Dữ liệu thông báo không hợp lệ |
-| `setupSIPEndpointFailed` | 2019 | Khởi tạo dịch vụ gọi thất bại |
+| `setupEndpointFailed` | 2019 | Khởi tạo dịch vụ gọi thất bại |
 | `requestCallKitActionFailed` | 2020 | Thực thi hành động cuộc gọi thất bại |
-| `noSIPAccount` | 2022 | Tài khoản chưa được cấu hình |
+| `noAccount` | 2022 | Tài khoản chưa được cấu hình |
 | `incomingCallTimeout` | 2023 | Cuộc gọi đến hết thời gian chờ |
+| `incorrectInformation` | 2024 | Thông tin không chính xác |
+| `unauthenticated` | 2025 | Chưa xác thực |
+| `insufficientBalance` | 2026 | Số dư không đủ |
+| `recipientBlocksCalls` | 2027 | Người nhận chặn cuộc gọi |
+| `destinationNotFound` | 2028 | Không tìm thấy số đích |
+| `callIntervalNotAllowed` | 2029 | Không được phép gọi trong khung giờ này |
+| `memberNotActivated` | 2030 | Thành viên chưa kích hoạt |
+| `memberNotInProject` | 2031 | Thành viên không thuộc dự án |
+| `doNotDisturb` | 2032 | Không làm phiền |
+| `destinationGone` | 2033 | Số đích không còn tồn tại |
+| `recipientAbsent` | 2034 | Người nhận vắng mặt |
+| `packageExpired` | 2035 | Gói cước đã hết hạn |
+| `hotlineTelcoNotSupported` | 2036 | Hotline không hỗ trợ nhà mạng |
+| `telcoNotFound` | 2037 | Không tìm thấy nhà mạng |
+| `invalidParameter` | 2038 | Tham số không hợp lệ |
+| `projectExpired` | 2039 | Dự án đã hết hạn |
+| `callerCanceled` | 2040 | Người gọi đã hủy |
+| `connectionError` | 2041 | Lỗi kết nối |
+| `transmissionError` | 2042 | Lỗi đường truyền |
 | `unknownError` | 9996 | Lỗi chưa xác định |
 | `microphonePermissionDenied` | 9999 | Chưa cấp quyền microphone |
 
 ```swift
-func callEnded(reason: VBotEndCallReason) {
+func callEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
     switch reason {
     case .normaly:
         // Cuộc gọi kết thúc bình thường
@@ -361,7 +388,7 @@ func callEnded(reason: VBotEndCallReason) {
         // Đầu bên kia không nhận cuộc gọi
         break
     default:
-        print("Cuộc gọi kết thúc, mã: \(reason.rawValue)")
+        print("Cuộc gọi kết thúc: \(reason.key), bởi \(endedBy.key)")
     }
 }
 ```
@@ -465,8 +492,9 @@ Import module trong tệp `.m` hoặc `.mm` của bạn:
     NSLog(@"Cuộc gọi đã được chấp nhận");
 }
 
-- (void)callEndedWithReason:(enum VBotEndCallReason)reason {
-    NSLog(@"Cuộc gọi kết thúc với nguyên nhân: %ld", (long)reason);
+- (void)callEndedWithReason:(enum VBotEndCallReason)reason
+                     endedBy:(enum VBotCallEndParty)endedBy {
+    NSLog(@"Cuộc gọi kết thúc: %@, bởi %@", reason.key, endedBy.key);
 }
 
 - (void)didReceiveExternalCallId:(NSString *)externalCallId {

@@ -8,9 +8,9 @@ Hướng dẫn cấu hình VBot iOS SDK.
 
 ## Cài đặt SDK
 
-### Cocoapod
+### CocoaPods qua Git repository
 
-Thêm **VBotPhoneSDK** vào Podfile
+Thêm **VBotPhoneSDK** vào Podfile.
 
 ```swift
 platform :ios, '13.5'
@@ -18,7 +18,7 @@ platform :ios, '13.5'
 target 'Runner' do
   use_frameworks! :linkage => :static
 
-  pod 'VBotPhoneSDKiOS-Public', '1.1.7'
+  pod 'VBotPhoneSDKiOS-Public', :git => 'https://github.com/VBotDevTeam/VBotPhoneSDKiOS-Public.git', :tag => '1.1.8'
 
   target 'RunnerTests' do
     inherit! :search_paths
@@ -36,6 +36,8 @@ post_install do |installer|
   end
 end
 ```
+
+Sau đó chạy `pod install`.
 
 Trong đó phần **config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'** là bắt buộc để VBotPhoneSDK hoạt động với các phiên bản Swift mới hơn
 

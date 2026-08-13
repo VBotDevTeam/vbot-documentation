@@ -64,6 +64,7 @@ function getSidebar(version: 'v2' | 'v3') {
           collapsed: true,
           items: [
             { text: "Tạo cuộc gọi", link: `/open-api/${version}/campaign-call` },
+            ...(version === 'v3' ? [{ text: "Gọi thành viên SDK", link: `/open-api/${version}/campaign-sdk-member` }] : []),
             { text: "Trường tùy chỉnh", link: `/open-api/${version}/campaign-custom-field` },
             { text: "Kịch bản gọi", link: `/open-api/${version}/campaign-template` },
             { text: "Lịch sử gọi", link: `/open-api/${version}/campaign-cdr` },

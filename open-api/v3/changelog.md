@@ -11,8 +11,19 @@ Trang này ghi lại các thay đổi quan trọng của VBot Open API v3.0. Vui
 - **[11/06/2026]** Phát hành API v3.0: Cập nhật Base URL, chuyển sang xác thực bằng Header `X-API-Key` và gỡ bỏ tham số `vbot_id`, `project_code`.
 - **[23/06/2026]** Bổ sung nhóm API Quản lý khách hàng, Tuỳ chỉnh thông tin và Lịch sử tương tác.
 - **[27/06/2026]** Bổ sung API Tạo tài khoản & lấy Token SDK một bước (`POST /api/sdk/tokenSdk`), API lấy số dư tài khoản Admin (`GET /api/account/balance`), cập nhật trường `hotline_type` trong danh sách hotline (`GET /api/hotline/getAll`) và tính năng âm thanh ngắt kết nối (`disconnectSoundUrl`).
+- **[13/08/2026]** Bổ sung API Tạo cuộc gọi tự động đến tài khoản thành viên SDK (`POST /api/call/create-list-member`) và trang hướng dẫn nghiệp vụ Gọi thành viên SDK.
 
 :::
+
+## 13/08/2026
+
+### Bổ sung API Tạo cuộc gọi tự động cho thành viên SDK
+
+1. **API Tạo cuộc gọi tự động đến thành viên SDK (`POST /api/call/create-list-member`)**:
+   - Bổ sung API cho phép Backend đối tác phát cuộc gọi cảnh báo trực tiếp qua VoIP tới danh sách tài khoản SDK (`member_no`).
+   - Tùy chỉnh tên hiển thị (`display_name`), mã kịch bản cuộc gọi (`template_code`), giới hạn thời gian và danh sách các biến tùy chỉnh (`datas`).
+2. **Cập nhật trang tài liệu Gọi thành viên SDK**:
+   - Bổ sung trang tài liệu nghiệp vụ [Gọi thành viên SDK](/open-api/v3/campaign-sdk-member) bao gồm sơ đồ luồng tuần tự Backend, Usecase tích hợp SDK và liên kết sự kiện Webhook (`AUTO_CALL_COMPLETE`, `AUTO_CALL_AI_EXTRACTION`, `AUTO_CALL_RECORDING`).
 
 ## 27/06/2026
 

@@ -44,7 +44,7 @@ Sau khi tạo tài khoản SDK thành công, đối tác gọi API để lấy t
 
 <div class="api-container">
   <span class="api-method method-post">POST</span>
-  <span>[URL]/api/call/create-list-member</span>
+  <span>[URL]/m-auto-call/api/call/create-list-member</span>
 </div>
 
 **Header**
@@ -117,9 +117,12 @@ Các API được sử dụng để lấy thông tin cần thiết trước khi 
 
 1. **Lấy danh sách thành viên & `member_no`**:  
    Xem tại [Lấy danh sách thành viên](/open-api/v3/member#lay-danh-sach-thanh-vien).
-2. **Lấy danh sách kịch bản mẫu & `template_code`**:  
+2. **Lấy danh sách kịch bản mẫu & `template_code`**:
+   Lấy danh sách kịch bản mẫu và mã của từng kịch bản (trả qua param `code`). Mỗi cuộc gọi tự động sẽ sử dụng 1 kịch bản, tương ứng với 1 `template_code` truyền vào.
    Xem tại [Lấy danh sách kịch bản](/open-api/v3/campaign-template#lay-danh-sach-kich-ban).
+
 3. **Lấy các biến tùy chỉnh trong kịch bản (`datas`)**:  
+   Với các kịch bản có biến tuỳ chỉnh (custom field), đối tác gọi api để lấy danh sách các biến trong kịch bản đó (Tải danh sách biến tuỳ chỉnh ngay sau khi chọn kịch bản). Các biến và giá trị sẽ được truyền vào `datas` của `member_infos` trong api tạo cuộc gọi tự động.
    Xem tại [Lấy trường tùy chỉnh trong kịch bản](/open-api/v3/campaign-call#lay-truong-tuy-chinh-trong-kich-ban).
 
 ## Nhận sự kiện thông qua Webhook sau khi kết thúc cuộc gọi

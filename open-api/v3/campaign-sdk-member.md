@@ -4,12 +4,12 @@ outline: deep
 
 # Gọi tự động cho thành viên SDK
 
-VBot cung cấp Open API tạo cuộc gọi tự động đến tài khoản thành viên trong cùng nhóm tổng đài, bao gồm cả tài khoản VBot và tài khoản SDK.
+VBot cung cấp Open API thực hiện cuộc gọi tự động trực tiếp qua VoIP đến các tài khoản thành viên (VBot hoặc SDK).
 
 ::: tip Bài toán & Giải pháp
 
-- **Bài toán**: Hệ thống đối tác muốn phát cảnh báo khẩn cấp, quan trọng tới khách hàng, nhưng push notification thông thường dễ bị bỏ qua. Cuộc gọi phải được truyền trực tiếp qua VoIP, không đi qua nhà mạng.
-- **Giải pháp**: VBot cung cấp Open API tạo cuộc gọi cảnh báo trực tiếp tới tài khoản SDK của khách hàng, có thể tùy chỉnh theo từng cuộc gọi (tên hiển thị, tài khoản nhận cuộc gọi). Cuộc gọi tự động được đi thẳng qua VoIP không thông qua nhà mạng.
+- **Bài toán**: Phát cảnh báo khẩn cấp đến khách hàng một cách hiệu quả, tránh bỏ sót như thông báo đẩy (push notification) thông thường.
+- **Giải pháp**: Tích hợp Open API để thực hiện cuộc gọi VoIP trực tiếp tới tài khoản SDK của khách hàng, hỗ trợ tuỳ chỉnh tên hiển thị và thông tin cuộc gọi.
   :::
 
 ## Sơ đồ nghiệp vụ

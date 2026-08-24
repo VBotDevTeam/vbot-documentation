@@ -37,6 +37,16 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
 | external_call_id | String |          | Mã cuộc gọi từ hệ thống bên ngoài           |
 | datas            | Object |          | Dữ liệu biến thay thế trong kịch bản        |
 
+<div class="note">
+<strong>Lưu ý về giá trị <code>external_call_id</code>:</strong><br/>
+Giá trị <code>external_call_id</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
+
 **Ví dụ request**
 
 ```json
@@ -46,7 +56,7 @@ Tạo cuộc gọi tới một số điện thoại duy nhất.
   "template_code": "CONFIRM_ORDER",
   "max_time": -1,
   "max_waiting_time": 30,
-  "external_call_id": "EXT_CALL_001",
+  "external_call_id": "extcall001",
   "datas": {
     "customer_name": "Nguyễn Văn A",
     "order_id": "ORD_12345"
@@ -97,8 +107,9 @@ Tạo cuộc gọi tới nhiều số điện thoại cùng lúc.
 | template_code            | String | Có       | Mã template script       |
 | phoneInfos               | Array  | Có       | Danh sách số điện thoại  |
 | phoneInfos[].phone       | String | Có       | Số điện thoại            |
-| phoneInfos[].name        | String | Có       | Tên khách hàng           |
-| phoneInfos[].customerUid | String | Có       | ID khách hàng (unique)   |
+| phoneInfos[].name        | String |          | Tên khách hàng           |
+| phoneInfos[].customerUid | String |          | ID khách hàng (unique)   |
+| phoneInfos[].datas       | Object |          | Dữ liệu biến thay thế    |
 
 **Ví dụ request**
 

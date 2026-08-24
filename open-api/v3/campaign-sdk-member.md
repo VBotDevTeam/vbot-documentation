@@ -68,6 +68,16 @@ Sau khi tạo tài khoản SDK thành công, đối tác gọi API để lấy t
 | `member_infos[].name`             | String | Không    | Tên thành viên.                                                                   |
 | `member_infos[].datas`            | Object | Không    | Danh sách giá trị của các trường thông tin trong kịch bản (custom fields).        |
 
+<div class="note">
+<strong>Lưu ý về giá trị <code>external_call_id</code>:</strong><br/>
+Giá trị <code>external_call_id</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
+
 **Ví dụ Request**
 
 ```json
@@ -79,7 +89,7 @@ Sau khi tạo tài khoản SDK thành công, đối tác gọi API để lấy t
   "max_waiting_time": 30,
   "member_infos": [
     {
-      "external_call_id": "EXT_CALL_001",
+      "external_call_id": "extcall001",
       "member_no": "agent_001",
       "name": "Nguyễn Văn A",
       "datas": {

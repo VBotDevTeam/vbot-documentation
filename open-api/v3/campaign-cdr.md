@@ -83,6 +83,16 @@ Payload gồm 3 phần chính:
 | externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài          |
 | recordUrl      | String | URL tải file ghi âm (yêu cầu Bearer token) |
 
+<div class="note">
+<strong>Lưu ý về giá trị <code>externalCallId</code>:</strong><br/>
+Giá trị <code>externalCallId</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
+
 ---
 
 ## Webhook: AI trích xuất cuộc gọi tự động
@@ -100,6 +110,16 @@ Khi AI hoàn tất trích xuất dữ liệu từ cuộc gọi tự động, h�
 | transId           | String | Mã giao dịch cuộc gọi                                              |
 | externalCallId    | String | Mã cuộc gọi từ hệ thống bên ngoài                                  |
 | callCollectedData | String | Kết quả AI trích xuất (JSON string) — danh sách các trường dữ liệu |
+
+<div class="note">
+<strong>Lưu ý về giá trị <code>externalCallId</code>:</strong><br/>
+Giá trị <code>externalCallId</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
 
 **Cấu trúc mỗi item trong `callCollectedData`:**
 
@@ -127,6 +147,16 @@ Khi file ghi âm cuộc gọi tự động sẵn sàng, hệ thống sẽ gửi 
 | transId        | String | Mã giao dịch cuộc gọi                      |
 | externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài          |
 | recordUrl      | String | URL tải file ghi âm (yêu cầu Bearer token) |
+
+<div class="note">
+<strong>Lưu ý về giá trị <code>externalCallId</code>:</strong><br/>
+Giá trị <code>externalCallId</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
 
 ---
 

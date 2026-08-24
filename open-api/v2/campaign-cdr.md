@@ -18,70 +18,80 @@ Khi một cuộc gọi tự động (auto call) hoàn tất, hệ thống sẽ g
 
 Payload gồm 3 phần chính:
 
-| Phần                    | Kiểu   | Mô tả                                    |
-| ----------------------- | ------ | ----------------------------------------- |
-| autoCallLog             | Object | Thông tin chi tiết cuộc gọi               |
-| autoCallAIExtraction    | Object | Dữ liệu AI trích xuất từ cuộc hội thoại  |
-| autoCallRecording       | Object | Thông tin ghi âm cuộc gọi                 |
+| Phần                 | Kiểu   | Mô tả                                   |
+| -------------------- | ------ | --------------------------------------- |
+| autoCallLog          | Object | Thông tin chi tiết cuộc gọi             |
+| autoCallAIExtraction | Object | Dữ liệu AI trích xuất từ cuộc hội thoại |
+| autoCallRecording    | Object | Thông tin ghi âm cuộc gọi               |
 
 ### `autoCallLog` — Lịch sử cuộc gọi
 
-| Tham số             | Kiểu   | Mô tả                                                        |
-| -------------------- | ------ | ------------------------------------------------------------ |
-| phone                | String | Số điện thoại khách hàng                                     |
-| duration             | Int    | Tổng thời lượng cuộc gọi (giây)                              |
-| billsec              | Int    | Thời lượng tính cước (giây)                                  |
-| disposition          | String | Trạng thái cuộc gọi (`ANSWER`, `NOANSWER`, `BUSY`, ...)     |
-| hotlineCode          | String | Mã hotline (số tổng đài)                                     |
-| inputLog             | String | Log tương tác DTMF của khách hàng                            |
-| voiceText            | String | Nội dung thoại đã chuyển thành văn bản (STT)                |
-| postage              | Double | Cước phí cuộc gọi                                            |
-| serviceCharge        | Double | Phí dịch vụ                                                  |
-| memberName           | String | Tên thành viên thực hiện                                     |
-| memberAccId          | String | Account ID thành viên                                        |
-| answerAt             | Long   | Thời điểm nghe máy (Unix timestamp ms)                       |
-| endCallAt            | Long   | Thời điểm kết thúc cuộc gọi (Unix timestamp ms)             |
-| botId                | String | ID của bot xử lý cuộc gọi                                    |
-| campaignName         | String | Tên chiến dịch                                               |
-| campaignGroupName    | String | Tên nhóm chiến dịch                                          |
-| templateScriptCode   | String | Mã kịch bản template                                         |
-| templateScriptName   | String | Tên kịch bản template                                        |
-| transId              | String | Mã giao dịch cuộc gọi (duy nhất)                            |
-| createAt             | Long   | Thời điểm tạo cuộc gọi (Unix timestamp ms)                  |
-| postageService       | Double | Cước dịch vụ bổ sung                                         |
-| postageBotService    | Double | Cước dịch vụ bot                                             |
-| telcoCode            | String | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                      |
-| projectCode          | String | Mã dự án                                                     |
-| callNet              | String | Loại cuộc gọi (`OFFNET`, `ONNET`)                            |
-| metaData             | String | Dữ liệu meta (JSON string) — các biến đầu vào kịch bản      |
-| metaDataDescription  | String | Mô tả các trường meta (JSON string)                          |
-| externalCallId       | String | Mã cuộc gọi từ hệ thống bên ngoài                            |
-| callCollectedData    | String | Dữ liệu thu thập từ cuộc gọi (JSON string) — bao gồm cả kết quả AI |
+| Tham số             | Kiểu   | Mô tả                                                              |
+| ------------------- | ------ | ------------------------------------------------------------------ |
+| phone               | String | Số điện thoại khách hàng                                           |
+| duration            | Int    | Tổng thời lượng cuộc gọi (giây)                                    |
+| billsec             | Int    | Thời lượng tính cước (giây)                                        |
+| disposition         | String | Trạng thái cuộc gọi (`ANSWER`, `NOANSWER`, `BUSY`, ...)            |
+| hotlineCode         | String | Mã hotline (số tổng đài)                                           |
+| inputLog            | String | Log tương tác DTMF của khách hàng                                  |
+| voiceText           | String | Nội dung thoại đã chuyển thành văn bản (STT)                       |
+| postage             | Double | Cước phí cuộc gọi                                                  |
+| serviceCharge       | Double | Phí dịch vụ                                                        |
+| memberName          | String | Tên thành viên thực hiện                                           |
+| memberAccId         | String | Account ID thành viên                                              |
+| answerAt            | Long   | Thời điểm nghe máy (Unix timestamp ms)                             |
+| endCallAt           | Long   | Thời điểm kết thúc cuộc gọi (Unix timestamp ms)                    |
+| botId               | String | ID của bot xử lý cuộc gọi                                          |
+| campaignName        | String | Tên chiến dịch                                                     |
+| campaignGroupName   | String | Tên nhóm chiến dịch                                                |
+| templateScriptCode  | String | Mã kịch bản template                                               |
+| templateScriptName  | String | Tên kịch bản template                                              |
+| transId             | String | Mã giao dịch cuộc gọi (duy nhất)                                   |
+| createAt            | Long   | Thời điểm tạo cuộc gọi (Unix timestamp ms)                         |
+| postageService      | Double | Cước dịch vụ bổ sung                                               |
+| postageBotService   | Double | Cước dịch vụ bot                                                   |
+| telcoCode           | String | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                             |
+| projectCode         | String | Mã dự án                                                           |
+| callNet             | String | Loại cuộc gọi (`OFFNET`, `ONNET`)                                  |
+| metaData            | String | Dữ liệu meta (JSON string) — các biến đầu vào kịch bản             |
+| metaDataDescription | String | Mô tả các trường meta (JSON string)                                |
+| externalCallId      | String | Mã cuộc gọi từ hệ thống bên ngoài                                  |
+| callCollectedData   | String | Dữ liệu thu thập từ cuộc gọi (JSON string) — bao gồm cả kết quả AI |
 
 ### `autoCallAIExtraction` — Dữ liệu AI trích xuất
 
-| Tham số           | Kiểu   | Mô tả                                                            |
-| ----------------- | ------ | ---------------------------------------------------------------- |
-| transId           | String | Mã giao dịch cuộc gọi                                            |
-| externalCallId    | String | Mã cuộc gọi từ hệ thống bên ngoài                                |
+| Tham số           | Kiểu   | Mô tả                                                              |
+| ----------------- | ------ | ------------------------------------------------------------------ |
+| transId           | String | Mã giao dịch cuộc gọi                                              |
+| externalCallId    | String | Mã cuộc gọi từ hệ thống bên ngoài                                  |
 | callCollectedData | String | Kết quả AI trích xuất (JSON string) — danh sách các trường dữ liệu |
 
 **Cấu trúc mỗi item trong `callCollectedData`:**
 
-| Tham số     | Kiểu   | Mô tả                        |
-| ----------- | ------ | ----------------------------- |
-| cfkey       | String | Key của trường dữ liệu       |
-| cfname      | String | Tên hiển thị                  |
-| cfvalue     | String | Giá trị AI trích xuất được    |
-| description | String | Mô tả trường dữ liệu         |
+| Tham số     | Kiểu   | Mô tả                      |
+| ----------- | ------ | -------------------------- |
+| cfkey       | String | Key của trường dữ liệu     |
+| cfname      | String | Tên hiển thị               |
+| cfvalue     | String | Giá trị AI trích xuất được |
+| description | String | Mô tả trường dữ liệu       |
 
 ### `autoCallRecording` — Ghi âm cuộc gọi
 
-| Tham số        | Kiểu   | Mô tả                                    |
-| -------------- | ------ | ----------------------------------------- |
-| transId        | String | Mã giao dịch cuộc gọi                     |
-| externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài         |
+| Tham số        | Kiểu   | Mô tả                                      |
+| -------------- | ------ | ------------------------------------------ |
+| transId        | String | Mã giao dịch cuộc gọi                      |
+| externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài          |
 | recordUrl      | String | URL tải file ghi âm (yêu cầu Bearer token) |
+
+<div class="note">
+<strong>Lưu ý về giá trị <code>externalCallId</code>:</strong><br/>
+Giá trị <code>externalCallId</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
 
 ---
 
@@ -95,20 +105,30 @@ Khi AI hoàn tất trích xuất dữ liệu từ cuộc gọi tự động, h�
 
 ### Cấu trúc payload
 
-| Tham số           | Kiểu   | Mô tả                                                            |
-| ----------------- | ------ | ---------------------------------------------------------------- |
-| transId           | String | Mã giao dịch cuộc gọi                                            |
-| externalCallId    | String | Mã cuộc gọi từ hệ thống bên ngoài                                |
+| Tham số           | Kiểu   | Mô tả                                                              |
+| ----------------- | ------ | ------------------------------------------------------------------ |
+| transId           | String | Mã giao dịch cuộc gọi                                              |
+| externalCallId    | String | Mã cuộc gọi từ hệ thống bên ngoài                                  |
 | callCollectedData | String | Kết quả AI trích xuất (JSON string) — danh sách các trường dữ liệu |
+
+<div class="note">
+<strong>Lưu ý về giá trị <code>externalCallId</code>:</strong><br/>
+Giá trị <code>externalCallId</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
 
 **Cấu trúc mỗi item trong `callCollectedData`:**
 
-| Tham số     | Kiểu   | Mô tả                        |
-| ----------- | ------ | ----------------------------- |
-| cfkey       | String | Key của trường dữ liệu       |
-| cfname      | String | Tên hiển thị                  |
-| cfvalue     | String | Giá trị AI trích xuất được    |
-| description | String | Mô tả trường dữ liệu         |
+| Tham số     | Kiểu   | Mô tả                      |
+| ----------- | ------ | -------------------------- |
+| cfkey       | String | Key của trường dữ liệu     |
+| cfname      | String | Tên hiển thị               |
+| cfvalue     | String | Giá trị AI trích xuất được |
+| description | String | Mô tả trường dữ liệu       |
 
 ---
 
@@ -122,11 +142,21 @@ Khi file ghi âm cuộc gọi tự động sẵn sàng, hệ thống sẽ gửi 
 
 ### Cấu trúc payload
 
-| Tham số        | Kiểu   | Mô tả                                    |
-| -------------- | ------ | ----------------------------------------- |
-| transId        | String | Mã giao dịch cuộc gọi                     |
-| externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài         |
+| Tham số        | Kiểu   | Mô tả                                      |
+| -------------- | ------ | ------------------------------------------ |
+| transId        | String | Mã giao dịch cuộc gọi                      |
+| externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài          |
 | recordUrl      | String | URL tải file ghi âm (yêu cầu Bearer token) |
+
+<div class="note">
+<strong>Lưu ý về giá trị <code>externalCallId</code>:</strong><br/>
+Giá trị <code>externalCallId</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
 
 ---
 
@@ -154,11 +184,11 @@ Khi file ghi âm cuộc gọi tự động sẵn sàng, hệ thống sẽ gửi 
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | String | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -226,10 +256,10 @@ Khi file ghi âm cuộc gọi tự động sẵn sàng, hệ thống sẽ gửi 
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 
@@ -385,11 +415,11 @@ Khi file ghi âm cuộc gọi tự động sẵn sàng, hệ thống sẽ gửi 
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Int    | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Int    | Dữ liệu trả về                         |
 
 **Ví dụ response**
 

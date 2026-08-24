@@ -111,6 +111,16 @@ Gói đầy đủ khi cuộc gọi thường hoàn tất, bao gồm lịch sử 
 | externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài          |
 | recordUrl      | String | URL tải file ghi âm (yêu cầu Bearer token) |
 
+<div class="note">
+<strong>Lưu ý về giá trị <code>externalCallId</code>:</strong><br/>
+Giá trị <code>externalCallId</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
+
 ### MANUAL_CALL_LOG
 
 Lịch sử 1 cuộc gọi thường vừa kết thúc. Payload là object phẳng với các trường giống [`manualCallLog`](#manualcalllog) ở trên.
@@ -156,7 +166,7 @@ Lịch sử 1 cuộc gọi tự động vừa kết thúc. Payload là object ph
 | serviceCharge       | Double | Phí dịch vụ                                             |
 | memberName          | String | Tên thành viên thực hiện                                |
 | memberAccId         | String | Account ID thành viên                                   |
-| memberNo            | String | memberNo của thành viên tạo cuộc gọi tự động             |
+| memberNo            | String | memberNo của thành viên tạo cuộc gọi tự động            |
 | answerAt            | Long   | Thời điểm nghe máy (Unix timestamp ms)                  |
 | endCallAt           | Long   | Thời điểm kết thúc (Unix timestamp ms)                  |
 | botId               | String | ID của bot xử lý cuộc gọi                               |
@@ -204,6 +214,16 @@ File ghi âm cuộc gọi tự động.
 | transId        | String | Mã giao dịch cuộc gọi                      |
 | externalCallId | String | Mã cuộc gọi từ hệ thống bên ngoài          |
 | recordUrl      | String | URL tải file ghi âm (yêu cầu Bearer token) |
+
+<div class="note">
+<strong>Lưu ý về giá trị <code>externalCallId</code>:</strong><br/>
+Giá trị <code>externalCallId</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
 
 ---
 
@@ -254,6 +274,16 @@ Payload giống [AUTO_CALL_LOG](#auto-call-log).
 | disposition      | String | Trạng thái cuộc gọi (`ANSWER`, `NOANSWER`, `BUSY`, ...) |
 | external_call_id | String | Mã cuộc gọi từ hệ thống bên ngoài                       |
 | record_file      | Array  | Danh sách URL file ghi âm                               |
+
+<div class="note">
+<strong>Lưu ý về giá trị <code>external_call_id</code>:</strong><br/>
+Giá trị <code>external_call_id</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<ul>
+  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
+  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
+  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+</ul>
+</div>
 
 Mỗi item trong `caller` / `callee`:
 

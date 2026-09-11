@@ -6,6 +6,23 @@ outline: deep
 
 Trang này ghi lại các thay đổi của VBot Android SDK. Vui lòng theo dõi để cập nhật tích hợp kịp thời.
 
+## v1.1.3
+
+_Ngày phát hành: 11/09/2026_
+
+### Tính năng mới & Cải tiến
+
+- Bổ sung các sự kiện mới vào VBotEndCallReason.
+- Xử lý rớt mạng.
+
+::: tip Cập nhật dependency
+
+```groovy
+implementation 'com.github.VBotDevTeam:VBotPhoneSDKAndroid-Public:1.1.3'
+```
+
+:::
+
 ## v1.1.2
 
 _Ngày phát hành: 03/08/2026_

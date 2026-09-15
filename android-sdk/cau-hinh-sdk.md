@@ -24,7 +24,7 @@ dependencyResolutionManagement {
 ```groovy
 dependencies {
     // Chỉ một dòng duy nhất — mọi thư viện phụ thuộc đã nằm sẵn trong SDK.
-    implementation 'com.github.VBotDevTeam:VBotPhoneSDKAndroid-Public:1.1.3'
+    implementation 'com.github.VBotDevTeam:VBotPhoneSDKAndroid-Public:1.1.4'
 }
 ```
 

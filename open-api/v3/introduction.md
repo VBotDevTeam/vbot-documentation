@@ -4,11 +4,12 @@ VBot Open API cung cấp các endpoint cho phép tích hợp hệ thống bên t
 
 ## Thông tin chung
 
-| Thuộc tính       | Giá trị                             |
-| ---------------- | ----------------------------------- |
-| **Base URL**     | `https://open-api-h01.vbot.vn/v3.0` |
-| **Content-Type** | `application/json`                  |
-| **X-API-Key**    | `token-open-api`                    |
+| Thuộc tính            | Giá trị                                  |
+| --------------------- | ---------------------------------------- |
+| **Base URL (Prod)**   | `https://open-api-h01.vbot.vn/v3.0`      |
+| **Base URL (Staging)**| `https://open-api-staging.vbot.vn/v3.0`  |
+| **Content-Type**      | `application/json`                       |
+| **X-API-Key**         | `token-open-api`                         |
 
 ## Phạm vi tài liệu
 

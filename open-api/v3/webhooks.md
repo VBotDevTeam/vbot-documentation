@@ -241,6 +241,46 @@ Lịch sử cuộc gọi nội bộ (peer-to-peer). Payload có cấu trúc gi�
 
 Thông báo realtime khi có cuộc gọi đang gọi vào hệ thống. Sự kiện này được gửi ngay khi cuộc gọi reo, trước khi được trả lời.
 
+Cấu trúc payload:
+
+| Tham số      | Kiểu   | Mô tả                              |
+| ------------ | ------ | ---------------------------------- |
+| project_code | String | Mã dự án                           |
+| phone        | String | Số điện thoại                      |
+| hotline      | String | Số hotline sử dụng                 |
+| trans_id     | String | Mã giao dịch cuộc gọi              |
+| event_data   | String | Mã sự kiện (`IN_COMINGCALL`)       |
+| member       | Object | Thông tin thành viên               |
+| time         | Long   | Thời gian sự kiện (Unix timestamp) |
+| eventData    | String | Mã sự kiện (`IN_COMINGCALL`)       |
+
+Cấu trúc object `member` (Thông tin thành viên):
+
+| Tham số     | Kiểu   | Mô tả          |
+| ----------- | ------ | -------------- |
+| member_no   | String | Mã thành viên  |
+| account_sip | String | Tài khoản SIP  |
+| name        | String | Tên thành viên |
+
+**Ví dụ payload:**
+
+```json
+{
+  "project_code": "PR202211251413234534",
+  "phone": "0339421067",
+  "hotline": "0974454532",
+  "trans_id": "080920261142317640112a72a84f3fbbea33dd1632a04f",
+  "event_data": "IN_COMINGCALL",
+  "member": {
+    "member_no": "191215105327352",
+    "account_sip": "12191501234869",
+    "name": "Đoàn Thị Minh Thư"
+  },
+  "time": 1788842552,
+  "eventData": "IN_COMINGCALL"
+}
+```
+
 ---
 
 ## Sự kiện cũ (Deprecated)

@@ -62,7 +62,7 @@ Sau khi tạo tài khoản SDK thành công, đối tác gọi API để lấy t
 | `template_code`                   | String | Có       | Mã kịch bản cuộc gọi.                                                             |
 | `max_time`                        | Int    | Không    | Thời gian gọi tối đa (giây).                                                      |
 | `max_waiting_time`                | Int    | Không    | Thời gian tối đa chờ khách hàng nhấc máy (giây).                                  |
-| `member_infos`                    | Array  | Có       | Danh sách thành viên nhận cuộc gọi.                                               |
+| `member_infos`                    | Array  | Có       | Danh sách thành viên nhận cuộc gọi. Tối đa 50 thành viên                          |
 | `member_infos[].external_call_id` | String | Không    | Mã định danh cuộc gọi phía đối tác.                                               |
 | `member_infos[].member_no`        | String | Có       | Mã thành viên SDK.                                                                |
 | `member_infos[].name`             | String | Không    | Tên thành viên.                                                                   |

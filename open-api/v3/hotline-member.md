@@ -21,13 +21,13 @@ API gán và xóa hotline cho thành viên.
 
 **Body**
 
-| Tham số        | Kiểu   | Mô tả              |
-| -------------- | ------ | ------------------ |
-| member_no      | String | Mã thành viên      |
-| hotline_number | String | Số hotline         |
-| allow_call     | Bool   | Cho phép gọi       |
-| start_time     | String | Thời gian bắt đầu  |
-| end_time       | String | Thời gian kết thúc |
+| Tham số        | Kiểu   | Bắt buộc | Mô tả                      |
+| -------------- | ------ | -------- | -------------------------- |
+| member_no      | String | Có       | Mã thành viên              |
+| hotline_number | String | Có       | Số hotline                 |
+| allow_call     | Bool   | Có       | Cho phép gọi               |
+| start_time     | String | Có       | Thời gian bắt đầu (HH:mm)  |
+| end_time       | String | Có       | Thời gian kết thúc (HH:mm) |
 
 **Ví dụ request**
 
@@ -76,9 +76,9 @@ API gán và xóa hotline cho thành viên.
 
 **Body**
 
-| Tham số   | Kiểu   | Mô tả         |
-| --------- | ------ | ------------- |
-| member_no | String | Mã thành viên |
+| Tham số   | Kiểu   | Bắt buộc | Mô tả         |
+| --------- | ------ | -------- | ------------- |
+| member_no | String | Có       | Mã thành viên |
 
 **Ví dụ request**
 

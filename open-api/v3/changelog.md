@@ -11,7 +11,7 @@ Trang này ghi lại các thay đổi quan trọng của VBot Open API v3.0. Vui
 - **[11/06/2026]** Phát hành API v3.0: Cập nhật Base URL, chuyển sang xác thực bằng Header `X-API-Key` và gỡ bỏ tham số `vbot_id`, `project_code`.
 - **[23/06/2026]** Bổ sung nhóm API Quản lý khách hàng, Tuỳ chỉnh thông tin và Lịch sử tương tác.
 - **[27/06/2026]** Bổ sung API Tạo tài khoản & lấy Token SDK một bước (`POST /api/sdk/tokenSdk`), API lấy số dư tài khoản Admin (`GET /api/account/balance`), cập nhật trường `hotline_type` trong danh sách hotline (`GET /api/hotline/getAll`) và tính năng âm thanh ngắt kết nối (`disconnectSoundUrl`).
-- **[13/08/2026]** Bổ sung API Tạo cuộc gọi tự động đến tài khoản thành viên SDK (`POST /api/call/create-list-member`) và trang hướng dẫn nghiệp vụ Gọi thành viên SDK.
+- **[13/08/2026]** Bổ sung API Tạo cuộc gọi tự động đến tài khoản thành viên SDK (`POST /m-auto-call/api/call/create-list-member`) và trang hướng dẫn nghiệp vụ Gọi thành viên SDK.
 
 :::
 
@@ -29,15 +29,15 @@ Trang này ghi lại các thay đổi quan trọng của VBot Open API v3.0. Vui
 
 ### Bổ sung API Token SDK, Số dư Admin & Trả về Loại Hotline
 
-1. **API Tạo tài khoản & lấy Token SDK (`POST /api/sdk/tokenSdk`)**: 
-   * Bổ sung API một bước (One-Step Provisioning) dành cho Backend đối tác để tự động khởi tạo thành viên và cấp JWT token kết nối SDK.
+1. **API Tạo tài khoản & lấy Token SDK (`POST /api/sdk/tokenSdk`)**:
+   - Bổ sung API một bước (One-Step Provisioning) dành cho Backend đối tác để tự động khởi tạo thành viên và cấp JWT token kết nối SDK.
 2. **Quản lý Tài chính & Số dư**:
-   * Bổ sung API lấy số dư tài khoản Admin (`GET /api/account/balance`) để theo dõi ngân sách dự án.
+   - Bổ sung API lấy số dư tài khoản Admin (`GET /api/account/balance`) để theo dõi ngân sách dự án.
 3. **Cập nhật trường Loại Hotline (`GET /api/hotline/getAll`)**:
-   * API danh sách hotline chính thức trả về thêm trường `hotline_type` có giá trị `ALIAS` hoặc `HOTLINE` nhằm phục vụ việc kiểm tra và phân biệt loại hotline hoạt động của dự án.
-4. **Âm thanh ngắt cuộc gọi (Web SDK)**: 
-   * Tự động phát âm thanh kết thúc cuộc gọi khi cuộc gọi gác máy hoặc bị lỗi.
-   * Hỗ trợ thuộc tính cấu hình `disconnectSoundUrl` (hoặc attribute `disconnect-sound-url` trên thẻ `<vbot-widget>`) để tùy chỉnh file âm thanh ngắt kết nối.
+   - API danh sách hotline chính thức trả về thêm trường `hotline_type` có giá trị `ALIAS` hoặc `HOTLINE` nhằm phục vụ việc kiểm tra và phân biệt loại hotline hoạt động của dự án.
+4. **Âm thanh ngắt cuộc gọi (Web SDK)**:
+   - Tự động phát âm thanh kết thúc cuộc gọi khi cuộc gọi gác máy hoặc bị lỗi.
+   - Hỗ trợ thuộc tính cấu hình `disconnectSoundUrl` (hoặc attribute `disconnect-sound-url` trên thẻ `<vbot-widget>`) để tùy chỉnh file âm thanh ngắt kết nối.
 
 ## 23/06/2026
 

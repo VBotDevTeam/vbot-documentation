@@ -11,7 +11,9 @@ Tài liệu này hướng dẫn chi tiết quy trình phát triển và tích h�
 ---
 
 ## Điều kiện bắt buộc để gọi điện thành công
+
 Hệ thống lõi VBot yêu cầu tài khoản SDK muốn thực hiện cuộc gọi đi phải đáp ứng hai điều kiện:
+
 1. <span class="highlight-text">**Phải được gán ít nhất một Hotline hoạt động**</span>: Nhân viên không thể thực hiện cuộc gọi nếu chưa gán hotline làm đầu số đại diện.
 2. <span class="highlight-text">**Tài khoản phải có tiền (Số dư > 0)**</span>: Ngân sách cuộc gọi của nhân viên phải lớn hơn 0đ. Nếu không có số dư, hệ thống sẽ chặn cuộc gọi và báo lỗi `402` (Không đủ tiền).
 
@@ -26,21 +28,21 @@ sequenceDiagram
     autonumber
     participant Partner CRM/Backend
     participant VBot Open API
-    
+
     Partner CRM/Backend->>VBot Open API: GET /api/hotline/getAll
     Note over Partner CRM/Backend: Lấy danh sách hotline khả dụng của dự án
-    
+
     Partner CRM/Backend->>VBot Open API: POST /api/sdk/tokenSdk
     Note over VBot Open API: Tự động khởi tạo tài khoản nếu chưa tồn tại<br/>và gán các hotline chỉ định
     VBot Open API-->>Partner CRM/Backend: Trả về JWT Token SDK
-    
+
     Partner CRM/Backend->>VBot Open API: GET /api/member/getByMemberNo
     Note over Partner CRM/Backend: Kiểm tra số dư & hotline thực tế của nhân viên
-    
+
     alt Số dư = 0
         Partner CRM/Backend->>VBot Open API: POST /api/member/addMoney (Nạp tiền)
     end
-    
+
     alt Chưa có hotline gán
         Partner CRM/Backend->>VBot Open API: POST /api/hotline/member/add (Gán hotline)
     end
@@ -59,8 +61,8 @@ Trước khi thực hiện gán hotline cho nhân viên hoặc cấp token SDK, 
 
 **Header**
 
-| Tham số | Giá trị |
-| :--- | :--- |
+| Tham số   | Giá trị                 |
+| :-------- | :---------------------- |
 | X-API-Key | `Partner_Token_API_Key` |
 
 **Ví dụ Response thành công**
@@ -99,16 +101,16 @@ Sử dụng đầu API One-Step Provisioning để lấy mã xác thực JWT SDK
 
 **Header**
 
-| Tham số | Giá trị |
-| :--- | :--- |
+| Tham số   | Giá trị                 |
+| :-------- | :---------------------- |
 | X-API-Key | `Partner_Token_API_Key` |
 
 **Body**
 
-| Tham số | Kiểu | Bắt buộc | Mô tả |
-| :--- | :--- | :--- | :--- |
-| `member_no` | String | Có | Mã định danh duy nhất của nhân viên trên hệ thống của bạn. |
-| `hotline_codes` | Array | Không | Danh sách mã hotline cho phép SDK sử dụng (Ví dụ: `["HL_SALES"]`). |
+| Tham số         | Kiểu   | Bắt buộc | Mô tả                                                              |
+| :-------------- | :----- | :------- | :----------------------------------------------------------------- |
+| `member_no`     | String | Có       | Mã định danh duy nhất của nhân viên trên hệ thống của bạn.         |
+| `hotline_codes` | Array  | Không    | Danh sách mã hotline cho phép SDK sử dụng (Ví dụ: `["HL_SALES"]`). |
 
 <div class="note">
   <strong>Lưu ý tự động khởi tạo:</strong><br/>
@@ -128,15 +130,15 @@ Sử dụng đầu API One-Step Provisioning để lấy mã xác thực JWT SDK
 
 **Header**
 
-| Tham số | Giá trị |
-| :--- | :--- |
+| Tham số   | Giá trị                 |
+| :-------- | :---------------------- |
 | X-API-Key | `Partner_Token_API_Key` |
 
 **Tham số truy vấn (Query String)**
 
-| Tham số | Kiểu | Bắt buộc | Mô tả |
-| :--- | :--- | :--- | :--- |
-| `member_no` | String | Có | Mã định danh duy nhất của nhân viên cần kiểm tra. |
+| Tham số     | Kiểu   | Bắt buộc | Mô tả                                             |
+| :---------- | :----- | :------- | :------------------------------------------------ |
+| `member_no` | String | Có       | Mã định danh duy nhất của nhân viên cần kiểm tra. |
 
 **Ví dụ Response thành công**
 
@@ -162,6 +164,7 @@ Sử dụng đầu API One-Step Provisioning để lấy mã xác thực JWT SDK
 Dựa vào thông tin trả về từ **Bước 3**, Backend tiến hành so khớp các điều kiện cuộc gọi để thực hiện cấu hình tự động:
 
 ### A. Nếu số dư bằng 0 (`member_money == 0`)
+
 Thực hiện cuộc gọi API nạp tiền để cấp ngân sách gọi điện ban đầu cho nhân viên:
 
 <div class="api-container">
@@ -179,6 +182,7 @@ Thực hiện cuộc gọi API nạp tiền để cấp ngân sách gọi điệ
 ```
 
 ### B. Nếu hotline chưa được gán cho thành viên
+
 Trong trường hợp danh sách hotline được cấp cho nhân viên bị thiếu (chưa được gán hotline nào để sử dụng làm đầu số gọi đi), gọi API gán hotline cho thành viên:
 
 <div class="api-container">
@@ -205,74 +209,93 @@ Trong trường hợp danh sách hotline được cấp cho nhân viên bị thi
 Dưới đây là đoạn mã Node.js minh hoạ toàn bộ quy trình trên:
 
 ```javascript
-const axios = require('axios');
+const axios = require("axios");
 
-const VBOT_BASE_URL = 'https://open-api.vbot.vn/v3.0';
-const PARTNER_API_KEY = 'your_partner_api_key';
+const VBOT_BASE_URL = "https://open-api-h01.vbot.vn/v3.0";
+const PARTNER_API_KEY = "your_partner_api_key";
 
 async function provisionMemberSdk(memberNo, targetHotlineCode) {
   const headers = {
-    'X-API-Key': PARTNER_API_KEY,
-    'Content-Type': 'application/json'
+    "X-API-Key": PARTNER_API_KEY,
+    "Content-Type": "application/json",
   };
 
   try {
     // 1. Tải danh sách hotline để tìm thông tin số điện thoại tương ứng
-    const hotlineRes = await axios.get(`${VBOT_BASE_URL}/api/hotline/getAll`, { headers });
+    const hotlineRes = await axios.get(`${VBOT_BASE_URL}/api/hotline/getAll`, {
+      headers,
+    });
     const hotlines = hotlineRes.data.data || [];
-    const matchedHotline = hotlines.find(h => h.hotline_code === targetHotlineCode);
-    
+    const matchedHotline = hotlines.find(
+      (h) => h.hotline_code === targetHotlineCode,
+    );
+
     if (!matchedHotline) {
       throw new Error(`Không tìm thấy hotline với mã ${targetHotlineCode}`);
     }
 
     // 2. Lấy SDK Token (và tự động tạo nhân viên mới nếu chưa có)
-    const tokenRes = await axios.post(`${VBOT_BASE_URL}/api/sdk/tokenSdk`, {
-      member_no: memberNo,
-      hotline_codes: [targetHotlineCode]
-    }, { headers });
-    
+    const tokenRes = await axios.post(
+      `${VBOT_BASE_URL}/api/sdk/tokenSdk`,
+      {
+        member_no: memberNo,
+        hotline_codes: [targetHotlineCode],
+      },
+      { headers },
+    );
+
     const sdkToken = tokenRes.data.data;
-    console.log('Sinh SDK Token thành công:', sdkToken);
+    console.log("Sinh SDK Token thành công:", sdkToken);
 
     // 3. Truy vấn thông tin nhân viên để kiểm tra số dư và hotline
     const memberRes = await axios.get(
-      `${VBOT_BASE_URL}/api/member/getByMemberNo?member_no=${memberNo}`, 
-      { headers }
+      `${VBOT_BASE_URL}/api/member/getByMemberNo?member_no=${memberNo}`,
+      { headers },
     );
     const memberInfo = memberRes.data.data;
 
     if (memberInfo) {
       // 4.1. Nạp tiền nếu số dư bằng 0
       if ((memberInfo.member_money || 0) <= 0) {
-        console.log('Số dư bằng 0, đang tự động nạp tiền...');
-        await axios.post(`${VBOT_BASE_URL}/api/member/addMoney`, {
-          member_no: memberNo,
-          money: 1000 // Nạp trước 1,000đ
-        }, { headers });
+        console.log("Số dư bằng 0, đang tự động nạp tiền...");
+        await axios.post(
+          `${VBOT_BASE_URL}/api/member/addMoney`,
+          {
+            member_no: memberNo,
+            money: 1000, // Nạp trước 1,000đ
+          },
+          { headers },
+        );
       }
 
       // 4.2. Gán hotline bằng API add nếu nhân viên chưa được gán số nào
-      const currentHotlines = memberInfo.hotlines || memberInfo.hotline_numbers || [];
+      const currentHotlines =
+        memberInfo.hotlines || memberInfo.hotline_numbers || [];
       if (currentHotlines.length === 0) {
-        console.log('Chưa được gán hotline, đang tự động gán...');
-        await axios.post(`${VBOT_BASE_URL}/api/hotline/member/add`, {
-          member_no: memberNo,
-          hotline_number: matchedHotline.hotline_number,
-          allow_call: true,
-          start_time: '',
-          end_time: ''
-        }, { headers });
+        console.log("Chưa được gán hotline, đang tự động gán...");
+        await axios.post(
+          `${VBOT_BASE_URL}/api/hotline/member/add`,
+          {
+            member_no: memberNo,
+            hotline_number: matchedHotline.hotline_number,
+            allow_call: true,
+            start_time: "",
+            end_time: "",
+          },
+          { headers },
+        );
       }
     }
 
     return {
       token: sdkToken,
-      member: memberNo
+      member: memberNo,
     };
-
   } catch (error) {
-    console.error('Lỗi khi thiết lập tài khoản SDK nhân viên:', error.response?.data || error.message);
+    console.error(
+      "Lỗi khi thiết lập tài khoản SDK nhân viên:",
+      error.response?.data || error.message,
+    );
     throw error;
   }
 }

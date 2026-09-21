@@ -40,7 +40,7 @@ Mỗi sự kiện có 2 trường phân loại:
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/ActionTimeline/get-all</span>
+  <span>[URL]/m-crm/api/ActionTimeline/get-all</span>
 </div>
 
 **Header**
@@ -119,7 +119,7 @@ Mỗi sự kiện có 2 trường phân loại:
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/ActionTimeline/count-all</span>
+  <span>[URL]/m-crm/api/ActionTimeline/count-all</span>
 </div>
 
 **Header**

@@ -27,7 +27,7 @@ Quản lý các trường thông tin tuỳ chỉnh ngoài các trường thông 
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customerfield/get-all</span>
+  <span>[URL]/m-crm/api/customerfield/get-all</span>
 </div>
 
 **Header**
@@ -100,7 +100,7 @@ Quản lý các trường thông tin tuỳ chỉnh ngoài các trường thông 
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customerfield/count-all</span>
+  <span>[URL]/m-crm/api/customerfield/count-all</span>
 </div>
 
 **Header**
@@ -141,7 +141,7 @@ Quản lý các trường thông tin tuỳ chỉnh ngoài các trường thông 
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customerfield/get-detail</span>
+  <span>[URL]/m-crm/api/customerfield/get-detail</span>
 </div>
 
 **Header**
@@ -172,7 +172,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `get-all`.
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customerfield/check-exist-code</span>
+  <span>[URL]/m-crm/api/customerfield/check-exist-code</span>
 </div>
 
 **Header**
@@ -216,7 +216,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `get-all`.
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customerfield/insert</span>
+  <span>[URL]/m-crm/api/customerfield/insert</span>
 </div>
 
 **Header**
@@ -279,7 +279,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `get-all`.
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customerfield/update</span>
+  <span>[URL]/m-crm/api/customerfield/update</span>
 </div>
 
 **Header**
@@ -342,7 +342,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `get-all`.
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customerfield/update-code</span>
+  <span>[URL]/m-crm/api/customerfield/update-code</span>
 </div>
 
 **Header**
@@ -394,7 +394,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `get-all`.
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customerfield/delete</span>
+  <span>[URL]/m-crm/api/customerfield/delete</span>
 </div>
 
 **Header**
@@ -450,7 +450,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `get-all`.
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customerfield/option/get-all</span>
+  <span>[URL]/m-crm/api/customerfield/option/get-all</span>
 </div>
 
 **Header**
@@ -518,7 +518,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `get-all`.
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customerfield/option/count-all</span>
+  <span>[URL]/m-crm/api/customerfield/option/count-all</span>
 </div>
 
 **Header**
@@ -560,7 +560,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `get-all`.
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customerfield/option/get-detail</span>
+  <span>[URL]/m-crm/api/customerfield/option/get-detail</span>
 </div>
 
 **Header**
@@ -592,7 +592,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `option/get-
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customerfield/option/check-exist-code</span>
+  <span>[URL]/m-crm/api/customerfield/option/check-exist-code</span>
 </div>
 
 **Header**
@@ -639,7 +639,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `option/get-
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customerfield/option/insert</span>
+  <span>[URL]/m-crm/api/customerfield/option/insert</span>
 </div>
 
 **Header**
@@ -738,7 +738,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `option/get-
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customerfield/option/update</span>
+  <span>[URL]/m-crm/api/customerfield/option/update</span>
 </div>
 
 **Header**
@@ -795,7 +795,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `option/get-
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customerfield/option/update-code</span>
+  <span>[URL]/m-crm/api/customerfield/option/update-code</span>
 </div>
 
 **Header**
@@ -846,7 +846,7 @@ Trả về 1 object cùng cấu trúc với mỗi phần tử trong `option/get-
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customerfield/option/delete</span>
+  <span>[URL]/m-crm/api/customerfield/option/delete</span>
 </div>
 
 **Header**

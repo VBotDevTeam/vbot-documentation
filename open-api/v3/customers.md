@@ -23,7 +23,7 @@ Ngoài ra còn có các trường thông tin tùy chỉnh do người dùng tạ
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customer/get-all</span>
+  <span>[URL]/m-crm/api/customer/get-all</span>
 </div>
 
 **Header**
@@ -157,7 +157,7 @@ Ngoài ra còn có các trường thông tin tùy chỉnh do người dùng tạ
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customer/count-all</span>
+  <span>[URL]/m-crm/api/customer/count-all</span>
 </div>
 
 **Header**
@@ -220,7 +220,7 @@ Ngoài ra còn có các trường thông tin tùy chỉnh do người dùng tạ
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customer/get-detail</span>
+  <span>[URL]/m-crm/api/customer/get-detail</span>
 </div>
 
 **Header**
@@ -313,7 +313,7 @@ Ngoài ra còn có các trường thông tin tùy chỉnh do người dùng tạ
 
 <div class="api-container">
   <span class="api-method">GET</span>
-  <span>[URL]/api/customer/check-exist-field-value</span>
+  <span>[URL]/m-crm/api/customer/check-exist-field-value</span>
 </div>
 
 > Chỉ có tác dụng với trường thông tin có `is_unique = true`.
@@ -363,7 +363,7 @@ Ngoài ra còn có các trường thông tin tùy chỉnh do người dùng tạ
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customer/insert</span>
+  <span>[URL]/m-crm/api/customer/insert</span>
 </div>
 
 **Header**
@@ -433,7 +433,7 @@ Ngoài ra còn có các trường thông tin tùy chỉnh do người dùng tạ
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customer/update</span>
+  <span>[URL]/m-crm/api/customer/update</span>
 </div>
 
 **Header**
@@ -495,7 +495,7 @@ Ngoài ra còn có các trường thông tin tùy chỉnh do người dùng tạ
 
 <div class="api-container">
   <span class="api-method">POST</span>
-  <span>[URL]/api/customer/delete</span>
+  <span>[URL]/m-crm/api/customer/delete</span>
 </div>
 
 **Header**

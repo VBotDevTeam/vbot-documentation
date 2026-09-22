@@ -38,7 +38,7 @@ Sau khi tạo tài khoản SDK thành công, đối tác gọi API để lấy t
 
 **Chi tiết API đã có trong tài liệu**: Xem tại [Lấy thông tin thành viên theo mã](/open-api/v3/member#lay-thong-tin-thanh-vien-theo-ma).
 
-### Tạo cuộc gọi tự động đến tài khoản SDK khách hàng
+### Tạo cuộc gọi tự động đến tài khoản SDK
 
 Để khởi tạo cuộc gọi cảnh báo trực tiếp tới các tài khoản SDK, đối tác gọi API dưới đây:
 
@@ -49,32 +49,32 @@ Sau khi tạo tài khoản SDK thành công, đối tác gọi API để lấy t
 
 **Header**
 
-| Tham số   | Giá trị          |
-| :-------- | :--------------- |
-| X-API-Key | `token-open-api` |
+| Tham số      | Giá trị            | Bắt buộc |
+| :----------- | :----------------- | :------- |
+| Content-Type | `application/json` | Có       |
+| X-API-Key    | `token-open-api`   | Có       |
 
 **Body Request**
 
-| Tham số                           | Kiểu   | Bắt buộc | Mô tả                                                                             |
-| :-------------------------------- | :----- | :------- | :-------------------------------------------------------------------------------- |
-| `display_name`                    | String | Có       | Tên hiển thị trên app khách hàng khi thực hiện gọi tự động (không chứa dấu cách). |
-| `type`                            | String | Có       | Kiểu cuộc gọi, truyền chuỗi `"MEMBER"`.                                           |
-| `template_code`                   | String | Có       | Mã kịch bản cuộc gọi.                                                             |
-| `max_time`                        | Int    | Không    | Thời gian gọi tối đa (giây).                                                      |
-| `max_waiting_time`                | Int    | Không    | Thời gian tối đa chờ khách hàng nhấc máy (giây).                                  |
-| `member_infos`                    | Array  | Có       | Danh sách thành viên nhận cuộc gọi. Tối đa 50 thành viên                          |
-| `member_infos[].external_call_id` | String | Không    | Mã định danh cuộc gọi phía đối tác.                                               |
-| `member_infos[].member_no`        | String | Có       | Mã thành viên SDK.                                                                |
-| `member_infos[].name`             | String | Không    | Tên thành viên.                                                                   |
-| `member_infos[].datas`            | Object | Không    | Danh sách giá trị của các trường thông tin trong kịch bản (custom fields).        |
+| Tham số                           | Kiểu   | Bắt buộc | Mô tả                                                                                     |
+| :-------------------------------- | :----- | :------- | :---------------------------------------------------------------------------------------- |
+| `template_code`                   | String | Có       | Mã kịch bản cuộc gọi.                                                                     |
+| `member_infos`                    | Array  | Có       | Danh sách thành viên nhận cuộc gọi (tối đa 5 thành viên).                                 |
+| `display_name`                    | String | Không    | Tên hiển thị trên app khách hàng khi thực hiện gọi tự động (**không chứa khoảng trắng**). |
+| `type`                            | String | Không    | Kiểu cuộc gọi, truyền chuỗi `"MEMBER"` (mặc định nhận diện theo endpoint gọi).            |
+| `max_time`                        | Int    | Không    | Thời gian gọi tối đa (giây). Mặc định: `-1` (không giới hạn).                             |
+| `max_waiting_time`                | Int    | Không    | Thời gian tối đa chờ khách hàng nhấc máy (giây). Mặc định: `30`.                          |
+| `member_infos[].member_no`        | String | Có       | Số nội bộ / mã thành viên SDK (chỉ chấp nhận chữ và số: a-zA-Z0-9).                       |
+| `member_infos[].external_call_id` | String | Không    | Mã định danh cuộc gọi phía đối tác (dùng để mapping khi truy vấn CDR).                    |
+| `member_infos[].name`             | String | Không    | Tên thành viên.                                                                           |
+| `member_infos[].datas`            | Object | Không    | Dữ liệu biến thay thế trong kịch bản (key là `cfkey` từ custom field).                    |
 
 <div class="note">
-<strong>Lưu ý về giá trị <code>external_call_id</code>:</strong><br/>
-Giá trị <code>external_call_id</code> được truyền vào cần thỏa mãn các điều kiện sau:
+<strong>Lưu ý:</strong>
 <ul>
-  <li>Độ dài tối đa: <strong>32 ký tự</strong>.</li>
-  <li>Chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>).</li>
-  <li><strong>Không</strong> chứa các ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
+  <li>Tối đa <strong>5 thành viên</strong> trong một yêu cầu (tính sau khi loại trùng theo trường <code>member_no</code>).</li>
+  <li>Hệ thống <strong>tự động loại bỏ thành viên trùng lặp</strong> (giữ lại bản ghi đầu tiên).</li>
+  <li>Độ dài <code>external_call_id</code> tối đa: <strong>32 ký tự</strong>, chỉ sử dụng các ký tự chữ thường (<code>a</code>–<code>z</code>) và chữ số (<code>0</code>–<code>9</code>), <strong>không</strong> chứa ký tự đặc biệt, chữ in hoa hoặc khoảng trắng.</li>
 </ul>
 </div>
 
@@ -90,7 +90,7 @@ Giá trị <code>external_call_id</code> được truyền vào cần thỏa mã
   "member_infos": [
     {
       "external_call_id": "extcall001",
-      "member_no": "agent_001",
+      "member_no": "agent001",
       "name": "Nguyễn Văn A",
       "datas": {
         "order_content": "Thông báo đơn hàng bị hủy",
@@ -103,23 +103,56 @@ Giá trị <code>external_call_id</code> được truyền vào cần thỏa mã
 
 **Response**
 
-| Tham số     | Kiểu    | Mô tả                                  |
-| :---------- | :------ | :------------------------------------- |
-| `error`     | Int     | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
-| `message`   | String  | Thông điệp phản hồi                    |
-| `data`      | Boolean | Kết quả xử lý (`true`/`false`)         |
-| `errorCode` | Int     | Mã lỗi hệ thống (nếu có)               |
+| Tham số     | Kiểu    | Mô tả                                 |
+| :---------- | :------ | :------------------------------------ |
+| `status`    | Int     | Mã trạng thái HTTP (`200`, `500`)     |
+| `msg`       | String  | Thông báo phản hồi                    |
+| `errorCode` | Int     | Mã lỗi nghiệp vụ                      |
+| `data`      | Boolean | Kết quả tạo cuộc gọi (`true`/`false`) |
 
 **Ví dụ Response**
 
+Thành công:
+
 ```json
 {
-  "error": 0,
-  "message": "success",
-  "data": true,
-  "errorCode": 0
+  "status": 200,
+  "msg": "Success",
+  "errorCode": 0,
+  "data": true
 }
 ```
+
+Lỗi (`member_infos` là null):
+
+```json
+{
+  "status": 500,
+  "msg": "memberInfos is null",
+  "errorCode": -1,
+  "data": false
+}
+```
+
+Lỗi (vượt quá 5 member):
+
+```json
+{
+  "status": 500,
+  "msg": "error",
+  "errorCode": 403,
+  "data": null
+}
+```
+
+**Bảng mã lỗi**
+
+| errorCode | status | Mô tả                                           |
+| --------- | ------ | ----------------------------------------------- |
+| `0`       | `200`  | Thành công                                      |
+| `-1`      | `500`  | `member_infos` là `null`                        |
+| `403`     | `500`  | Vượt quá giới hạn 5 member (sau khi loại trùng) |
+| `500`     | `500`  | Lỗi hệ thống                                    |
 
 ### Các API hỗ trợ liên quan
 
@@ -132,7 +165,7 @@ Các API được sử dụng để lấy thông tin cần thiết trước khi 
    Xem tại [Lấy danh sách kịch bản](/open-api/v3/campaign-template#lay-danh-sach-kich-ban).
 
 3. **Lấy các biến tùy chỉnh trong kịch bản (`datas`)**:  
-   Với các kịch bản có biến tuỳ chỉnh (custom field), đối tác gọi api để lấy danh sách các biến trong kịch bản đó (Tải danh sách biến tuỳ chỉnh ngay sau khi chọn kịch bản). Các biến và giá trị sẽ được truyền vào `datas` của `member_infos` trong api tạo cuộc gọi tự động.
+   Với các kịch bản có biến tuỳ chỉnh (custom field), đối tác gọi API để lấy danh sách các biến trong kịch bản đó (Tải danh sách biến tuỳ chỉnh ngay sau khi chọn kịch bản). Các biến và giá trị sẽ được truyền vào `datas` (key là `cfkey`) của `member_infos` trong API tạo cuộc gọi tự động.
    Xem tại [Lấy trường tùy chỉnh trong kịch bản](/open-api/v3/campaign-call#lay-truong-tuy-chinh-trong-kich-ban).
 
 ## Nhận sự kiện thông qua Webhook sau khi kết thúc cuộc gọi

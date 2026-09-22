@@ -21,10 +21,10 @@ API thêm/xóa thành viên trong nhóm thành viên.
 
 **Body**
 
-| Tham số   | Kiểu         | Mô tả              |
-| --------- | ------------ | ------------------ |
-| group_no  | String       | Mã nhóm thành viên |
-| member_no | List[String] | Mã thành viên      |
+| Tham số   | Kiểu         | Mô tả                                                            |
+| --------- | ------------ | ---------------------------------------------------------------- |
+| group_no  | String       | Mã nhóm thành viên                                               |
+| member_no | List[String] | Danh sách mã thành viên (mỗi mã chỉ chấp nhận chữ và số: a-zA-Z0-9) |
 
 **Ví dụ request**
 
@@ -70,10 +70,10 @@ API thêm/xóa thành viên trong nhóm thành viên.
 
 **Body**
 
-| Tham số   | Kiểu         | Mô tả              |
-| --------- | ------------ | ------------------ |
-| group_no  | String       | Mã nhóm thành viên |
-| member_no | List[String] | Mã thành viên      |
+| Tham số   | Kiểu         | Mô tả                                                            |
+| --------- | ------------ | ---------------------------------------------------------------- |
+| group_no  | String       | Mã nhóm thành viên                                               |
+| member_no | List[String] | Danh sách mã thành viên (mỗi mã chỉ chấp nhận chữ và số: a-zA-Z0-9) |
 
 **Ví dụ request**
 

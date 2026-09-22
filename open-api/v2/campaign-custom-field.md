@@ -29,10 +29,10 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 
@@ -63,7 +63,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 ---
 
-## Lấy tất cả trường (không phân trang)
+## Lấy tất cả trường (Phân trang)
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
@@ -88,10 +88,10 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 
@@ -145,11 +145,11 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Int    | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Int    | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -186,10 +186,10 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
 
 **Ví dụ response**
 
@@ -233,11 +233,11 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -274,11 +274,11 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -333,11 +333,11 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Int    | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Int    | Dữ liệu trả về                         |
 
 **Ví dụ response**
 
@@ -384,11 +384,11 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 **Response**
 
-| Tham số | Kiểu   | Mô tả                                      |
-| ------- | ------ | ------------------------------------------ |
-| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)       |
-| message | String | Thông tin                                  |
-| data    | Bool   | Dữ liệu trả về                             |
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | Bool   | Dữ liệu trả về                         |
 
 **Ví dụ response**
 

@@ -21,15 +21,15 @@ API quản lý tài khoản SDK của thành viên.
 
 **Body**
 
-| Tham số           | Kiểu   | Mô tả                    |
-| ----------------- | ------ | ------------------------ |
-| vbot_id           | String | VBotID                   |
-| project_code      | String | Mã nhóm                  |
-| member_name       | String | Tên thành viên           |
-| member_phone      | String | Số điện thoại thành viên |
-| member_email      | String | Email thành viên         |
-| member_no         | String | Mã thành viên            |
-| member_ext_number | Int    | Mã nhánh                 |
+| Tham số           | Kiểu   | Mô tả                                            |
+| ----------------- | ------ | ------------------------------------------------ |
+| vbot_id           | String | VBotID                                           |
+| project_code      | String | Mã nhóm                                          |
+| member_name       | String | Tên thành viên                                   |
+| member_phone      | String | Số điện thoại thành viên                         |
+| member_email      | String | Email thành viên                                 |
+| member_no         | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
+| member_ext_number | Int    | Mã nhánh                                         |
 
 **Ví dụ request**
 
@@ -80,14 +80,14 @@ API quản lý tài khoản SDK của thành viên.
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả                    |
-| ------------ | ------ | ------------------------ |
-| vbot_id      | String | VBotID                   |
-| project_code | String | Mã nhóm                  |
-| member_no    | String | Mã thành viên            |
-| member_name  | String | Tên thành viên           |
-| member_phone | String | Số điện thoại thành viên |
-| member_email | String | Email thành viên         |
+| Tham số      | Kiểu   | Mô tả                                            |
+| ------------ | ------ | ------------------------------------------------ |
+| vbot_id      | String | VBotID                                           |
+| project_code | String | Mã nhóm                                          |
+| member_no    | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
+| member_name  | String | Tên thành viên                                   |
+| member_phone | String | Số điện thoại thành viên                         |
+| member_email | String | Email thành viên                                 |
 
 **Ví dụ request**
 

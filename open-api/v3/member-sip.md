@@ -21,16 +21,16 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 **Body**
 
-| Tham số           | Kiểu   | Mô tả                    |
-| ----------------- | ------ | ------------------------ |
-| member_name       | String | Tên thành viên           |
-| member_username   | String | Tài khoản                |
-| member_password   | String | Mật khẩu                 |
-| member_phone      | String | Số điện thoại thành viên |
-| member_email      | String | Email thành viên         |
-| member_no         | String | Mã thành viên            |
-| type_account      | String |                          |
-| member_ext_number | Int    | Mã nhánh                 |
+| Tham số           | Kiểu   | Mô tả                                            |
+| ----------------- | ------ | ------------------------------------------------ |
+| member_name       | String | Tên thành viên                                   |
+| member_username   | String | Tài khoản                                        |
+| member_password   | String | Mật khẩu                                         |
+| member_phone      | String | Số điện thoại thành viên                         |
+| member_email      | String | Email thành viên                                 |
+| member_no         | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
+| type_account      | String |                                                  |
+| member_ext_number | Int    | Mã nhánh                                         |
 
 **Ví dụ request**
 
@@ -82,19 +82,21 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 **Body**
 
-| Tham số             | Kiểu   | Mô tả         |
-| ------------------- | ------ | ------------- |
-| member_no           | String | Mã thành viên |
-| member_password_old | String | Mật khẩu cũ   |
-| member_password_new | String | Mật khẩu mới  |
+| Tham số      | Kiểu   | Mô tả                                            |
+| ------------ | ------ | ------------------------------------------------ |
+| member_name  | String | Tên thành viên                                   |
+| member_phone | String | Số điện thoại thành viên                         |
+| member_email | String | Email thành viên                                 |
+| member_no    | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
 
 **Ví dụ request**
 
 ```json
 {
-  "member_no": "sample string 3",
-  "member_password_old": "sample string 4",
-  "member_password_new": "sample string 5"
+  "member_name": "sample string 3",
+  "member_phone": "sample string 4",
+  "member_email": "sample string 5",
+  "member_no": "sample string 6"
 }
 ```
 
@@ -131,7 +133,41 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 | --------- | ---------------- |
 | X-API-Key | `token-open-api` |
 
+**Body**
+
+| Tham số             | Kiểu   | Mô tả                                            |
+| ------------------- | ------ | ------------------------------------------------ |
+| member_no           | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
+| member_password_old | String | Mật khẩu cũ                                      |
+| member_password_new | String | Mật khẩu mới                                     |
+
+**Ví dụ request**
+
+```json
+{
+  "member_no": "sample string 3",
+  "member_password_old": "sample string 4",
+  "member_password_new": "sample string 5"
+}
+```
+
 **Response**
+
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông tin                              |
+| data    | String | Dữ liệu trả về                         |
+
+**Ví dụ response**
+
+```json
+{
+  "error": 2,
+  "message": "sample string 3",
+  "data": "sample string 4"
+}
+```
 
 ---
 
@@ -150,9 +186,9 @@ API quản lý tài khoản thiết bị SIP của thành viên.
 
 **Body**
 
-| Tham số   | Kiểu   | Mô tả         |
-| --------- | ------ | ------------- |
-| member_no | String | Mã thành viên |
+| Tham số   | Kiểu   | Mô tả                                            |
+| --------- | ------ | ------------------------------------------------ |
+| member_no | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
 
 **Ví dụ request**
 

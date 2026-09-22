@@ -61,7 +61,7 @@ API quản lý trường tùy chỉnh trong chiến dịch gọi.
 
 ---
 
-## Lấy tất cả trường (không phân trang)
+## Lấy tất cả trường (Phân trang)
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>

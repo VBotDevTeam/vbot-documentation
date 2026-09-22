@@ -21,15 +21,15 @@ API gán và xóa hotline cho thành viên.
 
 **Body**
 
-| Tham số        | Kiểu   | Mô tả              |
-| -------------- | ------ | ------------------ |
-| vbot_id        | String | VBotID             |
-| project_code   | String | Mã nhóm            |
-| member_no      | String | Mã thành viên      |
-| hotline_number | String | Số hotline         |
-| allow_call     | Bool   | Cho phép gọi       |
-| start_time     | String | Thời gian bắt đầu  |
-| end_time       | String | Thời gian kết thúc |
+| Tham số        | Kiểu   | Mô tả                                            |
+| -------------- | ------ | ------------------------------------------------ |
+| vbot_id        | String | VBotID                                           |
+| project_code   | String | Mã nhóm                                          |
+| member_no      | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
+| hotline_number | String | Số hotline                                       |
+| allow_call     | Bool   | Cho phép gọi                                     |
+| start_time     | String | Thời gian bắt đầu                                |
+| end_time       | String | Thời gian kết thúc                               |
 
 **Ví dụ request**
 
@@ -80,11 +80,11 @@ API gán và xóa hotline cho thành viên.
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả         |
-| ------------ | ------ | ------------- |
-| vbot_id      | String | VBotID        |
-| project_code | String | Mã nhóm       |
-| member_no    | String | Mã thành viên |
+| Tham số      | Kiểu   | Mô tả                                            |
+| ------------ | ------ | ------------------------------------------------ |
+| vbot_id      | String | VBotID                                           |
+| project_code | String | Mã nhóm                                          |
+| member_no    | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
 
 **Ví dụ request**
 

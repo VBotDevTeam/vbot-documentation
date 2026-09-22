@@ -21,13 +21,13 @@ API quản lý tài khoản SDK của thành viên.
 
 **Body**
 
-| Tham số           | Kiểu   | Mô tả                    |
-| ----------------- | ------ | ------------------------ |
-| member_name       | String | Tên thành viên           |
-| member_phone      | String | Số điện thoại thành viên |
-| member_email      | String | Email thành viên         |
-| member_no         | String | Mã thành viên            |
-| member_ext_number | Int    | Mã nhánh                 |
+| Tham số           | Kiểu   | Mô tả                                            |
+| ----------------- | ------ | ------------------------------------------------ |
+| member_name       | String | Tên thành viên                                   |
+| member_phone      | String | Số điện thoại thành viên                         |
+| member_email      | String | Email thành viên                                 |
+| member_no         | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
+| member_ext_number | Int    | Mã nhánh                                         |
 
 **Ví dụ request**
 
@@ -76,12 +76,12 @@ API quản lý tài khoản SDK của thành viên.
 
 **Body**
 
-| Tham số      | Kiểu   | Mô tả                    |
-| ------------ | ------ | ------------------------ |
-| member_no    | String | Mã thành viên            |
-| member_name  | String | Tên thành viên           |
-| member_phone | String | Số điện thoại thành viên |
-| member_email | String | Email thành viên         |
+| Tham số      | Kiểu   | Mô tả                                            |
+| ------------ | ------ | ------------------------------------------------ |
+| member_no    | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
+| member_name  | String | Tên thành viên                                   |
+| member_phone | String | Số điện thoại thành viên                         |
+| member_email | String | Email thành viên                                 |
 
 **Ví dụ request**
 
@@ -125,26 +125,23 @@ API quản lý tài khoản SDK của thành viên.
 
 **Header**
 
-| Tham số        | Kiểu   | Mô tả                                      |
-| -------------- | ------ | ------------------------------------------ |
-| X-API-Key      | String | API Key của đối tác (Token Open API)       |
+| Tham số   | Kiểu   | Mô tả                                |
+| --------- | ------ | ------------------------------------ |
+| X-API-Key | String | API Key của đối tác (Token Open API) |
 
 **Body**
 
-| Tham số        | Kiểu               | Bắt buộc | Mô tả                                                        |
-| -------------- | ------------------ | -------- | ------------------------------------------------------------ |
-| `member_no`    | String             | Có       | Mã định danh thành viên duy nhất trong hệ thống của bạn.      |
-| `hotline_codes`| Collection (Array) | Không    | Danh sách mã hotline cho phép SDK sử dụng (chỉ cần thêm 1 lần). Xem cách lấy mã hotline chuẩn tại [Danh sách hotline](/open-api/v3/hotline).|
+| Tham số         | Kiểu               | Bắt buộc | Mô tả                                                                                                                                        |
+| --------------- | ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `member_no`     | String             | Có       | Mã định danh thành viên duy nhất trong hệ thống của bạn (chỉ chấp nhận chữ và số: a-zA-Z0-9).                                               |
+| `hotline_codes` | Collection (Array) | Không    | Danh sách mã hotline cho phép SDK sử dụng (chỉ cần thêm 1 lần). Xem cách lấy mã hotline chuẩn tại [Danh sách hotline](/open-api/v3/hotline). |
 
 **Ví dụ request**
 
 ```json
 {
-  "member_no": "agent_001",
-  "hotline_codes": [
-    "hotline_main",
-    "hotline_staging"
-  ]
+  "member_no": "agent001",
+  "hotline_codes": ["hotline_main", "hotline_staging"]
 }
 ```
 

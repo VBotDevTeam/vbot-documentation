@@ -107,10 +107,10 @@ Sử dụng đầu API One-Step Provisioning để lấy mã xác thực JWT SDK
 
 **Body**
 
-| Tham số         | Kiểu   | Bắt buộc | Mô tả                                                              |
-| :-------------- | :----- | :------- | :----------------------------------------------------------------- |
-| `member_no`     | String | Có       | Mã định danh duy nhất của nhân viên trên hệ thống của bạn.         |
-| `hotline_codes` | Array  | Không    | Danh sách mã hotline cho phép SDK sử dụng (Ví dụ: `["HL_SALES"]`). |
+| Tham số         | Kiểu   | Bắt buộc | Mô tả                                                                                              |
+| :-------------- | :----- | :------- | :------------------------------------------------------------------------------------------------- |
+| `member_no`     | String | Có       | Mã định danh duy nhất của nhân viên trên hệ thống của bạn (chỉ chấp nhận chữ và số: a-zA-Z0-9).    |
+| `hotline_codes` | Array  | Không    | Danh sách mã hotline cho phép SDK sử dụng (Ví dụ: `["HL_SALES"]`).                                 |
 
 <div class="note">
   <strong>Lưu ý tự động khởi tạo:</strong><br/>
@@ -136,9 +136,9 @@ Sử dụng đầu API One-Step Provisioning để lấy mã xác thực JWT SDK
 
 **Tham số truy vấn (Query String)**
 
-| Tham số     | Kiểu   | Bắt buộc | Mô tả                                             |
-| :---------- | :----- | :------- | :------------------------------------------------ |
-| `member_no` | String | Có       | Mã định danh duy nhất của nhân viên cần kiểm tra. |
+| Tham số     | Kiểu   | Bắt buộc | Mô tả                                                                             |
+| :---------- | :----- | :------- | :-------------------------------------------------------------------------------- |
+| `member_no` | String | Có       | Mã định danh duy nhất của nhân viên cần kiểm tra (chỉ chấp nhận chữ và số: a-zA-Z0-9). |
 
 **Ví dụ Response thành công**
 
@@ -149,7 +149,7 @@ Sử dụng đầu API One-Step Provisioning để lấy mã xác thực JWT SDK
   "data": {
     "member_name": "Nguyễn Văn A",
     "member_ext_number": 102,
-    "member_no": "agent_001",
+    "member_no": "agent001",
     "member_status": 1,
     "member_money": 0.0,
     "expiration_date": "2026-12-31T23:59:59Z"
@@ -176,7 +176,7 @@ Thực hiện cuộc gọi API nạp tiền để cấp ngân sách gọi điệ
 
 ```json
 {
-  "member_no": "agent_001",
+  "member_no": "agent001",
   "money": 1000 // Số tiền nạp mặc định (VND)
 }
 ```
@@ -194,7 +194,7 @@ Trong trường hợp danh sách hotline được cấp cho nhân viên bị thi
 
 ```json
 {
-  "member_no": "agent_001",
+  "member_no": "agent001",
   "hotline_number": "84245559192", // Số hotline (lấy từ trường hotline_number ở Bước 1)
   "allow_call": true,
   "start_time": "",

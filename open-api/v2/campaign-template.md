@@ -34,54 +34,55 @@ Lấy danh sách các kịch bản đang active trong nhóm.
 
 **Response**
 
-| Tham số        | Kiểu   | Mô tả                                      |
-| -------------- | ------ | ------------------------------------------ |
-| error          | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi)    |
-| message        | String | Thông tin                                  |
-| data           | Array  | Danh sách templates                        |
-| data[].id      | Int    | Template ID                                |
-| data[].name    | String | Tên template                               |
-| data[].code    | String | Mã template (dùng khi gọi API callConfirm) |
-| data[].content | String | Nội dung script                            |
-| data[].status  | Int    | 1 = active                                 |
+| Tham số | Kiểu         | Mô tả                                  |
+| ------- | ------------ | -------------------------------------- |
+| error   | Int          | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String       | Thông tin                              |
+| data    | List[Object] | Danh sách kịch bản                     |
+
+**Cấu trúc phần tử trong `data` (Thông tin kịch bản)**
+
+| Tham số         | Kiểu    | Mô tả                                                                                                                                                                                |
+| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`            | Long    | ID của kịch bản                                                                                                                                                                      |
+| `name`          | String  | Tên kịch bản                                                                                                                                                                         |
+| `script_type`   | String  | Loại kịch bản:<br>- `CONFIRM`: Kịch bản chờ người dùng xác nhận sau khi nghe đọc (ví dụ: nhấn phím 1 để từ chối, phím 2 để đồng ý)<br>- `BOT`: Kịch bản có sử dụng CallBot (AI tương tác)<br>- `IVR`: Kịch bản đọc voice, phân nhánh phím bấm |
+| `description`   | String  | Mô tả kịch bản                                                                                                                                                                       |
+| `content`       | String  | Nội dung kịch bản (có thể chứa các biến tùy chỉnh dạng `{ten_bien}`)                                                                                                                 |
+| `audio_service` | String  | Loại/dịch vụ âm thanh sử dụng (ví dụ: nếu `script_type` là `CONFIRM` thì `audio_service` là `CONFIRM`, hoặc loại audio được import lên hệ thống)                                     |
+| `voice_file`    | String  | Đường dẫn file âm thanh/ghi âm tải lên (nếu sử dụng file âm thanh có sẵn)                                                                                                            |
+| `ttx_language`  | String  | Ngôn ngữ Text-To-Speech (chuyển văn bản thành giọng nói), ví dụ: `vi-VN`                                                                                                             |
+| `ttx_name`      | String  | Tên giọng đọc Text-To-Speech                                                                                                                                                         |
+| `is_ttx`        | Boolean | Có sử dụng Text-To-Speech hay không (`true`: Nhập văn bản để chuyển đổi sang giọng nói; `false`: Sử dụng file âm thanh có sẵn)                                                      |
+| `replay`        | Int     | Số lần phát lại nội dung kịch bản                                                                                                                                                    |
+| `bot_id`        | String  | ID của CallBot (sử dụng khi `script_type` là `BOT`)                                                                                                                                  |
+| `code`          | String  | Mã kịch bản (dùng để truyền vào tham số `template_code` khi gọi API tạo cuộc gọi)                                                                                                    |
+| `create_at`     | Long    | Thời điểm tạo kịch bản (Unix timestamp - ms)                                                                                                                                         |
+| `status`        | Int     | Trạng thái kịch bản (`1`: Đang hoạt động, `0`: Ngừng hoạt động)                                                                                                                      |
 
 **Ví dụ response**
 
 ```json
 {
-  "message": "Success",
+  "error": 0,
+  "message": "success",
   "data": [
     {
-      "id": 1,
-      "name": "Xác nhận đơn hàng",
-      "code": "CONFIRM_ORDER",
-      "script_type": "tts",
-      "description": "Kịch bản xác nhận đơn hàng với khách",
-      "content": "Xin chào {customer_name}, bạn có đơn hàng {order_id} cần xác nhận...",
-      "audio_service": "google",
-      "tts_language": "vi-VN",
-      "tts_name": "vi-VN-Standard-A",
-      "is_tts": true,
+      "id": 171052,
+      "name": "kịch bản blgd",
+      "script_type": "CONFIRM",
+      "description": "",
+      "content": "{ten_khach_hang}{dia_chi}{Phone}{ticket_title}{diem_danh_gia_kh}",
+      "audio_service": "",
+      "voice_file": "",
+      "ttx_language": "vi-VN",
+      "ttx_name": null,
+      "is_ttx": true,
       "replay": 2,
-      "bot_id": "BOT_001",
-      "status": 1,
-      "create_at": 1704873000
-    },
-    {
-      "id": 2,
-      "name": "Khảo sát hài lòng",
-      "code": "SURVEY_SATISFACTION",
-      "script_type": "tts",
-      "description": "Khảo sát mức độ hài lòng khách hàng",
-      "content": "Bạn có hài lòng với dịch vụ...",
-      "audio_service": "google",
-      "tts_language": "vi-VN",
-      "tts_name": "vi-VN-Standard-A",
-      "is_tts": true,
-      "replay": 1,
-      "bot_id": "BOT_002",
-      "status": 1,
-      "create_at": 1704876600
+      "bot_id": "",
+      "code": "TMP_26082816195416743",
+      "create_at": 1787883594968,
+      "status": 1
     }
   ]
 }

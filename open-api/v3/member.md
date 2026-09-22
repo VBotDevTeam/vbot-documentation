@@ -133,9 +133,9 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Tham số**
 
-| Tham số   | Kiểu   | Mô tả         |
-| --------- | ------ | ------------- |
-| member_no | String | Mã thành viên |
+| Tham số   | Kiểu   | Mô tả                                            |
+| --------- | ------ | ------------------------------------------------ |
+| member_no | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
 
 **Response**
 
@@ -194,10 +194,10 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Body**
 
-| Tham số   | Kiểu           | Mô tả         |
-| --------- | -------------- | ------------- |
-| member_no | String         | Mã thành viên |
-| money     | decimal number | Số tiền       |
+| Tham số   | Kiểu           | Mô tả                                            |
+| --------- | -------------- | ------------------------------------------------ |
+| member_no | String         | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
+| money     | decimal number | Số tiền                                          |
 
 **Ví dụ request**
 
@@ -243,10 +243,10 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Body**
 
-| Tham số       | Kiểu   | Mô tả             |
-| ------------- | ------ | ----------------- |
-| member_no     | String | Mã thành viên     |
-| member_no_new | String | Mã thành viên mới |
+| Tham số       | Kiểu   | Mô tả                                                |
+| ------------- | ------ | ---------------------------------------------------- |
+| member_no     | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9)     |
+| member_no_new | String | Mã thành viên mới (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
 
 **Ví dụ request**
 
@@ -292,10 +292,10 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Body**
 
-| Tham số           | Kiểu   | Mô tả         |
-| ----------------- | ------ | ------------- |
-| member_no         | String | Mã thành viên |
-| member_ext_number | Int    | Mã nhánh      |
+| Tham số           | Kiểu   | Mô tả                                            |
+| ----------------- | ------ | ------------------------------------------------ |
+| member_no         | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
+| member_ext_number | Int    | Mã nhánh                                         |
 
 **Ví dụ request**
 
@@ -341,9 +341,9 @@ API quản lý thành viên trong doanh nghiệp.
 
 **Body**
 
-| Tham số   | Kiểu   | Mô tả         |
-| --------- | ------ | ------------- |
-| member_no | String | Mã thành viên |
+| Tham số   | Kiểu   | Mô tả                                            |
+| --------- | ------ | ------------------------------------------------ |
+| member_no | String | Mã thành viên (chỉ chấp nhận chữ và số: a-zA-Z0-9) |
 
 **Ví dụ request**
 

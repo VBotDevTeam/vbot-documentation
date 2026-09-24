@@ -62,46 +62,79 @@ Gói đầy đủ khi cuộc gọi thường hoàn tất, bao gồm lịch sử 
 
 #### `manualCallLog`
 
-| Tham số               | Kiểu    | Mô tả                                                   |
-| --------------------- | ------- | ------------------------------------------------------- |
-| transId               | String  | Mã giao dịch cuộc gọi (duy nhất)                        |
-| projectCode           | String  | Mã dự án                                                |
-| typeCall              | Int     | Loại cuộc gọi (1: Gọi vào, 2: Gọi ra)                   |
-| timeCall              | Int     | Thời lượng đổ chuông (giây)                             |
-| durationCall          | Int     | Tổng thời lượng cuộc gọi (giây)                         |
-| createAt              | Long    | Thời điểm tạo cuộc gọi (Unix timestamp ms)              |
-| callAt                | Long    | Thời điểm bắt đầu gọi (Unix timestamp ms)               |
-| callerId              | String  | ID người gọi                                            |
-| caller                | String  | Số người gọi                                            |
-| callerName            | String  | Tên người gọi                                           |
-| typeCaller            | String  | Loại người gọi (`Website_RTC`, `Phone`, `SIP`, ...)     |
-| channelCaller         | String  | Channel ID người gọi                                    |
-| callerMemberNo        | String  | memberNo của caller                                     |
-| calleeId              | String  | ID người nhận                                           |
-| callee                | String  | Số người nhận                                           |
-| calleeName            | String  | Tên người nhận                                          |
-| typeCallee            | String  | Loại người nhận (`Phone`, `Website_RTC`, `SIP`, ...)    |
-| channelCallee         | String  | Channel ID người nhận                                   |
-| calleeMemberNo        | String  | memberNo của callee                                     |
-| conferenceId          | String  | ID phòng hội nghị (nếu có)                              |
-| telcoCode             | String  | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                  |
-| disposition           | String  | Trạng thái cuộc gọi (`ANSWER`, `NOANSWER`, `BUSY`, ...) |
-| hangupCause           | String  | Nguyên nhân kết thúc (`NORMAL_CLEARING`, ...)           |
-| sipCode               | String  | Mã SIP response (`200`, `486`, ...)                     |
-| endCall               | String  | Channel ID bên kết thúc cuộc gọi                        |
-| hotline               | String  | Số hotline sử dụng                                      |
-| isIvr                 | Boolean | Cuộc gọi có qua IVR hay không                           |
-| groupId               | String  | ID nhóm cuộc gọi                                        |
-| forwardBotIdEndCall   | String  | Bot ID nếu cuộc gọi được chuyển sang bot                |
-| paymentChannel        | String  | Kênh thanh toán (`MONEY`, ...)                          |
-| postage               | Double  | Cước phí cuộc gọi                                       |
-| autoDialServiceCharge | Double  | Phí dịch vụ gọi tự động                                 |
-| campaignTransId       | String  | Mã giao dịch chiến dịch (nếu có)                        |
-| customerUid           | String  | UID khách hàng trong hệ thống                           |
-| customerName          | String  | Tên khách hàng                                          |
-| firstQuestion         | String  | Câu hỏi đầu tiên (nếu có IVR)                           |
-| externalCallId        | String  | Mã cuộc gọi từ hệ thống bên ngoài                       |
-| groupMemberUid        | String  | UID nhóm thành viên                                     |
+| Tham số               | Kiểu    | Mô tả                                                                                |
+| --------------------- | ------- | ------------------------------------------------------------------------------------ |
+| transId               | String  | Mã giao dịch cuộc gọi (duy nhất)                                                     |
+| projectCode           | String  | Mã dự án                                                                             |
+| typeCall              | Int     | Loại cuộc gọi (1: Gọi vào, 2: Gọi ra)                                                |
+| timeCall              | Int     | Thời lượng đổ chuông (giây)                                                          |
+| durationCall          | Int     | Tổng thời lượng cuộc gọi (giây)                                                      |
+| createAt              | Long    | Thời điểm tạo cuộc gọi (Unix timestamp ms)                                           |
+| callAt                | Long    | Thời điểm bắt đầu gọi (Unix timestamp ms)                                            |
+| callerId              | String  | ID người gọi                                                                         |
+| caller                | String  | Số người gọi                                                                         |
+| callerName            | String  | Tên người gọi                                                                        |
+| typeCaller            | String  | Loại người gọi (`Website_RTC`, `Phone`, `SIP`, ...)                                  |
+| channelCaller         | String  | Channel ID người gọi                                                                 |
+| callerMemberNo        | String  | memberNo của caller                                                                  |
+| calleeId              | String  | ID người nhận                                                                        |
+| callee                | String  | Số người nhận                                                                        |
+| calleeName            | String  | Tên người nhận                                                                       |
+| typeCallee            | String  | Loại người nhận (`Phone`, `Website_RTC`, `SIP`, ...)                                 |
+| channelCallee         | String  | Channel ID người nhận                                                                |
+| calleeMemberNo        | String  | memberNo của callee                                                                  |
+| conferenceId          | String  | ID phòng hội nghị (nếu có)                                                           |
+| telcoCode             | String  | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                                               |
+| disposition           | String  | Trạng thái cuộc gọi (xem [Bảng tra cứu](#bang-tra-cuu-trang-thai-cuoc-goi-thuong))   |
+| hangupCause           | String  | Nguyên nhân kết thúc (xem [Bảng tra cứu](#bang-tra-cuu-trang-thai-cuoc-goi-thuong))  |
+| sipCode               | String  | Mã SIP response (xem [Bảng tra cứu](#bang-tra-cuu-trang-thai-cuoc-goi-thuong))       |
+| endCall               | String  | Channel ID bên kết thúc cuộc gọi                                                     |
+| hotline               | String  | Số hotline sử dụng                                                                   |
+| isIvr                 | Boolean | Cuộc gọi có qua IVR hay không                                                        |
+| groupId               | String  | ID nhóm cuộc gọi                                                                     |
+| forwardBotIdEndCall   | String  | Bot ID nếu cuộc gọi được chuyển sang bot                                             |
+| paymentChannel        | String  | Kênh thanh toán (`MONEY`, ...)                                                       |
+| postage               | Double  | Cước phí cuộc gọi                                                                    |
+| autoDialServiceCharge | Double  | Phí dịch vụ gọi tự động                                                              |
+| campaignTransId       | String  | Mã giao dịch chiến dịch (nếu có)                                                     |
+| customerUid           | String  | UID khách hàng trong hệ thống                                                        |
+| customerName          | String  | Tên khách hàng                                                                       |
+| firstQuestion         | String  | Câu hỏi đầu tiên (nếu có IVR)                                                        |
+| externalCallId        | String  | Mã cuộc gọi từ hệ thống bên ngoài                                                    |
+| groupMemberUid        | String  | UID nhóm thành viên                                                                  |
+
+<div id="bang-tra-cuu-trang-thai-cuoc-goi-thuong" style="scroll-margin-top: 80px;"></div>
+
+**Bảng tra cứu trạng thái cuộc gọi thường**
+
+Dưới đây là sự tương quan giữa các mã `sipCode`, `disposition`, `hangupCause` và ý nghĩa chi tiết của chúng trên hệ thống:
+
+| sipCode | disposition                 | hangupCause                 | Ý nghĩa                                        |
+| ------- | --------------------------- | --------------------------- | ---------------------------------------------- |
+| `200`   | `ANSWER`                    | `NORMAL_CLEARING`           | Nghe máy                                       |
+| `400`   | `BAD_REQUEST`               | `NORMAL_TEMPORARY_FAILURE`  | Sai thông tin                                  |
+| `401`   | `UNAUTHORIZED`              | `UNAUTHORIZED`              | Chưa xác thực                                  |
+| `402`   | `OUT_OF_MONEY`              | `OUT_OF_MONEY`              | Số dư tài khoản không đủ để thực hiện cuộc gọi |
+| `403`   | `DO_NOT_CALL`               | `DO_NOT_CALL`               | Người nhận chặn cuộc gọi quảng cáo             |
+| `404`   | `NOT_FOUND`                 | `UNALLOCATED_NUMBER`        | Số không tồn tại                               |
+| `405`   | `CALL_INTERVAL_NOT_ALLOWED` | `CALL_INTERVAL_NOT_ALLOWED` | Khung giờ gọi không được phép                  |
+| `406`   | `MEMBER_NOT_ACTIVATED`      | `MEMBER_NOT_ACTIVATED`      | Thành viên chưa được kích hoạt                 |
+| `407`   | `MEMBER_NOT_IN_PROJECT`     | `MEMBER_NOT_IN_PROJECT`     | Thành viên không thuộc dự án                   |
+| `408`   | `TIME_OUT`                  | `RECOVERY_ON_TIMER_EXPIRE`  | Hết thời gian chờ                              |
+| `409`   | `DO_NOT_DISTURB`            | `DO_NOT_DISTURB`            | Không làm phiền                                |
+| `410`   | `GONE`                      | `NUMBER_CHANGED`            | Số không còn tồn tại                           |
+| `411`   | `ABSENT`                    | `ABSENT`                    | Vắng mặt                                       |
+| `412`   | `PACKAGE_EXPIRED`           | `PACKAGE_EXPIRED`           | Gói cước đã hết hạn                            |
+| `413`   | `HOTLINE_NOT_SUPPORT_TELCO` | `HOTLINE_NOT_SUPPORT_TELCO` | Hotline không hỗ trợ nhà mạng                  |
+| `414`   | `TELCO_NOT_FOUND`           | `TELCO_NOT_FOUND`           | Không tìm thấy nhà mạng theo số điện thoại     |
+| `415`   | `INVALID_PARAMETER`         | `INVALID_PARAMETER`         | Tham số không hợp lệ                           |
+| `416`   | `PROJECT_EXPIRED`           | `PROJECT_EXPIRED`           | Dự án đã hết hạn                               |
+| `480`   | `NOANSWER`                  | `NO_USER_RESPONSE`          | Người nhận tạm thời không liên lạc được        |
+| `486`   | `BUSY`                      | `USER_BUSY`                 | Người nhận tạm thời đang bận                   |
+| `487`   | `CANCEL`                    | `ORIGINATOR_CANCEL`         | Người gọi hủy                                  |
+| `500`   | `SERVER_ERROR`              | `NORMAL_TEMPORARY_FAILURE`  | Lỗi kết nối                                    |
+| `502`   | `BAD_GATEWAY`               | `DESTINATION_OUT_OF_ORDER`  | Lỗi đường truyền                               |
+| `603`   | `DECLINE`                   | `CALL_REJECTED`             | Người nhận từ chối cuộc gọi                    |
 
 #### `manualCallRecording`
 
@@ -153,38 +186,54 @@ Gói đầy đủ khi cuộc gọi tự động hoàn tất, bao gồm lịch s�
 
 Lịch sử 1 cuộc gọi tự động vừa kết thúc. Payload là object phẳng:
 
-| Tham số             | Kiểu   | Mô tả                                                   |
-| ------------------- | ------ | ------------------------------------------------------- |
-| phone               | String | Số điện thoại khách hàng                                |
-| duration            | Int    | Tổng thời lượng cuộc gọi (giây)                         |
-| billsec             | Int    | Thời lượng tính cước (giây)                             |
-| disposition         | String | Trạng thái cuộc gọi (`ANSWER`, `NOANSWER`, `BUSY`, ...) |
-| hotlineCode         | String | Mã hotline                                              |
-| inputLog            | String | Log tương tác DTMF                                      |
-| voiceText           | String | Nội dung thoại chuyển văn bản (STT)                     |
-| postage             | Double | Cước phí cuộc gọi                                       |
-| serviceCharge       | Double | Phí dịch vụ                                             |
-| memberName          | String | Tên thành viên thực hiện                                |
-| memberAccId         | String | Account ID thành viên                                   |
-| memberNo            | String | memberNo của thành viên tạo cuộc gọi tự động            |
-| answerAt            | Long   | Thời điểm nghe máy (Unix timestamp ms)                  |
-| endCallAt           | Long   | Thời điểm kết thúc (Unix timestamp ms)                  |
-| botId               | String | ID của bot xử lý cuộc gọi                               |
-| campaignName        | String | Tên chiến dịch                                          |
-| campaignGroupName   | String | Tên nhóm chiến dịch                                     |
-| templateScriptCode  | String | Mã kịch bản template                                    |
-| templateScriptName  | String | Tên kịch bản template                                   |
-| transId             | String | Mã giao dịch cuộc gọi (duy nhất)                        |
-| createAt            | Long   | Thời điểm tạo cuộc gọi (Unix timestamp ms)              |
-| postageService      | Double | Cước dịch vụ bổ sung                                    |
-| postageBotService   | Double | Cước dịch vụ bot                                        |
-| telcoCode           | String | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                  |
-| projectCode         | String | Mã dự án                                                |
-| callNet             | String | Loại cuộc gọi (`OFFNET`, `ONNET`)                       |
-| metaData            | String | Dữ liệu meta đầu vào kịch bản (JSON string)             |
-| metaDataDescription | String | Mô tả các trường meta (JSON string)                     |
-| externalCallId      | String | Mã cuộc gọi từ hệ thống bên ngoài                       |
-| callCollectedData   | String | Dữ liệu thu thập từ cuộc gọi (JSON string)              |
+| Tham số             | Kiểu   | Mô tả                                                                                         |
+| ------------------- | ------ | --------------------------------------------------------------------------------------------- |
+| phone               | String | Số điện thoại khách hàng                                                                      |
+| duration            | Int    | Tổng thời lượng cuộc gọi (giây)                                                               |
+| billsec             | Int    | Thời lượng tính cước (giây)                                                                   |
+| disposition         | String | Trạng thái cuộc gọi (xem [Bảng tra cứu](#bang-tra-cuu-trang-thai-cuoc-goi-tu-dong))          |
+| hotlineCode         | String | Mã hotline                                                                                    |
+| inputLog            | String | Log tương tác DTMF                                                                            |
+| voiceText           | String | Nội dung thoại chuyển văn bản (STT)                                                           |
+| postage             | Double | Cước phí cuộc gọi                                                                             |
+| serviceCharge       | Double | Phí dịch vụ                                                                                   |
+| memberName          | String | Tên thành viên thực hiện                                                                      |
+| memberAccId         | String | Account ID thành viên                                                                         |
+| memberNo            | String | memberNo của thành viên tạo cuộc gọi tự động                                                  |
+| answerAt            | Long   | Thời điểm nghe máy (Unix timestamp ms)                                                        |
+| endCallAt           | Long   | Thời điểm kết thúc (Unix timestamp ms)                                                        |
+| botId               | String | ID của bot xử lý cuộc gọi                                                                     |
+| campaignName        | String | Tên chiến dịch                                                                                |
+| campaignGroupName   | String | Tên nhóm chiến dịch                                                                           |
+| templateScriptCode  | String | Mã kịch bản template                                                                          |
+| templateScriptName  | String | Tên kịch bản template                                                                         |
+| transId             | String | Mã giao dịch cuộc gọi (duy nhất)                                                              |
+| createAt            | Long   | Thời điểm tạo cuộc gọi (Unix timestamp ms)                                                    |
+| postageService      | Double | Cước dịch vụ bổ sung                                                                          |
+| postageBotService   | Double | Cước dịch vụ bot                                                                              |
+| telcoCode           | String | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                                                        |
+| projectCode         | String | Mã dự án                                                                                      |
+| callNet             | String | Loại cuộc gọi (`OFFNET`, `ONNET`)                                                             |
+| metaData            | String | Dữ liệu meta đầu vào kịch bản (JSON string)                                                   |
+| metaDataDescription | String | Mô tả các trường meta (JSON string)                                                           |
+| externalCallId      | String | Mã cuộc gọi từ hệ thống bên ngoài                                                             |
+| callCollectedData   | String | Dữ liệu thu thập từ cuộc gọi (JSON string)                                                    |
+
+<div id="bang-tra-cuu-trang-thai-cuoc-goi-tu-dong" style="scroll-margin-top: 80px;"></div>
+
+**Bảng tra cứu trạng thái cuộc gọi tự động**
+
+Dưới đây là các trạng thái `disposition` và ý nghĩa chi tiết:
+
+| disposition | Ý nghĩa |
+| ----------- | ------- |
+| `NOT_FOUND_PRICE` | Không đủ tiền |
+| `NOT_FOUND_TELCO` | Không tìm thấy nhà mạng |
+| `ANSWER` | Nghe máy |
+| `NOANSWER` | Người nhận tạm thời không liên lạc được |
+| `BUSY` | Người nhận tạm thời đang bận |
+| `NOT_MONEY` | Số dư tài khoản không đủ để thực hiện cuộc gọi |
+| `SERVER_ERROR` | Lỗi kết nối |
 
 ### AUTO_CALL_AI_EXTRACTION
 

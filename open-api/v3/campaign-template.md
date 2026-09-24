@@ -266,7 +266,7 @@ Lấy danh sách nhánh kịch bản dạng **cấu trúc cây**, hỗ trợ ph�
 ## Các API phiên bản cũ (Deprecated)
 
 ::: warning Khuyến nghị
-Các API dưới đây thuộc phiên bản cũ (Deprecated). Hệ thống **vẫn đang tiếp tục hỗ trợ và duy trì hoạt động bình thường**. Tuy nhiên, VBot **khuyến nghị** quý khách hàng chuyển sang sử dụng các API phiên bản mới ở trên (`/m-auto-call/api/template-script/get-all`, `/m-auto-call/api/template-script/count`, `/m-auto-call/api/template-script-sub/get-all`) để được hỗ trợ đầy đủ các tính năng nâng cao như phân cấp nhánh kịch bản cây (`subItems`) và bộ lọc tối ưu.
+Các API dưới đây thuộc phiên bản cũ (Deprecated). Hệ thống **vẫn đang tiếp tục hỗ trợ và duy trì hoạt động bình thường**. Tuy nhiên, VBot **khuyến nghị** quý khách hàng chuyển sang sử dụng các API phiên bản mới ở trên (`/m-auto-call/api/template-script/get-all`, `/m-auto-call/api/template-script/count`, `/m-auto-call/api/template-script-sub/get-all`) để tối ưu hiệu năng và được cập nhật các tính năng mới nhất trong tương lai.
 :::
 
 ### Lấy danh sách kịch bản (Deprecated) {#lay-danh-sach-kich-ban-deprecated}

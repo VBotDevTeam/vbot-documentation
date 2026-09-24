@@ -26,37 +26,53 @@ Payload gồm 3 phần chính:
 
 ### `autoCallLog` — Lịch sử cuộc gọi
 
-| Tham số             | Kiểu   | Mô tả                                                              |
-| ------------------- | ------ | ------------------------------------------------------------------ |
-| phone               | String | Số điện thoại khách hàng                                           |
-| duration            | Int    | Tổng thời lượng cuộc gọi (giây)                                    |
-| billsec             | Int    | Thời lượng tính cước (giây)                                        |
-| disposition         | String | Trạng thái cuộc gọi (`ANSWER`, `NOANSWER`, `BUSY`, ...)            |
-| hotlineCode         | String | Mã hotline (số tổng đài)                                           |
-| inputLog            | String | Log tương tác DTMF của khách hàng                                  |
-| voiceText           | String | Nội dung thoại đã chuyển thành văn bản (STT)                       |
-| postage             | Double | Cước phí cuộc gọi                                                  |
-| serviceCharge       | Double | Phí dịch vụ                                                        |
-| memberName          | String | Tên thành viên thực hiện                                           |
-| memberAccId         | String | Account ID thành viên                                              |
-| answerAt            | Long   | Thời điểm nghe máy (Unix timestamp ms)                             |
-| endCallAt           | Long   | Thời điểm kết thúc cuộc gọi (Unix timestamp ms)                    |
-| botId               | String | ID của bot xử lý cuộc gọi                                          |
-| campaignName        | String | Tên chiến dịch                                                     |
-| campaignGroupName   | String | Tên nhóm chiến dịch                                                |
-| templateScriptCode  | String | Mã kịch bản template                                               |
-| templateScriptName  | String | Tên kịch bản template                                              |
-| transId             | String | Mã giao dịch cuộc gọi (duy nhất)                                   |
-| createAt            | Long   | Thời điểm tạo cuộc gọi (Unix timestamp ms)                         |
-| postageService      | Double | Cước dịch vụ bổ sung                                               |
-| postageBotService   | Double | Cước dịch vụ bot                                                   |
-| telcoCode           | String | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                             |
-| projectCode         | String | Mã dự án                                                           |
-| callNet             | String | Loại cuộc gọi (`OFFNET`, `ONNET`)                                  |
-| metaData            | String | Dữ liệu meta (JSON string) — các biến đầu vào kịch bản             |
-| metaDataDescription | String | Mô tả các trường meta (JSON string)                                |
-| externalCallId      | String | Mã cuộc gọi từ hệ thống bên ngoài                                  |
-| callCollectedData   | String | Dữ liệu thu thập từ cuộc gọi (JSON string) — bao gồm cả kết quả AI |
+| Tham số             | Kiểu   | Mô tả                                                                                      |
+| ------------------- | ------ | ------------------------------------------------------------------------------------------ |
+| phone               | String | Số điện thoại khách hàng                                                                   |
+| duration            | Int    | Tổng thời lượng cuộc gọi (giây)                                                            |
+| billsec             | Int    | Thời lượng tính cước (giây)                                                                |
+| disposition         | String | Trạng thái cuộc gọi (xem tại [Bảng tra cứu trạng thái](#bang-tra-cuu-trang-thai-autocall)) |
+| hotlineCode         | String | Mã hotline (số tổng đài)                                                                   |
+| inputLog            | String | Log tương tác DTMF của khách hàng                                                          |
+| voiceText           | String | Nội dung thoại đã chuyển thành văn bản (STT)                                               |
+| postage             | Double | Cước phí cuộc gọi                                                                          |
+| serviceCharge       | Double | Phí dịch vụ                                                                                |
+| memberName          | String | Tên thành viên thực hiện                                                                   |
+| memberAccId         | String | Account ID thành viên                                                                      |
+| answerAt            | Long   | Thời điểm nghe máy (Unix timestamp ms)                                                     |
+| endCallAt           | Long   | Thời điểm kết thúc cuộc gọi (Unix timestamp ms)                                            |
+| botId               | String | ID của bot xử lý cuộc gọi                                                                  |
+| campaignName        | String | Tên chiến dịch                                                                             |
+| campaignGroupName   | String | Tên nhóm chiến dịch                                                                        |
+| templateScriptCode  | String | Mã kịch bản template                                                                       |
+| templateScriptName  | String | Tên kịch bản template                                                                      |
+| transId             | String | Mã giao dịch cuộc gọi (duy nhất)                                                           |
+| createAt            | Long   | Thời điểm tạo cuộc gọi (Unix timestamp ms)                                                 |
+| postageService      | Double | Cước dịch vụ bổ sung                                                                       |
+| postageBotService   | Double | Cước dịch vụ bot                                                                           |
+| telcoCode           | String | Mã nhà mạng (`VTL`, `VNP`, `VMS`, ...)                                                     |
+| projectCode         | String | Mã dự án                                                                                   |
+| callNet             | String | Loại cuộc gọi (`OFFNET`, `ONNET`)                                                          |
+| metaData            | String | Dữ liệu meta (JSON string) — các biến đầu vào kịch bản                                     |
+| metaDataDescription | String | Mô tả các trường meta (JSON string)                                                        |
+| externalCallId      | String | Mã cuộc gọi từ hệ thống bên ngoài                                                          |
+| callCollectedData   | String | Dữ liệu thu thập từ cuộc gọi (JSON string) — bao gồm cả kết quả AI                         |
+
+<div id="bang-tra-cuu-trang-thai-autocall" style="scroll-margin-top: 80px;"></div>
+
+**Bảng tra cứu trạng thái**
+
+Dưới đây là các trạng thái `disposition` và ý nghĩa chi tiết:
+
+| disposition       | Ý nghĩa                                        |
+| ----------------- | ---------------------------------------------- |
+| `NOT_FOUND_PRICE` | Không đủ tiền                                  |
+| `NOT_FOUND_TELCO` | Không tìm thấy nhà mạng                        |
+| `ANSWER`          | Nghe máy                                       |
+| `NOANSWER`        | Người nhận tạm thời không liên lạc được        |
+| `BUSY`            | Người nhận tạm thời đang bận                   |
+| `NOT_MONEY`       | Số dư tài khoản không đủ để thực hiện cuộc gọi |
+| `SERVER_ERROR`    | Lỗi kết nối                                    |
 
 ### `autoCallAIExtraction` — Dữ liệu AI trích xuất
 
@@ -250,24 +266,24 @@ Lấy danh sách chi tiết cuộc gọi có phân trang, hỗ trợ nhiều b�
 
 **Tham số**
 
-| Tham số              | Kiểu   | Bắt buộc | Mô tả                                                             |
-| -------------------- | ------ | -------- | ----------------------------------------------------------------- |
-| key_search           | String |          | Từ khóa tìm kiếm (SĐT, customerUid, tên)                          |
-| input_log_search     | String |          | Lọc theo nội dung nhận dạng bot / phím bấm                        |
-| disposition_search   | String |          | Lọc theo trạng thái cuộc gọi (`ANSWERED`, `NO ANSWER`, `BUSY`...) |
-| project_code         | String |          | Mã dự án. Tự lấy từ X-API-Key nếu không truyền                    |
-| bot_id               | String |          | Mã bot AI                                                         |
-| campaign_code        | String |          | Mã chiến dịch                                                     |
-| member               | String |          | MemberUid người tạo (member chỉ xem CDR của mình)                 |
-| template_script_code | String |          | Mã kịch bản gọi                                                   |
-| status               | Int    |          | Trạng thái CDR, mặc định: -1 (tất cả)                             |
-| hotline              | String |          | Mã hotline gọi ra                                                 |
-| min_postage          | Double |          | Cước phí tối thiểu                                                |
-| max_postage          | Double |          | Cước phí tối đa                                                   |
-| start_date           | Long   |          | Thời gian bắt đầu (Unix timestamp - epoch milliseconds)           |
-| end_date             | Long   |          | Thời gian kết thúc (Unix timestamp - epoch milliseconds)          |
-| page                 | Int    |          | Số trang (mặc định: 1)                                            |
-| size                 | Int    |          | Số lượng trên 1 trang (mặc định: 10)                              |
+| Tham số              | Kiểu   | Bắt buộc | Mô tả                                                                                      |
+| -------------------- | ------ | -------- | ------------------------------------------------------------------------------------------ |
+| key_search           | String |          | Từ khóa tìm kiếm (SĐT, customerUid, tên)                                                   |
+| input_log_search     | String |          | Lọc theo nội dung nhận dạng bot / phím bấm                                                 |
+| disposition_search   | String |          | Lọc theo trạng thái cuộc gọi (xem tại [Bảng tra cứu trạng thái](#bang-tra-cuu-trang-thai)) |
+| project_code         | String |          | Mã dự án. Tự lấy từ X-API-Key nếu không truyền                                             |
+| bot_id               | String |          | Mã bot AI                                                                                  |
+| campaign_code        | String |          | Mã chiến dịch                                                                              |
+| member               | String |          | MemberUid người tạo (member chỉ xem CDR của mình)                                          |
+| template_script_code | String |          | Mã kịch bản gọi                                                                            |
+| status               | Int    |          | Trạng thái CDR, mặc định: -1 (tất cả)                                                      |
+| hotline              | String |          | Mã hotline gọi ra                                                                          |
+| min_postage          | Double |          | Cước phí tối thiểu                                                                         |
+| max_postage          | Double |          | Cước phí tối đa                                                                            |
+| start_date           | Long   |          | Thời gian bắt đầu (Unix timestamp - epoch milliseconds)                                    |
+| end_date             | Long   |          | Thời gian kết thúc (Unix timestamp - epoch milliseconds)                                   |
+| page                 | Int    |          | Số trang (mặc định: 1)                                                                     |
+| size                 | Int    |          | Số lượng trên 1 trang (mặc định: 10)                                                       |
 
 **Response**
 
@@ -280,42 +296,42 @@ Lấy danh sách chi tiết cuộc gọi có phân trang, hỗ trợ nhiều b�
 
 **Cấu trúc phần tử trong `data` (Chi tiết cuộc gọi):**
 
-| Tham số                | Kiểu    | Mô tả                                                 |
-| ---------------------- | ------- | ----------------------------------------------------- |
-| phone                  | String  | Số điện thoại nhận cuộc gọi                           |
-| name                   | String  | Tên khách hàng                                        |
-| customerUid            | String  | Mã khách hàng                                         |
-| duration               | Int     | Tổng thời lượng cuộc gọi (giây)                       |
-| billsec                | Int     | Thời gian đàm thoại tính cước (giây)                  |
-| sipCode                | String  | Mã SIP phản hồi                                       |
-| disposition            | String  | Trạng thái: `ANSWERED`, `NO ANSWER`, `BUSY`, `FAILED` |
-| hotline                | Object  | Thông tin hotline gọi ra                              |
-| inputLog               | String  | Nội dung nhận dạng bot / phím bấm                     |
-| voiceText              | String  | Nội dung chuyển đổi giọng nói sang văn bản            |
-| status                 | Int     | Trạng thái CDR                                        |
-| botMemberStatusConnect | String  | Trạng thái kết nối bot-member                         |
-| postage                | Double  | Cước phí cuộc gọi                                     |
-| serviceCharge          | Double  | Phí dịch vụ                                           |
-| postageBotService      | Double  | Cước phí bot AI                                       |
-| externalCallId         | String  | Mã cuộc gọi từ hệ thống bên ngoài                     |
-| member                 | Object  | Thông tin member phụ trách                            |
-| answerAt               | Long    | Thời điểm trả lời (Unix timestamp - ms)               |
-| endCallAt              | Long    | Thời điểm kết thúc (Unix timestamp - ms)              |
-| botId                  | String  | Mã bot AI                                             |
-| campaignId             | Long    | ID chiến dịch                                         |
-| campaignCode           | String  | Mã chiến dịch                                         |
-| campaignName           | String  | Tên chiến dịch                                        |
-| campaignGroupId        | Long    | ID nhóm chiến dịch                                    |
-| campaignGroupCode      | String  | Mã nhóm chiến dịch                                    |
-| campaignGroupName      | String  | Tên nhóm chiến dịch                                   |
-| templateScriptId       | Long    | ID kịch bản                                           |
-| templateScriptCode     | String  | Mã kịch bản                                           |
-| templateScriptName     | String  | Tên kịch bản                                          |
-| transId                | String  | Mã giao dịch cuộc gọi (duy nhất)                      |
-| createAt               | Long    | Thời điểm tạo (Unix timestamp - ms)                   |
-| isRecord               | Boolean | Có file ghi âm hay không                              |
-| score                  | Float   | Điểm đánh giá cuộc gọi                                |
-| callCollectedData      | Array   | Dữ liệu thu thập / AI trích xuất từ cuộc gọi          |
+| Tham số                | Kiểu    | Mô tả                                                                             |
+| ---------------------- | ------- | --------------------------------------------------------------------------------- |
+| phone                  | String  | Số điện thoại nhận cuộc gọi                                                       |
+| name                   | String  | Tên khách hàng                                                                    |
+| customerUid            | String  | Mã khách hàng                                                                     |
+| duration               | Int     | Tổng thời lượng cuộc gọi (giây)                                                   |
+| billsec                | Int     | Thời gian đàm thoại tính cước (giây)                                              |
+| sipCode                | String  | Mã SIP phản hồi (xem tại [Bảng tra cứu trạng thái](#bang-tra-cuu-trang-thai))     |
+| disposition            | String  | Trạng thái cuộc gọi (xem tại [Bảng tra cứu trạng thái](#bang-tra-cuu-trang-thai)) |
+| hotline                | Object  | Thông tin hotline gọi ra                                                          |
+| inputLog               | String  | Nội dung nhận dạng bot / phím bấm                                                 |
+| voiceText              | String  | Nội dung chuyển đổi giọng nói sang văn bản                                        |
+| status                 | Int     | Trạng thái CDR                                                                    |
+| botMemberStatusConnect | String  | Trạng thái kết nối bot-member                                                     |
+| postage                | Double  | Cước phí cuộc gọi                                                                 |
+| serviceCharge          | Double  | Phí dịch vụ                                                                       |
+| postageBotService      | Double  | Cước phí bot AI                                                                   |
+| externalCallId         | String  | Mã cuộc gọi từ hệ thống bên ngoài                                                 |
+| member                 | Object  | Thông tin member phụ trách                                                        |
+| answerAt               | Long    | Thời điểm trả lời (Unix timestamp - ms)                                           |
+| endCallAt              | Long    | Thời điểm kết thúc (Unix timestamp - ms)                                          |
+| botId                  | String  | Mã bot AI                                                                         |
+| campaignId             | Long    | ID chiến dịch                                                                     |
+| campaignCode           | String  | Mã chiến dịch                                                                     |
+| campaignName           | String  | Tên chiến dịch                                                                    |
+| campaignGroupId        | Long    | ID nhóm chiến dịch                                                                |
+| campaignGroupCode      | String  | Mã nhóm chiến dịch                                                                |
+| campaignGroupName      | String  | Tên nhóm chiến dịch                                                               |
+| templateScriptId       | Long    | ID kịch bản                                                                       |
+| templateScriptCode     | String  | Mã kịch bản                                                                       |
+| templateScriptName     | String  | Tên kịch bản                                                                      |
+| transId                | String  | Mã giao dịch cuộc gọi (duy nhất)                                                  |
+| createAt               | Long    | Thời điểm tạo (Unix timestamp - ms)                                               |
+| isRecord               | Boolean | Có file ghi âm hay không                                                          |
+| score                  | Float   | Điểm đánh giá cuộc gọi                                                            |
+| callCollectedData      | Array   | Dữ liệu thu thập / AI trích xuất từ cuộc gọi                                      |
 
 **Cấu trúc mỗi phần tử trong `callCollectedData`:**
 
@@ -394,24 +410,24 @@ Trả về tổng số bản ghi lịch sử gọi tự động theo các điề
 
 **Tham số**
 
-| Tham số                | Kiểu   | Bắt buộc | Mô tả                                                             |
-| ---------------------- | ------ | -------- | ----------------------------------------------------------------- |
-| `key_search`           | String |          | Từ khóa tìm kiếm (SĐT, customerUid, tên)                          |
-| `input_log_search`     | String |          | Lọc theo nội dung nhận dạng bot                                   |
-| `disposition_search`   | String |          | Lọc theo trạng thái cuộc gọi (`ANSWERED`, `NO ANSWER`, `BUSY`...) |
-| `project_code`         | String |          | Mã dự án. Tự lấy từ X-API-Key nếu không truyền                    |
-| `bot_id`               | String |          | Mã bot AI                                                         |
-| `campaign_code`        | String |          | Mã chiến dịch                                                     |
-| `member`               | String |          | MemberUid người tạo (member chỉ xem CDR của mình)                 |
-| `template_script_code` | String |          | Mã kịch bản gọi                                                   |
-| `status`               | Int    |          | Trạng thái CDR. Mặc định: `-1` (tất cả)                           |
-| `hotline`              | String |          | Mã hotline                                                        |
-| `min_postage`          | Double |          | Cước phí tối thiểu                                                |
-| `max_postage`          | Double |          | Cước phí tối đa                                                   |
-| `start_date`           | Long   |          | Thời gian bắt đầu (Unix timestamp - epoch milliseconds)           |
-| `end_date`             | Long   |          | Thời gian kết thúc (Unix timestamp - epoch milliseconds)          |
-| `page`                 | Int    |          | Trang hiện tại (mặc định: `1`)                                    |
-| `size`                 | Int    |          | Số bản ghi mỗi trang (mặc định: `10`)                             |
+| Tham số                | Kiểu   | Bắt buộc | Mô tả                                                                                      |
+| ---------------------- | ------ | -------- | ------------------------------------------------------------------------------------------ |
+| `key_search`           | String |          | Từ khóa tìm kiếm (SĐT, customerUid, tên)                                                   |
+| `input_log_search`     | String |          | Lọc theo nội dung nhận dạng bot                                                            |
+| `disposition_search`   | String |          | Lọc theo trạng thái cuộc gọi (xem tại [Bảng tra cứu trạng thái](#bang-tra-cuu-trang-thai)) |
+| `project_code`         | String |          | Mã dự án. Tự lấy từ X-API-Key nếu không truyền                                             |
+| `bot_id`               | String |          | Mã bot AI                                                                                  |
+| `campaign_code`        | String |          | Mã chiến dịch                                                                              |
+| `member`               | String |          | MemberUid người tạo (member chỉ xem CDR của mình)                                          |
+| `template_script_code` | String |          | Mã kịch bản gọi                                                                            |
+| `status`               | Int    |          | Trạng thái CDR. Mặc định: `-1` (tất cả)                                                    |
+| `hotline`              | String |          | Mã hotline                                                                                 |
+| `min_postage`          | Double |          | Cước phí tối thiểu                                                                         |
+| `max_postage`          | Double |          | Cước phí tối đa                                                                            |
+| `start_date`           | Long   |          | Thời gian bắt đầu (Unix timestamp - epoch milliseconds)                                    |
+| `end_date`             | Long   |          | Thời gian kết thúc (Unix timestamp - epoch milliseconds)                                   |
+| `page`                 | Int    |          | Trang hiện tại (mặc định: `1`)                                                             |
+| `size`                 | Int    |          | Số bản ghi mỗi trang (mặc định: `10`)                                                      |
 
 **Response**
 
@@ -440,19 +456,30 @@ Trả về tổng số bản ghi lịch sử gọi tự động theo các điề
 | `0`       | `200`  | Thành công   |
 | `500`     | `500`  | Lỗi hệ thống |
 
-::: tip Kết hợp phân trang với API get-all
-Kết hợp API `count` với API `get-all` để xây dựng phân trang chính xác:
+---
 
-- Gọi `count` để lấy tổng số bản ghi → tính tổng số trang.
-- Gọi `get-all` với `page` và `size` để lấy dữ liệu từng trang.
-  :::
+<div id="bang-tra-cuu-trang-thai" style="scroll-margin-top: 80px;"></div>
+
+**Bảng tra cứu trạng thái**
+
+Dưới đây là sự tương quan giữa các mã `sipCode`, `disposition` và ý nghĩa chi tiết của chúng trên hệ thống:
+
+| sipCode | disposition       | Ý nghĩa                                        |
+| ------- | ----------------- | ---------------------------------------------- |
+| `101`   | `NOT_FOUND_PRICE` | Không đủ tiền                                  |
+| `102`   | `NOT_FOUND_TELCO` | Không tìm thấy nhà mạng                        |
+| `200`   | `ANSWER`          | Nghe máy                                       |
+| `480`   | `NOANSWER`        | Người nhận tạm thời không liên lạc được        |
+| `486`   | `BUSY`            | Người nhận tạm thời đang bận                   |
+| `402`   | `NOT_MONEY`       | Số dư tài khoản không đủ để thực hiện cuộc gọi |
+| `500`   | `SERVER_ERROR`    | Lỗi kết nối                                    |
 
 ---
 
 ## Các API phiên bản cũ (Deprecated)
 
 ::: warning Khuyến nghị
-Các API dưới đây thuộc phiên bản cũ (Deprecated). Hệ thống **vẫn đang tiếp tục hỗ trợ và duy trì hoạt động bình thường**. Tuy nhiên, VBot **khuyến nghị** quý khách hàng sử dụng các API phiên bản mới ở trên (`/m-auto-call/api/cdr/get-all`, `/m-auto-call/api/cdr/count`, `/m-auto-call/api/cdr/get-bot-conversation`) để truy vấn lịch sử cuộc gọi với đầy đủ thông tin thu thập AI, cước phí và bộ lọc mở rộng phong phú hơn.
+Các API dưới đây thuộc phiên bản cũ (Deprecated). Hệ thống **vẫn đang tiếp tục hỗ trợ và duy trì hoạt động bình thường**. Tuy nhiên, VBot **khuyến nghị** quý khách hàng sử dụng các API phiên bản mới ở trên (`/m-auto-call/api/cdr/get-all`, `/m-auto-call/api/cdr/count`, `/m-auto-call/api/cdr/get-bot-conversation`) để tối ưu hiệu năng và được cập nhật các tính năng mới nhất trong tương lai.
 :::
 
 ### Lấy danh sách lịch sử gọi (Deprecated) {#lay-danh-sach-lich-su-goi-deprecated}
@@ -470,40 +497,21 @@ Các API dưới đây thuộc phiên bản cũ (Deprecated). Hệ thống **v�
 
 **Tham số**
 
-| Tham số              | Kiểu   | Mô tả                                                                     |
-| -------------------- | ------ | ------------------------------------------------------------------------- |
-| bot_id               | String | Mã bot                                                                    |
-| campaign_code        | String | Mã chiến dịch                                                             |
-| member               | String | Thành viên                                                                |
-| template_script_code | String | Mã template kịch bản                                                      |
-| disposition          | String | Trạng thái cuộc gọi. Xem [bảng giá trị disposition](#giá-trị-disposition) |
-| key                  | String | Từ khóa tìm kiếm                                                          |
-| end_date             | Int    | Ngày kết thúc                                                             |
-| start_date           | Int    | Ngày bắt đầu                                                              |
-| hotline              | String | Hotline                                                                   |
-| input_log_search     | String | Tìm kiếm log                                                              |
-| status               | Int    | Trạng thái                                                                |
-| page                 | Int    | Số trang                                                                  |
-| size                 | Int    | Số lượng trên 1 trang                                                     |
-
-**Giá trị `disposition`** {#giá-trị-disposition}
-
-| Giá trị         | Mô tả                  |
-| --------------- | ---------------------- |
-| misscall        | Cuộc gọi nhỡ           |
-| answer          | Nghe máy               |
-| busy            | Máy bận                |
-| noanswer        | Không trả lời          |
-| cancel          | Cuộc gọi bị hủy        |
-| congestion      | Lỗi mạng               |
-| chanunavail     | Không liên lạc được    |
-| dontcall        | Người nhận từ chối     |
-| torture         | Lỗi mạng               |
-| invalidargs     | Tham số không hợp lệ   |
-| someoneanswered | Người khác đã nghe máy |
-| logout          | Đã đăng xuất           |
-| botivr          | CallBot                |
-| more            | Không trả lời          |
+| Tham số              | Kiểu   | Mô tả                                                                             |
+| -------------------- | ------ | --------------------------------------------------------------------------------- |
+| bot_id               | String | Mã bot                                                                            |
+| campaign_code        | String | Mã chiến dịch                                                                     |
+| member               | String | Thành viên                                                                        |
+| template_script_code | String | Mã template kịch bản                                                              |
+| disposition          | String | Trạng thái cuộc gọi (xem tại [Bảng tra cứu trạng thái](#bang-tra-cuu-trang-thai)) |
+| key                  | String | Từ khóa tìm kiếm                                                                  |
+| end_date             | Int    | Ngày kết thúc                                                                     |
+| start_date           | Int    | Ngày bắt đầu                                                                      |
+| hotline              | String | Hotline                                                                           |
+| input_log_search     | String | Tìm kiếm log                                                                      |
+| status               | Int    | Trạng thái                                                                        |
+| page                 | Int    | Số trang                                                                          |
+| size                 | Int    | Số lượng trên 1 trang                                                             |
 
 **Response**
 
@@ -587,21 +595,21 @@ Các API dưới đây thuộc phiên bản cũ (Deprecated). Hệ thống **v�
 
 **Tham số**
 
-| Tham số              | Kiểu   | Mô tả                 |
-| -------------------- | ------ | --------------------- |
-| bot_id               | String | Mã bot                |
-| campaign_code        | String | Mã chiến dịch         |
-| member               | String | Thành viên            |
-| template_script_code | String | Mã template kịch bản  |
-| disposition          | String | Trạng thái cuộc gọi   |
-| key                  | String | Từ khóa tìm kiếm      |
-| end_date             | Int    | Ngày kết thúc         |
-| start_date           | Int    | Ngày bắt đầu          |
-| hotline              | String | Hotline               |
-| input_log_search     | String | Tìm kiếm log          |
-| status               | Int    | Trạng thái            |
-| page                 | Int    | Số trang              |
-| size                 | Int    | Số lượng trên 1 trang |
+| Tham số              | Kiểu   | Mô tả                                                                             |
+| -------------------- | ------ | --------------------------------------------------------------------------------- |
+| bot_id               | String | Mã bot                                                                            |
+| campaign_code        | String | Mã chiến dịch                                                                     |
+| member               | String | Thành viên                                                                        |
+| template_script_code | String | Mã template kịch bản                                                              |
+| disposition          | String | Trạng thái cuộc gọi (xem tại [Bảng tra cứu trạng thái](#bang-tra-cuu-trang-thai)) |
+| key                  | String | Từ khóa tìm kiếm                                                                  |
+| end_date             | Int    | Ngày kết thúc                                                                     |
+| start_date           | Int    | Ngày bắt đầu                                                                      |
+| hotline              | String | Hotline                                                                           |
+| input_log_search     | String | Tìm kiếm log                                                                      |
+| status               | Int    | Trạng thái                                                                        |
+| page                 | Int    | Số trang                                                                          |
+| size                 | Int    | Số lượng trên 1 trang                                                             |
 
 **Response**
 

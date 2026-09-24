@@ -12,27 +12,34 @@ Trang này ghi lại các thay đổi quan trọng của VBot Open API v3.0. Vui
 - **[23/06/2026]** Bổ sung nhóm API Quản lý khách hàng, Tuỳ chỉnh thông tin và Lịch sử tương tác.
 - **[27/06/2026]** Bổ sung API Tạo tài khoản & lấy Token SDK một bước (`POST /api/sdk/tokenSdk`), API lấy số dư tài khoản Admin (`GET /api/account/balance`), cập nhật trường `hotline_type` trong danh sách hotline (`GET /api/hotline/getAll`) và tính năng âm thanh ngắt kết nối (`disconnectSoundUrl`).
 - **[13/08/2026]** Bổ sung API Tạo cuộc gọi tự động đến tài khoản thành viên SDK (`POST /m-auto-call/api/call/create-list-member`) và trang hướng dẫn nghiệp vụ Gọi thành viên SDK.
-- **[22/09/2026]** Nâng cấp bộ API Gọi tự động: Chuẩn hóa endpoint tạo cuộc gọi (đơn, danh sách SĐT, thành viên SDK), lấy danh sách & đếm kịch bản mẫu, lấy nhánh kịch bản, tra cứu danh sách & đếm lịch sử cuộc gọi tự động, lấy hội thoại bot AI. Các API cũ vẫn được hỗ trợ song song.
+- **[24/09/2026]** Nâng cấp nhóm API Lịch sử cuộc gọi và Gọi tự động: Phân tách API theo từng module riêng biệt (`/m-cdr/` và `/m-auto-call/`) giúp tối ưu hiệu năng và mở rộng hệ thống. Các API cũ vẫn hoạt động bình thường.
 
 :::
 
-## 22/09/2026
+## 24/09/2026
 
-### Nâng cấp bộ API Gọi tự động
+Phân tách các nhóm API theo từng module riêng biệt: Lịch sử cuộc gọi (`/m-cdr/`) và Gọi tự động (`/m-auto-call/`) giúp tối ưu hiệu năng xử lý và dễ dàng mở rộng hệ thống.
 
-1. **Nhóm API Tạo cuộc gọi**:
-   - `POST /m-auto-call/api/call/create`: Tạo cuộc gọi đơn đến một số điện thoại duy nhất.
-   - `POST /m-auto-call/api/call/create-list-phone`: Tạo cuộc gọi tự động đến danh sách SĐT.
-2. **Nhóm API Lịch sử cuộc gọi & Hội thoại Bot**:
-   - `GET /m-auto-call/api/cdr/get-all`: Tra cứu lịch sử gọi tự động với hệ thống 15+ bộ lọc đa dạng (thời gian, disposition, kịch bản, bot AI, cước phí...) và trích xuất dữ liệu tùy chỉnh (`callCollectedData`).
-   - `GET /m-auto-call/api/cdr/count`: Đếm tổng số lượng bản ghi lịch sử cuộc gọi .
-   - `GET /m-auto-call/api/cdr/get-bot-conversation`: Truy xuất toàn bộ nội dung hội thoại giữa Bot AI và khách hàng.
-3. **Nhóm API Kịch bản gọi**:
-   - `GET /m-auto-call/api/template-script/get-all`: Lấy danh sách kịch bản gọi.
-   - `GET /m-auto-call/api/template-script/count`: Đếm tổng số lượng kịch bản mẫu phục vụ hiển thị và phân trang.
-   - `GET /m-auto-call/api/template-script-sub/get-all`: Lấy danh sách nhánh kịch bản dạng cấu trúc cây.
-4. **Chính sách hỗ trợ API cũ (Deprecated)**:
-   - Các API cũ (`/api/campaignCall/...`) vẫn được duy trì hoạt động bình thường, tài liệu khuyến nghị chuyển đổi sang các API mới.
+### Nâng cấp nhóm API Lịch sử cuộc gọi
+
+- `GET /m-cdr/api/call/get-all`: Lấy danh sách tất cả cuộc gọi (theo nhóm) của dự án với các bộ lọc nâng cao và phân trang.
+- `GET /m-cdr/api/call/count-all`: Đếm tổng số lượng cuộc gọi theo các điều kiện lọc.
+- `GET /m-cdr/api/call/get-detail`: Lấy danh sách chi tiết các luồng của cuộc gọi.
+- `GET /m-cdr/api/call/record`: Lấy file ghi âm cuộc gọi.
+- **Ghi chú**: Các API cũ (`/api/crm/historycall/...`) vẫn được duy trì hoạt động bình thường, tài liệu khuyến nghị chuyển đổi sang các API mới.
+
+### Nâng cấp nhóm API Gọi tự động
+
+- `POST /m-auto-call/api/call/create`: Tạo cuộc gọi đơn đến một số điện thoại duy nhất.
+- `POST /m-auto-call/api/call/create-list-phone`: Tạo cuộc gọi tự động đến danh sách SĐT.
+- `POST /m-auto-call/api/call/create-list-member`: Tạo cuộc gọi tự động đến danh sách tài khoản thành viên SDK.
+- `GET /m-auto-call/api/cdr/get-all`: Tra cứu lịch sử cuộc gọi tự động.
+- `GET /m-auto-call/api/cdr/count`: Đếm tổng số lượng bản ghi lịch sử cuộc gọi tự động theo bộ lọc.
+- `GET /m-auto-call/api/cdr/get-bot-conversation`: Truy xuất toàn bộ nội dung hội thoại giữa Bot AI và khách hàng.
+- `GET /m-auto-call/api/template-script/get-all`: Lấy danh sách kịch bản gọi tự động.
+- `GET /m-auto-call/api/template-script/count`: Đếm tổng số lượng kịch bản gọi tự động.
+- `GET /m-auto-call/api/template-script-sub/get-all`: Lấy danh sách nhánh kịch bản.
+- **Ghi chú**: Các API cũ (`/api/campaignCall/...`) vẫn được duy trì hoạt động bình thường, tài liệu khuyến nghị chuyển đổi sang các API mới.
 
 ## 13/08/2026
 

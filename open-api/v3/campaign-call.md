@@ -238,10 +238,6 @@ Lỗi (vượt quá 5 số):
 | `403`     | `500`  | Vượt quá giới hạn 5 số điện thoại (sau khi loại trùng) |
 | `500`     | `500`  | Lỗi hệ thống                                           |
 
-::: tip Gọi tự động cho thành viên SDK
-Để thực hiện cuộc gọi tự động đến các tài khoản thành viên (VBot hoặc SDK), vui lòng xem chi tiết tại: [Gọi tự động cho thành viên SDK](/open-api/v3/campaign-sdk-member).
-:::
-
 ---
 
 ## Các API phiên bản cũ (Deprecated)

@@ -25,7 +25,6 @@ Phân tách các nhóm API theo từng module riêng biệt: Lịch sử cuộc 
 - `GET /m-cdr/api/call/get-all`: Lấy danh sách tất cả cuộc gọi (theo nhóm) của dự án với các bộ lọc nâng cao và phân trang.
 - `GET /m-cdr/api/call/count-all`: Đếm tổng số lượng cuộc gọi theo các điều kiện lọc.
 - `GET /m-cdr/api/call/get-detail`: Lấy danh sách chi tiết các luồng của cuộc gọi.
-- `GET /m-cdr/api/call/record`: Lấy file ghi âm cuộc gọi.
 - **Ghi chú**: Các API cũ (`/api/crm/historycall/...`) vẫn được duy trì hoạt động bình thường, tài liệu khuyến nghị chuyển đổi sang các API mới.
 
 ### Nâng cấp nhóm API Gọi tự động

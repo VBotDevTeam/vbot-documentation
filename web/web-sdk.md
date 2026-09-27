@@ -89,6 +89,7 @@ Ví dụ:
 | `externalCallId`       | `string`                      | `undefined` | ID cuộc gọi từ hệ thống CRM bên ngoài để gán sẵn định danh cho cuộc gọi đi tiếp theo (khi gọi từ bàn phím).  |
 | `debug`                | `boolean`                     | `false`     | Bật/tắt chế độ debug và in log chi tiết của SDK ra Console trình duyệt.                                      |
 | `enableLog`            | `boolean`                     | `false`     | Tùy chọn tương đương với `debug`.                                                                            |
+| `zIndex`               | `number \| string`            | `2147483000`| Tùy chỉnh z-index hiển thị của widget để đảm bảo không bị các modal/header của website đè lên.               |
 
 ---
 
@@ -100,10 +101,37 @@ Ngoài việc cấu hình trong đối tượng `config` JSON, bạn cũng có t
 <vbot-widget
   token="YOUR_ACCESS_TOKEN"
   debug
+  z-index="100000"
   external-call-id="CRM_CALL_12345"
   disconnect-sound-url="https://your-domain.com/assets/my-disconnect-sound.webm"
 ></vbot-widget>
 ```
+
+### Tùy chỉnh Z-Index & Tầng hiển thị (Stacking Layer)
+
+Mặc định SDK sử dụng base `z-index` là **`2147483000`** (giới hạn an toàn cao nhất của int32 trên trình duyệt). Giá trị này giúp giao diện tổng đài (bàn phím số, màn hình cuộc gọi, thông báo cuộc gọi đến) luôn nổi lên trên các modal, drawer hoặc sticky header của hệ thống khách hàng. Toast thông báo và bong bóng nổi (Floating bubble) sẽ tự động cộng thêm offset `+10` để luôn nằm trên cùng.
+
+Có 3 cách để tùy biến `z-index`:
+
+1. **Qua thuộc tính HTML (Attribute):**
+   ```html
+   <vbot-widget token="YOUR_ACCESS_TOKEN" z-index="100000"></vbot-widget>
+   ```
+
+2. **Qua đối tượng cấu hình (`config`):**
+   ```html
+   <vbot-widget
+     token="YOUR_ACCESS_TOKEN"
+     config='{"zIndex": 100000}'
+   ></vbot-widget>
+   ```
+
+3. **Qua CSS Custom Property:**
+   ```css
+   vbot-widget {
+     --vbot-z-index: 100000;
+   }
+   ```
 
 ### Chế độ Gỡ lỗi (Debug Logging)
 
@@ -368,10 +396,11 @@ Giao diện mặc định của SDK được thiết kế hiện đại, respons
 - `--vbot-ring`: Màu vòng phát sáng tiêu điểm khi focus.
 - `--vbot-call-primary`: Màu xanh lá cho nút bắt đầu cuộc gọi/nút nghe máy.
 - `--vbot-call-danger`: Màu đỏ cho nút dừng cuộc gọi/nút từ chối.
+- `--vbot-z-index`: Tùy chỉnh z-index hiển thị của widget (mặc định: `2147483000`).
 
 ---
 
-## 7. Hướng dẫn tích hợp React / Next.js
+## 7. Hướng dẫn tích hợp React / Next.js / Vue
 
 Do `<vbot-widget>` là một Web Component, khi tích hợp vào các framework như **React**, **Next.js** hoặc **Vue**, bạn nên áp dụng các quy chuẩn sau:
 
@@ -445,6 +474,59 @@ export default function VBotPhoneIntegration() {
 }
 ```
 
+### 3. Tích hợp theo Route trong SPA (Tránh bẫy Stacking Context)
+
+Khi bạn chỉ muốn nạp widget tại một trang/route cụ thể (ví dụ trang `/crm/calls` hoặc `/tickets`), bạn cần lưu ý:
+
+- **Không tự ý chuyển DOM node ra `document.body` thủ công** (`document.body.appendChild(...)`), vì khi chuyển route, Virtual DOM reconciler của React/Vue sẽ tìm kiếm component con để gỡ bỏ và gây lỗi runtime `removeChild`.
+- Nếu layout của route chứa các thuộc tính như `transform`, `filter`, hoặc `backdrop-filter`, trình duyệt sẽ tạo ra một **Stacking Context cục bộ**, khiến `position: fixed` của widget bị co cụm theo thẻ cha.
+- **Giải pháp chuẩn**: Sử dụng cơ chế Portal/Teleport native của framework để giữ nguyên lifecycle của route component nhưng mount DOM trực tiếp ra `document.body`:
+
+::: code-group
+
+```tsx [React / Next.js (createPortal)]
+import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
+
+export default function CallCenterPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <div className="crm-page-container">
+      <h1>Tổng Đài Chăm Sóc Khách Hàng</h1>
+      <p>Nội dung trang CRM...</p>
+
+      {/* Giữ lifecycle trong trang nhưng render DOM ở document.body */}
+      {mounted &&
+        createPortal(
+          <vbot-widget token="YOUR_ACCESS_TOKEN" debug />,
+          document.body,
+        )}
+    </div>
+  );
+}
+```
+
+```vue [Vue 3 (Teleport)]
+<template>
+  <div class="crm-page-container">
+    <h1>Tổng Đài Chăm Sóc Khách Hàng</h1>
+    <p>Nội dung trang CRM...</p>
+
+    <!-- Giữ lifecycle trong trang nhưng render DOM ở document.body -->
+    <Teleport to="body">
+      <vbot-widget token="YOUR_ACCESS_TOKEN" debug />
+    </Teleport>
+  </div>
+</template>
+```
+
+:::
+
 ::: tip Khai báo TypeScript cho thẻ `<vbot-widget>`
 Khi sử dụng TypeScript trong React/Next.js, bạn có thể tạo file `custom-elements.d.ts` trong thư mục `src/` (hoặc `types/`) để trình biên dịch không cảnh báo lỗi thẻ lạ:
 
@@ -459,6 +541,8 @@ declare global {
           headless?: boolean | string;
           debug?: boolean | string;
           "external-call-id"?: string;
+          "z-index"?: number | string;
+          zIndex?: number | string;
         },
         HTMLElement
       >;

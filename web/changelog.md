@@ -16,6 +16,10 @@ _Ngày phát hành: 27/09/2026_
   - Thuộc tính `debug` hoặc `enableLog` trong đối tượng `config`.
   - Thuộc tính HTML (Attribute): `<vbot-widget debug ...>`.
   - Bật tức thời tại Console DevTools: `window.__VBOT_DEBUG__ = true` hoặc `localStorage.setItem('vbot_debug', 'true')`.
+- **Tùy chỉnh Z-Index & Tầng hiển thị (Stacking Layer)**:
+  - Nâng base `z-index` mặc định lên `2147483000` (giới hạn int32 an toàn trên trình duyệt) để không bị che lấp bởi các modal, drawer hay header của website tích hợp. Toast và Floating Indicator được offset `+10` để luôn nổi trên cùng.
+  - Hỗ trợ tùy biến linh hoạt qua CSS Token `--vbot-z-index`, HTML Attribute `z-index="..."`, hoặc qua `config.zIndex`.
+  - Bổ sung hướng dẫn tích hợp theo route trong SPA (React `createPortal`, Vue `Teleport`) giúp giữ đúng component lifecycle và tránh bẫy Stacking Context cục bộ do CSS của trang tạo ra.
 
 ::: tip Cập nhật script bundle CDN
 

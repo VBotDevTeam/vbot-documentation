@@ -6,6 +6,35 @@ outline: deep
 
 Trang này ghi lại các thay đổi của VBot Web SDK. Vui lòng theo dõi để cập nhật tích hợp kịp thời.
 
+## v1.0.11
+
+_Ngày phát hành: 28/09/2026_
+
+### Tính năng mới & Cải tiến
+
+- **Tùy chỉnh Z-Index & Tầng hiển thị (Stacking Layer)**:
+  - Nâng base `z-index` mặc định lên `2147483000` (giới hạn int32 an toàn trên trình duyệt) để không bị che lấp bởi các modal, drawer hay header của website tích hợp. Toast và Floating Indicator được offset `+10` để luôn nổi trên cùng.
+  - Hỗ trợ tùy biến linh hoạt qua CSS Token `--vbot-z-index`, HTML Attribute `z-index="..."`, hoặc qua `config.zIndex`.
+  - Bổ sung hướng dẫn tích hợp theo route trong SPA (React `createPortal`, Vue `Teleport`) giúp giữ đúng component lifecycle và tránh bẫy Stacking Context cục bộ do CSS của trang tạo ra.
+
+::: tip Cập nhật script bundle CDN
+
+```html
+<!-- ESM -->
+<script
+  type="module"
+  src="https://cdn.vbot.vn/vbot-sdk/1.0.11/vbot-sdk.es.js"
+></script>
+
+<!-- UMD -->
+<script
+  src="https://cdn.vbot.vn/vbot-sdk/1.0.11/vbot-sdk.umd.js"
+  defer
+></script>
+```
+
+:::
+
 ## v1.0.10
 
 _Ngày phát hành: 27/09/2026_
@@ -16,10 +45,6 @@ _Ngày phát hành: 27/09/2026_
   - Thuộc tính `debug` hoặc `enableLog` trong đối tượng `config`.
   - Thuộc tính HTML (Attribute): `<vbot-widget debug ...>`.
   - Bật tức thời tại Console DevTools: `window.__VBOT_DEBUG__ = true` hoặc `localStorage.setItem('vbot_debug', 'true')`.
-- **Tùy chỉnh Z-Index & Tầng hiển thị (Stacking Layer)**:
-  - Nâng base `z-index` mặc định lên `2147483000` (giới hạn int32 an toàn trên trình duyệt) để không bị che lấp bởi các modal, drawer hay header của website tích hợp. Toast và Floating Indicator được offset `+10` để luôn nổi trên cùng.
-  - Hỗ trợ tùy biến linh hoạt qua CSS Token `--vbot-z-index`, HTML Attribute `z-index="..."`, hoặc qua `config.zIndex`.
-  - Bổ sung hướng dẫn tích hợp theo route trong SPA (React `createPortal`, Vue `Teleport`) giúp giữ đúng component lifecycle và tránh bẫy Stacking Context cục bộ do CSS của trang tạo ra.
 
 ::: tip Cập nhật script bundle CDN
 

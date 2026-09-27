@@ -16,7 +16,7 @@ Thêm script bundle từ CDN:
 <!-- Phiên bản cố định giúp ổn định tuyệt đối và tối ưu tốc độ (CDN cache 1 năm) -->
 <script
   type="module"
-  src="https://cdn.vbot.vn/vbot-sdk/1.0.10/vbot-sdk.es.js"
+  src="https://cdn.vbot.vn/vbot-sdk/1.0.11/vbot-sdk.es.js"
 ></script>
 
 <vbot-widget token="YOUR_ACCESS_TOKEN"></vbot-widget>
@@ -24,7 +24,7 @@ Thêm script bundle từ CDN:
 
 ```html [UMD - Cố định phiên bản]
 <script
-  src="https://cdn.vbot.vn/vbot-sdk/1.0.10/vbot-sdk.umd.js"
+  src="https://cdn.vbot.vn/vbot-sdk/1.0.11/vbot-sdk.umd.js"
   defer
 ></script>
 
@@ -51,7 +51,7 @@ Thêm script bundle từ CDN:
 
 > **Lưu ý:**
 >
-> - Khi triển khai môi trường **Production**, nên chỉ định số phiên bản cố định (ví dụ `/1.0.10/`) để đảm bảo hệ thống luôn hoạt động ổn định.
+> - Khi triển khai môi trường **Production**, nên chỉ định số phiên bản cố định (ví dụ `/1.0.11/`) để đảm bảo hệ thống luôn hoạt động ổn định.
 > - UMD build sẽ tự động đăng ký Custom Element `vbot-widget` ngay khi tải xong.
 > - Hãy thay `YOUR_ACCESS_TOKEN` bằng Access Token tài khoản của bạn để SDK tự kết nối và lấy thông tin SIP cấu hình tự động. Token này được sinh ra từ Backend của bạn bằng cách gọi API của VBot, chi tiết xem tại [Tạo tài khoản & lấy Token SDK](/open-api/v3/member-sdk#tao-tai-khoan-lay-token-sdk-one-step-provisioning).
 
@@ -459,7 +459,7 @@ export default function VBotPhoneIntegration() {
     <>
       {/* Nạp SDK qua Next.js Script */}
       <Script
-        src="https://cdn.vbot.vn/vbot-sdk/1.0.10/vbot-sdk.umd.js"
+        src="https://cdn.vbot.vn/vbot-sdk/1.0.11/vbot-sdk.umd.js"
         strategy="afterInteractive"
       />
 

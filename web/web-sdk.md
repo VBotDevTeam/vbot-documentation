@@ -293,7 +293,7 @@ Từ phiên bản `1.0.9`, SDK được chuẩn hóa cơ chế nhận diện cu�
   - SDK **không** phát sự kiện `vbot:onCallFailed` (để tránh CRM hiểu nhầm là lỗi kết nối mạng hay lỗi SIP).
   - SDK phát sự kiện `vbot:onInfo` với nội dung: `"Cuộc gọi nhỡ từ thuê bao {số điện thoại}"` (hoặc `"Cuộc gọi nhỡ"` nếu số điện thoại không xác định).
   - Ngay sau đó phát sự kiện `vbot:onCallEnded` khi trạng thái quay về `idle`.
-  - Ở chế độ giao diện Built-in UI, SDK tự động hiển thị popup Toast thông báo cuộc gọi nhỡ và tự ẩn sau 3 giây.
+  - Ở chế độ giao diện Built-in UI, SDK tự động hiển thị popup Toast thông báo cuộc gọi nhỡ và tự ẩn sau 3 giây. Ở chế độ Headless Mode, SDK không tự render Toast UI, ứng dụng cần lắng nghe sự kiện `vbot:onInfo` để hiển thị qua hệ thống Toast riêng của website.
 
 ---
 
@@ -303,7 +303,7 @@ Nếu muốn tự thiết kế toàn bộ giao diện cuộc gọi riêng phù h
 
 Khi bật `headless`:
 
-- Thẻ `<vbot-widget>` hoàn toàn ẩn đi và không render bất kỳ popover hay giao diện mặc định nào.
+- Thẻ `<vbot-widget>` hoàn toàn ẩn đi và không render bất kỳ popover, màn hình cuộc gọi, bàn phím số hay popup Toast mặc định nào.
 - SDK chỉ xử lý kết nối SIP, luồng cuộc gọi và tự động phát nhạc chuông/âm thanh đàm thoại ngầm.
 - Bạn hoàn toàn điều khiển cuộc gọi thông qua các phương thức public (ví dụ: `makeCall`, `answerCall`, `hangupCall`) và cập nhật trạng thái UI từ các sự kiện của SDK.
 
@@ -312,6 +312,38 @@ Cú pháp:
 ```html
 <vbot-widget token="YOUR_ACCESS_TOKEN" headless="true"></vbot-widget>
 ```
+
+::: warning Lưu ý quan trọng về thông báo (Toast / Notification)
+Ở chế độ **Headless Mode**, SDK **không tự động hiển thị bất kỳ Toast UI nào** (như thông báo cuộc gọi nhỡ, cảnh báo lỗi micro hay lỗi kết nối) nhằm tránh xung đột với hệ thống giao diện hoặc Design System của riêng bạn.
+
+Thay vào đó, SDK phát các Custom Events ra thẻ `<vbot-widget>`. Ứng dụng của bạn cần chủ động lắng nghe các sự kiện này để kích hoạt thông báo (Toast/Alert) tương ứng:
+
+```javascript
+const widget = document.querySelector("vbot-widget");
+
+// 1. Nhận thông tin & thông báo cuộc gọi nhỡ
+widget.addEventListener("vbot:onInfo", (event) => {
+  // Thay thế bằng hàm toast của website bạn (ví dụ: Ant Design, Sonner, React-Toastify...)
+  myNotification.info(event.detail.message);
+});
+
+// 2. Nhận cảnh báo (ví dụ: lỗi micro, mất quyền truy cập thiết bị)
+widget.addEventListener("vbot:onWarning", (event) => {
+  myNotification.warning(event.detail.message);
+});
+
+// 3. Nhận lỗi hệ thống hoặc cuộc gọi thất bại
+widget.addEventListener("vbot:onError", (event) => {
+  myNotification.error(event.detail.message);
+});
+
+widget.addEventListener("vbot:onCallFailed", (event) => {
+  if (event.detail.error) {
+    myNotification.error(event.detail.error);
+  }
+});
+```
+:::
 
 ---
 

@@ -109,7 +109,7 @@ Ngoài việc cấu hình trong đối tượng `config` JSON, bạn cũng có t
 
 ### Tùy chỉnh Z-Index & Tầng hiển thị (Stacking Layer)
 
-Mặc định SDK sử dụng base `z-index` là **`2147483000`** (giới hạn an toàn cao nhất của int32 trên trình duyệt). Giá trị này giúp giao diện tổng đài (bàn phím số, màn hình cuộc gọi, thông báo cuộc gọi đến) luôn nổi lên trên các modal, drawer hoặc sticky header của hệ thống khách hàng. Toast thông báo và bong bóng nổi (Floating bubble) sẽ tự động cộng thêm offset `+10` để luôn nằm trên cùng.
+Từ phiên bản `1.0.11`, SDK nâng base `z-index` mặc định lên **`2147483000`** (giới hạn an toàn cao nhất của int32 trên trình duyệt) và hỗ trợ tùy biến linh hoạt z-index. Giá trị này giúp giao diện tổng đài (bàn phím số, màn hình cuộc gọi, thông báo cuộc gọi đến) luôn nổi lên trên các modal, drawer hoặc sticky header của hệ thống khách hàng. Toast thông báo và bong bóng nổi (Floating bubble) sẽ tự động cộng thêm offset `+10` để luôn nằm trên cùng.
 
 Có 3 cách để tùy biến `z-index`:
 

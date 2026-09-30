@@ -13,8 +13,18 @@ Trang này ghi lại các thay đổi quan trọng của VBot Open API v3.0. Vui
 - **[27/06/2026]** Bổ sung API Tạo tài khoản & lấy Token SDK một bước (`POST /api/sdk/tokenSdk`), API lấy số dư tài khoản Admin (`GET /api/account/balance`), cập nhật trường `hotline_type` trong danh sách hotline (`GET /api/hotline/getAll`) và tính năng âm thanh ngắt kết nối (`disconnectSoundUrl`).
 - **[13/08/2026]** Bổ sung API Tạo cuộc gọi tự động đến tài khoản thành viên SDK (`POST /m-auto-call/api/call/create-list-member`) và trang hướng dẫn nghiệp vụ Gọi thành viên SDK.
 - **[24/09/2026]** Nâng cấp nhóm API Lịch sử cuộc gọi và Gọi tự động: Phân tách API theo từng module riêng biệt (`/m-cdr/` và `/m-auto-call/`) giúp tối ưu hiệu năng và mở rộng hệ thống. Các API cũ vẫn hoạt động bình thường.
+- **[30/09/2026]** Cập nhật API Lịch sử cuộc gọi: Bổ sung tham số lọc theo mã thành viên (`member_no`) cho API `GET /m-cdr/api/call/get-all` và `GET /m-cdr/api/call/count-all`.
 
 :::
+
+## 30/09/2026
+
+### Cập nhật tham số lọc cho API Lịch sử cuộc gọi (/m-cdr/)
+
+Bổ sung tham số truy vấn `member_no` (Mã thành viên) cho các API tra cứu lịch sử cuộc gọi trong module `/m-cdr/`:
+
+- `GET /m-cdr/api/call/get-all`: Bổ sung tham số `member_no` vào query string cho phép lọc danh sách lịch sử cuộc gọi theo thành viên cụ thể.
+- `GET /m-cdr/api/call/count-all`: Bổ sung tham số `member_no` vào query string cho phép đếm tổng số lượng cuộc gọi theo thành viên cụ thể.
 
 ## 24/09/2026
 

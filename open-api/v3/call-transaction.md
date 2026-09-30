@@ -14,7 +14,7 @@ Nếu tham số lọc số truyền giá trị `-1` sẽ được hiểu là **b
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/m-cdr/api/call/get-all?key_search={key_search}&group_member_no={group_member_no}&hotline={hotline}&disposition={disposition}&customer_code={customer_code}&from={from}&to={to}&type_call={type_call}&min_postage={min_postage}&max_postage={max_postage}&has_hotline={has_hotline}&page={page}&size={size}</span>
+  <span>[URL]/m-cdr/api/call/get-all?key_search={key_search}&group_member_no={group_member_no}&member_no={member_no}&hotline={hotline}&disposition={disposition}&customer_code={customer_code}&from={from}&to={to}&type_call={type_call}&min_postage={min_postage}&max_postage={max_postage}&has_hotline={has_hotline}&page={page}&size={size}</span>
 </div>
 
 **Header**
@@ -29,6 +29,7 @@ Nếu tham số lọc số truyền giá trị `-1` sẽ được hiểu là **b
 | --------------- | ------ | -------- | -------------------------------------------------------------------------------------------------- |
 | key_search      | String |          | Từ khóa tìm kiếm (số điện thoại)                                                                   |
 | group_member_no | String |          | Mã nhóm nhân viên (ví dụ: `mem_12345`)                                                             |
+| member_no       | String |          | Mã thành viên (ví dụ: `1001`)                                                                      |
 | hotline         | String |          | Số hotline sử dụng (ví dụ: `19001001`)                                                             |
 | disposition     | String |          | Trạng thái cuộc gọi (xem [Bảng tra cứu trạng thái](#bang-tra-cuu-trang-thai))                      |
 | customer_code   | String |          | Mã khách hàng (ví dụ: `cus_556677`)                                                                |
@@ -150,7 +151,7 @@ Nếu tham số lọc số truyền giá trị `-1` sẽ được hiểu là **b
 
 <div class="api-container">
   <span class="api-method method-get">GET</span>
-  <span>[URL]/m-cdr/api/call/count-all?key_search={key_search}&group_member_no={group_member_no}&hotline={hotline}&disposition={disposition}&customer_code={customer_code}&from={from}&to={to}&type_call={type_call}&min_postage={min_postage}&max_postage={max_postage}&has_hotline={has_hotline}&page={page}&size={size}</span>
+  <span>[URL]/m-cdr/api/call/count-all?key_search={key_search}&group_member_no={group_member_no}&member_no={member_no}&hotline={hotline}&disposition={disposition}&customer_code={customer_code}&from={from}&to={to}&type_call={type_call}&min_postage={min_postage}&max_postage={max_postage}&has_hotline={has_hotline}&page={page}&size={size}</span>
 </div>
 
 **Header**
@@ -165,6 +166,7 @@ Nếu tham số lọc số truyền giá trị `-1` sẽ được hiểu là **b
 | --------------- | ------ | -------- | -------------------------------------------------------------------------------------------------- |
 | key_search      | String |          | Từ khóa tìm kiếm (số điện thoại)                                                                   |
 | group_member_no | String |          | Mã nhóm nhân viên (ví dụ: `mem_12345`)                                                             |
+| member_no       | String |          | Mã thành viên (ví dụ: `1001`)                                                                      |
 | hotline         | String |          | Số hotline sử dụng (ví dụ: `19001001`)                                                             |
 | disposition     | String |          | Trạng thái cuộc gọi (xem [Bảng tra cứu trạng thái](#bang-tra-cuu-trang-thai))                      |
 | customer_code   | String |          | Mã khách hàng (ví dụ: `cus_556677`)                                                                |

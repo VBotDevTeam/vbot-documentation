@@ -147,6 +147,32 @@ client.hasActiveCall()
 
 Enum nguyên nhân kết thúc cuộc gọi, nhận qua `onCallEnded(reason, endedBy)`. Truy cập giá trị số qua `reason.code`, tên ổn định qua `reason.key` và mô tả qua `reason.description`. `endedBy` là `VBotCallEndParty` (`caller`, `callee`, `system`, `server`, `carrier`, `unknown`).
 
+::: warning Lưu ý
+
+- **Cuộc gọi P2P (Nội bộ VBot):** `VBotEndCallReason` do VBot trực tiếp sinh ra và phản ánh chính xác trạng thái thực tế.
+- **Các cuộc gọi thông thường:** Hệ thống chỉ tiếp nhận và truyền tải lại mã do nhà mạng trả về. Hệ thống không nắm được hành động thực tế của người dùng.
+- **Đối với trường hợp "Người nhận bật chế độ không làm phiền trên điện thoại":** Cả VBot lẫn nhà mạng đều không thể xác định được trạng thái này để trả về mã phản hồi chính xác. Các dev cần lưu ý khi thiết kế logic xử lý ngoại lệ hoặc hiển thị thông báo phía client.
+
+:::
+
+```kotlin
+override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
+    when (reason) {
+        VBotEndCallReason.normaly -> {
+            // Cuộc gọi kết thúc bình thường
+        }
+        VBotEndCallReason.busy,
+        VBotEndCallReason.decline,
+        VBotEndCallReason.temporarilyUnavailable -> {
+            // Đầu bên kia không nhận cuộc gọi
+        }
+        else -> {
+            Log.d("VBot", "Cuộc gọi kết thúc: ${reason.key}, bởi ${endedBy.key}")
+        }
+    }
+}
+```
+
 | Case                           | code | Ý nghĩa                                             |
 | ------------------------------ | ---- | --------------------------------------------------- |
 | `normaly`                      | 1000 | Cuộc gọi kết thúc bình thường                       |
@@ -192,24 +218,6 @@ Enum nguyên nhân kết thúc cuộc gọi, nhận qua `onCallEnded(reason, end
 | `unknownError`                 | 9996 | Lỗi chưa xác định                                   |
 | `microphonePermissionDenied`   | 9999 | Chưa cấp quyền microphone                           |
 
-```kotlin
-override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
-    when (reason) {
-        VBotEndCallReason.normaly -> {
-            // Cuộc gọi kết thúc bình thường
-        }
-        VBotEndCallReason.busy,
-        VBotEndCallReason.decline,
-        VBotEndCallReason.temporarilyUnavailable -> {
-            // Đầu bên kia không nhận cuộc gọi
-        }
-        else -> {
-            Log.d("VBot", "Cuộc gọi kết thúc: ${reason.key}, bởi ${endedBy.key}")
-        }
-    }
-}
-```
-
 <!-- | SIP                                 | endedBy   |
 | ----------------------------------- | --------- |
 | 400–402, 405–408, 412–413, 416, 500 | `server`  |
@@ -218,23 +226,19 @@ override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
 | 415                                 | `system`  |
 | 487                                 | `caller`  | -->
 
-#### Bảng tổng hợp trạng thái do Nhà mạng viễn thông trả về (Khi gọi ra Số điện thoại)
+#### Bảng tổng hợp trạng thái do Nhà mạng viễn thông trả về
 
-Tài liệu của SDK liệt kê chung toàn bộ các trạng thái kết thúc cuộc gọi (bao gồm: lỗi thiết bị cục bộ, lỗi xác thực server VBot, gọi App-to-App nội bộ VoIP và gọi ra số điện thoại qua nhà mạng viễn thông).
-
-Dưới đây là thống kê chi tiết các trạng thái thực tế mà nhà mạng viễn thông và VBot sẽ trả về khi bạn thực hiện cuộc gọi ra số điện thoại di động/cố định:
-
-|  SIP Code   | Mã SDK | Reason Enum                                          |      endedBy      | Tình huống thực tế từ Nhà mạng                                                                                                    |
-| :---------: | :----: | :--------------------------------------------------- | :---------------: | :-------------------------------------------------------------------------------------------------------------------------------- |
-|    `404`    | `2024` | `destinationNotFound` (`destination_not_found`)      |     `carrier`     | Số điện thoại không tồn tại / Sai số (Tổng đài phát âm: "Số máy quý khách vừa gọi không đúng...").                                |
-|    `410`    | `2037` | `destinationGone` (`destination_gone`)               |     `carrier`     | Thuê bao đã bị hủy / thu hồi khỏi mạng di động.                                                                                   |
-|    `480`    | `2014` | `temporarilyUnavailable` (`temporarily_unavailable`) |     `carrier`     | Thuê bao tạm thời không liên lạc được (Tắt máy, hết pin, ngoài vùng phủ sóng / không có sóng di động).                            |
-|    `502`    | `2028` | `transmissionError` (`transmission_error`)           |     `carrier`     | Lỗi đường truyền nhà mạng (Nghẽn mạng viễn thông, SIP Trunk/E1 gateway của nhà mạng gặp sự cố).                                   |
-|    `486`    | `1001` | `busy` (`busy`)                                      |     `callee`      | Máy bận: Người nghe đang có cuộc gọi khác (chưa bật chờ cuộc gọi), hoặc bấm từ chối nhanh trên màn hình điện thoại (báo tút tút). |
-|    `603`    | `2013` | `decline` (`decline`)                                |     `callee`      | Từ chối cuộc gọi: Người nhận bấm gạt từ chối cuộc gọi.                                                                            |
-|    `411`    | `2038` | `recipientAbsent` (`recipient_absent`)               |     `callee`      | Không nghe máy: Đổ chuông hết thời gian quy định (thường 45s - 60s) nhưng không có người nhấc máy.                                |
-|    `403`    | `2032` | `recipientBlocksCalls` (`recipient_blocks_calls`)    |     `callee`      | Bị chặn cuộc gọi: Số gọi đi nằm trong danh sách chặn (Blacklist) của thuê bao nhận hoặc bị chặn bởi nhà mạng.                     |
-| `200 → BYE` | `1000` | `normaly` (`normal`)                                 | `caller`/`callee` | Cuộc gọi đã kết nối thành công, đàm thoại và kết thúc bình thường.                                                                |
+| Case                     | code |      endedBy      | Ý nghĩa                       |
+| :----------------------- | :--: | :---------------: | :---------------------------- |
+| `destinationNotFound`    | 2028 |    `nhà mạng`     | Không tìm thấy số đích        |
+| `destinationGone`        | 2033 |    `nhà mạng`     | Số đích không còn tồn tại     |
+| `temporarilyUnavailable` | 2014 |    `nhà mạng`     | Không liên lạc được           |
+| `transmissionError`      | 2042 |    `nhà mạng`     | Lỗi đường truyền              |
+| `busy`                   | 1001 |     `callee`      | Máy bận                       |
+| `decline`                | 2013 |     `callee`      | Từ chối cuộc gọi              |
+| `recipientAbsent`        | 2034 |     `callee`      | Người nhận vắng mặt           |
+| `recipientBlocksCalls`   | 2027 |     `callee`      | Người nhận chặn cuộc gọi      |
+| `normaly`                | 1000 | `caller`/`callee` | Cuộc gọi kết thúc bình thường |
 
 ### VBotError
 

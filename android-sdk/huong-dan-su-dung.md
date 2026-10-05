@@ -210,13 +210,31 @@ override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
 }
 ```
 
-| SIP                                 | endedBy   |
+<!-- | SIP                                 | endedBy   |
 | ----------------------------------- | --------- |
 | 400–402, 405–408, 412–413, 416, 500 | `server`  |
 | 403, 409, 411, 486, 603             | `callee`  |
 | 404, 410, 414, 480, 502             | `carrier` |
 | 415                                 | `system`  |
-| 487                                 | `caller`  |
+| 487                                 | `caller`  | -->
+
+#### Bảng tổng hợp trạng thái do Nhà mạng viễn thông trả về (Khi gọi ra Số điện thoại)
+
+Tài liệu của SDK liệt kê chung toàn bộ các trạng thái kết thúc cuộc gọi (bao gồm: lỗi thiết bị cục bộ, lỗi xác thực server VBot, gọi App-to-App nội bộ VoIP và gọi ra số điện thoại qua nhà mạng viễn thông).
+
+Dưới đây là thống kê chi tiết các trạng thái thực tế mà nhà mạng viễn thông và VBot sẽ trả về khi bạn thực hiện cuộc gọi ra số điện thoại di động/cố định:
+
+|  SIP Code   | Mã SDK | Reason Enum                                          |      endedBy      | Tình huống thực tế từ Nhà mạng                                                                                                    |
+| :---------: | :----: | :--------------------------------------------------- | :---------------: | :-------------------------------------------------------------------------------------------------------------------------------- |
+|    `404`    | `2024` | `destinationNotFound` (`destination_not_found`)      |     `carrier`     | Số điện thoại không tồn tại / Sai số (Tổng đài phát âm: "Số máy quý khách vừa gọi không đúng...").                                |
+|    `410`    | `2037` | `destinationGone` (`destination_gone`)               |     `carrier`     | Thuê bao đã bị hủy / thu hồi khỏi mạng di động.                                                                                   |
+|    `480`    | `2014` | `temporarilyUnavailable` (`temporarily_unavailable`) |     `carrier`     | Thuê bao tạm thời không liên lạc được (Tắt máy, hết pin, ngoài vùng phủ sóng / không có sóng di động).                            |
+|    `502`    | `2028` | `transmissionError` (`transmission_error`)           |     `carrier`     | Lỗi đường truyền nhà mạng (Nghẽn mạng viễn thông, SIP Trunk/E1 gateway của nhà mạng gặp sự cố).                                   |
+|    `486`    | `1001` | `busy` (`busy`)                                      |     `callee`      | Máy bận: Người nghe đang có cuộc gọi khác (chưa bật chờ cuộc gọi), hoặc bấm từ chối nhanh trên màn hình điện thoại (báo tút tút). |
+|    `603`    | `2013` | `decline` (`decline`)                                |     `callee`      | Từ chối cuộc gọi: Người nhận bấm gạt từ chối cuộc gọi.                                                                            |
+|    `411`    | `2038` | `recipientAbsent` (`recipient_absent`)               |     `callee`      | Không nghe máy: Đổ chuông hết thời gian quy định (thường 45s - 60s) nhưng không có người nhấc máy.                                |
+|    `403`    | `2032` | `recipientBlocksCalls` (`recipient_blocks_calls`)    |     `callee`      | Bị chặn cuộc gọi: Số gọi đi nằm trong danh sách chặn (Blacklist) của thuê bao nhận hoặc bị chặn bởi nhà mạng.                     |
+| `200 → BYE` | `1000` | `normaly` (`normal`)                                 | `caller`/`callee` | Cuộc gọi đã kết nối thành công, đàm thoại và kết thúc bình thường.                                                                |
 
 ### VBotError
 

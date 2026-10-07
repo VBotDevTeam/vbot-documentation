@@ -12,8 +12,8 @@ _Ngày phát hành: 07/10/2026_
 
 ### Sửa lỗi & Cải tiến
 
-- Sửa lỗi kết quả trả về `VBotEndCallReason`: Lưu trữ ngữ cảnh kết thúc cuộc gọi (cache end call context) khi ngắt kết nối (`disconnected`), đảm bảo nhận đúng nguyên nhân kết thúc cuộc gọi.
-- Khắc phục lỗi hiển thị sai trạng thái đã kết nối trên CallKit khi cuộc gọi chưa được nghe máy (unanswered).
+- Sửa lỗi kết quả trả về `VBotEndCallReason`: Đảm bảo nhận đúng nguyên nhân kết thúc cuộc gọi.
+- Khắc phục lỗi hiển thị sai trạng thái đã kết nối trên CallKit khi cuộc gọi chưa được nghe máy.
 
 ::: tip Cập nhật Podfile
 
@@ -63,7 +63,6 @@ _Ngày phát hành: 03/08/2026_
 ### Tính năng mới
 
 - Delegate `callEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty)` cho biết nguyên nhân và bên kết thúc cuộc gọi. Delegate cũ `callEnded(reason:)` vẫn tương thích ngược.
-- SDK map SIP final response/BYE: ví dụ `486` → `busy` / `callee`, `487` → `callerCanceled` / `caller`, `500` → `connectionError` / `server`.
 - `VBotEndCallReason` và `VBotCallEndParty` có `key` và `description` public để hiển thị và analytics.
 
 ::: tip Cập nhật Podfile

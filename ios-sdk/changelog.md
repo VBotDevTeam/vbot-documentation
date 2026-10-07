@@ -6,6 +6,23 @@ outline: deep
 
 Trang này ghi lại các thay đổi của VBot iOS SDK. Vui lòng theo dõi để cập nhật tích hợp kịp thời.
 
+## v1.1.11
+
+_Ngày phát hành: 07/10/2026_
+
+### Sửa lỗi & Cải tiến
+
+- Sửa lỗi kết quả trả về `VBotEndCallReason`: Lưu trữ ngữ cảnh kết thúc cuộc gọi (cache end call context) khi ngắt kết nối (`disconnected`), đảm bảo nhận đúng nguyên nhân kết thúc cuộc gọi.
+- Khắc phục lỗi hiển thị sai trạng thái đã kết nối trên CallKit khi cuộc gọi chưa được nghe máy (unanswered).
+
+::: tip Cập nhật Podfile
+
+```ruby
+pod 'VBotPhoneSDKiOS-Public', :git => 'https://github.com/VBotDevTeam/VBotPhoneSDKiOS-Public.git', :tag => '1.1.11'
+```
+
+:::
+
 ## v1.1.10
 
 _Ngày phát hành: 11/09/2026_

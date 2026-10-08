@@ -68,19 +68,13 @@ Khuyến nghị sử dụng `defer` hoặc đặt ở cuối trang để widget 
 ```html
 <vbot-quick-dial-widget
   client-id="YOUR_CLIENT_ID"
-  trigger-badge="Hotline 24/7"
-  trigger-headline="Gọi tư vấn miễn phí"
   style="position: fixed; bottom: 24px; right: 24px; z-index: 50;"
 ></vbot-quick-dial-widget>
 ```
 
 Giải thích thuộc tính:
 
-| Thuộc tính | Kiểu | Bắt buộc | Mặc định | Mô tả |
-| :--- | :--- | :---: | :--- | :--- |
-| `client-id` | `string` | ✅ | `''` | Mã tenant được cấp riêng cho từng khách hàng. |
-| `trigger-badge` | `string` | ❌ | `'VBot'` | Dòng chữ nhỏ phía trên nút gọi (VD: `Hotline 24/7`). |
-| `trigger-headline` | `string` | ❌ | `'Tư vấn miễn phí'` | Dòng chữ chính trên nút gọi (VD: `Gọi ngay`). |
+- **client-id:** Mã tenant được cấp riêng cho từng khách hàng.
 
 Widget tự xử lý toàn bộ luồng xác thực, kết nối tổng đài trước và thực hiện cuộc gọi.
 
@@ -93,18 +87,9 @@ Bạn có thể tùy chỉnh bằng cách cấu hình `position: fixed` + offset
 - Góc trên phải: `style="position: fixed; top: 24px; right: 24px; z-index: 50;"`
 - Góc trên trái: `style="position: fixed; top: 24px; left: 24px; z-index: 50;"`
 
-### 4.3. Theme & Màu sắc
+### 4.3. Theme
 
-Bạn có thể đổi màu chủ đạo (nút gọi, màu nhấn) trực tiếp trên thuộc tính `style` của thẻ widget:
-
-```html
-<vbot-quick-dial-widget
-  client-id="YOUR_CLIENT_ID"
-  style="position: fixed; bottom: 24px; right: 24px; z-index: 50; --vb-wg-color-primary: #e11d48;"
-></vbot-quick-dial-widget>
-```
-
-Hoặc ghi đè nâng cao trong file CSS:
+Ghi đè trên thẻ widget hoặc `:root`:
 
 ```css
 vbot-quick-dial-widget {
@@ -124,81 +109,70 @@ Dark mode tự áp dụng khi host có class `.dark` hoặc theme `system`.
 
 ### 4.4. Tùy chỉnh nội dung hiển thị
 
-Bạn có thể tùy biến toàn bộ chữ hiển thị trên nút gọi, tiêu đề popup và các trạng thái cuộc gọi theo 2 cách:
+Cấu hình nội dung qua thuộc tính `config` của widget:
 
-#### Cách 1: Tùy biến nhanh qua thuộc tính HTML (Dành cho WordPress, Webcake, Landing Page)
-Nếu nhúng trên website không cần viết mã JavaScript, bạn có thể truyền trực tiếp 2 dòng chữ của nút gọi ngay trên thẻ:
+```javascript
+const widget = document.querySelector('vbot-quick-dial-widget');
+
+widget.config = {
+  texts: {
+    triggerBadge: 'VBot',
+    triggerHeadline: 'Tư vấn miễn phí',
+    prepareTitle: 'VBot - Tổng đài AI',
+    startCallCta: 'Bắt đầu cuộc gọi',
+    // ...
+  }
+};
+```
+
+Ngoài ra, có thể tùy chỉnh nhanh nội dung nút gọi trực tiếp qua thuộc tính HTML:
 
 ```html
 <vbot-quick-dial-widget
   client-id="YOUR_CLIENT_ID"
-  trigger-badge="Hotline 24/7"
-  trigger-headline="Gọi tư vấn miễn phí"
-  style="position: fixed; bottom: 24px; right: 24px; z-index: 50; --vb-wg-color-primary: #0284c7;"
+  trigger-badge="Hotline"
+  trigger-headline="Gọi ngay"
 ></vbot-quick-dial-widget>
 ```
 
-#### Cách 2: Tùy biến toàn diện qua JavaScript (Dành cho Lập trình viên / Web App)
-Dành cho trường hợp muốn thay đổi sâu mọi câu chữ bên trong popup (tiêu đề, nút bấm, thông báo lỗi, trạng thái cuộc gọi). Bạn gán đối tượng `texts` vào thuộc tính `widget.config`:
+Danh sách các trường nội dung hỗ trợ:
 
-```html
-<vbot-quick-dial-widget id="vbot-widget" client-id="YOUR_CLIENT_ID"></vbot-quick-dial-widget>
-
-<script>
-  const widget = document.getElementById('vbot-widget');
-  widget.config = {
-    theme: 'normal', // 'normal' | 'dark' | 'system'
-    texts: {
-      // 1. Nút gọi ngoài màn hình
-      triggerBadge: 'VBot',
-      triggerHeadline: 'Tư vấn miễn phí',
-
-      // 2. Màn hình nhập số điện thoại (Prepare)
-      prepareSectionLabel: 'VBot',
-      prepareTitle: 'VBot - Tổng đài AI',
-      prepareDescription: 'Quý khách vui lòng nhập số điện thoại của mình để trải nghiệm dịch vụ.',
-      phoneFieldLabel: 'Số điện thoại',
-      phonePlaceholder: 'Nhập số điện thoại...',
-      inputLoadingPlaceholder: 'Đang xác thực...',
-      startCallCta: 'Bắt đầu cuộc gọi',
-      validationEmptyPhone: 'Vui lòng nhập số điện thoại!',
-      validationInvalidPhone: 'Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.',
-      verificationRequiredMessage: 'Bạn cần xác thực trước khi thực hiện cuộc gọi.',
-      verificationFailedMessage: 'Không thể xác thực. Vui lòng thử lại.',
-      verificationExpiredMessage: 'Phiên xác thực đã hết hạn, vui lòng xác thực lại.',
-      sessionInitMessage: 'Đang khởi tạo phiên an toàn...',
-      sessionReadyMessage: 'Phiên đã sẵn sàng, vui lòng xác thực để gọi.',
-      sessionErrorMessage: 'Không thể khởi tạo phiên. Vui lòng thử lại.',
-      sessionExpiredMessage: 'Phiên đã hết hạn. Vui lòng mở lại để khởi tạo mới.',
-
-      // 3. Màn hình đang đàm thoại (Calling)
-      callingSectionLabel: 'Cuộc gọi miễn phí',
-      callingTitle: 'VBot - Cuộc gọi miễn phí',
-      endCallCta: 'Kết thúc cuộc gọi',
-
-      // 4. Các câu trạng thái cuộc gọi (Tùy chọn)
-      statuses: {
-        fetchingCredentials: 'Đang lấy thông tin...',
-        initializingSession: 'Đang khởi tạo...',
-        connectingGateway: 'Đang kết nối...',
-        connectedRegistering: 'Đã kết nối',
-        registering: 'Đang đăng ký...',
-        disconnected: 'Mất kết nối!',
-        dialing: 'Đang gọi...',
-        registrationFailed: 'Kết nối thất bại!',
-        ringing: 'Đang đổ chuông...',
-        callConnected: 'Cuộc gọi đã kết nối',
-        callEnded: 'Cuộc gọi đã kết thúc.',
-        systemError: 'Lỗi hệ thống!',
-        callFailed: 'Gọi thất bại: {reason}',
-        unknownReason: 'Không rõ nguyên nhân'
-      }
-    }
-  };
-</script>
-```
-
-> **Ghi chú:** Cơ chế cấu hình tự động kế thừa (Deep Merge). Bạn chỉ cần truyền những trường nào muốn thay đổi, các trường còn lại sẽ tự động giữ nguyên giá trị tiếng Việt mặc định.
+- `triggerBadge`: VBot
+- `triggerHeadline`: Tư vấn miễn phí
+- `prepareSectionLabel`: VBot
+- `prepareTitle`: VBot - Tổng đài AI
+- `prepareDescription`: Quý khách vui lòng nhập số điện thoại của mình để trải nghiệm dịch vụ.
+- `phoneFieldLabel`: Số điện thoại
+- `phonePlaceholder`: _(trống)_
+- `inputLoadingPlaceholder`: Đang xác thực...
+- `startCallCta`: Bắt đầu cuộc gọi
+- `verificationRequiredMessage`: Bạn cần xác thực trước khi thực hiện cuộc gọi.
+- `verificationFailedMessage`: Không thể xác thực. Vui lòng thử lại.
+- `verificationExpiredMessage`: Phiên xác thực đã hết hạn, vui lòng xác thực lại.
+- `sessionInitMessage`: Đang khởi tạo phiên an toàn...
+- `sessionReadyMessage`: Phiên đã sẵn sàng, vui lòng xác thực để gọi.
+- `sessionErrorMessage`: Không thể khởi tạo phiên. Vui lòng thử lại.
+- `sessionExpiredMessage`: Phiên đã hết hạn. Vui lòng mở lại để khởi tạo mới.
+- `callingSectionLabel`: Cuộc gọi miễn phí
+- `callingTitle`: VBot - Cuộc gọi miễn phí
+- `endCallCta`: Kết thúc cuộc gọi
+- `validationEmptyPhone`: Vui lòng nhập số điện thoại!
+- `validationInvalidPhone`: Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.
+- `statuses`:
+  - `fetchingCredentials`: Đang lấy thông tin...
+  - `initializingSession`: Đang khởi tạo...
+  - `connectingGateway`: Đang kết nối...
+  - `connectedRegistering`: Đã kết nối
+  - `registering`: Đang đăng ký...
+  - `disconnected`: Mất kết nối!
+  - `dialing`: Đang gọi...
+  - `registrationFailed`: Kết nối thất bại!
+  - `ringing`: Đang đổ chuông...
+  - `callConnected`: Cuộc gọi đã kết nối
+  - `callEnded`: Cuộc gọi đã kết thúc.
+  - `systemError`: Lỗi hệ thống!
+  - `callFailed`: Gọi thất bại: {reason}
+  - `unknownReason`: Không rõ nguyên nhân
 
 ## 5. Chế độ Headless (tự xây UI)
 
@@ -325,21 +299,6 @@ Giải thích thuộc tính:
 | `endCall()`                      | -                  | Kết thúc cuộc gọi hiện tại.                                                                          |
 | `show()` / `hide()` / `toggle()` | -                  | Điều khiển popover (không tác dụng khi `headless`).                                                  |
 | `sendDtmf(tone)`                 | `string`           | Gửi DTMF khi cuộc gọi đang kết nối.                                                                  |
-
-Ví dụ điều khiển bằng JavaScript:
-
-```javascript
-const widget = document.querySelector('vbot-quick-dial-widget');
-
-// Mở hoặc đóng popover
-widget.toggle();
-
-// Gửi phím bấm số 1 khi đang trong cuộc gọi (ví dụ chọn nhánh tổng đài)
-widget.sendDtmf('1');
-
-// Dập máy
-widget.endCall();
-```
 
 ## 7. Lắng nghe sự kiện
 

@@ -358,6 +358,83 @@ File ghi âm cuộc gọi.
 
 ---
 
+## Lấy chất lượng cuộc gọi {#lay-chat-luong-cuoc-goi}
+
+Lấy thông tin chất lượng cuộc gọi (chỉ số MOS, PDD, chất lượng âm thanh RTP) theo mã giao dịch cuộc gọi (`trans_id`).
+
+<div class="api-container">
+  <span class="api-method method-get">GET</span>
+  <span>[URL]/m-cdr/api/agi/get-by-trans-id?trans_id={trans_id}</span>
+</div>
+
+**Header**
+
+| Tham số   | Giá trị          |
+| --------- | ---------------- |
+| X-API-Key | `token-open-api` |
+
+**Tham số**
+
+| Tham số  | Kiểu   | Bắt buộc | Mô tả                     |
+| -------- | ------ | -------- | ------------------------- |
+| trans_id | String | Có       | Mã giao dịch của cuộc gọi |
+
+**Response**
+
+| Tham số | Kiểu   | Mô tả                                  |
+| ------- | ------ | -------------------------------------- |
+| error   | Int    | Mã lỗi (0: Thành công, khác 0: Có lỗi) |
+| message | String | Thông báo kết quả                      |
+| data    | Object | Thông tin chi tiết chất lượng cuộc gọi |
+
+**Cấu trúc đối tượng trong `data` (Thông tin chất lượng cuộc gọi):**
+
+| Tham số                  | Kiểu   | Mô tả                                                       |
+| ------------------------ | ------ | ----------------------------------------------------------- |
+| id                       | Long   | ID định danh bản ghi                                        |
+| trans_id                 | String | Mã giao dịch cuộc gọi                                       |
+| caller_number            | String | Số điện thoại người gọi                                     |
+| callee_number            | String | Số điện thoại người nghe                                    |
+| pdd_caller               | Double | Thời gian trễ quay số phía người gọi (giây)                 |
+| pdd_callee               | Double | Thời gian trễ quay số phía người nghe (giây)                |
+| rtp_audio_in_mos_caller  | Double | Điểm chất lượng thoại MOS phía người gọi                    |
+| rtp_audio_in_mos_callee  | Double | Điểm chất lượng thoại MOS phía người nghe                   |
+| rtp_audio_quality_caller | Double | Tỷ lệ phần trăm chất lượng âm thanh RTP phía người gọi (%)  |
+| rtp_audio_quality_callee | Double | Tỷ lệ phần trăm chất lượng âm thanh RTP phía người nghe (%) |
+| create_at                | Long   | Thời điểm tạo (Unix timestamp - ms)                         |
+
+**Ví dụ response**
+
+```json
+{
+  "message": "string",
+  "data": {
+    "id": 1,
+    "trans_id": "CALL_ABC123",
+    "caller_number": "0987654321",
+    "callee_number": "0123456789",
+    "pdd_caller": 1.5,
+    "pdd_callee": 1.2,
+    "rtp_audio_in_mos_caller": 4.5,
+    "rtp_audio_in_mos_callee": 4.2,
+    "rtp_audio_quality_caller": 99.5,
+    "rtp_audio_quality_callee": 98,
+    "create_at": 1672531200000
+  },
+  "error": 0
+}
+```
+
+**Bảng mã lỗi**
+
+| error | Mô tả                                             |
+| ----- | ------------------------------------------------- |
+| `0`   | Thành công                                        |
+| `409` | API Key không hợp lệ hoặc không có quyền truy cập |
+| `500` | Lỗi hệ thống                                      |
+
+---
+
 ## Phân loại, Trạng thái và Nguyên nhân kết thúc cuộc gọi {#phan-loai-trang-thai-va-nguyen-nhan-ket-thuc-cuoc-goi}
 
 ### Phân loại cuộc gọi (`type_call`) {#loai-cuoc-goi-type-call}

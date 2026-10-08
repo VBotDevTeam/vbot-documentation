@@ -14,8 +14,19 @@ Trang này ghi lại các thay đổi quan trọng của VBot Open API v3.0. Vui
 - **[13/08/2026]** Bổ sung API Tạo cuộc gọi tự động đến tài khoản thành viên SDK (`POST /m-auto-call/api/call/create-list-member`) và trang hướng dẫn nghiệp vụ Gọi thành viên SDK.
 - **[24/09/2026]** Nâng cấp nhóm API Lịch sử cuộc gọi và Gọi tự động: Phân tách API theo từng module riêng biệt (`/m-cdr/` và `/m-auto-call/`) giúp tối ưu hiệu năng và mở rộng hệ thống. Các API cũ vẫn hoạt động bình thường.
 - **[30/09/2026]** Cập nhật API Lịch sử cuộc gọi: Bổ sung tham số lọc theo mã thành viên (`member_no`) cho API `GET /m-cdr/api/call/get-all` và `GET /m-cdr/api/call/count-all`.
+- **[08/10/2026]** Bổ sung API Lấy chất lượng cuộc gọi (`GET /m-cdr/api/agi/get-by-trans-id`): Cho phép tra cứu các chỉ số: thời gian trễ quay số PDD, điểm MOS và chất lượng âm thanh RTP theo `trans_id`.
 
 :::
+
+## 08/10/2026
+
+### Bổ sung API Lấy chất lượng cuộc gọi
+
+Bổ sung API `GET /m-cdr/api/agi/get-by-trans-id` lấy chi tiết thông tin chất lượng cuộc gọi theo mã giao dịch `trans_id`, bao gồm:
+
+- Chỉ số trễ quay số PDD: `pdd_caller`, `pdd_callee`.
+- Điểm chất lượng thoại MOS: `rtp_audio_in_mos_caller`, `rtp_audio_in_mos_callee`.
+- Tỷ lệ chất lượng âm thanh RTP: `rtp_audio_quality_caller`, `rtp_audio_quality_callee`.
 
 ## 30/09/2026
 

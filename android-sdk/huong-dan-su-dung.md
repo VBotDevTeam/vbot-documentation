@@ -147,6 +147,32 @@ client.hasActiveCall()
 
 Enum nguyên nhân kết thúc cuộc gọi, nhận qua `onCallEnded(reason, endedBy)`. Truy cập giá trị số qua `reason.code`, tên ổn định qua `reason.key` và mô tả qua `reason.description`. `endedBy` là `VBotCallEndParty` (`caller`, `callee`, `system`, `server`, `carrier`, `unknown`).
 
+::: warning Lưu ý
+
+- **Cuộc gọi P2P (Nội bộ VBot):** `VBotEndCallReason` do VBot trực tiếp sinh ra và phản ánh chính xác trạng thái thực tế.
+- **Các cuộc gọi thông thường:** Hệ thống chỉ tiếp nhận và truyền tải lại mã do nhà mạng trả về. Hệ thống không nắm được hành động thực tế của người dùng.
+- **Đối với trường hợp "Người nhận bật chế độ không làm phiền trên điện thoại":** Cả VBot lẫn nhà mạng đều không thể xác định được trạng thái này để trả về mã phản hồi chính xác. Các dev cần lưu ý khi thiết kế logic xử lý ngoại lệ hoặc hiển thị thông báo phía client.
+
+:::
+
+```kotlin
+override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
+    when (reason) {
+        VBotEndCallReason.normaly -> {
+            // Cuộc gọi kết thúc bình thường
+        }
+        VBotEndCallReason.busy,
+        VBotEndCallReason.decline,
+        VBotEndCallReason.temporarilyUnavailable -> {
+            // Đầu bên kia không nhận cuộc gọi
+        }
+        else -> {
+            Log.d("VBot", "Cuộc gọi kết thúc: ${reason.key}, bởi ${endedBy.key}")
+        }
+    }
+}
+```
+
 | Case                           | code | Ý nghĩa                                             |
 | ------------------------------ | ---- | --------------------------------------------------- |
 | `normaly`                      | 1000 | Cuộc gọi kết thúc bình thường                       |
@@ -192,31 +218,27 @@ Enum nguyên nhân kết thúc cuộc gọi, nhận qua `onCallEnded(reason, end
 | `unknownError`                 | 9996 | Lỗi chưa xác định                                   |
 | `microphonePermissionDenied`   | 9999 | Chưa cấp quyền microphone                           |
 
-```kotlin
-override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
-    when (reason) {
-        VBotEndCallReason.normaly -> {
-            // Cuộc gọi kết thúc bình thường
-        }
-        VBotEndCallReason.busy,
-        VBotEndCallReason.decline,
-        VBotEndCallReason.temporarilyUnavailable -> {
-            // Đầu bên kia không nhận cuộc gọi
-        }
-        else -> {
-            Log.d("VBot", "Cuộc gọi kết thúc: ${reason.key}, bởi ${endedBy.key}")
-        }
-    }
-}
-```
-
-| SIP                                 | endedBy   |
+<!-- | SIP                                 | endedBy   |
 | ----------------------------------- | --------- |
 | 400–402, 405–408, 412–413, 416, 500 | `server`  |
 | 403, 409, 411, 486, 603             | `callee`  |
 | 404, 410, 414, 480, 502             | `carrier` |
 | 415                                 | `system`  |
-| 487                                 | `caller`  |
+| 487                                 | `caller`  | -->
+
+#### Bảng tổng hợp trạng thái do Nhà mạng viễn thông trả về
+
+| Case                     | code |      endedBy      | Ý nghĩa                       |
+| :----------------------- | :--: | :---------------: | :---------------------------- |
+| `destinationNotFound`    | 2028 |    `nhà mạng`     | Không tìm thấy số đích        |
+| `destinationGone`        | 2033 |    `nhà mạng`     | Số đích không còn tồn tại     |
+| `temporarilyUnavailable` | 2014 |    `nhà mạng`     | Không liên lạc được           |
+| `transmissionError`      | 2042 |    `nhà mạng`     | Lỗi đường truyền              |
+| `busy`                   | 1001 |     `callee`      | Máy bận                       |
+| `decline`                | 2013 |     `callee`      | Từ chối cuộc gọi              |
+| `recipientAbsent`        | 2034 |     `callee`      | Người nhận vắng mặt           |
+| `recipientBlocksCalls`   | 2027 |     `callee`      | Người nhận chặn cuộc gọi      |
+| `normaly`                | 1000 | `caller`/`callee` | Cuộc gọi kết thúc bình thường |
 
 ### VBotError
 

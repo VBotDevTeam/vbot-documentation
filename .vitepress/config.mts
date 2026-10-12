@@ -169,4 +169,19 @@ export default defineConfig({
       },
     },
   },
+  async buildEnd(siteConfig) {
+    const fs = await import("node:fs/promises");
+    const path = await import("node:path");
+
+    for (const page of siteConfig.pages) {
+      try {
+        const srcPath = path.resolve(siteConfig.srcDir, page);
+        const destPath = path.resolve(siteConfig.outDir, page);
+        await fs.mkdir(path.dirname(destPath), { recursive: true });
+        await fs.copyFile(srcPath, destPath);
+      } catch (err) {
+        console.warn(`[buildEnd] Không thể sao chép file markdown: ${page}`, err);
+      }
+    }
+  },
 });

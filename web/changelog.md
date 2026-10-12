@@ -6,6 +6,35 @@ outline: deep
 
 Trang này ghi lại các thay đổi của VBot Web SDK. Vui lòng theo dõi để cập nhật tích hợp kịp thời.
 
+## v1.0.12
+
+_Ngày phát hành: 10/10/2026_
+
+### Tính năng mới & Cải tiến
+
+- **Thứ tự sự kiện cuộc gọi thất bại**: Đảm bảo `vbot:onCallFailed` luôn kích hoạt trước `vbot:onCallEnded`; bổ sung `callData` vào payload sự kiện.
+- **Mở rộng `CallData`**: Bổ sung các trường `status`, `endReason`, `endedBy`, `code` và `errorMessage`.
+- **Đồng bộ mã kết thúc cuộc gọi**: Chuẩn hóa danh mục `endReason` và phân loại `endedBy` đồng bộ với hệ sinh thái iOS & Android.
+- **Điều khiển giao diện**: Bổ sung phương thức `widget.showCallUI()` và `widget.dismissCallUI()`.
+
+::: tip Cập nhật script bundle CDN
+
+```html
+<!-- ESM -->
+<script
+  type="module"
+  src="https://cdn.vbot.vn/vbot-sdk/1.0.12/vbot-sdk.es.js"
+></script>
+
+<!-- UMD -->
+<script
+  src="https://cdn.vbot.vn/vbot-sdk/1.0.12/vbot-sdk.umd.js"
+  defer
+></script>
+```
+
+:::
+
 ## v1.0.11
 
 _Ngày phát hành: 28/09/2026_
@@ -41,10 +70,9 @@ _Ngày phát hành: 27/09/2026_
 
 ### Tính năng mới & Cải tiến
 
-- **Chế độ Debug Logging chuyên dụng**: Hỗ trợ bật/tắt log debug của SDK linh hoạt thông qua:
-  - Thuộc tính `debug` hoặc `enableLog` trong đối tượng `config`.
-  - Thuộc tính HTML (Attribute): `<vbot-widget debug ...>`.
-  - Bật tức thời tại Console DevTools: `window.__VBOT_DEBUG__ = true` hoặc `localStorage.setItem('vbot_debug', 'true')`.
+- **Chế độ Debug Logging**: Hỗ trợ bật/tắt log debug của SDK thông qua:
+  - Thuộc tính `debug` trong đối tượng `config`.
+  - Thuộc tính HTML: `<vbot-widget debug ...>`.
 
 ::: tip Cập nhật script bundle CDN
 

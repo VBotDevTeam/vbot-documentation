@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import CopyPageButton from './CopyPageButton.vue'
 
 const { Layout } = DefaultTheme
 const route = useRoute()
@@ -47,6 +48,14 @@ const changeVersion = (event) => {
           <option value="v2">v2</option>
         </select>
       </div>
+    </template>
+
+    <template #doc-before>
+      <CopyPageButton mode="top" />
+    </template>
+
+    <template #aside-outline-before>
+      <CopyPageButton mode="aside" />
     </template>
   </Layout>
 </template>

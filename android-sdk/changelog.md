@@ -6,6 +6,23 @@ outline: deep
 
 Trang này ghi lại các thay đổi của VBot Android SDK. Vui lòng theo dõi để cập nhật tích hợp kịp thời.
 
+## v1.1.5
+
+_Ngày phát hành: 27/10/2026_
+
+### Cải tiến & Sửa lỗi
+
+- Cải thiện khả năng xử lý và tự động giải phóng cuộc gọi khi kết nối mạng bị gián đoạn hoặc thay đổi.
+- Bổ sung các mã trạng thái kết thúc cuộc gọi mới vào `VBotEndCallReason`: `userNotInGroup (2043)` và `doNotCall (2044)`.
+
+::: tip Cập nhật dependency
+
+```groovy
+implementation 'com.github.VBotDevTeam:VBotPhoneSDKAndroid-Public:1.1.5'
+```
+
+:::
+
 ## v1.1.4
 
 _Ngày phát hành: 15/09/2026_

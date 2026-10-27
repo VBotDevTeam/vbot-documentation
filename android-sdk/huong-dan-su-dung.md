@@ -196,25 +196,27 @@ override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
 | `requestCallKitActionFailed`   | 2020 | Thực thi hành động cuộc gọi thất bại                |
 | `noAccount`                    | 2022 | Tài khoản chưa được cấu hình                        |
 | `incomingCallTimeout`          | 2023 | Cuộc gọi đến hết thời gian chờ                      |
-| `incorrectInformation`         | 2024 | Thông tin không chính xác                           |
-| `unauthenticated`              | 2025 | Chưa xác thực                                       |
-| `insufficientBalance`          | 2026 | Số dư không đủ                                      |
-| `recipientBlocksCalls`         | 2027 | Người nhận chặn cuộc gọi                            |
-| `destinationNotFound`          | 2028 | Không tìm thấy số đích                              |
-| `callIntervalNotAllowed`       | 2029 | Không được phép gọi trong khung giờ này             |
-| `memberNotActivated`           | 2030 | Thành viên chưa kích hoạt                           |
-| `memberNotInProject`           | 2031 | Thành viên không thuộc dự án                        |
-| `doNotDisturb`                 | 2032 | Không làm phiền                                     |
-| `destinationGone`              | 2033 | Số đích không còn tồn tại                           |
-| `recipientAbsent`              | 2034 | Người nhận vắng mặt                                 |
-| `packageExpired`               | 2035 | Gói cước đã hết hạn                                 |
-| `hotlineTelcoNotSupported`     | 2036 | Hotline không hỗ trợ nhà mạng                       |
-| `telcoNotFound`                | 2037 | Không tìm thấy nhà mạng                             |
-| `invalidParameter`             | 2038 | Tham số không hợp lệ                                |
-| `projectExpired`               | 2039 | Dự án đã hết hạn                                    |
-| `callerCanceled`               | 2040 | Người gọi đã hủy                                    |
-| `connectionError`              | 2041 | Lỗi kết nối                                         |
-| `transmissionError`            | 2042 | Lỗi đường truyền                                    |
+| `destinationNotFound`          | 2024 | Không tìm thấy số đích                              |
+| `projectExpired`               | 2025 | Dự án đã hết hạn                                    |
+| `callerCanceled`               | 2026 | Người gọi đã hủy                                    |
+| `connectionError`              | 2027 | Lỗi kết nối                                         |
+| `transmissionError`            | 2028 | Lỗi đường truyền                                    |
+| `incorrectInformation`         | 2029 | Thông tin không chính xác                           |
+| `unauthenticated`              | 2030 | Chưa xác thực                                       |
+| `insufficientBalance`          | 2031 | Số dư không đủ                                      |
+| `recipientBlocksCalls`         | 2032 | Người nhận chặn cuộc gọi                            |
+| `callIntervalNotAllowed`       | 2033 | Không được phép gọi trong khung giờ này             |
+| `memberNotActivated`           | 2034 | Thành viên chưa kích hoạt                           |
+| `memberNotInProject`           | 2035 | Thành viên không thuộc dự án                        |
+| `doNotDisturb`                 | 2036 | Không làm phiền                                     |
+| `destinationGone`              | 2037 | Số đích không còn tồn tại                           |
+| `recipientAbsent`              | 2038 | Người nhận vắng mặt                                 |
+| `packageExpired`               | 2039 | Gói cước đã hết hạn                                 |
+| `hotlineTelcoNotSupported`     | 2040 | Hotline không hỗ trợ nhà mạng                       |
+| `telcoNotFound`                | 2041 | Không tìm thấy nhà mạng                             |
+| `invalidParameter`             | 2042 | Tham số không hợp lệ                                |
+| `userNotInGroup`               | 2043 | Thành viên không thuộc nhóm                         |
+| `doNotCall`                    | 2044 | Người nhận chặn cuộc gọi tiếp thị/quảng cáo         |
 | `unknownError`                 | 9996 | Lỗi chưa xác định                                   |
 | `microphonePermissionDenied`   | 9999 | Chưa cấp quyền microphone                           |
 
@@ -230,14 +232,14 @@ override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
 
 | Case                     | code |      endedBy      | Ý nghĩa                       |
 | :----------------------- | :--: | :---------------: | :---------------------------- |
-| `destinationNotFound`    | 2028 |    `nhà mạng`     | Không tìm thấy số đích        |
-| `destinationGone`        | 2033 |    `nhà mạng`     | Số đích không còn tồn tại     |
+| `destinationNotFound`    | 2024 |    `nhà mạng`     | Không tìm thấy số đích        |
+| `destinationGone`        | 2037 |    `nhà mạng`     | Số đích không còn tồn tại     |
 | `temporarilyUnavailable` | 2014 |    `nhà mạng`     | Không liên lạc được           |
-| `transmissionError`      | 2042 |    `nhà mạng`     | Lỗi đường truyền              |
+| `transmissionError`      | 2028 |    `nhà mạng`     | Lỗi đường truyền              |
 | `busy`                   | 1001 |     `callee`      | Máy bận                       |
 | `decline`                | 2013 |     `callee`      | Từ chối cuộc gọi              |
-| `recipientAbsent`        | 2034 |     `callee`      | Người nhận vắng mặt           |
-| `recipientBlocksCalls`   | 2027 |     `callee`      | Người nhận chặn cuộc gọi      |
+| `recipientAbsent`        | 2038 |     `callee`      | Người nhận vắng mặt           |
+| `recipientBlocksCalls`   | 2032 |     `callee`      | Người nhận chặn cuộc gọi      |
 | `normaly`                | 1000 | `caller`/`callee` | Cuộc gọi kết thúc bình thường |
 
 ### VBotError

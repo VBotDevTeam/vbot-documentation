@@ -10,7 +10,7 @@ Trang này ghi lại các thay đổi của VBot Android SDK. Vui lòng theo dõ
 
 _Ngày phát hành: 27/10/2026_
 
-### Cải tiến & Sửa lỗi
+### Tính năng mới & Cải tiến
 
 - Cải thiện khả năng xử lý và tự động giải phóng cuộc gọi khi kết nối mạng bị gián đoạn hoặc thay đổi.
 - Bổ sung các mã trạng thái kết thúc cuộc gọi mới vào `VBotEndCallReason`: `userNotInGroup (2043)` và `doNotCall (2044)`.

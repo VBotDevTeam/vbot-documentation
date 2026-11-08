@@ -112,7 +112,7 @@ Tài liệu REST API cho backend integration. Tất cả sử dụng Bearer toke
 
 ### 4.3. Android SDK (`android-sdk/`)
 
-SDK native Android qua JitPack: `VBotPhoneSDKAndroid-Public:1.0.9`
+SDK native Android qua Maven tĩnh (`raw.githubusercontent.com`): `VBotPhoneSDKAndroid-Public:1.1.5`
 
 | File                   | Nội dung                         |
 | ---------------------- | -------------------------------- |

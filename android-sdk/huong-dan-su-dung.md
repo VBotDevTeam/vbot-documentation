@@ -214,9 +214,11 @@ override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
 | `projectExpired`               | 2039 | Dự án đã hết hạn                                    |
 | `callerCanceled`               | 2040 | Người gọi đã hủy                                    |
 | `connectionError`              | 2041 | Lỗi kết nối                                         |
-| `transmissionError`            | 2042 | Lỗi đường truyền                                    |
-| `unknownError`                 | 9996 | Lỗi chưa xác định                                   |
-| `microphonePermissionDenied`   | 9999 | Chưa cấp quyền microphone                           |
+| `transmissionError`            | 2042 | Lỗi đường truyền                                                        |
+| `userNotInGroup`               | 2043 | Người dùng không thuộc nhóm này                                         |
+| `doNotCall`                    | 2044 | Người nhận chặn cuộc gọi quảng cáo (Do Not Call)                        |
+| `unknownError`                 | 9996 | Lỗi chưa xác định                                                       |
+| `microphonePermissionDenied`   | 9999 | Chưa cấp quyền microphone                                               |
 
 <!-- | SIP                                 | endedBy   |
 | ----------------------------------- | --------- |
@@ -228,17 +230,18 @@ override fun onCallEnded(reason: VBotEndCallReason, endedBy: VBotCallEndParty) {
 
 #### Bảng tổng hợp trạng thái do Nhà mạng viễn thông trả về
 
-| Case                     | code |      endedBy      | Ý nghĩa                       |
-| :----------------------- | :--: | :---------------: | :---------------------------- |
-| `destinationNotFound`    | 2028 |    `nhà mạng`     | Không tìm thấy số đích        |
-| `destinationGone`        | 2033 |    `nhà mạng`     | Số đích không còn tồn tại     |
-| `temporarilyUnavailable` | 2014 |    `nhà mạng`     | Không liên lạc được           |
-| `transmissionError`      | 2042 |    `nhà mạng`     | Lỗi đường truyền              |
-| `busy`                   | 1001 |     `callee`      | Máy bận                       |
-| `decline`                | 2013 |     `callee`      | Từ chối cuộc gọi              |
-| `recipientAbsent`        | 2034 |     `callee`      | Người nhận vắng mặt           |
-| `recipientBlocksCalls`   | 2027 |     `callee`      | Người nhận chặn cuộc gọi      |
-| `normaly`                | 1000 | `caller`/`callee` | Cuộc gọi kết thúc bình thường |
+| Case                     | code |      endedBy      | Ý nghĩa                                                                 |
+| :----------------------- | :--: | :---------------: | :---------------------------------------------------------------------- |
+| `destinationNotFound`    | 2028 |    `nhà mạng`     | Không tìm thấy số đích                                                  |
+| `destinationGone`        | 2033 |    `nhà mạng`     | Số đích không còn tồn tại                                               |
+| `temporarilyUnavailable` | 2014 |    `nhà mạng`     | Không liên lạc được                                                     |
+| `transmissionError`      | 2042 |    `nhà mạng`     | Lỗi đường truyền                                                        |
+| `busy`                   | 1001 |     `callee`      | Máy bận                                                                 |
+| `decline`                | 2013 |     `callee`      | Từ chối cuộc gọi                                                        |
+| `recipientAbsent`        | 2034 |     `callee`      | Người nhận vắng mặt                                                     |
+| `recipientBlocksCalls`   | 2027 |     `callee`      | Người nhận chặn cuộc gọi                                                |
+| `doNotCall`              | 2044 |     `callee`      | Thuê bao từ chối cuộc gọi quảng cáo / thuộc danh sách DNC (Do Not Call) |
+| `normaly`                | 1000 | `caller`/`callee` | Cuộc gọi kết thúc bình thường                                           |
 
 ### VBotError
 
